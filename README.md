@@ -28,10 +28,10 @@ Primary language is Japanese. English is positioned as a secondary toggle for fu
 
 - **Personality**: warm, place-rooted, slightly retro-travel. Boutique mountain inn that happens to be a school — not a global corporate brand like EF or Kaplan.
 - **Palette** (locked, from brief):
-  - `#FF7F73` Coral — primary accent, sparingly. Only for CTA, key highlights, decorative dots.
-  - `#2EC4B6` Teal — secondary accent. Icons, hovers, eyebrow text.
+  - `#F25C28` Orange — primary accent. CTA, key highlights, decorative dots, "intensive" results stripe.
+  - `#B4E83C` Lime — secondary accent (variable still named `--teal` in code). Icons, hovers, eyebrow text, "casual" chip.
   - `#FFE8DF` Cream — section backgrounds, dark-surface text.
-  - `#0F4C5C` Deep teal — body text, dark sections, ink.
+  - `#0E0E0E` Ink (near-black) — body text, dark sections (variable still named `--ink`).
 - **Typography**:
   - `Shippori Mincho` — display (headlines, prices, numerics). Warm modern mincho, evokes signage.
   - `Noto Sans JP` — body Japanese.

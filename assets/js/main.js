@@ -147,6 +147,25 @@
         tag: 'casual', seasons: ['spring','summer','winter'],
         price: '¥12,000', priceNote: '/ 回〜', accent: 'ink',
       },
+      // Corporate training programs — appear when intensity === 'corporate'.
+      'corp-niseko-retreat': {
+        jp: 'ニセコ法人合宿プラン', en: 'Niseko Corporate Retreat',
+        loc: 'ニセコ', locKey: 'niseko', formatKey: 'inperson',
+        tag: 'corporate', seasons: ['spring','summer','winter'],
+        price: '¥85,000', priceNote: '/ 1名・5日間', accent: 'coral',
+      },
+      'corp-online': {
+        jp: 'オンライン法人研修', en: 'Corporate Online Training',
+        loc: 'オンライン', locKey: 'online', formatKey: 'online',
+        tag: 'corporate', seasons: ['spring','summer','winter'],
+        price: '¥38,000', priceNote: '/ 月・1名〜', accent: 'ink',
+      },
+      'corp-tokyo-custom': {
+        jp: '東京カスタム研修', en: 'Tokyo Custom Training',
+        loc: '東京・出張可', locKey: 'tokyo', formatKey: 'inperson',
+        tag: 'corporate', seasons: ['spring','summer','winter'],
+        price: '¥240,000', priceNote: '/ 1日', accent: 'ink',
+      },
     };
 
     // Icon set — kept inline strings so the renderer can stamp them via
@@ -165,16 +184,17 @@
       intensity: {
         intensive: '<svg viewBox="0 0 20 20" stroke="currentColor" stroke-width="0.8" fill="currentColor" stroke-linejoin="round"><path d="M11 1 L5 11 L9 11 L8 19 L15 8 L11 8 Z"/></svg>',
         casual:    '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M3 17 Q6 5 17 3 Q15 14 3 17"/><path d="M3 17 Q10 12 17 3"/></svg>',
+        corporate: '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M3 6 L17 6 L17 16 L3 16 Z"/><path d="M7 6 L7 4.5 Q7 4 7.5 4 L12.5 4 Q13 4 13 4.5 L13 6"/><line x1="3" y1="10" x2="17" y2="10" stroke-linecap="round"/></svg>',
       },
       native: '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M3 4 L17 4 L17 13 L11 13 L8 16 L8 13 L3 13 Z"/><circle cx="7" cy="8.5" r="0.9" fill="currentColor" stroke="none"/><circle cx="10" cy="8.5" r="0.9" fill="currentColor" stroke="none"/><circle cx="13" cy="8.5" r="0.9" fill="currentColor" stroke="none"/></svg>',
     };
 
     const formatText    = { inperson: '通学制', online: 'オンライン' };
-    const intensityText = { intensive: '集中型', casual: '気軽型' };
+    const intensityText = { intensive: '集中型', casual: '気軽型', corporate: '研修型' };
 
     const state = { intensity: null, season: null, step: 1 };
 
-    const intensityLabel = { intensive: '本格コース', casual: '気軽なコース', any: 'すべてのコース' };
+    const intensityLabel = { intensive: '本格コース', casual: '気軽なコース', corporate: '法人研修', any: 'すべてのコース' };
     const seasonLabel    = { spring: '春', summer: '夏', winter: '冬', anytime: 'いつでもOK' };
 
     const $steps   = root.querySelectorAll('.finder__step');

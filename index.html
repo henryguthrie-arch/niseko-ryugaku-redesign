@@ -45,7 +45,7 @@
           <li><a href="#why">ニセコで学ぶ理由</a></li>
           <li><a href="#life">滞在生活</a></li>
           <li><a href="#voices">体験者の声</a></li>
-          <li><a href="#news">お知らせ</a></li>
+          <li><a href="#resources">リソース</a></li>
         </ul>
       </nav>
 
@@ -72,15 +72,15 @@
           <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stop-color="#FFE8DF"/>
             <stop offset="55%" stop-color="#FFD4C5"/>
-            <stop offset="100%" stop-color="#FFB59E"/>
+            <stop offset="100%" stop-color="#FF9D7A"/>
           </linearGradient>
           <linearGradient id="mountain1" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#0F4C5C"/>
-            <stop offset="100%" stop-color="#1A6577"/>
+            <stop offset="0%" stop-color="#0E0E0E"/>
+            <stop offset="100%" stop-color="#2A2A2A"/>
           </linearGradient>
           <linearGradient id="mountain2" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#2EC4B6" stop-opacity="0.65"/>
-            <stop offset="100%" stop-color="#2EC4B6" stop-opacity="0.2"/>
+            <stop offset="0%" stop-color="#B4E83C" stop-opacity="0.65"/>
+            <stop offset="100%" stop-color="#B4E83C" stop-opacity="0.2"/>
           </linearGradient>
           <radialGradient id="sun" cx="0.78" cy="0.32" r="0.18">
             <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9"/>
@@ -222,7 +222,7 @@
         <!-- Step 1: intensity -->
         <div class="finder__step is-active" data-step="1">
           <h3 class="finder__q">どのようなコースをお探しですか？</h3>
-          <div class="finder__choices finder__choices--3">
+          <div class="finder__choices finder__choices--4">
             <button type="button" class="choice choice--intensive" data-key="intensive">
               <span class="choice__icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48"><path d="M6 38 L18 22 L26 30 L34 18 L42 38 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M31 22 L34 18 L37 22 L36 23 L35 21.5 L34 23 L33 21.5 L32 23 Z" fill="currentColor"/></svg>
@@ -244,6 +244,18 @@
                 <span class="choice__en">Casual Course</span>
               </span>
               <span class="choice__desc">無理なく続けたい方へ。<br>都内通学・オンラインなど柔軟な形式。</span>
+              <span class="choice__cta">これを選ぶ <em>→</em></span>
+            </button>
+
+            <button type="button" class="choice choice--corporate" data-key="corporate">
+              <span class="choice__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><path d="M8 16 L40 16 L40 38 L8 38 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M18 16 L18 12 Q18 10 20 10 L28 10 Q30 10 30 12 L30 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><line x1="8" y1="24" x2="40" y2="24" stroke="currentColor" stroke-width="2"/><rect x="22" y="22" width="4" height="4" fill="currentColor"/></svg>
+              </span>
+              <span class="choice__label">
+                <span class="choice__title">法人研修</span>
+                <span class="choice__en">Corporate Training</span>
+              </span>
+              <span class="choice__desc">チーム単位での導入を<br>ご検討の企業様へ。</span>
               <span class="choice__cta">これを選ぶ <em>→</em></span>
             </button>
 
@@ -515,12 +527,12 @@
         <a href="#" class="life-tile life-tile--tall">
           <div class="life-tile__media" data-img="lodge">
             <svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-              <rect width="400" height="600" fill="#0F4C5C"/>
-              <path d="M0 380 L80 350 L160 365 L240 340 L320 360 L400 340 L400 600 L0 600 Z" fill="#1A6577"/>
+              <rect width="400" height="600" fill="#0E0E0E"/>
+              <path d="M0 380 L80 350 L160 365 L240 340 L320 360 L400 340 L400 600 L0 600 Z" fill="#2A2A2A"/>
               <path d="M80 400 L200 320 L320 400 L320 500 L80 500 Z" fill="#FFE8DF"/>
-              <path d="M60 400 L200 300 L340 400" stroke="#FF7F73" stroke-width="3" fill="none"/>
-              <rect x="140" y="430" width="40" height="70" fill="#0F4C5C"/>
-              <rect x="220" y="430" width="30" height="30" fill="#FF7F73" opacity="0.8"/>
+              <path d="M60 400 L200 300 L340 400" stroke="#F25C28" stroke-width="3" fill="none"/>
+              <rect x="140" y="430" width="40" height="70" fill="#0E0E0E"/>
+              <rect x="220" y="430" width="30" height="30" fill="#F25C28" opacity="0.8"/>
               <path d="M0 540 L100 525 L200 540 L300 525 L400 540 L400 600 L0 600 Z" fill="#FFFFFF" opacity="0.95"/>
             </svg>
           </div>
@@ -533,8 +545,8 @@
         <a href="#" class="life-tile">
           <div class="life-tile__media" data-img="snow">
             <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-              <rect width="400" height="300" fill="#2EC4B6"/>
-              <path d="M0 180 L120 100 L200 150 L280 60 L400 180 L400 300 L0 300 Z" fill="#0F4C5C"/>
+              <rect width="400" height="300" fill="#B4E83C"/>
+              <path d="M0 180 L120 100 L200 150 L280 60 L400 180 L400 300 L0 300 Z" fill="#0E0E0E"/>
               <path d="M270 75 L280 60 L290 75 L286 80 L282 73 L278 80 L274 73 Z" fill="#FFFFFF"/>
               <path d="M0 230 L80 215 L160 225 L240 210 L320 225 L400 215 L400 300 L0 300 Z" fill="#FFFFFF" opacity="0.95"/>
             </svg>
@@ -548,11 +560,11 @@
         <a href="#" class="life-tile">
           <div class="life-tile__media" data-img="food">
             <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-              <rect width="400" height="300" fill="#FF7F73"/>
+              <rect width="400" height="300" fill="#F25C28"/>
               <circle cx="200" cy="170" r="90" fill="#FFE8DF"/>
-              <circle cx="200" cy="170" r="60" fill="#0F4C5C"/>
-              <circle cx="170" cy="150" r="6" fill="#FF7F73"/>
-              <circle cx="220" cy="155" r="6" fill="#2EC4B6"/>
+              <circle cx="200" cy="170" r="60" fill="#0E0E0E"/>
+              <circle cx="170" cy="150" r="6" fill="#F25C28"/>
+              <circle cx="220" cy="155" r="6" fill="#B4E83C"/>
               <circle cx="195" cy="190" r="5" fill="#FFE8DF"/>
               <path d="M120 240 L280 240" stroke="#FFFFFF" stroke-width="2" opacity="0.8"/>
             </svg>
@@ -567,15 +579,15 @@
           <div class="life-tile__media" data-img="onsen">
             <svg viewBox="0 0 800 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
               <rect width="800" height="300" fill="#FFE8DF"/>
-              <path d="M0 220 L800 220 L800 300 L0 300 Z" fill="#2EC4B6" opacity="0.4"/>
-              <path d="M0 230 Q200 200 400 230 T800 230 L800 300 L0 300 Z" fill="#2EC4B6" opacity="0.6"/>
-              <path d="M0 250 Q200 220 400 250 T800 250 L800 300 L0 300 Z" fill="#0F4C5C" opacity="0.5"/>
+              <path d="M0 220 L800 220 L800 300 L0 300 Z" fill="#B4E83C" opacity="0.4"/>
+              <path d="M0 230 Q200 200 400 230 T800 230 L800 300 L0 300 Z" fill="#B4E83C" opacity="0.6"/>
+              <path d="M0 250 Q200 220 400 250 T800 250 L800 300 L0 300 Z" fill="#0E0E0E" opacity="0.5"/>
               <!-- steam -->
               <path d="M200 180 Q210 160 200 140 Q190 120 200 100" stroke="#FFFFFF" stroke-width="2" fill="none" opacity="0.7"/>
               <path d="M400 180 Q410 160 400 140 Q390 120 400 100" stroke="#FFFFFF" stroke-width="2" fill="none" opacity="0.7"/>
               <path d="M600 180 Q610 160 600 140 Q590 120 600 100" stroke="#FFFFFF" stroke-width="2" fill="none" opacity="0.7"/>
               <!-- distant mountains -->
-              <path d="M0 200 L150 160 L280 190 L450 150 L620 195 L800 170 L800 220 L0 220 Z" fill="#0F4C5C" opacity="0.4"/>
+              <path d="M0 200 L150 160 L280 190 L450 150 L620 195 L800 170 L800 220 L0 220 Z" fill="#0E0E0E" opacity="0.4"/>
             </svg>
           </div>
           <div class="life-tile__body">
@@ -587,13 +599,13 @@
         <a href="#" class="life-tile">
           <div class="life-tile__media" data-img="community">
             <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-              <rect width="400" height="300" fill="#0F4C5C"/>
-              <circle cx="130" cy="140" r="35" fill="#FF7F73"/>
+              <rect width="400" height="300" fill="#0E0E0E"/>
+              <circle cx="130" cy="140" r="35" fill="#F25C28"/>
               <circle cx="200" cy="120" r="35" fill="#FFE8DF"/>
-              <circle cx="270" cy="140" r="35" fill="#2EC4B6"/>
-              <path d="M130 175 L130 230 L120 260 L140 260 L140 230 Z" fill="#FF7F73"/>
+              <circle cx="270" cy="140" r="35" fill="#B4E83C"/>
+              <path d="M130 175 L130 230 L120 260 L140 260 L140 230 Z" fill="#F25C28"/>
               <path d="M200 155 L200 230 L188 260 L212 260 L212 230 Z" fill="#FFE8DF"/>
-              <path d="M270 175 L270 230 L258 260 L282 260 L282 230 Z" fill="#2EC4B6"/>
+              <path d="M270 175 L270 230 L258 260 L282 260 L282 230 Z" fill="#B4E83C"/>
               <path d="M0 270 L400 270 L400 300 L0 300 Z" fill="#FFFFFF" opacity="0.2"/>
             </svg>
           </div>
@@ -705,56 +717,6 @@
               <span>2025年 春</span>
             </div>
           </footer>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== News / Snow report ========== -->
-  <section class="news" id="news">
-    <div class="container">
-      <header class="section-head section-head--two-col">
-        <div>
-          <span class="eyebrow"><span class="eyebrow__dot"></span>お知らせ・ニセコ便り</span>
-          <h2 class="section-title">
-            ニセコの今を、お届け。
-          </h2>
-        </div>
-        <a href="#" class="news__all">すべて見る →</a>
-      </header>
-
-      <div class="news__grid">
-        <article class="news-card">
-          <div class="news-card__media news-card__media--snow" aria-hidden="true">
-            <span class="news-card__cat">スノーレポート</span>
-          </div>
-          <div class="news-card__body">
-            <time>2026.01.18</time>
-            <h3>今週のニセコは新雪128cm。ベストコンディション継続中</h3>
-            <p>低気圧の通過で48時間で60cmの新雪。週末は晴れ予報、絶好のパウダー日和です。</p>
-          </div>
-        </article>
-
-        <article class="news-card">
-          <div class="news-card__media news-card__media--event" aria-hidden="true">
-            <span class="news-card__cat">イベント</span>
-          </div>
-          <div class="news-card__body">
-            <time>2026.01.10</time>
-            <h3>2月開催「ニセコ・カルチャーナイト」参加者募集</h3>
-            <p>地元の方を招いて、書道・餅つき・三味線を体験する月例イベント。受講生は無料。</p>
-          </div>
-        </article>
-
-        <article class="news-card">
-          <div class="news-card__media news-card__media--alumni" aria-hidden="true">
-            <span class="news-card__cat">卒業生</span>
-          </div>
-          <div class="news-card__body">
-            <time>2025.12.20</time>
-            <h3>卒業生インタビュー：山本さん、メルボルン大学合格</h3>
-            <p>1年間の長期コースを経て海外進学を実現。準備の流れと、ニセコでの暮らしを聞きました。</p>
-          </div>
         </article>
       </div>
     </div>
@@ -909,7 +871,7 @@
 
           <div class="booking__card">
             <div class="calendly-inline-widget"
-                 data-url="https://calendly.com/YOUR-USERNAME/free-consultation?primary_color=ff7f73&text_color=0f4c5c&background_color=fffcfa&hide_gdpr_banner=1"
+                 data-url="https://calendly.com/YOUR-USERNAME/free-consultation?primary_color=f25c28&text_color=0e0e0e&background_color=fffcfa&hide_gdpr_banner=1"
                  style="min-width:320px;height:720px;">
             </div>
           </div>
@@ -919,8 +881,8 @@
           <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
           Calendly URL query params used above:
-            primary_color=ff7f73       brand coral (buttons)
-            text_color=0f4c5c          deep teal text
+            primary_color=f25c28       brand orange (buttons)
+            text_color=0e0e0e          near-black text
             background_color=fffcfa    cream-white surface
             hide_gdpr_banner=1         less visual noise (use only if compliant)
         -->
