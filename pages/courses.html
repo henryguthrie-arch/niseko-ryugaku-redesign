@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="ja"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Courses and Fees — SPEAKMORE</title>
+  <meta name="description" content="ニセコ集中コース、東京ハイブリッドコース、短期・長期プログラム。各コースの内容と料金をご紹介します。">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Manrope:wght@400;500;600;800&amp;family=Noto+Sans+JP:wght@300;400;500;700&amp;family=Shippori+Mincho:wght@500;700&amp;display=swap">
+
+  <link rel="stylesheet" href="../assets/css/styles.css?v=86">
+</head>
+<body>
+
+  <!-- ========== Announcement bar ========== -->
+  <div class="announce">
+    <div class="container announce__inner">
+      <span class="announce__dot" aria-hidden="true"></span>
+      <p>Henry is cool。</p>
+      <a href="../index.html#contact" class="announce__link">詳しく見る →</a>
+    </div>
+  </div>
+
+  <!-- ========== Header / Nav ========== -->
+  <header class="site-header is-scrolled" id="siteHeader">
+    <div class="container site-header__inner">
+      <a href="../index.html" class="brand" aria-label="SPEAKMORE ホーム">
+        <span class="brand__logo">
+          <span class="brand__logo-a">SPEAK</span><span class="brand__logo-b">MORE</span>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="メインメニュー">
+        <ul>
+          <li><a href="why.html">Why choose SPEAKMORE</a></li>
+          <li><a href="courses.html" aria-current="page">Courses and Fees</a></li>
+          <li><a href="campuses.html">Campuses</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <button class="lang-toggle" aria-label="言語切替">
+          <span class="lang-toggle__current">JP</span>
+          <span class="lang-toggle__divider">/</span>
+          <span class="lang-toggle__alt">EN</span>
+        </button>
+        <a href="../index.html#contact" class="btn btn--primary btn--sm">無料カウンセリング</a>
+        <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== Page hero ========== -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero__inner">
+        <span class="page-hero__eyebrow">Courses and Fees</span>
+        <h1 class="page-hero__title">Our <em>Courses</em> &amp; <em>Fees</em>.</h1>
+        <p class="page-hero__lede">
+          ニセコでの集中型から、東京でのオンライン × 対面ハイブリッドまで。目的とライフスタイルに合わせて選べるコースと、わかりやすい料金体系をご案内します。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Course finder (interactive picker — same component as homepage) ========== -->
+  <section class="finder finder--pink" id="programs">
+    <div class="container">
+      <header class="section-head">
+        <h2 class="section-title">
+          あなたにぴったりのプランを<br>見つけよう。
+        </h2>
+      </header>
+
+      <div class="finder__frame">
+      <div class="finder__shell" id="finder">
+        <ol class="finder__progress" aria-label="進行状況">
+          <li class="is-active" data-step="1"><span>1</span>強度を選ぶ</li>
+          <li data-step="2"><span>2</span>時期を選ぶ</li>
+          <li data-step="3"><span>3</span>結果を見る</li>
+        </ol>
+
+        <!-- Step 1: intensity -->
+        <div class="finder__step is-active" data-step="1">
+          <h3 class="finder__q">どのようなコースをお探しですか?</h3>
+          <div class="finder__choices finder__choices--4">
+            <button type="button" class="choice choice--intensive" data-key="intensive">
+              <span class="choice__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><path d="M6 38 L18 22 L26 30 L34 18 L42 38 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path><path d="M31 22 L34 18 L37 22 L36 23 L35 21.5 L34 23 L33 21.5 L32 23 Z" fill="currentColor"></path></svg>
+              </span>
+              <span class="choice__label">
+                <span class="choice__title">本格コース</span>
+                <span class="choice__en">Intensive Course</span>
+              </span>
+              <span class="choice__desc">英語を一気に伸ばしたい方へ。<br>長時間レッスン × イマージョン環境。</span>
+              <span class="choice__cta">これを選ぶ <em>→</em></span>
+            </button>
+
+            <button type="button" class="choice choice--casual" data-key="casual">
+              <span class="choice__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><path d="M14 12 L34 12 L32 36 L16 36 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path><path d="M34 18 L40 18 L38 28 L32 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path><path d="M20 6 Q22 8 20 10 M24 5 Q26 7 24 9 M28 6 Q30 8 28 10" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"></path></svg>
+              </span>
+              <span class="choice__label">
+                <span class="choice__title">気軽なコース</span>
+                <span class="choice__en">Casual Course</span>
+              </span>
+              <span class="choice__desc">無理なく続けたい方へ。<br>都内通学・オンラインなど柔軟な形式。</span>
+              <span class="choice__cta">これを選ぶ <em>→</em></span>
+            </button>
+
+            <button type="button" class="choice choice--corporate" data-key="corporate">
+              <span class="choice__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><path d="M8 16 L40 16 L40 38 L8 38 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path><path d="M18 16 L18 12 Q18 10 20 10 L28 10 Q30 10 30 12 L30 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path><line x1="8" y1="24" x2="40" y2="24" stroke="currentColor" stroke-width="2"></line><rect x="22" y="22" width="4" height="4" fill="currentColor"></rect></svg>
+              </span>
+              <span class="choice__label">
+                <span class="choice__title">法人研修</span>
+                <span class="choice__en">Corporate Training</span>
+              </span>
+              <span class="choice__desc">チーム単位での導入を<br>ご検討の企業様へ。</span>
+              <span class="choice__cta">これを選ぶ <em>→</em></span>
+            </button>
+
+            <button type="button" class="choice choice--any" data-key="any">
+              <span class="choice__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="18" fill="none" stroke="currentColor" stroke-width="2"></circle><path d="M24 14 L28 24 L24 34 L20 24 Z" fill="currentColor"></path><circle cx="24" cy="24" r="2" fill="currentColor"></circle></svg>
+              </span>
+              <span class="choice__label">
+                <span class="choice__title">まだ決まっていない</span>
+                <span class="choice__en">Not sure yet</span>
+              </span>
+              <span class="choice__desc">条件に合うものを<br>すべて見たい方へ。</span>
+              <span class="choice__cta">すべて表示 <em>→</em></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2: season -->
+        <div class="finder__step" data-step="2">
+          <button type="button" class="finder__back" data-back="1">← 質問1に戻る</button>
+          <h3 class="finder__q">どの時期に受講したいですか?</h3>
+          <div class="finder__choices finder__choices--4">
+            <button type="button" class="choice choice--spring" data-key="spring">
+              <span class="choice__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="3" fill="currentColor"></circle><g><circle cx="24" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"></circle><circle cx="36" cy="24" r="4" fill="none" stroke="currentColor" stroke-width="1.5"></circle><circle cx="24" cy="36" r="4" fill="none" stroke="currentColor" stroke-width="1.5"></circle><circle cx="12" cy="24" r="4" fill="none" stroke="currentColor" stroke-width="1.5"></circle><circle cx="33" cy="15" r="3" fill="none" stroke="currentColor" stroke-width="1.5"></circle><circle cx="33" cy="33" r="3" fill="none" stroke="currentColor" stroke-width="1.5"></circle><circle cx="15" cy="33" r="3" fill="none" stroke="currentColor" stroke-width="1.5"></circle><circle cx="15" cy="15" r="3" fill="none" stroke="currentColor" stroke-width="1.5"></circle></g></svg>
+              </span>
+              <span class="choice__label">
+                <span class="choice__title">春</span>
+                <span class="choice__en">Spring · 3–5月</span>
+              </span>
+              <span class="choice__desc">桜と新緑の季節。<br>野沢温泉での雪解け留学。</span>
+              <span class="choice__cta">これを選ぶ <em>→</em></span>
+            </button>
+
+            <button type="button" class="choice choice--summer" data-key="summer">
+              <span class="choice__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="8" fill="currentColor"></circle><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="24" y1="4" x2="24" y2="10"></line><line x1="24" y1="38" x2="24" y2="44"></line><line x1="4" y1="24" x2="10" y2="24"></line><line x1="38" y1="24" x2="44" y2="24"></line><line x1="10" y1="10" x2="14" y2="14"></line><line x1="34" y1="34" x2="38" y2="38"></line><line x1="38" y1="10" x2="34" y2="14"></line><line x1="14" y1="34" x2="10" y2="38"></line></g></svg>
+              </span>
+              <span class="choice__label">
+                <span class="choice__title">夏</span>
+                <span class="choice__en">Summer · 6–9月</span>
+              </span>
+              <span class="choice__desc">北海道で涼しく快適。<br>緑のニセコと長期休暇。</span>
+              <span class="choice__cta">これを選ぶ <em>→</em></span>
+            </button>
+
+            <button type="button" class="choice choice--winter" data-key="winter">
+              <span class="choice__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><g stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"><line x1="24" y1="6" x2="24" y2="42"></line><line x1="6" y1="24" x2="42" y2="24"></line><line x1="11" y1="11" x2="37" y2="37"></line><line x1="37" y1="11" x2="11" y2="37"></line><path d="M24 10 L21 13 M24 10 L27 13 M24 38 L21 35 M24 38 L27 35 M10 24 L13 21 M10 24 L13 27 M38 24 L35 21 M38 24 L35 27"></path></g></svg>
+              </span>
+              <span class="choice__label">
+                <span class="choice__title">冬</span>
+                <span class="choice__en">Winter · 12–3月</span>
+              </span>
+              <span class="choice__desc">世界一級のパウダー。<br>ベストシーズン、要早期予約。</span>
+              <span class="choice__cta">これを選ぶ <em>→</em></span>
+            </button>
+
+            <button type="button" class="choice choice--anytime" data-key="anytime">
+              <span class="choice__icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="18" fill="none" stroke="currentColor" stroke-width="2"></circle><path d="M16 24 L22 30 L33 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </span>
+              <span class="choice__label">
+                <span class="choice__title">いつでもOK</span>
+                <span class="choice__en">Anytime OK</span>
+              </span>
+              <span class="choice__desc">時期にこだわらない方へ。<br>通年のすべてのプランを表示。</span>
+              <span class="choice__cta">すべて表示 <em>→</em></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 3: results -->
+        <div class="finder__step finder__step--results" data-step="3">
+          <button type="button" class="finder__back" data-back="2">← 質問2に戻る</button>
+          <div class="finder__results-head">
+            <h3 class="finder__q finder__q--results">あなたへのおすすめ</h3>
+            <p class="finder__summary" id="finderSummary"></p>
+          </div>
+          <div class="finder__results" id="finderResults" role="list"></div>
+          <div class="finder__results-foot">
+            <button type="button" class="finder__restart">最初からやり直す</button>
+            <a href="../index.html#contact" class="finder__cta-link">迷ったら、無料カウンセリングで相談 →</a>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <!-- Group illustration — sits flush at the bottom of the finder section -->
+    <div class="group-banner group-banner--bottom" aria-hidden="true">
+      <img src="../assets/img/group-illustration.webp" alt="" loading="lazy" />
+    </div>
+  </section>
+
+  <!-- ============================================================
+       COURSE PLAN MATRIX
+       To edit in the future:
+       1. Plan names (column headers): update the three <th class="course-matrix__plan"> cells in <thead>
+       2. Row label: edit <th scope="row">…</th> at the start of each <tr>
+       3. Cell values:
+            - For "計 N コマ" format: just change the number inside <strong>…</strong>
+            - For plain text (e.g. "なし", "希望者いつでも"): edit the <td> directly
+            - For "特徴" (last row): edit the multi-line text inside <td>
+       4. To add a NEW row: copy any existing <tr>, paste, and edit
+       5. To add a NEW plan column: add one <th class="course-matrix__plan">…</th> in <thead>
+          and one <td>…</td> inside EVERY <tr> in <tbody>
+       ============================================================ -->
+  <section class="course-matrix" id="plans">
+    <div class="container">
+      <header class="course-matrix__head">
+        <p class="course-matrix__eyebrow">プラン内容</p>
+        <h2 class="course-matrix__subtitle">1週間あたり</h2>
+        <p class="course-matrix__note">
+          1週間〜長期まで「1週間単位」で可能です。<br>
+          下記はあくまで参考です。最新の情報は公式LINEまでお問い合わせください。
+        </p>
+      </header>
+
+      <div class="course-matrix__scroll">
+        <table class="course-matrix__table">
+          <thead>
+            <tr>
+              <th scope="col" class="course-matrix__corner"></th>
+              <th scope="col" class="course-matrix__plan">ベーシック</th>
+              <th scope="col" class="course-matrix__plan">ポピュラー</th>
+              <th scope="col" class="course-matrix__plan">インテンシブ</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+              <th scope="row">
+                授業
+                <span class="course-matrix__sub">（グループレッスン）</span>
+              </th>
+              <td><span class="course-matrix__count">計 <strong>15</strong> コマ</span></td>
+              <td><span class="course-matrix__count">計 <strong>15</strong> コマ</span></td>
+              <td><span class="course-matrix__count">計 <strong>15</strong> コマ</span></td>
+            </tr>
+
+            <tr>
+              <th scope="row">マンツーマン</th>
+              <td>なし</td>
+              <td><span class="course-matrix__count">計 <strong>1</strong> コマ</span></td>
+              <td><span class="course-matrix__count">計 <strong>3</strong> コマ</span></td>
+            </tr>
+
+            <tr>
+              <th scope="row">
+                発音矯正
+                <span class="course-matrix__sub">スピーキング</span>
+              </th>
+              <td>月1回</td>
+              <td>月2回</td>
+              <td>週1回</td>
+            </tr>
+
+            <tr>
+              <th scope="row">アクティビティ</th>
+              <td><span class="course-matrix__count">計 <strong>3</strong> コマ</span></td>
+              <td><span class="course-matrix__count">計 <strong>4</strong> コマ</span></td>
+              <td><span class="course-matrix__count">計 <strong>5</strong> コマ</span></td>
+            </tr>
+
+            <tr>
+              <th scope="row">フリー英会話</th>
+              <td>
+                <span class="course-matrix__count">計 <strong>1 - 4</strong> 時間</span>
+                <span class="course-matrix__count-foot">1日あたり</span>
+              </td>
+              <td>
+                <span class="course-matrix__count">計 <strong>1 - 4</strong> 時間</span>
+                <span class="course-matrix__count-foot">1日あたり</span>
+              </td>
+              <td>
+                <span class="course-matrix__count">計 <strong>1 - 4</strong> 時間</span>
+                <span class="course-matrix__count-foot">1日あたり</span>
+              </td>
+            </tr>
+
+            <tr>
+              <th scope="row">
+                英語学習
+                <span class="course-matrix__sub">カウンセリング</span>
+              </th>
+              <td>希望者いつでも</td>
+              <td>希望者いつでも</td>
+              <td>希望者いつでも</td>
+            </tr>
+
+            <tr>
+              <th scope="row">
+                進路・留学ワーホリ
+                <span class="course-matrix__sub">についての相談</span>
+              </th>
+              <td>希望者いつでも</td>
+              <td>希望者いつでも</td>
+              <td>希望者いつでも</td>
+            </tr>
+
+            <tr>
+              <th scope="row">特徴</th>
+              <td>予算を抑えた<br>ネイティブ留学</td>
+              <td>内容充実で<br>一番人気</td>
+              <td>ガッツリ<br>取り組みたい方向け</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       EXPANDED COURSE PRODUCTS
+       JS-rendered from main.js. Every program in the `programs` catalog
+       that also has a `detailExtras` entry becomes one <article id="course-{id}">,
+       which the finder's "詳細を見る →" links scroll to.
+       To edit:
+         - PRICES / SLIDER / TAGS / CONTENT VARIANT  → assets/js/main.js → `detailExtras`
+         - WEEKLY CONTENT MATRIX (6 boxes)           → assets/js/main.js → `CONTENT_VARIANTS`
+         - FEATURE BULLETS / CREATOR DEFAULTS        → assets/js/main.js → `DEFAULT_FEATURES` / `DEFAULT_CREATOR`
+         - LAYOUT / STRUCTURE                        → `renderCourseProduct()` template in main.js
+       Color modifier comes from `accent` in the program catalog:
+         coral → Niseko, teal → Nozawa, ink → Tokyo / online / casual
+       ============================================================ -->
+  <section class="course-products" id="course-details">
+    <div class="container">
+      <header class="course-products__head">
+        <h2 class="course-products__title">各<em>コース</em>を詳しく見る</h2>
+        <p class="course-products__lede">
+          コース内容・料金シミュレーター・1週間の流れ・お支払い方法までまとめて。
+        </p>
+      </header>
+
+      <!-- One container — every program in main.js renders into here. Each becomes <article id="course-{program-id}"> for anchor scrolling from the finder. -->
+      <div class="course-products__list" id="courseDetailsList" data-render="course-products"></div>
+    </div>
+  </section>
+
+  <!-- ========== Footer ========== -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div class="site-footer__brand">
+        <a href="../index.html" class="brand brand--light">
+          <span class="brand__logo">
+            <span class="brand__logo-a">SPEAK</span><span class="brand__logo-b">MORE</span>
+          </span>
+        </a>
+        <p class="site-footer__addr">
+          〒044-0078 北海道虻田郡倶知安町字山田204<br>
+          TEL: 0136-00-0000 / hello@speakmore.jp
+        </p>
+      </div>
+
+      <div class="site-footer__cols">
+        <div>
+          <h4>サイトマップ</h4>
+          <ul>
+            <li><a href="../index.html">ホーム</a></li>
+            <li><a href="why.html">Why choose SPEAKMORE</a></li>
+            <li><a href="courses.html">Courses and Fees</a></li>
+            <li><a href="campuses.html">Campuses</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>受講をご検討の方へ</h4>
+          <ul>
+            <li><a href="../index.html#contact">無料カウンセリング</a></li>
+            <li><a href="../index.html#resources">資料請求</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-footer__legal">
+      <div class="container site-footer__legal-inner">
+        <p>© 2026 SPEAKMORE Inc. All rights reserved.</p>
+        <ul>
+          <li><a href="#">プライバシーポリシー</a></li>
+          <li><a href="#">利用規約</a></li>
+          <li><a href="#">特定商取引法</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+
+</body></html>
