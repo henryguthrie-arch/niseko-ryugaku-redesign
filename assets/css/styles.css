@@ -31,8 +31,9 @@
 
   /* Type */
   --font-jp: "Noto Sans JP", system-ui, -apple-system, sans-serif;
-  --font-display-jp: "Shippori Mincho", "Noto Serif JP", serif;
-  --font-en: "Manrope", system-ui, sans-serif;
+  --font-display-jp: "Noto Sans JP", system-ui, sans-serif;
+  --font-en: "Bebas Neue", system-ui, sans-serif;
+  --font-serif: "Noto Sans JP", system-ui, sans-serif;
 
   /* Scale (fluid) */
   --fs-xs: 0.75rem;
@@ -95,6 +96,40 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: "palt" 1;
+}
+/* ---------- Homepage: subtle cycling pink ↔ cream gradient ---------- */
+/* Wraps the entire page in a whisper-pale pink/cream rhythm — paled
+   ~70% toward white from the brand tokens so the cycle feels like
+   ambient atmosphere rather than a coloured backdrop. Repeats every
+   ~900px (≈ one viewport) for a calm, slow wave as the user scrolls. */
+.page-home {
+  background: repeating-linear-gradient(
+    180deg,
+    #FFEAF0 0px,    /* soft pink */
+    #FFF1EB 450px,  /* soft cream */
+    #FFEAF0 900px
+  );
+}
+/* All sections on the homepage become transparent so the body gradient
+   shows through end-to-end. The booking/contact section is the ONE
+   exception — it keeps its dark ink background for visual contrast and
+   to anchor the page's primary call-to-action. */
+.page-home > section:not(#contact),
+.page-home > section:not(#contact)::before,
+.page-home > section:not(#contact)::after {
+  background: transparent;
+}
+/* Some sections paint their background via a child element (e.g. .hero
+   uses an absolutely-positioned .hero__bg). Drop those too so the body
+   gradient flows through uninterrupted. */
+.page-home .hero__bg {
+  background: transparent;
+}
+/* The hero's decorative bottom curl (SVG) had a hardcoded cream fill
+   that broke the gradient. Hide it on the homepage — the body cycle
+   already provides the section-to-section continuity. */
+.page-home .hero__divider {
+  display: none;
 }
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
@@ -4420,7 +4455,7 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   margin-left: auto;
 }
 .course-product__cta-eyebrow {
-  font-family: "Archivo Black", var(--font-en);
+  font-family: var(--font-en);
   font-size: clamp(1.25rem, 1.8vw, 1.55rem);
   font-weight: 900;
   letter-spacing: 0.04em;
