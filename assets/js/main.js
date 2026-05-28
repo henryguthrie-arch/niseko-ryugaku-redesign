@@ -194,6 +194,19 @@
 
     const state = { intensity: null, season: null, step: 1 };
 
+    // Relative path to pages/courses.html from wherever the finder is mounted.
+    // The course-product detail cards live ONLY on courses.html, so when the
+    // finder appears on the homepage / LP, the "詳細を見る" link must navigate
+    // cross-page. When the finder is already on courses.html, the href stays
+    // anchor-only ("") and the smooth-scroll handler below intercepts the click.
+    const coursesHref = (() => {
+      const here = window.location.pathname;
+      if (here.endsWith('/pages/courses.html')) return '';
+      if (here.includes('/pages/'))             return 'courses.html';
+      if (here.includes('/lp/'))                return '../pages/courses.html';
+      return 'pages/courses.html'; // root: index.html
+    })();
+
     const intensityLabel = { intensive: '本格コース', casual: '気軽なコース', corporate: '法人研修', any: 'すべてのコース' };
     const seasonLabel    = { spring: '春', summer: '夏', winter: '冬', anytime: 'いつでもOK' };
 
@@ -266,7 +279,7 @@
           </ul>
           <div class="result-card__foot">
             <span class="result-card__price">${p.price}<small>${p.priceNote}</small></span>
-            <a href="#course-${id}" class="result-card__link" data-program="${id}">詳細を見る →</a>
+            <a href="${coursesHref}#course-${id}" class="result-card__link" data-program="${id}">詳細を見る →</a>
           </div>
         </article>
       `).join('');
@@ -323,14 +336,22 @@
     if (detailHost) {
       // Per-program detail data layered on top of the finder catalog.
       // Edit any value here to change what shows up on a specific card.
+
+      // Nozawa courses are taught by Henry Guthrie — overrides the John Kerry default.
+      const NOZAWA_CREATOR = {
+        name: 'Henry Guthrie',
+        role: 'Otago University',
+        photo: '../assets/img/creator-henry.png',
+      };
+
       const detailExtras = {
         'niseko-basic':       { weeklyRate: 84000,  maxWeeks: 8,  defaultWeeks: 2, perWeekPrice: '¥84,000',  tags: ['通学制','本格型','ネイティブ講師'],            content: 'basic'      },
         'niseko-popular':     { weeklyRate: 80000,  maxWeeks: 12, defaultWeeks: 4, perWeekPrice: '¥80,000',  tags: ['通学制','本格型','ネイティブ講師','4週間'],   content: 'popular'    },
         'niseko-intensive':   { weeklyRate: 78000,  maxWeeks: 16, defaultWeeks: 8, perWeekPrice: '¥78,000',  tags: ['通学制','集中型','ネイティブ講師','8週間'],   content: 'intensive'  },
         'niseko-whv':         { weeklyRate: 35000,  maxWeeks: 26, defaultWeeks: 12, perWeekPrice: '¥35,000', tags: ['通学制','ワーホリ','ネイティブ講師'],          content: 'whv'        },
-        'nozawa-basic':       { weeklyRate: 79000,  maxWeeks: 8,  defaultWeeks: 2, perWeekPrice: '¥79,000',  tags: ['通学制','本格型','ネイティブ講師'],            content: 'basic'      },
-        'nozawa-popular':     { weeklyRate: 75000,  maxWeeks: 12, defaultWeeks: 4, perWeekPrice: '¥75,000',  tags: ['通学制','本格型','ネイティブ講師','4週間'],   content: 'popular'    },
-        'nozawa-intensive':   { weeklyRate: 73000,  maxWeeks: 16, defaultWeeks: 8, perWeekPrice: '¥73,000',  tags: ['通学制','集中型','ネイティブ講師','8週間'],   content: 'intensive'  },
+        'nozawa-basic':       { weeklyRate: 79000,  maxWeeks: 8,  defaultWeeks: 2, perWeekPrice: '¥79,000',  tags: ['通学制','本格型','ネイティブ講師'],            content: 'basic',     creator: NOZAWA_CREATOR },
+        'nozawa-popular':     { weeklyRate: 75000,  maxWeeks: 12, defaultWeeks: 4, perWeekPrice: '¥75,000',  tags: ['通学制','本格型','ネイティブ講師','4週間'],   content: 'popular',   creator: NOZAWA_CREATOR },
+        'nozawa-intensive':   { weeklyRate: 73000,  maxWeeks: 16, defaultWeeks: 8, perWeekPrice: '¥73,000',  tags: ['通学制','集中型','ネイティブ講師','8週間'],   content: 'intensive', creator: NOZAWA_CREATOR },
         'tokyo-school':       { weeklyRate: 12000,  maxWeeks: 24, defaultWeeks: 4, perWeekPrice: '¥12,000',  tags: ['通学制','気軽型','ネイティブ講師'],            content: 'casual'     },
         'online-school':      { weeklyRate: 4500,   maxWeeks: 24, defaultWeeks: 4, perWeekPrice: '¥4,500',   tags: ['オンライン','気軽型','ネイティブ講師'],         content: 'online'     },
         'tokyo-seminars':     { weeklyRate: 12000,  maxWeeks: 8,  defaultWeeks: 1, perWeekPrice: '¥12,000',  tags: ['通学制','気軽型','単発'],                      content: 'seminar', noAccommodation: true },
@@ -550,6 +571,22 @@
         .filter(([id]) => detailExtras[id])  // skip any program without detail config
         .map(([id, p]) => renderCourseProduct(id, p, detailExtras[id]))
         .join('\n');
+
+      // If we arrived with a #course-{id} hash (e.g. clicked through from the
+      // finder on the homepage), scroll to that card now — the renderer has
+      // only just stamped it into the DOM, so the browser's own scroll-to-anchor
+      // fired before the element existed.
+      if (window.location.hash.startsWith('#course-')) {
+        const target = document.getElementById(window.location.hash.slice(1));
+        if (target) {
+          requestAnimationFrame(() => {
+            const top = target.getBoundingClientRect().top + window.scrollY - 90;
+            window.scrollTo({ top, behavior: 'auto' });
+            target.classList.add('is-target');
+            setTimeout(() => target.classList.remove('is-target'), 1800);
+          });
+        }
+      }
     }
   })();
 
