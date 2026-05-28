@@ -2505,13 +2505,14 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
   padding: var(--sp-5);
+  overflow: hidden; /* clip the image figure to the card's rounded corners */
   box-shadow: 0 1px 0 rgba(14, 14, 14, 0.04);
   transition: transform var(--t-med) var(--ease), box-shadow var(--t-med) var(--ease), border-color var(--t-med) var(--ease);
 }
-/* Optional image slot — when a card has a thumbnail (e.g. TV stills) */
-.media-card--has-image {
-  padding-top: 0;
-}
+/* Optional image slot — when a card has a thumbnail (e.g. TV stills).
+   The figure's negative top margin cancels the card's natural top padding,
+   so the image bleeds flush to the card's top edge. overflow:hidden on the
+   card above ensures the figure is clipped to the card's border-radius. */
 .media-card__image {
   margin: calc(var(--sp-5) * -1) calc(var(--sp-5) * -1) 0;
   aspect-ratio: 16 / 10;
