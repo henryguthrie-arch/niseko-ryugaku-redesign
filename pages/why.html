@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Bebas+Neue&amp;family=Noto+Sans+JP:wght@300;400;500;700&amp;display=swap">
 
-  <link rel="stylesheet" href="../assets/css/styles.css?v=114">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=115">
 </head>
 <body>
 
@@ -331,6 +331,111 @@
           </tbody>
         </table>
       </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PRICE MATRIX — total-cost comparison
+       To edit in the future:
+       1. Column headers: the 4 <th class="price-matrix__col …"> in <thead>
+       2. Row label: the <th scope="row"> at the start of each <tr>
+       3. Cell value: edit the number; optional sub-note goes in <small>
+       4. Star ratings: <span class="stars" style="--pct:N%"> where
+          N% = rating/5 × 100 (e.g. 4.5★ → 90%, 2★ → 40%)
+       ============================================================ -->
+  <section class="price-matrix">
+    <div class="container">
+      <header class="price-matrix__head">
+        <h2 class="price-matrix__title">気になる費用も、<em>正直に</em>。</h2>
+        <p class="price-matrix__lede">
+          ニセコ留学と他の留学先を、トータルコストで比べてみました。
+        </p>
+      </header>
+
+      <div class="price-matrix__scroll">
+        <table class="price-matrix__table">
+          <thead>
+            <tr>
+              <th class="price-matrix__corner" scope="col"></th>
+              <th class="price-matrix__col price-matrix__col--us" scope="col">ニセコ留学<small>（ベーシックプラン）</small></th>
+              <th class="price-matrix__col price-matrix__col--us" scope="col">ニセコ留学<small>（ポピュラープラン）</small></th>
+              <th class="price-matrix__col" scope="col">フィリピン<small>（セブ島）</small></th>
+              <th class="price-matrix__col" scope="col">カナダ</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+              <th scope="row">語学学校授業料</th>
+              <td class="price-matrix__us">¥249,000〜<small>（消費税別）</small></td>
+              <td class="price-matrix__us">¥329,000〜<small>（消費税別）</small></td>
+              <td>¥240,100</td>
+              <td>¥140,000</td>
+            </tr>
+
+            <tr>
+              <th scope="row">航空券<small>（参考料金）</small></th>
+              <td class="price-matrix__us">¥15,380〜<small>（成田⇄新千歳 往復）</small></td>
+              <td class="price-matrix__us">¥15,380〜<small>（成田⇄新千歳 往復）</small></td>
+              <td>¥73,850</td>
+              <td>¥159,430</td>
+            </tr>
+
+            <tr>
+              <th scope="row">事務手数料</th>
+              <td class="price-matrix__us">¥20,000<small>（初回のみ）</small></td>
+              <td class="price-matrix__us">¥20,000<small>（初回のみ）</small></td>
+              <td>¥46,220</td>
+              <td>¥58,000</td>
+            </tr>
+
+            <tr>
+              <th scope="row">宿泊料金など</th>
+              <td class="price-matrix__us">¥0<small>（ルームシェアの場合）</small></td>
+              <td class="price-matrix__us">¥0<small>（ルームシェアの場合）</small></td>
+              <td>¥0<small>（学校費用に含む）</small></td>
+              <td>¥111,000<small>（徒歩20分）</small></td>
+            </tr>
+
+            <tr>
+              <th scope="row">旅行保険・教材など</th>
+              <td class="price-matrix__us">¥0</td>
+              <td class="price-matrix__us">¥0</td>
+              <td>¥17,800</td>
+              <td>¥20,000</td>
+            </tr>
+
+            <tr>
+              <th scope="row">英語力UPスコア<sup>*</sup></th>
+              <td class="price-matrix__us"><span class="stars" style="--pct:90%" role="img" aria-label="5点中4.5"></span></td>
+              <td class="price-matrix__us"><span class="stars" style="--pct:100%" role="img" aria-label="5点中5"></span></td>
+              <td><span class="stars" style="--pct:40%" role="img" aria-label="5点中2"></span></td>
+              <td><span class="stars" style="--pct:70%" role="img" aria-label="5点中3.5"></span></td>
+            </tr>
+
+            <tr>
+              <th scope="row">衛生面・治安</th>
+              <td class="price-matrix__us"><span class="stars" style="--pct:100%" role="img" aria-label="5点中5"></span></td>
+              <td class="price-matrix__us"><span class="stars" style="--pct:100%" role="img" aria-label="5点中5"></span></td>
+              <td><span class="stars" style="--pct:40%" role="img" aria-label="5点中2"></span></td>
+              <td><span class="stars" style="--pct:60%" role="img" aria-label="5点中3"></span></td>
+            </tr>
+
+            <tr class="price-matrix__total-row">
+              <th scope="row">合計</th>
+              <td class="price-matrix__us">¥311,280〜</td>
+              <td class="price-matrix__us">¥399,280〜</td>
+              <td>¥377,970</td>
+              <td>¥488,430</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <p class="price-matrix__note">
+        *英語力UPスコア：どれだけ英語が効率よく上達するかの指標。英語に触れる時間の長さ、ネイティブ講師と英語を練習する量、発音や文法を英語と日本語両方で解説してもらえるかどうかなど。
+      </p>
     </div>
   </section>
 

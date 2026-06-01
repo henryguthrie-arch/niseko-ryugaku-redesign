@@ -4019,6 +4019,166 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 }
 
 /* ==========================================================================
+   Price matrix — total-cost comparison (Why page)
+   ========================================================================== */
+.price-matrix {
+  padding: clamp(64px, 9vw, 112px) 0;
+  background: var(--bg);
+}
+.price-matrix__head {
+  max-width: 720px;
+  margin: 0 auto var(--sp-7);
+  text-align: center;
+}
+.price-matrix__title {
+  font-family: var(--font-serif, "Shippori Mincho", serif);
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 var(--sp-4);
+}
+.price-matrix__title em { color: var(--coral); font-style: normal; }
+.price-matrix__lede {
+  font-size: var(--fs-md);
+  color: var(--ink-muted);
+  line-height: 1.7;
+  margin: 0;
+}
+.price-matrix__scroll {
+  max-width: 1040px;
+  margin: 0 auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--r-md);
+}
+.price-matrix__table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+/* Top-left empty corner */
+.price-matrix__corner {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+/* Column headers */
+.price-matrix__col {
+  background: var(--ink-muted);
+  color: #fff;
+  font-size: clamp(0.9rem, 1.3vw, 1.05rem);
+  font-weight: 700;
+  padding: var(--sp-4) var(--sp-3);
+  text-align: center;
+  letter-spacing: 0.02em;
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+  vertical-align: middle;
+}
+.price-matrix__col small {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.72em;
+  font-weight: 500;
+  opacity: 0.85;
+}
+/* Featured ニセコ留学 columns — coral, like the brand's primary */
+.price-matrix__col--us {
+  background: var(--coral);
+  color: #fff;
+}
+/* Row label column */
+.price-matrix__table tbody th[scope="row"] {
+  background: var(--cream);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  text-align: center;
+  padding: var(--sp-4) var(--sp-3);
+  border-top: 1px solid var(--border);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.price-matrix__table tbody th[scope="row"] small {
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+/* Data cells */
+.price-matrix__table tbody td {
+  padding: var(--sp-4) var(--sp-3);
+  font-size: var(--fs-md);
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.45;
+  color: var(--ink);
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+  vertical-align: middle;
+}
+.price-matrix__table tbody td small {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+/* Featured ニセコ cells — subtle tint + coral value text */
+.price-matrix__us {
+  background: var(--pink-soft);
+  color: var(--coral-deep) !important;
+}
+.price-matrix__us small { color: var(--coral-deep); opacity: 0.75; }
+/* Total row — emphasized */
+.price-matrix__total-row th[scope="row"],
+.price-matrix__total-row td {
+  font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+  border-top: 2px solid var(--border-strong);
+}
+.price-matrix__total-row th[scope="row"] { background: var(--cream-deep); }
+.price-matrix__total-row .price-matrix__us { background: #FFD0DE; }
+/* Half-star rating: grey base + coral fill clipped to --pct */
+.stars {
+  display: inline-block;
+  position: relative;
+  font-size: 1.05rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+.stars::before {
+  content: "★★★★★";
+  letter-spacing: 2px;
+  color: var(--border-strong);
+}
+.stars::after {
+  content: "★★★★★";
+  letter-spacing: 2px;
+  color: var(--coral);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--pct, 0%);
+  overflow: hidden;
+}
+.price-matrix__note {
+  max-width: 1040px;
+  margin: var(--sp-5) auto 0;
+  font-size: var(--fs-xs);
+  color: var(--ink-muted);
+  line-height: 1.7;
+}
+@media (max-width: 640px) {
+  .price-matrix__scroll {
+    border-radius: 0;
+    margin-left: calc(-1 * var(--sp-4));
+    margin-right: calc(-1 * var(--sp-4));
+    padding-left: var(--sp-4);
+    padding-right: var(--sp-4);
+  }
+}
+
+/* ==========================================================================
    Expanded course product sections (Courses & Fees page)
    ========================================================================== */
 .course-products {
