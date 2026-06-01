@@ -2471,7 +2471,7 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 }
 .campus-card__name {
   font-family: var(--font-display-jp);
-  font-style: italic;
+  font-style: normal; /* Japanese names: avoid synthesized faux-italic slant */
   font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.1rem);
   font-weight: 700;
   color: var(--ink);
