@@ -479,9 +479,15 @@
                     <option value="triple" data-rate="15000">トリプルシェア (+¥15,000 / 週)</option>
                   </select>
                 </div>`;
+        // Niseko courses carry the legacy Niseko Ryugaku crest as a
+        // top-right brand mark (the school's heritage logo).
+        const brandMark = p.locKey === 'niseko'
+          ? `<img src="../assets/img/niseko-ryugaku-old-logo.png" alt="Niseko Ryugaku" class="course-product__brand-mark" loading="lazy" />`
+          : '';
         return `
         <article id="course-${id}" class="course-product course-product--${p.accent}">
           <div class="course-product__body">
+            ${brandMark}
 
             <!-- Header -->
             <header class="course-product__head">
