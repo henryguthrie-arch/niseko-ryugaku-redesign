@@ -4530,6 +4530,83 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   display: block;
 }
 
+/* ---------- LINE contact CTA ---------- */
+.line-cta {
+  padding-block: var(--sp-5) var(--sp-7);
+}
+.line-cta__card {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  max-width: 660px;
+  margin: 0 auto;
+  padding: var(--sp-4) var(--sp-5);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: 0 12px 32px -22px rgba(14, 14, 14, 0.3);
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform var(--t-med) var(--ease), box-shadow var(--t-med) var(--ease);
+}
+.line-cta__card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 44px -22px rgba(6, 199, 85, 0.55);
+}
+.line-cta__icon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+}
+.line-cta__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.line-cta__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+.line-cta__head {
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  color: var(--ink);
+}
+.line-cta__sub {
+  font-size: var(--fs-sm);
+  color: var(--ink-muted);
+  line-height: 1.55;
+}
+.line-cta__btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 11px 20px;
+  background: #06C755;
+  color: #fff;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  transition: background var(--t-fast) var(--ease);
+}
+.line-cta__card:hover .line-cta__btn {
+  background: #05A847;
+}
+@media (max-width: 640px) {
+  .line-cta__card {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--sp-3);
+  }
+  .line-cta__btn { width: 100%; justify-content: center; padding: 13px 20px; }
+}
+
 /* ---------- Print fallback ---------- */
 @media print {
   .site-header, .announce, .voices__nav, .booking { display: none; }
