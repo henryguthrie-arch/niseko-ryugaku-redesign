@@ -2458,6 +2458,17 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   color: var(--coral);
   display: inline-block;
 }
+.campus-card__name-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+}
+.campus-card__crest {
+  width: clamp(48px, 9vw, 64px);
+  height: auto;
+  flex-shrink: 0;
+}
 .campus-card__name {
   font-family: var(--font-display-jp);
   font-style: italic;
