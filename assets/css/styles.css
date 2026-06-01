@@ -4534,6 +4534,11 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 .line-cta {
   padding-block: var(--sp-5) var(--sp-7);
 }
+/* When the LINE CTA directly follows the media section, pull the two
+   together — the media section's large bottom padding + the CTA's top
+   padding otherwise leaves a big empty gap. */
+.media:has(+ .line-cta) { padding-bottom: var(--sp-6); }
+.media + .line-cta { padding-top: 0; }
 .line-cta__card {
   display: flex;
   align-items: center;
