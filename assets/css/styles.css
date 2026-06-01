@@ -4084,11 +4084,16 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   font-weight: 500;
   opacity: 0.85;
 }
-/* Featured ニセコ留学 columns — coral, like the brand's primary */
+/* Featured SPEAKMORE columns — coral, like the brand's primary */
 .price-matrix__col--us {
   background: var(--coral);
   color: #fff;
 }
+/* The black wordmark logo sits on the coral header — invert it to white. */
+.price-matrix__col--us .brand__logo-img {
+  filter: brightness(0) invert(1);
+}
+.price-matrix__col--us .brand__logo--in-table { margin-bottom: 4px; }
 /* Row label column */
 .price-matrix__table tbody th[scope="row"] {
   background: var(--cream);
