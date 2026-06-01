@@ -131,6 +131,12 @@ body {
 .page-home .hero__divider {
   display: none;
 }
+/* Tighten the why-speakmore → finder join — both sections used to have
+   their own coloured backgrounds and needed generous padding to feel
+   separate. Now that they share the body gradient, the gap can collapse
+   considerably without losing breathing room. */
+.page-home .why-speakmore { padding-bottom: var(--sp-5); }
+.page-home #programs      { padding-top:    var(--sp-5); }
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
@@ -348,26 +354,23 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   color: var(--ink);
   flex-shrink: 0;
 }
-/* SPEAKMORE wordmark logo — heavy italic display, two-color split, hard drop shadow */
+/* SPEAKMORE wordmark logo — image-based black wordmark */
 .brand__logo {
   display: inline-flex;
-  font-family: "Archivo Black", "Arial Black", Impact, sans-serif;
-  font-style: italic;
-  font-weight: 400; /* Archivo Black is single-weight */
-  font-size: 1.65rem;
-  line-height: 1;
-  letter-spacing: -0.025em;
-  text-shadow: 3px 3px 0 var(--ink);
+  align-items: center;
   user-select: none;
 }
-.brand__logo-a { color: var(--teal-deep); }
-.brand__logo-b { color: var(--coral); }
-.brand--light .brand__logo {
-  /* On the black footer the ink-colored shadow is invisible; use a soft cream offset instead */
-  text-shadow: 3px 3px 0 rgba(255, 232, 223, 0.10);
+.brand__logo-img {
+  display: block;
+  height: 22px;
+  width: auto;
+}
+/* On the black footer the wordmark is black-on-black — invert it to white. */
+.brand--light .brand__logo-img {
+  filter: brightness(0) invert(1);
 }
 @media (min-width: 640px) {
-  .brand__logo { font-size: 1.85rem; }
+  .brand__logo-img { height: 26px; }
 }
 
 .site-nav { display: none; }
@@ -628,15 +631,17 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   flex-shrink: 0;
 }
 .rebrand__new {
-  font-family: "Archivo Black", "Arial Black", Impact, sans-serif;
-  font-style: italic;
-  font-size: 1.25rem;
-  line-height: 1;
-  letter-spacing: -0.025em;
-  text-shadow: 2px 2px 0 var(--ink);
+  display: inline-flex;
+  align-items: center;
 }
-.rebrand__new-a { color: var(--teal-deep); }
-.rebrand__new-b { color: var(--coral); }
+.rebrand__new-img {
+  height: 24px;
+  width: auto;
+  display: block;
+}
+@media (min-width: 640px) {
+  .rebrand__new-img { height: 30px; }
+}
 .rebrand__title {
   font-family: var(--font-display-jp);
   font-size: clamp(1.4rem, 1.1rem + 1.2vw, 1.85rem);
@@ -2412,13 +2417,16 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   aspect-ratio: 4 / 3;
   overflow: hidden;
 }
-.campus-card__media svg {
+.campus-card__media svg,
+.campus-card__media img {
   width: 100%;
   height: 100%;
   display: block;
+  object-fit: cover;
   transition: transform var(--t-slow) var(--ease);
 }
-.campus-card:hover .campus-card__media svg { transform: scale(1.05); }
+.campus-card:hover .campus-card__media svg,
+.campus-card:hover .campus-card__media img { transform: scale(1.05); }
 
 /* Color-coded top stripe for each campus, hinting at the original section bg */
 .campus-card::before {
@@ -2431,6 +2439,9 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 .campus-card--niseko::before { background: var(--ink); }
 .campus-card--nozawa::before { background: var(--coral); }
 .campus-card--tokyo::before  { background: var(--cream-deep); border-bottom: 1px solid rgba(14,14,14,0.06); }
+/* Cards that use a real photo (not the SVG illustration) drop the
+   coloured top stripe so the image fills the media area edge-to-edge. */
+.campus-card:has(.campus-card__media img)::before { display: none; }
 
 .campus-card__body {
   padding: var(--sp-5) var(--sp-5) var(--sp-6);
@@ -3962,21 +3973,19 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 }
 .compare-matrix__col:first-of-type { border-left: none; }
 
-/* SPEAKMORE column header — soft pink, highlighted; keeps the brand wordmark colors */
+/* SPEAKMORE column header — soft pink, highlighted */
 .compare-matrix__col--us {
   background: var(--pink-soft);
   color: var(--pink-deep);
 }
-/* Soften the logo's ink shadow against the pink background — use a darker pink instead */
-.compare-matrix__col--us .brand__logo--in-table {
-  text-shadow: 2px 2px 0 var(--pink-deep);
-}
 
-/* In-table logo: keep the wordmark sized appropriately for a header cell */
+/* In-table logo: size the wordmark image for a header cell */
 .brand__logo--in-table {
-  display: inline-block;
-  font-size: clamp(1.1rem, 2.2vw, 1.55rem);
-  text-shadow: 2px 2px 0 rgba(14, 14, 14, 0.85);
+  display: inline-flex;
+  justify-content: center;
+}
+.brand__logo--in-table .brand__logo-img {
+  height: clamp(16px, 2.6vw, 24px);
 }
 
 /* Cells */

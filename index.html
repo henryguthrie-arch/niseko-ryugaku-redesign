@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Bebas+Neue&amp;family=Noto+Sans+JP:wght@300;400;500;700&amp;display=swap">
 
-  <link rel="stylesheet" href="assets/css/styles.css?v=102">
+  <link rel="stylesheet" href="assets/css/styles.css?v=108">
 </head>
 <body class="page-home">
 
@@ -27,7 +27,7 @@
     <div class="container site-header__inner">
       <a href="#" class="brand" aria-label="SPEAKMORE ホーム">
         <span class="brand__logo">
-          <span class="brand__logo-a">SPEAK</span><span class="brand__logo-b">MORE</span>
+          <img src="assets/img/speakmore-logo.png" alt="SPEAKMORE" class="brand__logo-img">
         </span>
       </a>
 
@@ -67,7 +67,7 @@
             <path d="M2 8 L28 8 M22 3 L28 8 L22 13" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <span class="rebrand__new">
-            <span class="rebrand__new-a">SPEAK</span><span class="rebrand__new-b">MORE</span>
+            <img src="assets/img/speakmore-logo.png" alt="SPEAKMORE" class="rebrand__new-img" />
           </span>
         </div>
         <h2 class="rebrand__title">
@@ -726,36 +726,10 @@
       <div class="campuses__grid">
         <!-- ========== Niseko ========== -->
         <article class="campus-card campus-card--niseko">
-          <div class="campus-card__media" aria-hidden="true">
-            <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
-              <defs>
-                <linearGradient id="campus-sky-niseko" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#0E0E0E"/>
-                  <stop offset="100%" stop-color="#2A2A2A"/>
-                </linearGradient>
-              </defs>
-              <rect width="400" height="300" fill="url(#campus-sky-niseko)"/>
-              <!-- stars -->
-              <g fill="#FFE8DF" opacity="0.7">
-                <circle cx="60" cy="40" r="1.5"/>
-                <circle cx="140" cy="70" r="1"/>
-                <circle cx="240" cy="50" r="1.8"/>
-                <circle cx="320" cy="80" r="1"/>
-                <circle cx="360" cy="40" r="1.4"/>
-                <circle cx="100" cy="100" r="1"/>
-              </g>
-              <!-- distant lime hills -->
-              <path d="M0 210 L80 180 L160 200 L240 175 L320 195 L400 180 L400 300 L0 300 Z" fill="#B4E83C" opacity="0.4"/>
-              <!-- Mt. Yotei -->
-              <path d="M0 240 L100 220 L160 200 L200 100 L240 200 L300 220 L400 230 L400 300 L0 300 Z" fill="#FFE8DF"/>
-              <!-- snow cap -->
-              <path d="M180 140 L200 100 L220 140 L215 145 L210 138 L205 145 L200 138 L195 145 L190 138 L185 142 Z" fill="#FFFFFF"/>
-              <!-- foreground snow drift -->
-              <path d="M0 270 L80 260 L180 275 L260 258 L340 273 L400 262 L400 300 L0 300 Z" fill="#FFFFFF" opacity="0.92"/>
-            </svg>
+          <div class="campus-card__media">
+            <img src="assets/img/campus-niseko.jpg" alt="ニセコキャンパス — 夏のバーベキューを楽しむ受講生たち" loading="lazy">
           </div>
           <div class="campus-card__body">
-            <span class="campus-card__loc">HOKKAIDO</span>
             <h3 class="campus-card__name">Niseko</h3>
             <p class="campus-card__desc">
               「生活そのものが、授業」365日、英語に囲まれて暮らす町。
@@ -799,7 +773,6 @@
             </svg>
           </div>
           <div class="campus-card__body">
-            <span class="campus-card__loc">NAGANO</span>
             <h3 class="campus-card__name">Nozawaonsen</h3>
             <p class="campus-card__desc">
               日本の伝統と、英語の日常。湯けむりの村で、文化も同時に学ぶ。
@@ -860,7 +833,6 @@
             </svg>
           </div>
           <div class="campus-card__body">
-            <span class="campus-card__loc">KANTO</span>
             <h3 class="campus-card__name">Tokyo</h3>
             <p class="campus-card__desc">
               仕事も、暮らしも。対面とオンラインを自由に組み合わせる。
@@ -1333,7 +1305,7 @@
       <div class="site-footer__brand">
         <a href="#" class="brand brand--light">
           <span class="brand__logo">
-            <span class="brand__logo-a">SPEAK</span><span class="brand__logo-b">MORE</span>
+            <img src="assets/img/speakmore-logo.png" alt="SPEAKMORE" class="brand__logo-img">
           </span>
         </a>
         <p class="site-footer__addr">
