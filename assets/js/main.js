@@ -479,10 +479,14 @@
                     <option value="triple" data-rate="15000">トリプルシェア (+¥15,000 / 週)</option>
                   </select>
                 </div>`;
-        // Niseko courses carry the legacy Niseko Ryugaku crest as a
-        // top-right brand mark (the school's heritage logo).
-        const brandMark = p.locKey === 'niseko'
-          ? `<img src="../assets/img/niseko-ryugaku-old-logo.png" alt="Niseko Ryugaku" class="course-product__brand-mark" loading="lazy" />`
+        // Location-based heritage crest shown as a top-right brand mark.
+        const CRESTS = {
+          niseko: { src: '../assets/img/niseko-ryugaku-old-logo.png', alt: 'Niseko Ryugaku' },
+          nozawa: { src: '../assets/img/nozawa-logo.png',             alt: 'Nozawa International Academy' },
+        };
+        const crest = CRESTS[p.locKey];
+        const brandMark = crest
+          ? `<img src="${crest.src}" alt="${crest.alt}" class="course-product__brand-mark" loading="lazy" />`
           : '';
         return `
         <article id="course-${id}" class="course-product course-product--${p.accent}">
