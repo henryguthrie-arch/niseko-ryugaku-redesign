@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Bebas+Neue&amp;family=Noto+Sans+JP:wght@300;400;500;700&amp;display=swap">
 
-  <link rel="stylesheet" href="assets/css/styles.css?v=126">
+  <link rel="stylesheet" href="assets/css/styles.css?v=127">
 </head>
 <body class="page-home">
 
@@ -124,17 +124,6 @@
             15分の無料カウンセリング
           </a>
         </div>
-        <div class="hero__meta">
-          <div class="hero__meta-item">
-            <span class="hero__meta-num">4.9</span>
-            <span class="hero__meta-label">受講生満足度<br><small>/ 5.0 (2024年度)</small></span>
-          </div>
-          <div class="hero__meta-divider" aria-hidden="true"></div>
-          <div class="hero__meta-item">
-            <span class="hero__meta-num">2,400<sup>+</sup></span>
-            <span class="hero__meta-label">これまでの<br><small>受講生数</small></span>
-          </div>
-        </div>
       </div>
 
       <figure class="hero__photo">
@@ -149,44 +138,38 @@
     </svg>
   </section>
 
-  <!-- ========== Stats / Credibility strip ========== -->
+  <!-- ========== Stats / Credibility strip (combined) ========== -->
   <section class="stats">
     <div class="container">
-      <div class="stats__grid">
-        <div class="stats__item">
+      <span class="stats__pill stats__pill--top">EST. 2013</span>
+
+      <!-- Top row: 3 headline metrics -->
+      <div class="stats__top">
+        <div class="stats__cell">
+          <div class="stats__num"><span data-counter="4.9">4.9</span><span class="stats__unit">/ 5.0</span></div>
+          <div class="stats__label">受講生満足度</div>
+        </div>
+        <div class="stats__cell">
+          <div class="stats__num">2,400<span class="stats__unit">+</span></div>
+          <div class="stats__label">これまでの受講生数</div>
+        </div>
+        <div class="stats__cell">
+          <div class="stats__num"><span data-counter="12">12</span><span class="stats__unit">年</span></div>
+          <div class="stats__label">プログラム運営歴</div>
+        </div>
+      </div>
+
+      <!-- Bottom row: 2 supporting metrics with notes -->
+      <div class="stats__bottom">
+        <div class="stats__cell">
           <div class="stats__num"><span data-counter="100">100</span><span class="stats__unit">%</span></div>
           <div class="stats__label">ネイティブ講師</div>
-          <p class="stats__note">英・米・加・豪・NZの認定教員のみ</p>
+          <p class="stats__note">アメリカ・カナダ・イギリス・オーストラリア・NZなど出身、認定講師のみ</p>
         </div>
-        <div class="stats__item">
+        <div class="stats__cell">
           <div class="stats__num"><span data-counter="8">8</span><span class="stats__unit">名</span></div>
-          <div class="stats__label">1クラスの最大人数</div>
+          <div class="stats__label">1クラス最大人数</div>
           <p class="stats__note">話す時間が圧倒的に長い少人数制</p>
-        </div>
-        <div class="stats__item stats__item--anniversary">
-          <span class="stats__sparkles" aria-hidden="true">
-            <span class="stats__sparkle" style="--x:6%;  --y:18%; --d:0.0s; --c:var(--teal);  --size:20px;"></span>
-            <span class="stats__sparkle" style="--x:26%; --y:8%;  --d:0.5s; --c:var(--cream); --size:14px;"></span>
-            <span class="stats__sparkle" style="--x:50%; --y:6%;  --d:1.0s; --c:var(--teal);  --size:18px;"></span>
-            <span class="stats__sparkle" style="--x:74%; --y:14%; --d:0.3s; --c:var(--coral); --size:22px;"></span>
-            <span class="stats__sparkle" style="--x:92%; --y:28%; --d:1.6s; --c:var(--cream); --size:12px;"></span>
-            <span class="stats__sparkle" style="--x:10%; --y:52%; --d:1.9s; --c:var(--teal);  --size:16px;"></span>
-            <span class="stats__sparkle" style="--x:32%; --y:72%; --d:0.4s; --c:var(--cream); --size:14px;"></span>
-            <span class="stats__sparkle" style="--x:62%; --y:80%; --d:2.2s; --c:var(--teal);  --size:20px;"></span>
-            <span class="stats__sparkle" style="--x:88%; --y:68%; --d:1.3s; --c:var(--coral); --size:18px;"></span>
-            <span class="stats__sparkle" style="--x:18%; --y:88%; --d:2.5s; --c:var(--teal);  --size:12px;"></span>
-            <span class="stats__sparkle" style="--x:48%; --y:46%; --d:1.7s; --c:var(--cream); --size:10px;"></span>
-            <span class="stats__sparkle" style="--x:72%; --y:50%; --d:0.8s; --c:var(--teal);  --size:14px;"></span>
-            <span class="stats__sparkle" style="--x:40%; --y:24%; --d:2.0s; --c:var(--coral); --size:11px;"></span>
-            <span class="stats__sparkle" style="--x:84%; --y:90%; --d:0.6s; --c:var(--teal);  --size:16px;"></span>
-            <span class="stats__sparkle" style="--x:4%;  --y:78%; --d:1.4s; --c:var(--cream); --size:13px;"></span>
-          </span>
-          <span class="stats__pill">EST. 2013</span>
-          <div class="stats__num">
-            <span data-counter="12">12</span><span class="stats__unit">年</span>
-          </div>
-          <div class="stats__label">プログラム運営歴</div>
-          <p class="stats__note">2013年創立。卒業生は世界の大学へ</p>
         </div>
       </div>
     </div>
