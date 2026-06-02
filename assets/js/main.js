@@ -559,19 +559,19 @@
 
             <!-- CTA banner -->
             <div class="course-product__cta">
+              <span class="course-product__cta-avatar">
+                <img src="../assets/img/moeko.png" alt="無料カウンセリング担当 Moeko" loading="lazy" />
+              </span>
               <div class="course-product__cta-body">
                 <p class="course-product__cta-eyebrow">Would you like to get started?</p>
                 <h4 class="course-product__cta-title">Book a free consultation</h4>
-                <a href="../index.html#contact" class="course-product__cta-button">
-                  予約はこちら
-                  <span class="course-product__cta-button-arrow" aria-hidden="true">
-                    <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8 L13 8 M9 4 L13 8 L9 12"/></svg>
-                  </span>
-                </a>
               </div>
-              <div class="course-product__cta-photo">
-                <img src="../assets/img/moeko.png" alt="無料カウンセリング担当 Moeko" loading="lazy" />
-              </div>
+              <a href="../index.html#contact" class="course-product__cta-button">
+                予約はこちら
+                <span class="course-product__cta-button-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8 L13 8 M9 4 L13 8 L9 12"/></svg>
+                </span>
+              </a>
             </div>
 
           </div>
