@@ -486,16 +486,44 @@
         const creator = x.creator || DEFAULT_CREATOR;
         const sliderId = `calc-${id}`;
         const accId = `acc-${id}`;
-        const initialTotal = (x.defaultWeeks * (x.weeklyRate + (x.noAccommodation ? 0 : 35000)))
-          .toLocaleString('ja-JP');
+        // Quote breakdown (live-updated by the price calculator JS below).
+        // Default accommodation = 無料！シェアルーム (+¥0).
+        const ENROLLMENT_FEE = 20000;
+        const LINE_URL = 'https://page.line.me/704erohc?oat_content=url&openQrModal=true';
+        const jpy = (n) => '¥' + n.toLocaleString('ja-JP');
+        const qTuition = x.weeklyRate * x.defaultWeeks;   // 授業料
+        const qSubtotal = ENROLLMENT_FEE + qTuition;       // 小計（税抜）, free acc = 0
+        const qTax = Math.round(qSubtotal * 0.10);         // 消費税（10%）
+        const qTotal = qSubtotal + qTax;                   // お支払い合計
         const accBlock = x.noAccommodation ? '' : `
-                <div class="course-product__calc-row course-product__calc-row--select">
-                  <label for="${accId}">宿泊</label>
-                  <select id="${accId}" data-calc-acc aria-label="宿泊タイプ">
-                    <option value="private" data-rate="35000" selected>プライベートルーム (+¥35,000 / 週)</option>
-                    <option value="twin" data-rate="22000">ツインシェア (+¥22,000 / 週)</option>
-                    <option value="triple" data-rate="15000">トリプルシェア (+¥15,000 / 週)</option>
-                  </select>
+                <div class="course-product__calc-row course-product__calc-row--acc">
+                  <span class="course-product__acc-label">宿泊タイプ</span>
+                  <div class="acc-cards" data-calc-acc role="radiogroup" aria-label="宿泊タイプ">
+                    <label class="acc-card">
+                      <input type="radio" name="${accId}" value="free" data-rate="0" data-acc-name="無料シェアルーム" checked>
+                      <span class="acc-card__icon" aria-hidden="true">🛏️</span>
+                      <span class="acc-card__name"><span class="acc-card__free">無料！</span><br>シェアルーム</span>
+                      <span class="acc-card__en">Free Share</span>
+                    </label>
+                    <label class="acc-card">
+                      <input type="radio" name="${accId}" value="paid" data-rate="3000" data-acc-name="有料シェアルーム">
+                      <span class="acc-card__icon" aria-hidden="true">🛋️</span>
+                      <span class="acc-card__name">有料<br>シェアルーム</span>
+                      <span class="acc-card__en">Paid Share</span>
+                    </label>
+                    <label class="acc-card">
+                      <input type="radio" name="${accId}" value="single" data-rate="9000" data-acc-name="個室（バストイレ別）">
+                      <span class="acc-card__icon" aria-hidden="true">🚪</span>
+                      <span class="acc-card__name">個室<br>（バストイレ別）</span>
+                      <span class="acc-card__en">Single Room</span>
+                    </label>
+                    <label class="acc-card">
+                      <input type="radio" name="${accId}" value="apartment" data-rate="20000" data-acc-name="アパート（貸し切り）">
+                      <span class="acc-card__icon" aria-hidden="true">🏢</span>
+                      <span class="acc-card__name">アパート<br>（貸し切り）</span>
+                      <span class="acc-card__en">Apartment</span>
+                    </label>
+                  </div>
                 </div>`;
         // Location-based heritage crest shown as a top-right brand mark.
         const CRESTS = {
@@ -526,10 +554,8 @@
               <p class="course-product__price">${x.perWeekPrice}<span>〜 / 週</span></p>
             </header>
 
-            <!-- Photo + price calculator (side-by-side) -->
+            <!-- Price calculator + live quote (side-by-side) -->
             <div class="course-product__grid">
-              <figure class="course-product__photo course-product__photo--empty" aria-label="コース写真（後ほど追加）"></figure>
-
               <div class="course-product__calc" data-calc data-weekly-rate="${x.weeklyRate}">
                 <p class="course-product__sub-head">料金シミュレーター</p>
                 <div class="course-product__calc-row">
@@ -538,10 +564,40 @@
                 </div>
                 <input type="range" id="${sliderId}" min="1" max="${x.maxWeeks}" value="${x.defaultWeeks}" step="1" data-calc-input aria-label="受講期間（週）">
                 ${accBlock}
-                <div class="course-product__calc-total">
-                  <span>合計目安</span>
-                  <output data-calc-total>${initialTotal}</output>
+              </div>
+
+              <div class="course-product__quote" data-quote data-enrollment="${ENROLLMENT_FEE}">
+                <div class="course-product__quote-rows">
+                  <div class="quote-row">
+                    <span class="quote-row__label">入学金</span>
+                    <span class="quote-row__val">${jpy(ENROLLMENT_FEE)}</span>
+                  </div>
+                  <div class="quote-row">
+                    <span class="quote-row__label">授業料 - ${escapeHtml(p.jp)} <span data-quote-weeks>× ${x.defaultWeeks}週間</span></span>
+                    <span class="quote-row__val" data-quote-tuition>${jpy(qTuition)}</span>
+                  </div>
+                  ${x.noAccommodation ? '' : `
+                  <div class="quote-row">
+                    <span class="quote-row__label">宿泊費 - <span data-quote-acc-name>無料シェアルーム</span> <span data-quote-weeks>× ${x.defaultWeeks}週間</span></span>
+                    <span class="quote-row__val" data-quote-acc>¥0</span>
+                  </div>`}
+                  <div class="quote-row quote-row--subtotal">
+                    <span class="quote-row__label">小計（税抜）</span>
+                    <span class="quote-row__val" data-quote-subtotal>${jpy(qSubtotal)}</span>
+                  </div>
+                  <div class="quote-row quote-row--tax">
+                    <span class="quote-row__label">消費税（10%）</span>
+                    <span class="quote-row__val" data-quote-tax>${jpy(qTax)}</span>
+                  </div>
                 </div>
+                <div class="course-product__quote-total">
+                  <span class="quote-total__label">お支払い合計 · <span>Total</span></span>
+                  <p class="quote-total__amount">¥<span data-quote-total>${qTotal.toLocaleString('ja-JP')}</span><small>税込</small></p>
+                  <p class="quote-total__period">留学期間：<span data-quote-period></span></p>
+                </div>
+                <a href="${LINE_URL}" target="_blank" rel="noopener" class="course-product__quote-cta">
+                  <span aria-hidden="true">💬</span> 公式LINEでお問い合わせ・申し込む
+                </a>
               </div>
             </div>
 
@@ -624,28 +680,60 @@
        <input data-calc-input>          → slider for # of weeks
        <output data-calc-weeks>         → live "N 週間" label
        <output data-calc-total>         → live ¥ total (formatted with commas)
-       <select data-calc-acc>           → optional accommodation dropdown
-                                          (each <option data-rate="N"> adds N per week)
+       [data-calc-acc]                  → optional accommodation card group
+                                          (each <input type="radio" data-rate="N">
+                                           adds N per week when checked)
   */
   document.querySelectorAll('[data-calc]').forEach((calc) => {
     const input = calc.querySelector('[data-calc-input]');
     const weeksOut = calc.querySelector('[data-calc-weeks]');
-    const totalOut = calc.querySelector('[data-calc-total]');
-    const accSelect = calc.querySelector('[data-calc-acc]');
+    const accGroup = calc.querySelector('[data-calc-acc]');
     const weeklyRate = Number(calc.dataset.weeklyRate || 0);
     if (!input || !weeklyRate) return;
 
+    const grid = calc.closest('.course-product__grid');
+    const quote = grid ? grid.querySelector('[data-quote]') : null;
+
     const fmt = (n) => n.toLocaleString('ja-JP');
+    const yen = (n) => '¥' + fmt(n);
+
+    // Study period begins the next upcoming Monday.
+    const start = (() => {
+      const t = new Date();
+      const add = ((8 - t.getDay()) % 7) || 7;
+      return new Date(t.getFullYear(), t.getMonth(), t.getDate() + add);
+    })();
+    const fmtDate = (d) => `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
+    const setText = (sel, val) => { const el = quote && quote.querySelector(sel); if (el) el.textContent = val; };
+
     const update = () => {
       const weeks = Number(input.value);
-      const accRate = accSelect
-        ? Number(accSelect.selectedOptions[0]?.dataset.rate || 0)
-        : 0;
+      const accRadio = accGroup ? accGroup.querySelector('input:checked') : null;
+      const accRate = accRadio ? Number(accRadio.dataset.rate || 0) : 0;
       if (weeksOut) weeksOut.value = `${weeks} 週間`;
-      if (totalOut) totalOut.value = fmt(weeks * (weeklyRate + accRate));
+
+      if (quote) {
+        const enrollment = Number(quote.dataset.enrollment || 0);
+        const tuition = weeklyRate * weeks;
+        const accCost = accRate * weeks;
+        const subtotal = enrollment + tuition + accCost;
+        const tax = Math.round(subtotal * 0.10);
+        const total = subtotal + tax;
+
+        setText('[data-quote-tuition]', yen(tuition));
+        setText('[data-quote-acc]', yen(accCost));
+        setText('[data-quote-subtotal]', yen(subtotal));
+        setText('[data-quote-tax]', yen(tax));
+        setText('[data-quote-total]', fmt(total));
+        if (accRadio) setText('[data-quote-acc-name]', accRadio.dataset.accName || '');
+        quote.querySelectorAll('[data-quote-weeks]').forEach((el) => { el.textContent = `× ${weeks}週間`; });
+
+        const end = new Date(start.getFullYear(), start.getMonth(), start.getDate() + weeks * 7 - 1);
+        setText('[data-quote-period]', `${fmtDate(start)} 〜 ${fmtDate(end)}（${weeks}週間）`);
+      }
     };
     input.addEventListener('input', update);
-    if (accSelect) accSelect.addEventListener('change', update);
+    if (accGroup) accGroup.addEventListener('change', update);
     update();
   });
 
