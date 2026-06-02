@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Bebas+Neue&amp;family=Noto+Sans+JP:wght@300;400;500;700&amp;display=swap">
 
-  <link rel="stylesheet" href="assets/css/styles.css?v=145">
+  <link rel="stylesheet" href="assets/css/styles.css?v=148">
 </head>
 <body class="page-home">
 
@@ -503,158 +503,11 @@
           </div>
         </div>
 
-        <!--
-          PROTOTYPE NOTICE
-          The block below is a styled VISUAL MOCK of the Calendly inline
-          widget, themed in the brand palette. It is non-functional.
-
-          To wire up the real Calendly booking at deployment, replace the
-          entire <div class="booking__card"> ... </div> with:
-
-          <div class="booking__card">
-            <div class="calendly-inline-widget"
-                 data-url="https://calendly.com/YOUR-USERNAME/free-consultation?primary_color=f25c28&text_color=0e0e0e&background_color=fffcfa&hide_gdpr_banner=1"
-                 style="min-width:320px;height:720px;">
-            </div>
-          </div>
-
-          …and add this script tag once, just before </body>:
-
-          <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-
-          Calendly URL query params used above:
-            primary_color=f25c28       brand orange (buttons)
-            text_color=0e0e0e          near-black text
-            background_color=fffcfa    cream-white surface
-            hide_gdpr_banner=1         less visual noise (use only if compliant)
-        -->
-        <div class="booking__card" aria-label="無料カウンセリング 予約フォーム">
-          <header class="booking__card-head">
-            <div class="booking__card-row">
-              <span class="booking__card-pill">無料 / Free</span>
-              <span class="booking__card-status"><span class="booking__card-status-dot"></span>本日も受付中</span>
-            </div>
-            <h3 class="booking__card-title">無料カウンセリング</h3>
-            <div class="booking__card-meta">
-              <span>
-                <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.3" fill="none"></circle><path d="M8 4 L8 8 L11 10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path></svg>
-                15分
-              </span>
-              <span>
-                <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><rect x="1.5" y="3.5" width="10" height="9" rx="1.5" stroke="currentColor" stroke-width="1.3" fill="none"></rect><path d="M11.5 7 L14.5 5 L14.5 11 L11.5 9 Z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linejoin="round"></path></svg>
-                Zoom
-              </span>
-              <span>JP / EN</span>
-            </div>
-            <p class="booking__card-note">プログラム選びのご相談から、お申し込みの流れまで。初回の方限定でお受けしています。</p>
-          </header>
-
-          <div class="booking__calendar">
-            <div class="booking__calendar-head">
-              <div class="booking__month">
-                <strong>2026年 5月</strong>
-              </div>
-              <div class="booking__tz">
-                <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.3" fill="none"></circle><path d="M1.5 8 L14.5 8 M8 1.5 Q11.5 8 8 14.5 Q4.5 8 8 1.5" stroke="currentColor" stroke-width="1.1" fill="none"></path></svg>
-                Asia/Tokyo
-              </div>
-              <div class="booking__nav">
-                <button type="button" aria-label="前の週">
-                  <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M10 3 L5 8 L10 13" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                </button>
-                <button type="button" class="booking__nav-today">本日</button>
-                <button type="button" aria-label="次の週">
-                  <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M6 3 L11 8 L6 13" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                </button>
-              </div>
-            </div>
-
-            <div class="booking__days" role="row">
-              <div class="booking__day booking__day--closed">
-                <span class="booking__day-num">17</span>
-                <span class="booking__day-name">日</span>
-              </div>
-              <div class="booking__day booking__day--selected" aria-current="date">
-                <span class="booking__day-num">18</span>
-                <span class="booking__day-name">月</span>
-              </div>
-              <div class="booking__day">
-                <span class="booking__day-num">19</span>
-                <span class="booking__day-name">火</span>
-              </div>
-              <div class="booking__day">
-                <span class="booking__day-num">20</span>
-                <span class="booking__day-name">水</span>
-              </div>
-              <div class="booking__day">
-                <span class="booking__day-num">21</span>
-                <span class="booking__day-name">木</span>
-              </div>
-              <div class="booking__day">
-                <span class="booking__day-num">22</span>
-                <span class="booking__day-name">金</span>
-              </div>
-              <div class="booking__day">
-                <span class="booking__day-num">23</span>
-                <span class="booking__day-name">土</span>
-              </div>
-            </div>
-
-            <div class="booking__slots" role="grid" aria-label="予約可能な時間">
-              <!-- 9:00 row -->
-              <button class="slot slot--disabled" disabled="">9:00</button>
-              <button class="slot slot--disabled" disabled="">9:00</button>
-              <button class="slot">9:00</button>
-              <button class="slot">9:00</button>
-              <button class="slot">9:00</button>
-              <button class="slot">9:00</button>
-              <button class="slot">9:00</button>
-              <!-- 10:00 row -->
-              <button class="slot slot--disabled" disabled="">10:00</button>
-              <button class="slot">10:00</button>
-              <button class="slot">10:00</button>
-              <button class="slot slot--disabled" disabled="">10:00</button>
-              <button class="slot">10:00</button>
-              <button class="slot">10:00</button>
-              <button class="slot">10:00</button>
-              <!-- 11:00 row -->
-              <button class="slot slot--disabled" disabled="">11:00</button>
-              <button class="slot">11:00</button>
-              <button class="slot">11:00</button>
-              <button class="slot slot--disabled" disabled="">11:00</button>
-              <button class="slot">11:00</button>
-              <button class="slot">11:00</button>
-              <button class="slot">11:00</button>
-              <!-- 14:00 row -->
-              <button class="slot slot--disabled" disabled="">14:00</button>
-              <button class="slot">14:00</button>
-              <button class="slot slot--disabled" disabled="">14:00</button>
-              <button class="slot">14:00</button>
-              <button class="slot">14:00</button>
-              <button class="slot">14:00</button>
-              <button class="slot slot--disabled" disabled="">14:00</button>
-              <!-- 15:00 row -->
-              <button class="slot slot--disabled" disabled="">15:00</button>
-              <button class="slot">15:00</button>
-              <button class="slot">15:00</button>
-              <button class="slot">15:00</button>
-              <button class="slot slot--disabled" disabled="">15:00</button>
-              <button class="slot">15:00</button>
-              <button class="slot slot--disabled" disabled="">15:00</button>
-            </div>
-
-            <div class="booking__legend">
-              <span><i class="legend-dot legend-dot--avail"></i>予約可</span>
-              <span><i class="legend-dot legend-dot--taken"></i>予約済 / 休講</span>
-            </div>
-          </div>
-
-          <footer class="booking__card-foot">
-            <p>
-              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" style="vertical-align:-2px;margin-right:4px"><path d="M8 1.5 L8 14.5 M1.5 8 L14.5 8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.3" fill="none"></circle></svg>
-              powered by Calendly
-            </p>
-          </footer>
+        <!-- Live Calendly booking widget (event: nisekoryugaku/2022) -->
+        <div class="booking__card booking__card--calendly">
+          <div class="calendly-inline-widget"
+               data-url="https://calendly.com/nisekoryugaku/2022?primary_color=f25c28&amp;hide_gdpr_banner=1"
+               style="min-width:320px;height:760px;"></div>
         </div>
 
       </div>
@@ -1416,6 +1269,7 @@
   </footer>
 
   <script src="assets/js/main.js?v=134"></script>
-
+  <!-- Calendly inline widget loader -->
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
 </body></html>
