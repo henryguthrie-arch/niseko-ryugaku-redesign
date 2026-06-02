@@ -100,7 +100,7 @@
         price: '¥320,000', priceNote: '〜 / 4週間', accent: 'coral', badge: '人気No.1',
       },
       'niseko-intensive': {
-        jp: 'ニセコ留学 集中プラン', en: 'Niseko Ryugaku Intensive Plan',
+        jp: 'ニセコ留学 フォーカスプラン', en: 'Niseko Ryugaku Focus Plan',
         loc: 'ニセコ', locKey: 'niseko', formatKey: 'inperson',
         tag: 'intensive', seasons: ['summer','winter'],
         price: '¥620,000', priceNote: '〜 / 8週間', accent: 'coral',
@@ -124,7 +124,7 @@
         price: '¥298,000', priceNote: '〜 / 4週間', accent: 'teal',
       },
       'nozawa-intensive': {
-        jp: '野沢留学 集中プラン', en: 'Nozawa Ryugaku Intensive Plan',
+        jp: '野沢留学 フォーカスプラン', en: 'Nozawa Ryugaku Focus Plan',
         loc: '野沢温泉', locKey: 'nozawa', formatKey: 'inperson',
         tag: 'intensive', seasons: ['spring'],
         price: '¥580,000', priceNote: '〜 / 8週間', accent: 'teal',
@@ -551,7 +551,6 @@
               <ul class="course-product__feats">
                 ${x.tags.map((t) => `<li>${escapeHtml(t)}</li>`).join('')}
               </ul>
-              <p class="course-product__price">${x.perWeekPrice}<span>〜 / 週</span></p>
             </header>
 
             <!-- Price calculator + live quote (side-by-side) -->
@@ -593,10 +592,9 @@
                 <div class="course-product__quote-total">
                   <span class="quote-total__label">お支払い合計 · <span>Total</span></span>
                   <p class="quote-total__amount">¥<span data-quote-total>${qTotal.toLocaleString('ja-JP')}</span><small>税込</small></p>
-                  <p class="quote-total__period">留学期間：<span data-quote-period></span></p>
                 </div>
                 <a href="${LINE_URL}" target="_blank" rel="noopener" class="course-product__quote-cta">
-                  <span aria-hidden="true">💬</span> 公式LINEでお問い合わせ・申し込む
+                  <img src="../assets/img/line-icon.png" alt="" class="course-product__quote-cta-icon" loading="lazy" /> 公式LINEでお問い合わせ・申し込む
                 </a>
               </div>
             </div>
@@ -696,14 +694,6 @@
 
     const fmt = (n) => n.toLocaleString('ja-JP');
     const yen = (n) => '¥' + fmt(n);
-
-    // Study period begins the next upcoming Monday.
-    const start = (() => {
-      const t = new Date();
-      const add = ((8 - t.getDay()) % 7) || 7;
-      return new Date(t.getFullYear(), t.getMonth(), t.getDate() + add);
-    })();
-    const fmtDate = (d) => `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
     const setText = (sel, val) => { const el = quote && quote.querySelector(sel); if (el) el.textContent = val; };
 
     const update = () => {
@@ -727,9 +717,6 @@
         setText('[data-quote-total]', fmt(total));
         if (accRadio) setText('[data-quote-acc-name]', accRadio.dataset.accName || '');
         quote.querySelectorAll('[data-quote-weeks]').forEach((el) => { el.textContent = `× ${weeks}週間`; });
-
-        const end = new Date(start.getFullYear(), start.getMonth(), start.getDate() + weeks * 7 - 1);
-        setText('[data-quote-period]', `${fmtDate(start)} 〜 ${fmtDate(end)}（${weeks}週間）`);
       }
     };
     input.addEventListener('input', update);
