@@ -696,6 +696,103 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 .rebrand__col--accent .rebrand__col-tag { color: var(--teal); border-color: var(--teal); }
 .rebrand__col--accent p { color: #FFFFFF; }
 
+/* ----- Rebrand suite (SPEAKMORE = Niseko + Nozawa + Tokyo) ----- */
+.rebrand__nots {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--sp-5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+.rebrand__nots li {
+  font-size: var(--fs-sm);
+  color: var(--ink-muted);
+  background: rgba(14, 14, 14, 0.05);
+  border-radius: 999px;
+  padding: 6px 14px;
+  line-height: 1.3;
+}
+.rebrand__eyebrow {
+  font-family: var(--font-jp);
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--coral);
+  letter-spacing: 0.02em;
+  margin: 0 0 var(--sp-3);
+}
+.rebrand__suite {
+  max-width: 760px;
+  margin: var(--sp-7) auto var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.rebrand__suite-brand img {
+  height: clamp(40px, 6vw, 64px);
+  width: auto;
+  display: block;
+}
+.rebrand__suite-label {
+  position: relative;
+  font-size: var(--fs-sm);
+  color: var(--ink-muted);
+  text-align: center;
+  margin: 0 0 var(--sp-5);
+  padding-top: calc(var(--sp-5) + var(--sp-3));
+}
+/* vertical connector line from SPEAKMORE down to the academies */
+.rebrand__suite-label::before {
+  content: "";
+  position: absolute;
+  top: var(--sp-3);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: var(--sp-5);
+  background: var(--cream-deep);
+}
+.rebrand__suite-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(8px, 2vw, 22px);
+}
+.rebrand__suite-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-3);
+  background: #fff;
+  border: 1px solid rgba(14, 14, 14, 0.06);
+  border-radius: var(--r-md);
+  padding: clamp(14px, 2.4vw, 24px) clamp(6px, 1.5vw, 16px);
+}
+.rebrand__suite-crest img {
+  height: clamp(54px, 11vw, 92px);
+  width: auto;
+  display: block;
+}
+.rebrand__suite-name {
+  font-family: var(--font-display-jp);
+  font-weight: 700;
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  color: var(--ink);
+  text-align: center;
+}
+.rebrand__foot {
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--ink-muted);
+  line-height: 1.85;
+  margin: var(--sp-5) auto 0;
+  max-width: 640px;
+}
+
 /* ---------- Stats ---------- */
 .stats {
   background: var(--cream);
