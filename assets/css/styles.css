@@ -735,54 +735,36 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   display: block;
 }
 .rebrand__suite-label {
-  position: relative;
   font-size: var(--fs-sm);
   color: var(--ink-muted);
   text-align: center;
   margin: 0 0 var(--sp-5);
-  padding-top: calc(var(--sp-5) + var(--sp-3));
-}
-/* vertical connector line from SPEAKMORE down to the academies */
-.rebrand__suite-label::before {
-  content: "";
-  position: absolute;
-  top: var(--sp-3);
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2px;
-  height: var(--sp-5);
-  background: var(--cream-deep);
+  padding-top: var(--sp-4);
 }
 .rebrand__suite-list {
   list-style: none;
-  padding: 0;
   margin: 0;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: clamp(8px, 2vw, 22px);
+  background: #fff;
+  border: 1px solid rgba(14, 14, 14, 0.06);
+  border-radius: var(--r-lg);
+  padding: clamp(20px, 3.5vw, 40px) clamp(14px, 3vw, 32px);
+  box-shadow: 0 1px 0 rgba(14, 14, 14, 0.04), 0 18px 36px -26px rgba(14, 14, 14, 0.16);
 }
 .rebrand__suite-list li {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--sp-3);
-  background: #fff;
-  border: 1px solid rgba(14, 14, 14, 0.06);
-  border-radius: var(--r-md);
-  padding: clamp(14px, 2.4vw, 24px) clamp(6px, 1.5vw, 16px);
+  padding: clamp(6px, 1.5vw, 12px);
 }
 .rebrand__suite-crest img {
-  height: clamp(54px, 11vw, 92px);
+  height: clamp(78px, 15vw, 132px);
   width: auto;
   display: block;
-}
-.rebrand__suite-name {
-  font-family: var(--font-display-jp);
-  font-weight: 700;
-  font-size: clamp(0.9rem, 2vw, 1.05rem);
-  color: var(--ink);
-  text-align: center;
 }
 .rebrand__foot {
   text-align: center;
@@ -810,22 +792,6 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   pointer-events: none;
 }
 .stats .container { position: relative; z-index: 1; }
-.stats__pill {
-  display: inline-block;
-  font-family: var(--font-en);
-  font-size: 0.62rem;
-  font-weight: 800;
-  letter-spacing: 0.28em;
-  padding: 4px 12px;
-  border: 1px solid rgba(180, 232, 60, 0.55);
-  border-radius: 999px;
-  color: var(--teal);
-}
-.stats__pill--top {
-  display: block;
-  width: max-content;
-  margin: 0 auto var(--sp-6);
-}
 .stats__top {
   display: grid;
   grid-template-columns: 1fr;
@@ -897,6 +863,23 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
    matches the activity-icon section on the Why page. */
 .finder--pink {
   background: linear-gradient(180deg, var(--pink-soft) 0%, var(--cream) 100%);
+}
+
+/* SPEAKMORE suite logos strip (Courses page) — bridges the hero into the finder */
+.course-suite {
+  background: var(--cream);
+  padding-block: var(--sp-2) clamp(40px, 6vw, 80px);
+}
+.course-suite__label {
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--ink-muted);
+  letter-spacing: 0.02em;
+  margin: 0 0 var(--sp-5);
+}
+.course-suite .rebrand__suite-list {
+  max-width: 720px;
+  margin-inline: auto;
 }
 
 /* When the finder hosts a bottom group-banner, give it room and clip overflow.
@@ -1236,6 +1219,12 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   display: inline-flex;
   align-items: center;
   gap: var(--sp-2);
+}
+.result-card__location--logo { gap: 0; }
+.result-card__location-logo {
+  height: 58px;
+  width: auto;
+  display: block;
 }
 .result-card__location-icon {
   width: 30px;
@@ -2248,6 +2237,16 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   text-align: center;
   margin-bottom: var(--sp-8);
 }
+.why-speakmore__eyebrow {
+  display: block;
+  font-family: var(--font-en);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin: 0 0 var(--sp-3);
+}
 .why-speakmore__title {
   font-family: var(--font-display-jp);
   font-size: clamp(1.8rem, 1.3rem + 2vw, 2.8rem);
@@ -2311,6 +2310,19 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   border-radius: 999px;
   margin-bottom: var(--sp-4);
 }
+.point-card__eyebrow {
+  display: block;
+  font-family: var(--font-en);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin: 0 0 var(--sp-2);
+}
+.point-card__eyebrow--accent {
+  color: var(--coral);
+}
 .point-card__title {
   font-family: var(--font-display-jp);
   font-size: clamp(1.4rem, 1.1rem + 1.2vw, 2rem);
@@ -2369,6 +2381,45 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   object-fit: cover;
   display: block;
   border-radius: var(--r-lg);
+}
+
+/* Note callout — coral-tinted highlight under a card's description */
+.point-card__note {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-2);
+  margin: var(--sp-4) 0 0;
+  padding: var(--sp-3) var(--sp-4);
+  background: rgba(242, 92, 40, 0.08);
+  border-radius: var(--r-md);
+  font-size: var(--fs-sm);
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+.point-card__note-icon { flex: none; line-height: 1.6; }
+.point-card__note strong { color: var(--coral-deep); font-weight: 700; }
+
+/* Photo placeholder — dashed box for an image to be added later */
+.point-card__media--placeholder {
+  padding: 0;
+  min-height: 0;
+  aspect-ratio: 4 / 3;
+  border: 2px dashed rgba(14, 14, 14, 0.16);
+  border-radius: var(--r-lg);
+  background: var(--bg);
+  color: var(--ink-muted);
+}
+.point-card__placeholder-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+}
+.point-card__placeholder-label {
+  font-family: var(--font-jp);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
 }
 
 /* ---------- Our Campuses (unified 3-up section) ---------- */

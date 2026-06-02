@@ -207,6 +207,20 @@
       return 'pages/courses.html'; // root: index.html
     })();
 
+    // Path to /assets/img depends on whether main.js runs from the site root
+    // (index.html) or a subfolder (pages/, lp/). Mirror coursesHref's logic.
+    const imgBase = (() => {
+      const here = window.location.pathname;
+      return (here.includes('/pages/') || here.includes('/lp/')) ? '../assets/img/' : 'assets/img/';
+    })();
+    // Academy crest per location — shown instead of the icon+text label.
+    // 'online' has no crest, so it keeps the icon+text fallback.
+    const LOC_LOGOS = {
+      niseko: 'niseko-logo.png',
+      nozawa: 'nozawa-logo.png',
+      tokyo:  'tokyo-logo.png',
+    };
+
     const intensityLabel = { intensive: '本格コース', casual: '気軽なコース', corporate: '法人研修', any: 'すべてのコース' };
     const seasonLabel    = { spring: '春', summer: '夏', winter: '冬', anytime: 'いつでもOK' };
 
@@ -256,10 +270,14 @@
         <article class="result-card result-card--${p.accent}" role="listitem">
           ${p.badge ? `<span class="result-card__badge">${p.badge}</span>` : ''}
           <header class="result-card__head">
-            <span class="result-card__location">
+            ${LOC_LOGOS[p.locKey]
+              ? `<span class="result-card__location result-card__location--logo">
+              <img src="${imgBase}${LOC_LOGOS[p.locKey]}" alt="${p.loc}" class="result-card__location-logo" loading="lazy" />
+            </span>`
+              : `<span class="result-card__location">
               <span class="result-card__location-icon" aria-hidden="true">${ICONS.loc[p.locKey]}</span>
               <span class="result-card__location-text">${p.loc}</span>
-            </span>
+            </span>`}
           </header>
           <h4 class="result-card__title">${p.jp}</h4>
           <p class="result-card__en">${p.en}</p>
