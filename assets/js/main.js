@@ -363,13 +363,13 @@
       };
 
       const detailExtras = {
-        'niseko-basic':       { weeklyRate: 84000,  maxWeeks: 8,  defaultWeeks: 2, perWeekPrice: '¥84,000',  tags: ['通学制','本格型','ネイティブ講師'],            content: 'basic'      },
-        'niseko-popular':     { weeklyRate: 80000,  maxWeeks: 12, defaultWeeks: 4, perWeekPrice: '¥80,000',  tags: ['通学制','本格型','ネイティブ講師','4週間'],   content: 'popular'    },
-        'niseko-intensive':   { weeklyRate: 78000,  maxWeeks: 16, defaultWeeks: 8, perWeekPrice: '¥78,000',  tags: ['通学制','集中型','ネイティブ講師','8週間'],   content: 'intensive'  },
+        'niseko-basic':       { weeklyRate: 84000,  maxWeeks: 8,  defaultWeeks: 2, perWeekPrice: '¥84,000',  tags: ['通学制','本格型','ネイティブ講師'],            content: 'basic',     plan: 'basic'   },
+        'niseko-popular':     { weeklyRate: 80000,  maxWeeks: 12, defaultWeeks: 4, perWeekPrice: '¥80,000',  tags: ['通学制','本格型','ネイティブ講師','4週間'],   content: 'popular',   plan: 'popular' },
+        'niseko-intensive':   { weeklyRate: 78000,  maxWeeks: 16, defaultWeeks: 8, perWeekPrice: '¥78,000',  tags: ['通学制','集中型','ネイティブ講師','8週間'],   content: 'intensive', plan: 'focus'   },
         'niseko-whv':         { weeklyRate: 35000,  maxWeeks: 26, defaultWeeks: 12, perWeekPrice: '¥35,000', tags: ['通学制','ワーホリ','ネイティブ講師'],          content: 'whv'        },
-        'nozawa-basic':       { weeklyRate: 79000,  maxWeeks: 8,  defaultWeeks: 2, perWeekPrice: '¥79,000',  tags: ['通学制','本格型','ネイティブ講師'],            content: 'basic',     creator: NOZAWA_CREATOR },
-        'nozawa-popular':     { weeklyRate: 75000,  maxWeeks: 12, defaultWeeks: 4, perWeekPrice: '¥75,000',  tags: ['通学制','本格型','ネイティブ講師','4週間'],   content: 'popular',   creator: NOZAWA_CREATOR },
-        'nozawa-intensive':   { weeklyRate: 73000,  maxWeeks: 16, defaultWeeks: 8, perWeekPrice: '¥73,000',  tags: ['通学制','集中型','ネイティブ講師','8週間'],   content: 'intensive', creator: NOZAWA_CREATOR },
+        'nozawa-basic':       { weeklyRate: 79000,  maxWeeks: 8,  defaultWeeks: 2, perWeekPrice: '¥79,000',  tags: ['通学制','本格型','ネイティブ講師'],            content: 'basic',     plan: 'basic',   creator: NOZAWA_CREATOR },
+        'nozawa-popular':     { weeklyRate: 75000,  maxWeeks: 12, defaultWeeks: 4, perWeekPrice: '¥75,000',  tags: ['通学制','本格型','ネイティブ講師','4週間'],   content: 'popular',   plan: 'popular', creator: NOZAWA_CREATOR },
+        'nozawa-intensive':   { weeklyRate: 73000,  maxWeeks: 16, defaultWeeks: 8, perWeekPrice: '¥73,000',  tags: ['通学制','集中型','ネイティブ講師','8週間'],   content: 'intensive', plan: 'focus',   creator: NOZAWA_CREATOR },
         'tokyo-school':       { weeklyRate: 12000,  maxWeeks: 24, defaultWeeks: 4, perWeekPrice: '¥12,000',  tags: ['通学制','気軽型','ネイティブ講師'],            content: 'casual'     },
         'online-school':      { weeklyRate: 4500,   maxWeeks: 24, defaultWeeks: 4, perWeekPrice: '¥4,500',   tags: ['オンライン','気軽型','ネイティブ講師'],         content: 'online'     },
         'tokyo-seminars':     { weeklyRate: 12000,  maxWeeks: 8,  defaultWeeks: 1, perWeekPrice: '¥12,000',  tags: ['通学制','気軽型','単発'],                      content: 'seminar', noAccommodation: true },
@@ -480,6 +480,16 @@
         .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
         .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 
+      // Tuition lookup tables (¥, ex-tax) sourced from the Niseko Study Abroad
+      // Pricing sheet. Keyed by plan → duration (weeks). Tuition is NON-linear,
+      // so plan courses look it up here instead of weeklyRate × weeks.
+      // Enrollment ¥20,000, 10% tax, and accommodation (per week) are applied on top.
+      const PRICING_TABLE = {
+        basic:   {1:99000,2:159000,3:219000,4:269000,5:334000,6:399000,7:464000,8:529000,9:594000,10:659000,11:724000,12:789000,13:854000,14:919000,16:1049000,24:1569000},
+        popular: {1:119000,2:199000,3:289000,4:349000,5:424000,6:499000,7:574000,8:649000,9:724000,10:799000,11:874000,12:949000,13:1024000,14:1099000,16:1249000,24:1849000},
+        focus:   {1:159000,2:279000,3:349000,4:399000,5:484000,6:569000,7:654000,8:739000,9:824000,10:909000,11:994000,12:1079000,13:1164000,14:1249000,16:1419000,24:2099000},
+      };
+
       function renderCourseProduct(id, p, x) {
         const content = CONTENT_VARIANTS[x.content] || CONTENT_VARIANTS.popular;
         const features = x.features || DEFAULT_FEATURES;
@@ -491,7 +501,17 @@
         const ENROLLMENT_FEE = 20000;
         const LINE_URL = 'https://page.line.me/704erohc?oat_content=url&openQrModal=true';
         const jpy = (n) => '¥' + n.toLocaleString('ja-JP');
-        const qTuition = x.weeklyRate * x.defaultWeeks;   // 授業料
+        // Plan courses use the sheet lookup table; others fall back to weeklyRate × weeks.
+        const planTable = x.plan ? PRICING_TABLE[x.plan] : null;
+        const tuitionFor = (weeks) => {
+          if (!planTable) return x.weeklyRate * weeks;
+          if (planTable[weeks] != null) return planTable[weeks];
+          const ks = Object.keys(planTable).map(Number).sort((a, b) => a - b);
+          let n = ks[0];
+          for (const k of ks) if (Math.abs(k - weeks) < Math.abs(n - weeks)) n = k;
+          return planTable[n];
+        };
+        const qTuition = tuitionFor(x.defaultWeeks);       // 授業料
         const qSubtotal = ENROLLMENT_FEE + qTuition;       // 小計（税抜）, free acc = 0
         const qTax = Math.round(qSubtotal * 0.10);         // 消費税（10%）
         const qTotal = qSubtotal + qTax;                   // お支払い合計
@@ -555,7 +575,7 @@
 
             <!-- Price calculator + live quote (side-by-side) -->
             <div class="course-product__grid">
-              <div class="course-product__calc" data-calc data-weekly-rate="${x.weeklyRate}">
+              <div class="course-product__calc" data-calc data-weekly-rate="${x.weeklyRate}" data-tuition='${planTable ? JSON.stringify(planTable) : ''}'>
                 <p class="course-product__sub-head">料金シミュレーター</p>
                 <div class="course-product__calc-row">
                   <label for="${sliderId}">期間</label>
@@ -692,19 +712,31 @@
     const grid = calc.closest('.course-product__grid');
     const quote = grid ? grid.querySelector('[data-quote]') : null;
 
+    // Plan courses carry a non-linear tuition lookup table; others use weeklyRate.
+    const tuitionTable = (() => { try { return JSON.parse(calc.dataset.tuition || 'null'); } catch (e) { return null; } })();
+    const validWeeks = tuitionTable ? Object.keys(tuitionTable).map(Number).sort((a, b) => a - b) : null;
+    const snapWeeks = (w) => {
+      if (!validWeeks || tuitionTable[w] != null) return w;
+      let n = validWeeks[0];
+      for (const k of validWeeks) if (Math.abs(k - w) < Math.abs(n - w)) n = k;
+      return n;
+    };
+
     const fmt = (n) => n.toLocaleString('ja-JP');
     const yen = (n) => '¥' + fmt(n);
     const setText = (sel, val) => { const el = quote && quote.querySelector(sel); if (el) el.textContent = val; };
 
     const update = () => {
-      const weeks = Number(input.value);
+      let weeks = Number(input.value);
+      // Plans only sell specific durations — snap the slider to the nearest one.
+      if (tuitionTable) { weeks = snapWeeks(weeks); if (Number(input.value) !== weeks) input.value = weeks; }
       const accRadio = accGroup ? accGroup.querySelector('input:checked') : null;
       const accRate = accRadio ? Number(accRadio.dataset.rate || 0) : 0;
       if (weeksOut) weeksOut.value = `${weeks} 週間`;
 
       if (quote) {
         const enrollment = Number(quote.dataset.enrollment || 0);
-        const tuition = weeklyRate * weeks;
+        const tuition = tuitionTable ? tuitionTable[weeks] : weeklyRate * weeks;
         const accCost = accRate * weeks;
         const subtotal = enrollment + tuition + accCost;
         const tax = Math.round(subtotal * 0.10);
