@@ -483,6 +483,7 @@
         const CRESTS = {
           niseko: { src: '../assets/img/niseko-ryugaku-old-logo.png', alt: 'Niseko Ryugaku' },
           nozawa: { src: '../assets/img/nozawa-logo.png?v=2',         alt: 'Nozawa International Academy' },
+          tokyo:  { src: '../assets/img/tokyo-logo.png',              alt: 'Tokyo International Academy' },
         };
         const crest = CRESTS[p.locKey];
         const brandMark = crest
