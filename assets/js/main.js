@@ -482,7 +482,7 @@
         // Location-based heritage crest shown as a top-right brand mark.
         const CRESTS = {
           niseko: { src: '../assets/img/niseko-ryugaku-old-logo.png', alt: 'Niseko Ryugaku' },
-          nozawa: { src: '../assets/img/nozawa-logo.png',             alt: 'Nozawa International Academy' },
+          nozawa: { src: '../assets/img/nozawa-logo.png?v=2',         alt: 'Nozawa International Academy' },
         };
         const crest = CRESTS[p.locKey];
         const brandMark = crest
