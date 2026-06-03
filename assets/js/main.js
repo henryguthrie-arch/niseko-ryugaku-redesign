@@ -255,8 +255,72 @@
       }
     }
 
+    // Each location collapses its programs into ONE finder card + ONE detail
+    // card with a plan dropdown. Declared in the IIFE scope so the finder
+    // (collapse) and the detail renderer (combine) both see it.
+    // plan.plan = PRICING_TABLE key (sheet pricing) or null (= linear weeklyRate).
+    const LOCATION_GROUPS = {
+      niseko: {
+        title: 'ニセコ留学', en: 'Niseko Ryugaku', loc: 'ニセコ', locKey: 'niseko', accent: 'coral',
+        memberIds: ['niseko-basic', 'niseko-popular', 'niseko-intensive', 'niseko-whv'],
+        groupTag: 'intensive', fromPrice: '¥99,000', fromNote: '〜 / 週',
+        plans: [
+          { value: 'basic',   label: 'ベーシックプラン', quoteName: 'ニセコ留学 ベーシックプラン', content: 'basic',     plan: 'basic',   weeklyRate: 84000, maxWeeks: 24, defaultWeeks: 2 },
+          { value: 'popular', label: '人気プラン',       quoteName: 'ニセコ留学 人気プラン',       content: 'popular',   plan: 'popular', weeklyRate: 80000, maxWeeks: 24, defaultWeeks: 4 },
+          { value: 'focus',   label: 'フォーカスプラン', quoteName: 'ニセコ留学 フォーカスプラン', content: 'intensive', plan: 'focus',   weeklyRate: 78000, maxWeeks: 24, defaultWeeks: 8 },
+          // ワーホリプラン uses the same pricing table as フォーカス (plan: 'focus').
+          { value: 'whv',     label: 'ワーホリプラン',   quoteName: 'ニセコ留学 ワーホリプラン',   content: 'whv',       plan: 'focus',   weeklyRate: 78000, maxWeeks: 24, defaultWeeks: 12 },
+        ],
+      },
+      nozawa: {
+        title: '野沢留学', en: 'Nozawa Ryugaku', loc: '野沢温泉', locKey: 'nozawa', accent: 'teal',
+        memberIds: ['nozawa-basic', 'nozawa-popular', 'nozawa-intensive'],
+        groupTag: 'intensive', fromPrice: '¥99,000', fromNote: '〜 / 週',
+        plans: [
+          { value: 'basic',   label: 'ベーシックプラン', quoteName: '野沢留学 ベーシックプラン', content: 'basic',     plan: 'basic',   weeklyRate: 79000, maxWeeks: 24, defaultWeeks: 2 },
+          { value: 'popular', label: '人気プラン',       quoteName: '野沢留学 人気プラン',       content: 'popular',   plan: 'popular', weeklyRate: 75000, maxWeeks: 24, defaultWeeks: 4 },
+          { value: 'focus',   label: 'フォーカスプラン', quoteName: '野沢留学 フォーカスプラン', content: 'intensive', plan: 'focus',   weeklyRate: 73000, maxWeeks: 24, defaultWeeks: 8 },
+        ],
+      },
+      tokyo: {
+        title: '東京', en: 'Tokyo', loc: '東京・通学', locKey: 'tokyo', accent: 'ink',
+        memberIds: ['tokyo-school', 'tokyo-seminars'],
+        groupTag: 'casual', fromPrice: '¥12,000', fromNote: '/ 週〜',
+        plans: [
+          { value: 'school',  label: '東京スクール',             quoteName: '東京スクール',             content: 'casual',  plan: null, weeklyRate: 12000, maxWeeks: 24, defaultWeeks: 4 },
+          { value: 'seminar', label: 'コンサルティングセミナー', quoteName: '東京コンサルティングセミナー', content: 'seminar', plan: null, weeklyRate: 12000, maxWeeks: 8,  defaultWeeks: 1, noAccommodation: true },
+        ],
+      },
+    };
+    // member program id → group key
+    const MEMBER_TO_GROUP = {};
+    Object.entries(LOCATION_GROUPS).forEach(([key, g]) => g.memberIds.forEach((id) => { MEMBER_TO_GROUP[id] = key; }));
+
+    // Collapse each location's member programs down to one group card.
+    function collapseGroups(entries) {
+      const out = [];
+      const added = new Set();
+      for (const e of entries) {
+        const key = MEMBER_TO_GROUP[e[0]];
+        if (key) {
+          if (!added.has(key)) {
+            const g = LOCATION_GROUPS[key];
+            out.push([key, {
+              jp: g.title, en: g.en, loc: g.loc, locKey: g.locKey, formatKey: 'inperson',
+              tag: g.groupTag, accent: g.accent, price: g.fromPrice, priceNote: g.fromNote,
+              isGroup: true, planCount: g.plans.length,
+            }]);
+            added.add(key);
+          }
+        } else {
+          out.push(e);
+        }
+      }
+      return out;
+    }
+
     function renderResults() {
-      const results = filter(state.intensity, state.season);
+      const results = collapseGroups(filter(state.intensity, state.season));
       $summary.innerHTML =
         `<strong>${intensityLabel[state.intensity]}</strong> × <strong>${seasonLabel[state.season]}</strong>` +
         ` のおすすめ <span class="finder__count">${results.length}件</span>`;
@@ -286,9 +350,9 @@
               <span class="feat__icon" aria-hidden="true">${ICONS.format[p.formatKey]}</span>
               <span>${formatText[p.formatKey]}</span>
             </li>
-            <li class="feat feat--intensity feat--intensity-${p.tag}" aria-label="${intensityText[p.tag]}">
+            <li class="feat feat--intensity${p.isGroup ? '' : ' feat--intensity-' + p.tag}" aria-label="${p.isGroup ? p.planCount + 'プランから選択' : intensityText[p.tag]}">
               <span class="feat__icon" aria-hidden="true">${ICONS.intensity[p.tag]}</span>
-              <span>${intensityText[p.tag]}</span>
+              <span>${p.isGroup ? p.planCount + 'プランから選択' : intensityText[p.tag]}</span>
             </li>
             <li class="feat feat--native" aria-label="ネイティブ講師">
               <span class="feat__icon" aria-hidden="true">${ICONS.native}</span>
@@ -296,7 +360,6 @@
             </li>
           </ul>
           <div class="result-card__foot">
-            <span class="result-card__price">${p.price}<small>${p.priceNote}</small></span>
             <a href="${coursesHref}#course-${id}" class="result-card__link" data-program="${id}">詳細を見る →</a>
           </div>
         </article>
@@ -490,6 +553,8 @@
         focus:   {1:159000,2:279000,3:349000,4:399000,5:484000,6:569000,7:654000,8:739000,9:824000,10:909000,11:994000,12:1079000,13:1164000,14:1249000,16:1419000,24:2099000},
       };
 
+      // Combined-card plan data lives in LOCATION_GROUPS (outer scope).
+
       function renderCourseProduct(id, p, x) {
         const content = CONTENT_VARIANTS[x.content] || CONTENT_VARIANTS.popular;
         const features = x.features || DEFAULT_FEATURES;
@@ -555,6 +620,20 @@
         const brandMark = crest
           ? `<img src="${crest.src}" alt="${crest.alt}" class="course-product__brand-mark" loading="lazy" />`
           : '';
+        // Plan name shown in the 授業料 quote line (a span so the plan-switcher can update it).
+        const quoteName = x.quoteName || p.jp;
+        // Optional plan dropdown (combined location cards). Each option carries
+        // its own pricing/content data so the switcher needs no extra lookup.
+        const planSelectHtml = x.planOptions ? `
+                <div class="course-product__calc-row course-product__calc-row--plan">
+                  <label for="plan-${id}">プラン</label>
+                  <select id="plan-${id}" class="course-product__plan-select" data-plan-select aria-label="プランを選択">
+                    ${x.planOptions.map((pl, i) => {
+                      const t = pl.plan ? PRICING_TABLE[pl.plan] : null;
+                      return `<option value="${pl.value}"${i === 0 ? ' selected' : ''} data-weekly="${pl.weeklyRate}" data-max="${pl.maxWeeks}" data-default="${pl.defaultWeeks}" data-content="${pl.content}" data-quote-name="${escapeHtml(pl.quoteName)}" data-no-acc="${pl.noAccommodation ? 1 : 0}" data-tuition='${t ? JSON.stringify(t) : ''}'>${escapeHtml(pl.label)}</option>`;
+                    }).join('')}
+                  </select>
+                </div>` : '';
         return `
         <article id="course-${id}" class="course-product course-product--${p.accent}">
           <div class="course-product__body">
@@ -577,6 +656,7 @@
             <div class="course-product__grid">
               <div class="course-product__calc" data-calc data-weekly-rate="${x.weeklyRate}" data-tuition='${planTable ? JSON.stringify(planTable) : ''}'>
                 <p class="course-product__sub-head">料金シミュレーター</p>
+                ${planSelectHtml}
                 <div class="course-product__calc-row">
                   <label for="${sliderId}">期間</label>
                   <output for="${sliderId}" data-calc-weeks>${x.defaultWeeks} 週間</output>
@@ -592,7 +672,7 @@
                     <span class="quote-row__val">${jpy(ENROLLMENT_FEE)}</span>
                   </div>
                   <div class="quote-row">
-                    <span class="quote-row__label">授業料 - ${escapeHtml(p.jp)} <span data-quote-weeks>× ${x.defaultWeeks}週間</span></span>
+                    <span class="quote-row__label">授業料 - <span data-quote-plan-name>${escapeHtml(quoteName)}</span> <span data-quote-weeks>× ${x.defaultWeeks}週間</span></span>
                     <span class="quote-row__val" data-quote-tuition>${jpy(qTuition)}</span>
                   </div>
                   ${x.noAccommodation ? '' : `
@@ -670,10 +750,65 @@
         </article>`;
       }
 
+      // Combined location cards (ニセコ留学 / 野沢留学 / 東京): each rendered once
+      // at its first member's slot, defaulting to its first plan, with a plan
+      // dropdown for the rest. The default plan must allow accommodation so the
+      // accommodation block exists for plans that do.
+      const groupsInserted = new Set();
       detailHost.innerHTML = Object.entries(programs)
         .filter(([id]) => detailExtras[id])  // skip any program without detail config
-        .map(([id, p]) => renderCourseProduct(id, p, detailExtras[id]))
+        .map(([id, p]) => {
+          const key = MEMBER_TO_GROUP[id];
+          if (key) {
+            if (groupsInserted.has(key)) return '';
+            groupsInserted.add(key);
+            const g = LOCATION_GROUPS[key];
+            const def = g.plans[0];
+            const groupP = { jp: g.title, en: g.en, loc: g.loc, locKey: g.locKey, accent: g.accent };
+            const groupX = {
+              weeklyRate: def.weeklyRate, maxWeeks: def.maxWeeks, defaultWeeks: def.defaultWeeks,
+              tags: ['通学制', 'ネイティブ講師', 'プラン選択可'], content: def.content, plan: def.plan,
+              planOptions: g.plans, quoteName: def.quoteName, noAccommodation: def.noAccommodation,
+            };
+            return renderCourseProduct(key, groupP, groupX);
+          }
+          return renderCourseProduct(id, p, detailExtras[id]);
+        })
         .join('\n');
+
+      // Plan dropdown → re-price the simulator, swap the weekly-content matrix,
+      // and show/hide accommodation. Each <option> carries its own data.
+      document.querySelectorAll('[data-plan-select]').forEach((sel) => {
+        sel.addEventListener('change', () => {
+          const card = sel.closest('.course-product');
+          const opt = sel.selectedOptions[0];
+          if (!card || !opt) return;
+          const calc = card.querySelector('[data-calc]');
+          const slider = calc.querySelector('[data-calc-input]');
+          // Keep the chosen number of weeks when switching plans (clamped to the
+          // new plan's max) so the slider doesn't jump to each plan's default.
+          const curWeeks = Number(slider.value) || Number(opt.dataset.default);
+          const newMax = Number(opt.dataset.max);
+          calc.dataset.weeklyRate = opt.dataset.weekly;
+          calc.dataset.tuition = opt.dataset.tuition || '';
+          slider.max = opt.dataset.max;
+          slider.value = String(Math.min(Math.max(curWeeks, 1), newMax));
+          const nameEl = card.querySelector('[data-quote-plan-name]');
+          if (nameEl) nameEl.textContent = opt.dataset.quoteName;
+          const grid = card.querySelector('.course-product__contents-grid');
+          const content = CONTENT_VARIANTS[opt.dataset.content] || CONTENT_VARIANTS.popular;
+          if (grid) grid.innerHTML = content.map((c) => `<li><strong>${escapeHtml(c.label)}</strong><span>${escapeHtml(c.value)}</span></li>`).join('');
+          // Show/hide accommodation (e.g. Tokyo seminars have none).
+          const noAcc = opt.dataset.noAcc === '1';
+          const accRow = card.querySelector('.course-product__calc-row--acc');
+          const accQuote = card.querySelector('[data-quote-acc]');
+          const accQuoteRow = accQuote ? accQuote.closest('.quote-row') : null;
+          if (accRow) accRow.style.display = noAcc ? 'none' : '';
+          if (accQuoteRow) accQuoteRow.style.display = noAcc ? 'none' : '';
+          if (noAcc) { const free = card.querySelector('.acc-card input[value="free"]'); if (free) free.checked = true; }
+          slider.dispatchEvent(new Event('input', { bubbles: true }));
+        });
+      });
 
       // If we arrived with a #course-{id} hash (e.g. clicked through from the
       // finder on the homepage), scroll to that card now — the renderer has
@@ -706,27 +841,28 @@
     const input = calc.querySelector('[data-calc-input]');
     const weeksOut = calc.querySelector('[data-calc-weeks]');
     const accGroup = calc.querySelector('[data-calc-acc]');
-    const weeklyRate = Number(calc.dataset.weeklyRate || 0);
-    if (!input || !weeklyRate) return;
+    if (!input || !Number(calc.dataset.weeklyRate || 0)) return;
 
     const grid = calc.closest('.course-product__grid');
     const quote = grid ? grid.querySelector('[data-quote]') : null;
-
-    // Plan courses carry a non-linear tuition lookup table; others use weeklyRate.
-    const tuitionTable = (() => { try { return JSON.parse(calc.dataset.tuition || 'null'); } catch (e) { return null; } })();
-    const validWeeks = tuitionTable ? Object.keys(tuitionTable).map(Number).sort((a, b) => a - b) : null;
-    const snapWeeks = (w) => {
-      if (!validWeeks || tuitionTable[w] != null) return w;
-      let n = validWeeks[0];
-      for (const k of validWeeks) if (Math.abs(k - w) < Math.abs(n - w)) n = k;
-      return n;
-    };
 
     const fmt = (n) => n.toLocaleString('ja-JP');
     const yen = (n) => '¥' + fmt(n);
     const setText = (sel, val) => { const el = quote && quote.querySelector(sel); if (el) el.textContent = val; };
 
     const update = () => {
+      // Read pricing fresh each call so the plan switcher (which rewrites these
+      // data attributes) takes effect without needing to re-wire the listener.
+      const weeklyRate = Number(calc.dataset.weeklyRate || 0);
+      const tuitionTable = (() => { try { return calc.dataset.tuition ? JSON.parse(calc.dataset.tuition) : null; } catch (e) { return null; } })();
+      const validWeeks = tuitionTable ? Object.keys(tuitionTable).map(Number).sort((a, b) => a - b) : null;
+      const snapWeeks = (w) => {
+        if (!validWeeks || tuitionTable[w] != null) return w;
+        let n = validWeeks[0];
+        for (const k of validWeeks) if (Math.abs(k - w) < Math.abs(n - w)) n = k;
+        return n;
+      };
+
       let weeks = Number(input.value);
       // Plans only sell specific durations — snap the slider to the nearest one.
       if (tuitionTable) { weeks = snapWeeks(weeks); if (Number(input.value) !== weeks) input.value = weeks; }
