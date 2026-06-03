@@ -762,9 +762,16 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   padding: clamp(8px, 1.5vw, 16px) 4px;
 }
 .rebrand__suite-crest img {
-  height: clamp(150px, 23vw, 240px);
-  width: auto;
+  /* Keep the crest's natural proportions on every device. width/height auto
+     with max constraints means the browser always scales it to fit the cell
+     (width-bound on phones) or the cap (height-bound on desktop) WITHOUT ever
+     stretching — fixes the 66x150 squish in the 3-up grid on mobile. */
   display: block;
+  margin: 0 auto;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: clamp(130px, 22vw, 220px);
 }
 .rebrand__foot {
   text-align: center;
