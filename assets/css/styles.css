@@ -1178,6 +1178,7 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   background: #fff;
   transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
   isolation: isolate;
+  cursor: pointer;
 }
 .result-card::before {
   content: "";
@@ -1314,6 +1315,7 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   color: var(--c-accent, var(--coral-deep));
   transition: transform var(--t-fast) var(--ease);
 }
+.result-card:hover .result-card__link,
 .result-card__link:hover { transform: translateX(3px); }
 
 .finder__none {
@@ -4492,6 +4494,16 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 .course-product__plan-select:focus {
   outline: 2px solid var(--c-accent, var(--coral));
   outline-offset: 1px;
+}
+/* 1-week-course exclaimer note shown under the period row */
+.course-product__calc-note {
+  margin: 0 0 var(--sp-4);
+  padding: var(--sp-3) var(--sp-3);
+  font-size: var(--fs-xs);
+  line-height: 1.7;
+  color: var(--ink-soft);
+  background: var(--pink-soft, #FFD9E4);
+  border-radius: var(--r-sm);
 }
 /* Accommodation selector — icon cards */
 .course-product__calc-row--acc {

@@ -106,10 +106,10 @@
         price: '¥620,000', priceNote: '〜 / 8週間', accent: 'coral',
       },
       'niseko-whv': {
-        jp: 'ニセコ ワーホリプラン', en: 'Niseko WHV Plan',
+        jp: 'ニセコ留学ワーホリプラン', en: 'Niseko Ryugaku Working Holiday Plan',
         loc: 'ニセコ', locKey: 'niseko', formatKey: 'inperson',
         tag: 'intensive', seasons: ['summer','winter'],
-        price: '¥420,000', priceNote: '〜 / 3ヶ月', accent: 'coral',
+        price: '¥99,000', priceNote: '/ 1週間', accent: 'coral',
       },
       'nozawa-basic': {
         jp: '野沢留学 ベーシックプラン', en: 'Nozawa Ryugaku Basic Plan',
@@ -263,15 +263,14 @@
     const LOCATION_GROUPS = {
       niseko: {
         title: 'ニセコ留学', en: 'Niseko Ryugaku', loc: 'ニセコ', locKey: 'niseko', accent: 'coral',
-        memberIds: ['niseko-basic', 'niseko-popular', 'niseko-intensive', 'niseko-whv'],
+        memberIds: ['niseko-basic', 'niseko-popular', 'niseko-intensive'],
         groupTag: 'intensive', fromPrice: '¥99,000', fromNote: '〜 / 週',
         plans: [
           { value: 'basic',   label: 'ベーシックプラン', quoteName: 'ニセコ留学 ベーシックプラン', content: 'basic',     plan: 'basic',   weeklyRate: 84000, maxWeeks: 24, defaultWeeks: 2 },
           { value: 'popular', label: '人気プラン',       quoteName: 'ニセコ留学 人気プラン',       content: 'popular',   plan: 'popular', weeklyRate: 80000, maxWeeks: 24, defaultWeeks: 4 },
           { value: 'focus',   label: 'フォーカスプラン', quoteName: 'ニセコ留学 フォーカスプラン', content: 'intensive', plan: 'focus',   weeklyRate: 78000, maxWeeks: 24, defaultWeeks: 8 },
-          // ワーホリプラン uses the same pricing table as フォーカス (plan: 'focus').
-          { value: 'whv',     label: 'ワーホリプラン',   quoteName: 'ニセコ留学 ワーホリプラン',   content: 'whv',       plan: 'focus',   weeklyRate: 78000, maxWeeks: 24, defaultWeeks: 12 },
         ],
+        // ワーホリプラン is now a standalone card (niseko-whv), not a group member.
       },
       nozawa: {
         title: '野沢留学', en: 'Nozawa Ryugaku', loc: '野沢温泉', locKey: 'nozawa', accent: 'teal',
@@ -405,6 +404,21 @@
       history.replaceState(null, '', `#${id}`);
     });
 
+    /* ---------- Whole result card is clickable ---------- */
+    // Forward a click anywhere on the card to its "詳細を見る" link, so the
+    // entire card acts as one big button. Delegated on the (persistent)
+    // results container so it survives re-renders. Clicks on the link itself
+    // (or a future inner control) fall through to their own handling.
+    if ($results) {
+      $results.addEventListener('click', (e) => {
+        const card = e.target.closest('.result-card');
+        if (!card || e.target.closest('a, button')) return;
+        // ignore text selections / drags
+        if (window.getSelection && String(window.getSelection())) return;
+        card.querySelector('.result-card__link')?.click();
+      });
+    }
+
     /* ============================================================
        COURSE-PRODUCT DETAIL CARDS — render one per program
        ============================================================
@@ -430,7 +444,7 @@
         'niseko-basic':       { weeklyRate: 84000,  maxWeeks: 8,  defaultWeeks: 2, perWeekPrice: '¥84,000',  tags: ['通学制','本格型','ネイティブ講師'],            content: 'basic',     plan: 'basic'   },
         'niseko-popular':     { weeklyRate: 80000,  maxWeeks: 12, defaultWeeks: 4, perWeekPrice: '¥80,000',  tags: ['通学制','本格型','ネイティブ講師','4週間'],   content: 'popular',   plan: 'popular' },
         'niseko-intensive':   { weeklyRate: 78000,  maxWeeks: 16, defaultWeeks: 8, perWeekPrice: '¥78,000',  tags: ['通学制','集中型','ネイティブ講師','8週間'],   content: 'intensive', plan: 'focus'   },
-        'niseko-whv':         { weeklyRate: 35000,  maxWeeks: 26, defaultWeeks: 12, perWeekPrice: '¥35,000', tags: ['通学制','ワーホリ','ネイティブ講師'],          content: 'whv'        },
+        'niseko-whv':         { weeklyRate: 99000,  maxWeeks: 1,  defaultWeeks: 1, perWeekPrice: '¥99,000', tags: ['通学制','ネイティブ講師','バイリンガルサポート'], content: 'whv', note: 'こちらは1週間のコースです。2週間以上の他プランと組み合わせる場合、この1週間分の料金は ¥65,000 となります。' },
         'nozawa-basic':       { weeklyRate: 79000,  maxWeeks: 8,  defaultWeeks: 2, perWeekPrice: '¥79,000',  tags: ['通学制','本格型','ネイティブ講師'],            content: 'basic',     plan: 'basic',   creator: NOZAWA_CREATOR },
         'nozawa-popular':     { weeklyRate: 75000,  maxWeeks: 12, defaultWeeks: 4, perWeekPrice: '¥75,000',  tags: ['通学制','本格型','ネイティブ講師','4週間'],   content: 'popular',   plan: 'popular', creator: NOZAWA_CREATOR },
         'nozawa-intensive':   { weeklyRate: 73000,  maxWeeks: 16, defaultWeeks: 8, perWeekPrice: '¥73,000',  tags: ['通学制','集中型','ネイティブ講師','8週間'],   content: 'intensive', plan: 'focus',   creator: NOZAWA_CREATOR },
@@ -662,7 +676,8 @@
                   <label for="${sliderId}">期間</label>
                   <output for="${sliderId}" data-calc-weeks>${x.defaultWeeks} 週間</output>
                 </div>
-                <input type="range" id="${sliderId}" min="1" max="${x.maxWeeks}" value="${x.defaultWeeks}" step="1" data-calc-input aria-label="受講期間（週）">
+                <input type="range" id="${sliderId}" min="1" max="${x.maxWeeks}" value="${x.defaultWeeks}" step="1" data-calc-input aria-label="受講期間（週）"${x.maxWeeks <= 1 ? ' hidden' : ''}>
+                ${x.note ? `<p class="course-product__calc-note">${escapeHtml(x.note)}</p>` : ''}
                 ${accBlock}
               </div>
 
