@@ -214,11 +214,12 @@
       return (here.includes('/pages/') || here.includes('/lp/')) ? '../assets/img/' : 'assets/img/';
     })();
     // Academy crest per location — shown instead of the icon+text label.
-    // 'online' has no crest, so it keeps the icon+text fallback.
+    // Online programs are run out of the Tokyo academy, so they use its crest.
     const LOC_LOGOS = {
       niseko: 'niseko-logo.png',
       nozawa: 'nozawa-logo.png',
       tokyo:  'tokyo-logo.png',
+      online: 'tokyo-logo.png',
     };
 
     const intensityLabel = { intensive: '本格コース', casual: '気軽なコース', corporate: '法人研修', any: 'すべてのコース' };
@@ -735,8 +736,8 @@
                 <img src="../assets/img/moeko.png" alt="無料カウンセリング担当 Moeko" loading="lazy" />
               </span>
               <div class="course-product__cta-body">
-                <p class="course-product__cta-eyebrow">Would you like to get started?</p>
-                <h4 class="course-product__cta-title">Book a free consultation</h4>
+                <p class="course-product__cta-eyebrow">はじめてみませんか?</p>
+                <h4 class="course-product__cta-title">無料カウンセリングを予約する</h4>
               </div>
               <a href="../index.html#contact" class="course-product__cta-button">
                 予約はこちら
