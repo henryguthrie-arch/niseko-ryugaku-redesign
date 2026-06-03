@@ -135,12 +135,6 @@
         tag: 'casual', seasons: ['spring','summer','winter'],
         price: '¥48,000', priceNote: '/ 月〜', accent: 'ink',
       },
-      'online-school': {
-        jp: 'オンラインスクール', en: 'Online School',
-        loc: 'オンライン', locKey: 'online', formatKey: 'online',
-        tag: 'casual', seasons: ['spring','summer','winter'],
-        price: '¥18,000', priceNote: '/ 月〜', accent: 'ink',
-      },
       'tokyo-seminars': {
         jp: '東京コンサルティングセミナー', en: 'Tokyo Consulting Seminars',
         loc: '東京・通学', locKey: 'tokyo', formatKey: 'inperson',
@@ -154,14 +148,8 @@
         tag: 'corporate', seasons: ['spring','summer','winter'],
         price: '¥85,000', priceNote: '/ 1名・5日間', accent: 'coral',
       },
-      'corp-online': {
-        jp: 'オンライン法人研修', en: 'Corporate Online Training',
-        loc: 'オンライン', locKey: 'online', formatKey: 'online',
-        tag: 'corporate', seasons: ['spring','summer','winter'],
-        price: '¥38,000', priceNote: '/ 月・1名〜', accent: 'ink',
-      },
       'corp-tokyo-custom': {
-        jp: '東京カスタム研修', en: 'Tokyo Custom Training',
+        jp: '東京法人合宿プラン', en: 'Tokyo Corporate Retreat',
         loc: '東京・出張可', locKey: 'tokyo', formatKey: 'inperson',
         tag: 'corporate', seasons: ['spring','summer','winter'],
         price: '¥240,000', priceNote: '/ 1日', accent: 'ink',
@@ -283,7 +271,7 @@
         ],
       },
       tokyo: {
-        title: '東京', en: 'Tokyo', loc: '東京・通学', locKey: 'tokyo', accent: 'ink',
+        title: '東京留学', en: 'Tokyo Ryugaku', loc: '東京・通学', locKey: 'tokyo', accent: 'ink',
         memberIds: ['tokyo-school', 'tokyo-seminars'],
         groupTag: 'casual', fromPrice: '¥12,000', fromNote: '/ 週〜',
         plans: [
@@ -449,10 +437,8 @@
         'nozawa-popular':     { weeklyRate: 75000,  maxWeeks: 12, defaultWeeks: 4, perWeekPrice: '¥75,000',  tags: ['通学制','本格型','ネイティブ講師','4週間'],   content: 'popular',   plan: 'popular', creator: NOZAWA_CREATOR },
         'nozawa-intensive':   { weeklyRate: 73000,  maxWeeks: 16, defaultWeeks: 8, perWeekPrice: '¥73,000',  tags: ['通学制','集中型','ネイティブ講師','8週間'],   content: 'intensive', plan: 'focus',   creator: NOZAWA_CREATOR },
         'tokyo-school':       { weeklyRate: 12000,  maxWeeks: 24, defaultWeeks: 4, perWeekPrice: '¥12,000',  tags: ['通学制','気軽型','ネイティブ講師'],            content: 'casual'     },
-        'online-school':      { weeklyRate: 4500,   maxWeeks: 24, defaultWeeks: 4, perWeekPrice: '¥4,500',   tags: ['オンライン','気軽型','ネイティブ講師'],         content: 'online'     },
         'tokyo-seminars':     { weeklyRate: 12000,  maxWeeks: 8,  defaultWeeks: 1, perWeekPrice: '¥12,000',  tags: ['通学制','気軽型','単発'],                      content: 'seminar', noAccommodation: true },
         'corp-niseko-retreat':{ weeklyRate: 85000,  maxWeeks: 4,  defaultWeeks: 1, perWeekPrice: '¥85,000',  tags: ['合宿','法人研修','カスタマイズ可'],            content: 'corporate'  },
-        'corp-online':        { weeklyRate: 9500,   maxWeeks: 12, defaultWeeks: 4, perWeekPrice: '¥9,500',   tags: ['オンライン','法人研修','1名から'],             content: 'corpOnline', noAccommodation: true },
         'corp-tokyo-custom':  { weeklyRate: 240000, maxWeeks: 4,  defaultWeeks: 1, perWeekPrice: '¥240,000', tags: ['出張可','法人研修','1日プログラム'],           content: 'corpTokyo', noAccommodation: true },
       };
 
