@@ -642,10 +642,6 @@
 
             <!-- Header -->
             <header class="course-product__head">
-              <span class="course-product__location">
-                ${ICONS.loc[p.locKey]}
-                <span>${escapeHtml(p.loc)}</span>
-              </span>
               <h3 class="course-product__title">${escapeHtml(p.jp)}</h3>
               <p class="course-product__en">${escapeHtml(p.en)}</p>
               <ul class="course-product__feats">
