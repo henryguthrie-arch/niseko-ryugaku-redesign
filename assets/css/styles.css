@@ -2324,8 +2324,6 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 .point-card__desc strong {
   color: var(--ink);
   font-weight: 700;
-  background: linear-gradient(180deg, transparent 60%, rgba(180, 232, 60, 0.45) 60%);
-  padding: 0 2px;
 }
 
 .point-card__media {
