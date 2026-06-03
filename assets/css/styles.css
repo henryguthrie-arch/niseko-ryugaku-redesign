@@ -4848,7 +4848,9 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   display: block;
 }
 .course-product__cta-body {
-  flex: 1 1 200px;
+  /* basis 0 so the copy always sits beside the avatar (even on iPhone)
+     instead of wrapping below it; grows to fill the row. */
+  flex: 1 1 0;
   min-width: 0;
 }
 .course-product__cta-eyebrow {

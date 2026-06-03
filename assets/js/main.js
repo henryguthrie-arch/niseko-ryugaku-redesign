@@ -264,6 +264,7 @@
         title: '野沢留学', en: 'Nozawa Ryugaku', loc: '野沢温泉', locKey: 'nozawa', accent: 'teal',
         memberIds: ['nozawa-basic', 'nozawa-popular', 'nozawa-intensive'],
         groupTag: 'intensive', fromPrice: '¥99,000', fromNote: '〜 / 週',
+        tags: ['通学制', 'ネイティブ講師', 'プラン選択可', '春季限定 🌸'],
         plans: [
           { value: 'basic',   label: 'ベーシックプラン', quoteName: '野沢留学 ベーシックプラン', content: 'basic',     plan: 'basic',   weeklyRate: 79000, maxWeeks: 24, defaultWeeks: 2 },
           { value: 'popular', label: '人気プラン',       quoteName: '野沢留学 人気プラン',       content: 'popular',   plan: 'popular', weeklyRate: 75000, maxWeeks: 24, defaultWeeks: 4 },
@@ -765,7 +766,7 @@
             const groupP = { jp: g.title, en: g.en, loc: g.loc, locKey: g.locKey, accent: g.accent };
             const groupX = {
               weeklyRate: def.weeklyRate, maxWeeks: def.maxWeeks, defaultWeeks: def.defaultWeeks,
-              tags: ['通学制', 'ネイティブ講師', 'プラン選択可'], content: def.content, plan: def.plan,
+              tags: g.tags || ['通学制', 'ネイティブ講師', 'プラン選択可'], content: def.content, plan: def.plan,
               planOptions: g.plans, quoteName: def.quoteName, noAccommodation: def.noAccommodation,
             };
             return renderCourseProduct(key, groupP, groupX);
