@@ -5100,74 +5100,6 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   line-height: 1.85;
 }
 
-/* Live weather widget — current conditions + 5-day forecast */
-.campus-weather {
-  flex: 1 1 380px;
-  max-width: 480px;
-  display: grid;
-  grid-template-columns: minmax(110px, auto) 1fr;
-  gap: clamp(16px, 2.4vw, 30px);
-  align-items: stretch;
-  border-radius: var(--r-lg);
-  padding: clamp(16px, 1.8vw, 22px) clamp(18px, 2.2vw, 26px);
-  background:
-    linear-gradient(150deg, color-mix(in srgb, var(--c-accent) 30%, #1b1d2e) 0%, #15161f 78%);
-  color: #fff;
-  box-shadow: var(--shadow-md, 0 16px 34px -20px rgba(0,0,0,0.5));
-}
-/* Left: current conditions */
-.campus-weather__now { display: flex; flex-direction: column; }
-.campus-weather__loc {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: var(--fs-sm);
-  font-weight: 700;
-}
-.campus-weather__loc svg { opacity: 0.8; }
-.campus-weather__temp {
-  font-family: var(--font-en);
-  font-size: clamp(2.6rem, 5.5vw, 3.6rem);
-  font-weight: 400;
-  line-height: 1;
-  margin: 2px 0 4px;
-}
-.campus-weather__cond {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 700;
-  font-size: var(--fs-sm);
-}
-.campus-weather__icon { font-size: 1.25rem; line-height: 1; }
-/* Right: 5-day forecast */
-.campus-weather__forecast {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: clamp(5px, 0.8vw, 9px);
-  border-left: 1px solid rgba(255, 255, 255, 0.12);
-  padding-left: clamp(14px, 2vw, 22px);
-}
-.cw-row {
-  display: grid;
-  grid-template-columns: 2.4em 1.4em 2.2em 1fr 2.2em;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.82rem;
-}
-.cw-row__day { font-weight: 700; }
-.cw-row__icon { text-align: center; font-size: 0.95rem; }
-.cw-row__lo { color: rgba(255, 255, 255, 0.5); text-align: right; font-variant-numeric: tabular-nums; }
-.cw-row__hi { color: #fff; text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
-.cw-row__bar {
-  position: relative;
-  height: 5px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.14);
-}
-.cw-row__fill { position: absolute; top: 0; bottom: 0; border-radius: 999px; }
-
 /* Main hero photo */
 .campus-hero-photo {
   position: relative;
@@ -5321,16 +5253,6 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 @media (max-width: 860px) {
   .campus-facts { grid-template-columns: repeat(2, 1fr); }
   .campus-why { grid-template-columns: 1fr; }
-}
-@media (max-width: 560px) {
-  /* Stack the current pane above the forecast on narrow phones */
-  .campus-weather { grid-template-columns: 1fr; gap: 14px; }
-  .campus-weather__forecast {
-    border-left: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    padding-left: 0;
-    padding-top: 12px;
-  }
 }
 @media (max-width: 600px) {
   .campus-gallery { grid-template-columns: 1fr 1fr; }
