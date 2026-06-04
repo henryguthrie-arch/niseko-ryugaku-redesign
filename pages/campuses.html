@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Bebas+Neue&amp;family=Noto+Sans+JP:wght@300;400;500;700&amp;display=swap">
 
-  <link rel="stylesheet" href="../assets/css/styles.css?v=159">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=163">
 </head>
 <body>
 
@@ -64,17 +64,281 @@
     </div>
   </section>
 
-  <!-- ========== Stub body ========== -->
-  <section class="page-stub">
+  <!-- ========== Campus jump nav ========== -->
+  <nav class="campus-jump" aria-label="キャンパスへ移動">
+    <div class="container campus-jump__inner">
+      <a href="#niseko"><span>ニセコ</span><em>Niseko</em></a>
+      <a href="#nozawa"><span>野沢温泉</span><em>Nozawaonsen</em></a>
+      <a href="#tokyo"><span>東京</span><em>Tokyo</em></a>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       CAMPUS SHOWCASE — one detailed section per location.
+       To swap a photo: replace the <figure class="campus-photo"> block's
+       placeholder <span class="campus-photo__ph"> with
+       <img src="..." alt="..." loading="lazy" />.
+       ============================================================ -->
+
+  <!-- ========== NISEKO ========== -->
+  <section class="campus-detail campus-detail--niseko" id="niseko">
     <div class="container">
-      <div class="page-stub__panel">
-        <span class="page-stub__tag">Coming soon</span>
-        <h2 class="page-stub__title">キャンパス詳細ページは準備中です。</h2>
-        <p class="page-stub__body">
-          まもなく、各キャンパスの施設・周辺環境・滞在情報を詳しくご紹介します。それまでは、ホームページの「Our Campuses」セクションで概要をご覧いただけます。
-        </p>
-        <a href="../index.html#campuses" class="page-stub__back">← ホームでキャンパス概要を見る</a>
+      <header class="campus-detail__head">
+        <div class="campus-detail__intro">
+          <div class="campus-detail__name-row">
+            <h2 class="campus-detail__name">ニセコ</h2>
+            <img src="../assets/img/niseko-logo.png" alt="Niseko International Academy" class="campus-detail__crest" loading="lazy" />
+          </div>
+          <p class="campus-detail__en">Niseko, Hokkaido</p>
+          <p class="campus-detail__tagline">「生活そのものが、授業」。住民の多くが外国人という、日本でもっとも国際的な町。雪山と温泉に囲まれて、365日を英語で暮らします。</p>
+        </div>
+
+        <!-- Live weather -->
+        <div class="campus-weather" data-weather data-lat="42.86" data-lon="140.69" data-label="ニセコ">
+          <div class="campus-weather__now">
+            <div class="campus-weather__loc"><span>ニセコ</span><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M14 2 L2 7 L7 9 L9 14 Z" fill="currentColor"/></svg></div>
+            <div class="campus-weather__temp" data-w-temp>–°</div>
+            <div class="campus-weather__cond"><span class="campus-weather__icon" data-w-icon aria-hidden="true">…</span><span data-w-cond>読み込み中…</span></div>
+          </div>
+          <div class="campus-weather__forecast" data-w-forecast aria-label="5日間の予報"></div>
+        </div>
+      </header>
+
+      <!-- Main photo -->
+      <figure class="campus-hero-photo">
+        <img src="../assets/img/campus-niseko.jpg" alt="ニセコキャンパス" loading="lazy" />
+      </figure>
+
+      <!-- Quick facts -->
+      <ul class="campus-facts">
+        <li><span class="campus-facts__k">所在地</span><span class="campus-facts__v">北海道虻田郡</span></li>
+        <li><span class="campus-facts__k">アクセス</span><span class="campus-facts__v">新千歳空港から車で約2時間</span></li>
+        <li><span class="campus-facts__k">ベストシーズン</span><span class="campus-facts__v">夏 / 冬</span></li>
+        <li><span class="campus-facts__k">環境</span><span class="campus-facts__v">国際リゾートタウン</span></li>
+      </ul>
+
+      <!-- Why choose -->
+      <div class="campus-block">
+        <h3 class="campus-section-title">なぜ<em>ニセコ</em>を選ぶのか</h3>
+        <div class="campus-why">
+          <article class="campus-why__card">
+            <span class="campus-why__num">01</span>
+            <h4>町ぐるみの英語環境</h4>
+            <p>カフェも、スーパーも、雪山も英語が日常。教室の外でも、学んだ英語をすぐに使えます。</p>
+          </article>
+          <article class="campus-why__card">
+            <span class="campus-why__num">02</span>
+            <h4>一流のネイティブ講師陣</h4>
+            <p>米・英・豪・NZ出身の経験豊富な講師による少人数指導。発音もニュアンスも丁寧に。</p>
+          </article>
+          <article class="campus-why__card">
+            <span class="campus-why__num">03</span>
+            <h4>雪山・温泉・アクティビティ</h4>
+            <p>学びと遊びがひとつに。世界中から集まる仲間と、忘れられない時間を過ごせます。</p>
+          </article>
+        </div>
       </div>
+
+      <!-- Campus gallery -->
+      <div class="campus-block">
+        <h3 class="campus-section-title">キャンパス</h3>
+        <div class="campus-gallery">
+          <figure class="campus-photo"><span class="campus-photo__ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8 h3 l1.5-2 h7 L17 8 h4 v11 H3 Z" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.5"/></svg></span><figcaption>校舎外観</figcaption></figure>
+          <figure class="campus-photo"><span class="campus-photo__ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8 h3 l1.5-2 h7 L17 8 h4 v11 H3 Z" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.5"/></svg></span><figcaption>教室・レッスン風景</figcaption></figure>
+          <figure class="campus-photo"><span class="campus-photo__ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8 h3 l1.5-2 h7 L17 8 h4 v11 H3 Z" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.5"/></svg></span><figcaption>共用ラウンジ</figcaption></figure>
+        </div>
+      </div>
+
+      <!-- Town gallery -->
+      <div class="campus-block">
+        <h3 class="campus-section-title">街・周辺</h3>
+        <div class="campus-gallery">
+          <figure class="campus-photo"><span class="campus-photo__ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8 h3 l1.5-2 h7 L17 8 h4 v11 H3 Z" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.5"/></svg></span><figcaption>ニセコの雪山</figcaption></figure>
+          <figure class="campus-photo"><span class="campus-photo__ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8 h3 l1.5-2 h7 L17 8 h4 v11 H3 Z" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.5"/></svg></span><figcaption>ひらふの街並み</figcaption></figure>
+          <figure class="campus-photo"><span class="campus-photo__ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8 h3 l1.5-2 h7 L17 8 h4 v11 H3 Z" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.5"/></svg></span><figcaption>カフェ・レストラン</figcaption></figure>
+        </div>
+      </div>
+
+      <!-- Courses offered -->
+      <div class="campus-block">
+        <h3 class="campus-section-title">このキャンパスのコース</h3>
+        <ul class="campus-courses">
+          <li><a href="courses.html#course-niseko"><img src="../assets/img/niseko-logo.png" alt="" loading="lazy" /><span>ニセコ留学</span><em aria-hidden="true">→</em></a></li>
+          <li><a href="courses.html#course-niseko-whv"><img src="../assets/img/niseko-logo.png" alt="" loading="lazy" /><span>ニセコ留学ワーホリプラン</span><em aria-hidden="true">→</em></a></li>
+          <li><a href="courses.html#course-corp-niseko-retreat"><img src="../assets/img/niseko-logo.png" alt="" loading="lazy" /><span>ニセコ法人合宿プラン</span><em aria-hidden="true">→</em></a></li>
+        </ul>
+      </div>
+
+      <a href="../index.html#contact" class="campus-cta">ニセコ留学について相談する <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <!-- ========== NOZAWAONSEN ========== -->
+  <section class="campus-detail campus-detail--nozawa" id="nozawa">
+    <div class="container">
+      <header class="campus-detail__head">
+        <div class="campus-detail__intro">
+          <div class="campus-detail__name-row">
+            <h2 class="campus-detail__name">野沢温泉</h2>
+            <img src="../assets/img/nozawa-logo.png" alt="Nozawa International Academy" class="campus-detail__crest" loading="lazy" />
+          </div>
+          <p class="campus-detail__en">Nozawaonsen, Nagano</p>
+          <p class="campus-detail__tagline">日本の伝統と、英語の日常が溶け合う湯けむりの村。13の外湯と世界的スキー場を擁する、文化も同時に学べるキャンパスです。</p>
+        </div>
+
+        <div class="campus-weather" data-weather data-lat="36.9213" data-lon="138.4419" data-label="野沢温泉">
+          <div class="campus-weather__now">
+            <div class="campus-weather__loc"><span>野沢温泉</span><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M14 2 L2 7 L7 9 L9 14 Z" fill="currentColor"/></svg></div>
+            <div class="campus-weather__temp" data-w-temp>–°</div>
+            <div class="campus-weather__cond"><span class="campus-weather__icon" data-w-icon aria-hidden="true">…</span><span data-w-cond>読み込み中…</span></div>
+          </div>
+          <div class="campus-weather__forecast" data-w-forecast aria-label="5日間の予報"></div>
+        </div>
+      </header>
+
+      <figure class="campus-hero-photo">
+        <span class="campus-photo__ph campus-photo__ph--lg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 8 h3 l1.5-2 h7 L17 8 h4 v11 H3 Z" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.5"/></svg><span>メイン写真を追加</span></span>
+      </figure>
+
+      <ul class="campus-facts">
+        <li><span class="campus-facts__k">所在地</span><span class="campus-facts__v">長野県下高井郡</span></li>
+        <li><span class="campus-facts__k">アクセス</span><span class="campus-facts__v">東京から新幹線＋バスで約2.5時間</span></li>
+        <li><span class="campus-facts__k">ベストシーズン</span><span class="campus-facts__v">春</span></li>
+        <li><span class="campus-facts__k">環境</span><span class="campus-facts__v">温泉・スキーの山村</span></li>
+      </ul>
+
+      <div class="campus-block">
+        <h3 class="campus-section-title">なぜ<em>野沢温泉</em>を選ぶのか</h3>
+        <div class="campus-why">
+          <article class="campus-why__card">
+            <span class="campus-why__num">01</span>
+            <h4>日本文化に浸る暮らし</h4>
+            <p>13の外湯めぐり、道祖神祭り。伝統が今も息づく村で、文化体験と英語学習を同時に。</p>
+          </article>
+          <article class="campus-why__card">
+            <span class="campus-why__num">02</span>
+            <h4>密度の高い少人数学習</h4>
+            <p>静かな環境だからこそ集中できる。落ち着いた村で、英語にどっぷり浸かれます。</p>
+          </article>
+          <article class="campus-why__card">
+            <span class="campus-why__num">03</span>
+            <h4>世界的スノーリゾート</h4>
+            <p>海外からのスキーヤーで賑わう国際的な村。自然な交流の機会があふれています。</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="campus-block">
+        <h3 class="campus-section-title">キャンパス</h3>
+        <div class="campus-gallery">
+          <figure class="campus-photo"><span class="campus-photo__ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8 h3 l1.5-2 h7 L17 8 h4 v11 H3 Z" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.5"/></svg></span><figcaption>校舎外観</figcaption></figure>
+          <figure class="campus-photo"><span class="campus-photo__ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8 h3 l1.5-2 h7 L17 8 h4 v11 H3 Z" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.5"/></svg></span><figcaption>教室・レッスン風景</figcaption></figure>
+          <figure class="campus-photo"><span class="campus-photo__ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8 h3 l1.5-2 h7 L17 8 h4 v11 H3 Z" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.5"/></svg></span><figcaption>共用スペース</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="campus-block">
+        <h3 class="campus-section-title">街・周辺</h3>
+        <div class="campus-gallery">
+          <figure class="campus-photo"><span class="campus-photo__ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8 h3 l1.5-2 h7 L17 8 h4 v11 H3 Z" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.5"/></svg></span><figcaption>外湯（温泉）</figcaption></figure>
+          <figure class="campus-photo"><span class="campus-photo__ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8 h3 l1.5-2 h7 L17 8 h4 v11 H3 Z" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.5"/></svg></span><figcaption>雪景色の村</figcaption></figure>
+          <figure class="campus-photo"><span class="campus-photo__ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8 h3 l1.5-2 h7 L17 8 h4 v11 H3 Z" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.5"/></svg></span><figcaption>野沢の街道</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="campus-block">
+        <h3 class="campus-section-title">このキャンパスのコース</h3>
+        <ul class="campus-courses">
+          <li><a href="courses.html#course-nozawa"><img src="../assets/img/nozawa-logo.png" alt="" loading="lazy" /><span>野沢留学</span><em aria-hidden="true">→</em></a></li>
+        </ul>
+      </div>
+
+      <a href="../index.html#contact" class="campus-cta">野沢留学について相談する <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <!-- ========== TOKYO ========== -->
+  <section class="campus-detail campus-detail--tokyo" id="tokyo">
+    <div class="container">
+      <header class="campus-detail__head">
+        <div class="campus-detail__intro">
+          <div class="campus-detail__name-row">
+            <h2 class="campus-detail__name">東京</h2>
+            <img src="../assets/img/tokyo-logo.png" alt="Tokyo International Academy" class="campus-detail__crest" loading="lazy" />
+          </div>
+          <p class="campus-detail__en">Tokyo</p>
+          <p class="campus-detail__tagline">仕事も、暮らしも。渋谷・新宿の好立地で、対面とオンラインを自由に組み合わせ。忙しい毎日のなかでも、英語を続けられるキャンパスです。</p>
+        </div>
+
+        <div class="campus-weather" data-weather data-lat="35.6762" data-lon="139.6503" data-label="東京">
+          <div class="campus-weather__now">
+            <div class="campus-weather__loc"><span>東京</span><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M14 2 L2 7 L7 9 L9 14 Z" fill="currentColor"/></svg></div>
+            <div class="campus-weather__temp" data-w-temp>–°</div>
+            <div class="campus-weather__cond"><span class="campus-weather__icon" data-w-icon aria-hidden="true">…</span><span data-w-cond>読み込み中…</span></div>
+          </div>
+          <div class="campus-weather__forecast" data-w-forecast aria-label="5日間の予報"></div>
+        </div>
+      </header>
+
+      <figure class="campus-hero-photo">
+        <img src="../assets/img/campus-tokyo.jpg" alt="東京キャンパス" loading="lazy" />
+      </figure>
+
+      <ul class="campus-facts">
+        <li><span class="campus-facts__k">所在地</span><span class="campus-facts__v">東京都心（渋谷・新宿）</span></li>
+        <li><span class="campus-facts__k">アクセス</span><span class="campus-facts__v">主要駅から徒歩圏</span></li>
+        <li><span class="campus-facts__k">ベストシーズン</span><span class="campus-facts__v">通年</span></li>
+        <li><span class="campus-facts__k">環境</span><span class="campus-facts__v">都市・通学／ハイブリッド</span></li>
+      </ul>
+
+      <div class="campus-block">
+        <h3 class="campus-section-title">なぜ<em>東京</em>を選ぶのか</h3>
+        <div class="campus-why">
+          <article class="campus-why__card">
+            <span class="campus-why__num">01</span>
+            <h4>通いやすい都心立地</h4>
+            <p>渋谷・新宿エリアの好アクセス。仕事帰りや週末に、無理なく通えます。</p>
+          </article>
+          <article class="campus-why__card">
+            <span class="campus-why__num">02</span>
+            <h4>柔軟なスケジュール</h4>
+            <p>平日夜・週末クラスに、オンライン併用も可能。生活に合わせて続けられます。</p>
+          </article>
+          <article class="campus-why__card">
+            <span class="campus-why__num">03</span>
+            <h4>ビジネス英語に直結</h4>
+            <p>実務・面接・プレゼンを想定したレッスン。明日の仕事ですぐに使えます。</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="campus-block">
+        <h3 class="campus-section-title">キャンパス</h3>
+        <div class="campus-gallery">
+          <figure class="campus-photo"><span class="campus-photo__ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8 h3 l1.5-2 h7 L17 8 h4 v11 H3 Z" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.5"/></svg></span><figcaption>校舎・受付</figcaption></figure>
+          <figure class="campus-photo"><span class="campus-photo__ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8 h3 l1.5-2 h7 L17 8 h4 v11 H3 Z" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.5"/></svg></span><figcaption>教室・レッスン風景</figcaption></figure>
+          <figure class="campus-photo"><span class="campus-photo__ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8 h3 l1.5-2 h7 L17 8 h4 v11 H3 Z" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.5"/></svg></span><figcaption>ラウンジ</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="campus-block">
+        <h3 class="campus-section-title">街・周辺</h3>
+        <div class="campus-gallery">
+          <figure class="campus-photo"><span class="campus-photo__ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8 h3 l1.5-2 h7 L17 8 h4 v11 H3 Z" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.5"/></svg></span><figcaption>渋谷スクランブル</figcaption></figure>
+          <figure class="campus-photo"><span class="campus-photo__ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8 h3 l1.5-2 h7 L17 8 h4 v11 H3 Z" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.5"/></svg></span><figcaption>都心の街並み</figcaption></figure>
+          <figure class="campus-photo"><span class="campus-photo__ph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8 h3 l1.5-2 h7 L17 8 h4 v11 H3 Z" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.5"/></svg></span><figcaption>カフェ・周辺</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="campus-block">
+        <h3 class="campus-section-title">このキャンパスのコース</h3>
+        <ul class="campus-courses">
+          <li><a href="courses.html#course-tokyo"><img src="../assets/img/tokyo-logo.png" alt="" loading="lazy" /><span>東京留学</span><em aria-hidden="true">→</em></a></li>
+          <li><a href="courses.html#course-corp-tokyo-custom"><img src="../assets/img/tokyo-logo.png" alt="" loading="lazy" /><span>東京法人合宿プラン</span><em aria-hidden="true">→</em></a></li>
+        </ul>
+      </div>
+
+      <a href="../index.html#contact" class="campus-cta">東京留学について相談する <span aria-hidden="true">→</span></a>
     </div>
   </section>
 
@@ -147,6 +411,81 @@
     </div>
   </footer>
 
-  <script src="../assets/js/main.js?v=124"></script>
+  <script src="../assets/js/main.js?v=149"></script>
+
+  <!-- ========== Live campus weather + 5-day forecast (Open-Meteo — free, no API key) ========== -->
+  <script>
+  (() => {
+    // WMO weather-code → [Japanese label, emoji]
+    const WMO = {
+      0:['快晴','☀️'], 1:['晴れ','🌤️'], 2:['薄曇り','⛅'], 3:['曇り','☁️'],
+      45:['霧','🌫️'], 48:['霧氷','🌫️'],
+      51:['弱い霧雨','🌦️'], 53:['霧雨','🌦️'], 55:['強い霧雨','🌧️'],
+      56:['着氷性の霧雨','🌧️'], 57:['着氷性の霧雨','🌧️'],
+      61:['弱い雨','🌦️'], 63:['雨','🌧️'], 65:['強い雨','🌧️'],
+      66:['みぞれ','🌨️'], 67:['みぞれ','🌨️'],
+      71:['弱い雪','🌨️'], 73:['雪','❄️'], 75:['大雪','❄️'], 77:['霧雪','❄️'],
+      80:['にわか雨','🌦️'], 81:['にわか雨','🌧️'], 82:['激しいにわか雨','⛈️'],
+      85:['にわか雪','🌨️'], 86:['強いにわか雪','❄️'],
+      95:['雷雨','⛈️'], 96:['雷を伴う雹','⛈️'], 99:['激しい雷雨','⛈️'],
+    };
+    const WD = ['日','月','火','水','木','金','土'];
+    // °C → bar colour (cool blue → warm red)
+    const tempColor = (c) =>
+      c <= 0  ? '#7FB2FF' :
+      c <= 7  ? '#5CC6E8' :
+      c <= 14 ? '#5FD0A6' :
+      c <= 20 ? '#E9CB57' :
+      c <= 26 ? '#EFA34E' : '#EC6A5E';
+
+    const widgets = document.querySelectorAll('[data-weather]');
+    widgets.forEach(async (el) => {
+      const lat = el.dataset.lat, lon = el.dataset.lon;
+      const set = (sel, val) => { const n = el.querySelector(sel); if (n) n.textContent = val; };
+      try {
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}`
+          + `&current=temperature_2m,weather_code`
+          + `&daily=weather_code,temperature_2m_max,temperature_2m_min&forecast_days=5&timezone=auto`;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error('weather fetch failed');
+        const data = await res.json();
+        const c = data.current, d = data.daily;
+
+        // --- current ---
+        const [label, emoji] = WMO[c.weather_code] || ['—', '🌡️'];
+        set('[data-w-icon]', emoji);
+        set('[data-w-temp]', Math.round(c.temperature_2m) + '°');
+        set('[data-w-cond]', label);
+
+        // --- 5-day forecast ---
+        const tMax = d.temperature_2m_max;
+        const lo = d.temperature_2m_min, weekLo = Math.min(...lo), weekHi = Math.max(...tMax);
+        const span = Math.max(weekHi - weekLo, 1);
+        const host = el.querySelector('[data-w-forecast]');
+        host.innerHTML = d.time.map((iso, i) => {
+          const day = i === 0 ? '今日' : WD[new Date(iso + 'T00:00').getDay()];
+          const [, em] = WMO[d.weather_code[i]] || ['', '🌡️'];
+          const loR = Math.round(lo[i]), hiR = Math.round(tMax[i]);
+          const left = ((lo[i] - weekLo) / span) * 100;
+          const width = Math.max(((tMax[i] - lo[i]) / span) * 100, 10);
+          const grad = `linear-gradient(90deg, ${tempColor(lo[i])}, ${tempColor(tMax[i])})`;
+          return `<div class="cw-row">
+            <span class="cw-row__day">${day}</span>
+            <span class="cw-row__icon" aria-hidden="true">${em}</span>
+            <span class="cw-row__lo">${loR}°</span>
+            <span class="cw-row__bar"><span class="cw-row__fill" style="left:${left}%;width:${Math.min(width, 100 - left)}%;background:${grad}"></span></span>
+            <span class="cw-row__hi">${hiR}°</span>
+          </div>`;
+        }).join('');
+
+        el.classList.add('is-loaded');
+      } catch (e) {
+        set('[data-w-cond]', '天気を取得できませんでした');
+        set('[data-w-icon]', '🌡️');
+        set('[data-w-temp]', '–°');
+      }
+    });
+  })();
+  </script>
 
 </body></html>

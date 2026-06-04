@@ -5002,6 +5002,341 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   .line-cta__btn { width: 100%; justify-content: center; padding: 13px 20px; }
 }
 
+/* ============================================================
+   CAMPUS SHOWCASE (campuses.html) — detailed per-location sections
+   ============================================================ */
+/* Sticky jump nav */
+.campus-jump {
+  position: sticky;
+  top: var(--header-h);
+  z-index: 20;
+  background: rgba(255, 252, 250, 0.92);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.campus-jump__inner {
+  display: flex;
+  gap: clamp(8px, 3vw, 28px);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.campus-jump a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: clamp(12px, 1.6vw, 18px) 4px;
+  color: var(--ink);
+  font-weight: 700;
+  border-bottom: 2px solid transparent;
+  transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+}
+.campus-jump a em {
+  font-family: var(--font-en);
+  font-style: normal;
+  font-size: 0.85em;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
+.campus-jump a:hover { color: var(--coral); border-bottom-color: var(--coral); }
+
+/* Per-location accent */
+.campus-detail--niseko { --c-accent: var(--coral);     --c-accent-soft: var(--coral-soft); }
+.campus-detail--nozawa { --c-accent: var(--teal-deep);  --c-accent-soft: #B4E83C; }
+.campus-detail--tokyo  { --c-accent: var(--ink);        --c-accent-soft: var(--ink-muted); }
+
+.campus-detail {
+  padding-block: clamp(48px, 7vw, 104px);
+  scroll-margin-top: calc(var(--header-h) + 70px);
+}
+.campus-detail:nth-of-type(even) { background: var(--bg-alt, #FBF4EF); }
+
+/* Header: intro + live weather */
+.campus-detail__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sp-5);
+  margin-bottom: clamp(24px, 3.5vw, 44px);
+}
+.campus-detail__intro { flex: 1 1 380px; min-width: 0; }
+.campus-detail__eyebrow {
+  display: inline-block;
+  font-family: var(--font-en);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--c-accent);
+  margin-bottom: var(--sp-2);
+}
+.campus-detail__name-row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+}
+.campus-detail__name {
+  font-family: var(--font-display-jp);
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.05;
+  margin: 0;
+  color: var(--ink);
+}
+.campus-detail__crest { height: clamp(54px, 8vw, 78px); width: auto; }
+.campus-detail__en {
+  font-family: var(--font-en);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin: 6px 0 0;
+}
+.campus-detail__tagline {
+  margin: var(--sp-3) 0 0;
+  max-width: 60ch;
+  color: var(--ink-soft);
+  line-height: 1.85;
+}
+
+/* Live weather widget — current conditions + 5-day forecast */
+.campus-weather {
+  flex: 1 1 380px;
+  max-width: 480px;
+  display: grid;
+  grid-template-columns: minmax(110px, auto) 1fr;
+  gap: clamp(16px, 2.4vw, 30px);
+  align-items: stretch;
+  border-radius: var(--r-lg);
+  padding: clamp(16px, 1.8vw, 22px) clamp(18px, 2.2vw, 26px);
+  background:
+    linear-gradient(150deg, color-mix(in srgb, var(--c-accent) 30%, #1b1d2e) 0%, #15161f 78%);
+  color: #fff;
+  box-shadow: var(--shadow-md, 0 16px 34px -20px rgba(0,0,0,0.5));
+}
+/* Left: current conditions */
+.campus-weather__now { display: flex; flex-direction: column; }
+.campus-weather__loc {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+.campus-weather__loc svg { opacity: 0.8; }
+.campus-weather__temp {
+  font-family: var(--font-en);
+  font-size: clamp(2.6rem, 5.5vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1;
+  margin: 2px 0 4px;
+}
+.campus-weather__cond {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: var(--fs-sm);
+}
+.campus-weather__icon { font-size: 1.25rem; line-height: 1; }
+/* Right: 5-day forecast */
+.campus-weather__forecast {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(5px, 0.8vw, 9px);
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  padding-left: clamp(14px, 2vw, 22px);
+}
+.cw-row {
+  display: grid;
+  grid-template-columns: 2.4em 1.4em 2.2em 1fr 2.2em;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+}
+.cw-row__day { font-weight: 700; }
+.cw-row__icon { text-align: center; font-size: 0.95rem; }
+.cw-row__lo { color: rgba(255, 255, 255, 0.5); text-align: right; font-variant-numeric: tabular-nums; }
+.cw-row__hi { color: #fff; text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
+.cw-row__bar {
+  position: relative;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+}
+.cw-row__fill { position: absolute; top: 0; bottom: 0; border-radius: 999px; }
+
+/* Main hero photo */
+.campus-hero-photo {
+  position: relative;
+  margin: 0 0 clamp(20px, 3vw, 36px);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  aspect-ratio: 16 / 7;
+  background: color-mix(in srgb, var(--c-accent) 12%, #fff);
+}
+.campus-hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Quick facts row */
+.campus-facts {
+  list-style: none;
+  margin: 0 0 clamp(28px, 4vw, 52px);
+  padding: clamp(16px, 2vw, 22px) clamp(18px, 2.4vw, 28px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-4);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  box-shadow: 0 1px 0 rgba(14,14,14,0.04), 0 16px 34px -28px rgba(14,14,14,0.18);
+}
+.campus-facts li { display: flex; flex-direction: column; gap: 4px; }
+.campus-facts__k {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--c-accent);
+  text-transform: uppercase;
+}
+.campus-facts__v { font-weight: 500; color: var(--ink); line-height: 1.5; }
+
+/* Generic block + section title */
+.campus-block { margin-bottom: clamp(32px, 4.5vw, 60px); }
+.campus-block:last-of-type { margin-bottom: clamp(24px, 3vw, 40px); }
+.campus-section-title {
+  font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+  font-weight: 700;
+  margin: 0 0 var(--sp-5);
+  padding-left: 14px;
+  border-left: 4px solid var(--c-accent);
+  line-height: 1.3;
+}
+.campus-section-title em { font-style: normal; color: var(--c-accent); }
+
+/* Why-choose cards */
+.campus-why {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(14px, 2vw, 24px);
+}
+.campus-why__card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--c-accent);
+  border-radius: var(--r-md);
+  padding: clamp(20px, 2.4vw, 30px);
+}
+.campus-why__num {
+  font-family: var(--font-en);
+  font-size: 1.4rem;
+  color: var(--c-accent);
+  opacity: 0.5;
+}
+.campus-why__card h4 { font-size: var(--fs-md); margin: 6px 0 8px; color: var(--ink); }
+.campus-why__card p { margin: 0; color: var(--ink-soft); line-height: 1.8; font-size: var(--fs-sm); }
+
+/* Photo galleries */
+.campus-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 1.8vw, 20px);
+}
+.campus-photo {
+  margin: 0;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: color-mix(in srgb, var(--c-accent) 12%, #fff);
+  border: 1px solid var(--border);
+}
+.campus-photo > img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.campus-photo__ph {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: color-mix(in srgb, var(--c-accent) 60%, #888);
+}
+.campus-photo__ph svg { width: 30%; max-width: 56px; height: auto; opacity: 0.7; }
+.campus-photo__ph--lg { flex-direction: column; gap: 10px; }
+.campus-photo__ph--lg span { font-size: var(--fs-sm); font-weight: 700; letter-spacing: 0.04em; }
+.campus-photo figcaption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 18px 12px 9px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(transparent, rgba(14,14,14,0.55));
+}
+
+/* Courses offered here */
+.campus-courses {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: clamp(10px, 1.5vw, 16px);
+}
+.campus-courses a {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 14px 18px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  color: var(--ink);
+  font-weight: 700;
+  transition: border-color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
+}
+.campus-courses a:hover {
+  border-color: var(--c-accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+.campus-courses img { width: 34px; height: auto; flex-shrink: 0; }
+.campus-courses span { flex: 1; min-width: 0; }
+.campus-courses em { font-style: normal; color: var(--c-accent); font-size: 1.1rem; }
+
+/* Per-location CTA */
+.campus-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: var(--r-pill);
+  background: var(--c-accent);
+  color: #fff;
+  font-weight: 700;
+  transition: filter var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+}
+.campus-cta:hover { filter: brightness(0.94); transform: translateY(-1px); }
+
+@media (max-width: 860px) {
+  .campus-facts { grid-template-columns: repeat(2, 1fr); }
+  .campus-why { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  /* Stack the current pane above the forecast on narrow phones */
+  .campus-weather { grid-template-columns: 1fr; gap: 14px; }
+  .campus-weather__forecast {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-left: 0;
+    padding-top: 12px;
+  }
+}
+@media (max-width: 600px) {
+  .campus-gallery { grid-template-columns: 1fr 1fr; }
+  .campus-hero-photo { aspect-ratio: 4 / 3; }
+}
+
 /* ---------- Print fallback ---------- */
 @media print {
   .site-header, .announce, .voices__nav, .booking { display: none; }
