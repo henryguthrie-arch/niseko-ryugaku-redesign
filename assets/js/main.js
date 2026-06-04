@@ -564,7 +564,7 @@
         const sliderId = `calc-${id}`;
         const accId = `acc-${id}`;
         // Quote breakdown (live-updated by the price calculator JS below).
-        // Default accommodation = 無料！シェアルーム (+¥0).
+        // Default accommodation = ロッジ（シェア）(+¥0).
         const ENROLLMENT_FEE = 20000;
         const LINE_URL = 'https://page.line.me/704erohc?oat_content=url&openQrModal=true';
         const jpy = (n) => '¥' + n.toLocaleString('ja-JP');
@@ -587,28 +587,28 @@
                   <span class="course-product__acc-label">宿泊タイプ</span>
                   <div class="acc-cards" data-calc-acc role="radiogroup" aria-label="宿泊タイプ">
                     <label class="acc-card">
-                      <input type="radio" name="${accId}" value="free" data-rate="0" data-acc-name="無料シェアルーム" checked>
+                      <input type="radio" name="${accId}" value="free" data-rate="0" data-acc-name="ロッジ（シェア）" checked>
                       <span class="acc-card__icon" aria-hidden="true">🛏️</span>
-                      <span class="acc-card__name"><span class="acc-card__free">無料！</span><br>シェアルーム</span>
-                      <span class="acc-card__en">Free Share</span>
+                      <span class="acc-card__name"><span class="acc-card__free">無料！</span><br>ロッジ（シェア）</span>
+                      <span class="acc-card__en">Lodge Share</span>
                     </label>
                     <label class="acc-card">
-                      <input type="radio" name="${accId}" value="paid" data-rate="3000" data-acc-name="有料シェアルーム">
-                      <span class="acc-card__icon" aria-hidden="true">🛋️</span>
-                      <span class="acc-card__name">有料<br>シェアルーム</span>
-                      <span class="acc-card__en">Paid Share</span>
-                    </label>
-                    <label class="acc-card">
-                      <input type="radio" name="${accId}" value="single" data-rate="9000" data-acc-name="個室（バストイレ別）">
+                      <input type="radio" name="${accId}" value="lodge-private" data-rate="9000" data-acc-name="ロッジ（個室）">
                       <span class="acc-card__icon" aria-hidden="true">🚪</span>
-                      <span class="acc-card__name">個室<br>（バストイレ別）</span>
-                      <span class="acc-card__en">Single Room</span>
+                      <span class="acc-card__name">ロッジ<br>（個室）</span>
+                      <span class="acc-card__en">Lodge Private</span>
                     </label>
                     <label class="acc-card">
-                      <input type="radio" name="${accId}" value="apartment" data-rate="20000" data-acc-name="アパート（貸し切り）">
+                      <input type="radio" name="${accId}" value="apt-private" data-rate="2000" data-acc-name="アパート（個室）">
                       <span class="acc-card__icon" aria-hidden="true">🏢</span>
-                      <span class="acc-card__name">アパート<br>（貸し切り）</span>
-                      <span class="acc-card__en">Apartment</span>
+                      <span class="acc-card__name">アパート<br>（個室）</span>
+                      <span class="acc-card__en">Apartment Private</span>
+                    </label>
+                    <label class="acc-card">
+                      <input type="radio" name="${accId}" value="apt-share" data-rate="3000" data-acc-name="アパート（シェア）">
+                      <span class="acc-card__icon" aria-hidden="true">🛋️</span>
+                      <span class="acc-card__name">アパート<br>（シェア）</span>
+                      <span class="acc-card__en">Apartment Share</span>
                     </label>
                   </div>
                 </div>`;
@@ -676,7 +676,7 @@
                   </div>
                   ${x.noAccommodation ? '' : `
                   <div class="quote-row">
-                    <span class="quote-row__label">宿泊費 - <span data-quote-acc-name>無料シェアルーム</span> <span data-quote-weeks>× ${x.defaultWeeks}週間</span></span>
+                    <span class="quote-row__label">宿泊費 - <span data-quote-acc-name>ロッジ（シェア）</span> <span data-quote-weeks>× ${x.defaultWeeks}週間</span></span>
                     <span class="quote-row__val" data-quote-acc>¥0</span>
                   </div>`}
                   <div class="quote-row quote-row--subtotal">
