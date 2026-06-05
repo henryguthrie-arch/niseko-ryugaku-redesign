@@ -142,12 +142,6 @@
         price: '¥12,000', priceNote: '/ 回〜', accent: 'ink',
       },
       // Corporate training programs — appear when intensity === 'corporate'.
-      'corp-niseko-retreat': {
-        jp: 'ニセコ法人合宿プラン', en: 'Niseko Corporate Retreat',
-        loc: 'ニセコ', locKey: 'niseko', formatKey: 'inperson',
-        tag: 'corporate', seasons: ['spring','summer','winter'],
-        price: '¥85,000', priceNote: '/ 1名・5日間', accent: 'coral',
-      },
       'corp-tokyo-custom': {
         jp: '東京法人合宿プラン', en: 'Tokyo Corporate Retreat',
         loc: '東京・出張可', locKey: 'tokyo', formatKey: 'inperson',
@@ -439,7 +433,6 @@
         'nozawa-intensive':   { weeklyRate: 73000,  maxWeeks: 16, defaultWeeks: 8, perWeekPrice: '¥73,000',  tags: ['通学制','集中型','ネイティブ講師','8週間'],   content: 'intensive', plan: 'focus',   creator: NOZAWA_CREATOR },
         'tokyo-school':       { weeklyRate: 12000,  maxWeeks: 24, defaultWeeks: 4, perWeekPrice: '¥12,000',  tags: ['通学制','気軽型','ネイティブ講師'],            content: 'casual'     },
         'tokyo-seminars':     { weeklyRate: 12000,  maxWeeks: 8,  defaultWeeks: 1, perWeekPrice: '¥12,000',  tags: ['通学制','気軽型','単発'],                      content: 'seminar', noAccommodation: true },
-        'corp-niseko-retreat':{ weeklyRate: 85000,  maxWeeks: 4,  defaultWeeks: 1, perWeekPrice: '¥85,000',  tags: ['合宿','法人研修','カスタマイズ可'],            content: 'corporate'  },
         'corp-tokyo-custom':  { weeklyRate: 240000, maxWeeks: 4,  defaultWeeks: 1, perWeekPrice: '¥240,000', tags: ['出張可','法人研修','1日プログラム'],           content: 'corpTokyo', noAccommodation: true },
       };
 
