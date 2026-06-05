@@ -5279,7 +5279,7 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   display: block;
   width: clamp(118px, 16vw, 168px);
   height: auto;
-  margin-bottom: var(--sp-4);
+  margin: 0 auto var(--sp-4);
 }
 .seminar-hero__title {
   font-family: var(--font-en);
