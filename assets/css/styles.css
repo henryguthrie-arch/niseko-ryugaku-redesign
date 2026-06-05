@@ -5260,6 +5260,8 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 }
 .seminar-page .btn--primary { box-shadow: 0 6px 16px rgba(233, 75, 124, 0.32); }
 .seminar-page .booking::before { background: radial-gradient(circle, rgba(233, 75, 124, 0.22), transparent 65%); }
+/* Group illustration sits on the same cream as the schedule section above it. */
+.seminar-page .group-banner { background: var(--cream); }
 
 /* Hero — pink gradient */
 .seminar-hero {
