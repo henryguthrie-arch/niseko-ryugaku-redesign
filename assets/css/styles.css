@@ -5250,10 +5250,21 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
    Tokyo Seminar page
    ============================================================ */
 
-/* Hero */
+/* Pink palette — remap the coral tokens to pink for this page only,
+   so every accent (hero, buttons, header CTA, point cards, timeline,
+   price, booking glow) picks up the pink theme. */
+.seminar-page {
+  --coral: var(--pink);
+  --coral-deep: var(--pink-deep);
+  --coral-soft: var(--pink-soft);
+}
+.seminar-page .btn--primary { box-shadow: 0 6px 16px rgba(233, 75, 124, 0.32); }
+.seminar-page .booking::before { background: radial-gradient(circle, rgba(233, 75, 124, 0.22), transparent 65%); }
+
+/* Hero — pink gradient */
 .seminar-hero {
   padding-block: clamp(32px, 5vw, 64px);
-  background: linear-gradient(170deg, var(--coral-soft) 0%, var(--cream) 72%);
+  background: linear-gradient(160deg, var(--pink-soft) 0%, color-mix(in srgb, var(--pink-soft) 50%, var(--cream)) 52%, var(--cream) 100%);
 }
 .seminar-hero__inner {
   display: grid;
