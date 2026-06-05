@@ -5301,6 +5301,8 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   max-width: 48ch;
   margin: 0 0 var(--sp-6);
 }
+.seminar-hero__subtitle p { margin: 0; }
+.seminar-hero__subtitle p + p { margin-top: var(--sp-4); }
 .seminar-hero__actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
 .seminar-hero__photo {
   margin: 0;
