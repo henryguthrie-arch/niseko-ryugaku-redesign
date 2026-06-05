@@ -5399,8 +5399,14 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 }
 .seminar-price__cta { white-space: nowrap; }
 
-/* Schedule — day timeline */
-.seminar-schedule { padding-block: clamp(48px, 7vw, 88px); background: var(--cream); }
+/* Schedule — day timeline (keeps the original orange accent, not the page's pink) */
+.seminar-schedule {
+  --coral: #F25C28;
+  --coral-deep: #D14617;
+  --coral-soft: #FF9D7A;
+  padding-block: clamp(48px, 7vw, 88px);
+  background: var(--cream);
+}
 .seminar-timeline { list-style: none; margin: 0 auto; padding: 0; max-width: 720px; }
 .seminar-timeline__item {
   display: grid;
