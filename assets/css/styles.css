@@ -5457,6 +5457,24 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   border-radius: var(--r-pill);
   white-space: nowrap;
 }
+/* Break row — muted dashed pill so it's clearly a pause, not a session */
+.seminar-timeline__item--break .seminar-timeline__time { color: var(--ink-muted); }
+.seminar-timeline__item--break .seminar-timeline__body::before {
+  border-color: var(--ink-muted);
+  background: #fff;
+}
+.seminar-timeline__break {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--ink-muted);
+  background: color-mix(in srgb, var(--ink) 7%, #fff);
+  border: 1px dashed color-mix(in srgb, var(--ink-muted) 55%, #fff);
+  padding: 7px 16px;
+  border-radius: var(--r-pill);
+}
 
 /* ---------- Print fallback ---------- */
 @media print {
