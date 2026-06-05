@@ -479,14 +479,6 @@
           { label: 'フリー英会話', value: '30 分 / 日' },
           { label: 'カウンセリング', value: '希望者いつでも' },
         ],
-        online: [
-          { label: '授業',          value: '計 4 コマ' },
-          { label: 'マンツーマン', value: 'なし' },
-          { label: '発音矯正',     value: '月 1 回' },
-          { label: '宿題サポート', value: 'あり' },
-          { label: 'フリー英会話', value: 'オンライン' },
-          { label: 'カウンセリング', value: '希望者いつでも' },
-        ],
         seminar: [
           { label: 'セッション',   value: '90 分' },
           { label: '形式',          value: '対面' },
@@ -494,22 +486,6 @@
           { label: '少人数',       value: '最大 8 名' },
           { label: 'テーマ',       value: '毎月変更' },
           { label: '質疑応答',     value: 'あり' },
-        ],
-        corporate: [
-          { label: '研修日数',     value: '5 日間' },
-          { label: '1 日あたり',   value: '6 時間' },
-          { label: 'マンツーマン', value: '計 3 コマ' },
-          { label: 'チームワーク', value: '計 5 コマ' },
-          { label: 'プレゼン演習', value: 'あり' },
-          { label: 'レポート',     value: '研修後提供' },
-        ],
-        corpOnline: [
-          { label: 'セッション',   value: '週 2 回' },
-          { label: '1 回',         value: '45 分' },
-          { label: 'マンツーマン', value: 'あり' },
-          { label: '形式',          value: 'オンライン' },
-          { label: '少人数',       value: '最大 4 名' },
-          { label: 'レポート',     value: '月次' },
         ],
         corpTokyo: [
           { label: '研修時間',     value: '6 時間 / 日' },
