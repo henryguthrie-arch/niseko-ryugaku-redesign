@@ -119,20 +119,21 @@ body {
 .page-home > section:not(#contact):not(.stats):not(.rebrand)::after {
   background: transparent;
 }
-/* Hero (now the first section) paints a bold green → orange gradient via
-   its .hero__bg child. The bottom edge is a uniform coral (#F25C28) so it
-   hands off seamlessly into the rebrand section's coral → pink gradient
-   directly below. Angle stays vertical (180deg) so that seam colour is
-   constant across the full width. */
+/* Hero (now the first section) paints a soft green → coral gradient via
+   its .hero__bg child, using the pale "soft" brand tokens so its lightness
+   matches the rest of the site. The bottom edge is a uniform coral-soft so
+   it hands off seamlessly into the rebrand section's gradient directly
+   below. Angle stays vertical (180deg) so that seam colour is constant
+   across the full width. */
 .page-home .hero__bg {
-  background: linear-gradient(180deg, #B4E83C 0%, #F25C28 100%);
+  background: linear-gradient(180deg, var(--teal-soft) 0%, var(--coral-soft) 100%);
 }
 /* Rebrand sits directly under the hero and continues the flow: it starts
-   on the same coral the hero ends on, then melts into brand pink —
-   green → orange → pink as one continuous run. The dark stats strip
-   below provides the deliberate contrast break. */
+   on the same coral-soft the hero ends on, then melts into soft pink —
+   green → orange → pink as one continuous, light pastel run. The dark
+   stats strip below provides the deliberate contrast break. */
 .page-home .rebrand {
-  background: linear-gradient(180deg, #F25C28 0%, #E94B7C 100%);
+  background: linear-gradient(180deg, var(--coral-soft) 0%, var(--pink-soft) 100%);
 }
 /* The hero's decorative bottom curl (SVG) had a hardcoded cream fill
    that broke the gradient. Hide it on the homepage — the body cycle
