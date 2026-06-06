@@ -5414,11 +5414,11 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 }
 .seminar-price__cashback {
   margin: 12px 0 0;
-  font-size: var(--fs-sm);
+  font-size: clamp(0.7rem, 3.2vw, 0.9rem);
   font-weight: 700;
   line-height: 1.5;
   color: var(--coral-soft);
-  max-width: 24ch;
+  white-space: nowrap;
 }
 .seminar-price__cta { white-space: nowrap; }
 
