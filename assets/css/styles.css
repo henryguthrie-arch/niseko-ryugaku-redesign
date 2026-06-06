@@ -83,6 +83,13 @@
   --header-h: 80px;
 }
 
+/* Shorter header on phones to reclaim vertical space. Because both the
+   header min-height and the in-page anchor scroll-padding derive from
+   --header-h, redefining it here adjusts both together. */
+@media (max-width: 640px) {
+  :root { --header-h: 64px; }
+}
+
 /* ---------- Reset / Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 html {
