@@ -657,7 +657,7 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   text-align: center;
 }
 .hero__stat-wreath {
-  width: clamp(132px, 37vw, 162px);
+  width: clamp(150px, 42vw, 182px);
   aspect-ratio: 352 / 256;
   display: flex;
   flex-direction: column;
