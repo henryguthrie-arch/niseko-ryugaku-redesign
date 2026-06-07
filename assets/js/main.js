@@ -204,7 +204,7 @@
       online: 'tokyo-logo.png',
     };
 
-    const intensityLabel = { intensive: '本格コース', casual: '気軽なコース', corporate: '法人研修', any: 'すべてのコース' };
+    const intensityLabel = { intensive: '留学コース', casual: '気軽なコース', corporate: '法人研修', any: 'すべてのコース' };
     const seasonLabel    = { spring: '春', summer: '夏', winter: '冬', anytime: 'いつでもOK' };
 
     const $steps   = root.querySelectorAll('.finder__step');
