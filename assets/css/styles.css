@@ -1241,13 +1241,7 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 }
 
 .choice__icon {
-  width: 56px; height: 56px;
-  display: grid;
-  place-items: center;
-  border-radius: var(--r-md);
-  background: var(--c-tint, var(--cream));
-  color: var(--c-accent, var(--ink));
-  flex-shrink: 0;
+  display: none;
 }
 .choice__icon svg { width: 32px; height: 32px; }
 .choice__label { display: flex; flex-direction: column; gap: 2px; }
