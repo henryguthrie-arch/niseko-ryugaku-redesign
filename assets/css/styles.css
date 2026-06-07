@@ -634,6 +634,12 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   gap: var(--sp-3) clamp(var(--sp-3), 3vw, var(--sp-5));
   margin-bottom: var(--sp-7);
 }
+/* Phones: keep both CTAs on a single row (pill sits beside the primary) */
+@media (max-width: 640px) {
+  .hero__cta { flex-wrap: nowrap; column-gap: 8px; }
+  .hero__cta .btn { font-size: 0.78rem; padding-inline: 1.1em; }
+  .hero__cta .btn svg { width: 14px; height: 14px; }
+}
 /* Laurel-wreath credibility badges — two side by side above the CTAs */
 .hero__stats {
   display: flex;
