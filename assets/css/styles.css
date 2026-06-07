@@ -154,6 +154,11 @@ body {
   /* pull up so the group illustration fills the space before the stats strip */
   padding-bottom: 0;
 }
+/* Group illustration directly under the rebrand picks up its end colour so
+   there's no visible seam between the two (it then meets the dark stats). */
+.page-home .rebrand + .group-banner {
+  background: var(--pink-soft);
+}
 /* ---------- "Why only SPEAKMORE" bilingual formula (soft green→orange band) ---------- */
 /* Section stays transparent so the page's pink/cream body gradient shows
    through its top & bottom edges — identical to the why-speakmore and
