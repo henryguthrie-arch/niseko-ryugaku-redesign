@@ -1112,51 +1112,30 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
     justify-content: center;
   }
 }
+/* All progress pills share one look (dark pill, coral numbered circle),
+   in every state, with the step numbers always shown. */
 .finder__progress li {
   display: inline-flex;
   align-items: center;
   gap: var(--sp-2);
   padding: 0.4em 0.9em 0.4em 0.4em;
   border-radius: var(--r-pill);
-  background: var(--cream);
+  background: var(--ink);
+  color: var(--cream);
   font-weight: 500;
-  transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
 }
 .finder__progress li span {
   width: 24px; height: 24px;
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: #fff;
-  border: 1px solid var(--border);
+  background: var(--coral);
+  border: 1px solid var(--coral);
   font-family: var(--font-en);
   font-weight: 700;
-  color: var(--ink-muted);
+  color: #fff;
   flex-shrink: 0;
 }
-.finder__progress li.is-active {
-  background: var(--ink);
-  color: var(--cream);
-}
-.finder__progress li.is-active span {
-  background: var(--coral);
-  border-color: var(--coral);
-  color: #fff;
-}
-.finder__progress li.is-done {
-  background: rgba(180, 232, 60, 0.15);
-  color: var(--teal-deep);
-}
-.finder__progress li.is-done span {
-  background: var(--teal);
-  border-color: var(--teal);
-  color: #fff;
-}
-.finder__progress li.is-done span::after {
-  content: "✓";
-  font-size: 14px;
-}
-.finder__progress li.is-done span { font-size: 0; }
 
 /* Steps */
 .finder__step { display: none; }
