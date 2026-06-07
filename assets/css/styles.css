@@ -151,6 +151,8 @@ body {
    stats strip below provides the deliberate contrast break. */
 .page-home .rebrand {
   background: linear-gradient(180deg, var(--coral-soft) 0%, var(--pink-soft) 100%);
+  /* pull up so the group illustration fills the space before the stats strip */
+  padding-bottom: 0;
 }
 /* ---------- "Why only SPEAKMORE" bilingual formula (soft green→orange band) ---------- */
 /* Section stays transparent so the page's pink/cream body gradient shows
