@@ -632,27 +632,35 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   gap: var(--sp-3) clamp(var(--sp-3), 3vw, var(--sp-5));
   margin-bottom: var(--sp-7);
 }
-/* Laurel-wreath credibility badge — wreath frames the number + caption */
+/* Laurel-wreath credibility badges — two side by side above the CTAs */
+.hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: clamp(4px, 2vw, 20px);
+  margin-bottom: var(--sp-5);
+}
 .hero__stat {
   flex: 0 0 auto;
   display: flex;
   text-align: center;
 }
 .hero__stat-wreath {
-  width: clamp(148px, 40vw, 178px);
+  width: clamp(132px, 37vw, 162px);
   aspect-ratio: 352 / 256;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1px;
-  padding: 0 clamp(18px, 5.5vw, 30px);
+  padding: 0 clamp(16px, 5vw, 26px);
   background: url("../img/laurel.svg?v=3") center / contain no-repeat;
 }
 .hero__stat-num {
   font-family: var(--font-en);
   font-weight: 400;
-  font-size: clamp(1.6rem, 6.8vw, 2.2rem);
+  font-size: clamp(1.45rem, 6vw, 2rem);
   line-height: 0.9;
   letter-spacing: 0.01em;
   color: var(--ink);
@@ -663,6 +671,13 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   font-size: 0.55em;
   color: var(--coral-deep);
   margin-left: 1px;
+}
+.hero__stat-unit {
+  font-size: 0.5em;
+  color: var(--ink-muted);
+  margin-left: 1px;
+  align-self: flex-end;
+  padding-bottom: 0.18em;
 }
 .hero__stat-label {
   font-size: var(--fs-xs);
