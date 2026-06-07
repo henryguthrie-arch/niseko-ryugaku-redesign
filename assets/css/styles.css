@@ -1029,6 +1029,8 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   background: var(--bg);
   position: relative;
 }
+/* Homepage: finder flows straight into the LINE CTA — trim the bottom dead space */
+.page-home .finder { padding-bottom: var(--sp-6); }
 /* Pink-gradient variant — used on the Courses page so the finder visually
    matches the activity-icon section on the Why page. */
 .finder--pink {
