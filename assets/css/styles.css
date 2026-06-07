@@ -2582,7 +2582,7 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 }
 .campuses__head {
   text-align: center;
-  margin-bottom: var(--sp-9);
+  margin-bottom: var(--sp-6);
 }
 .campuses__icon {
   display: inline-grid;
