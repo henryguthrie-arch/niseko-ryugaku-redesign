@@ -643,7 +643,7 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   justify-content: center;
   text-align: center;
   padding: 0 clamp(24px, 7vw, 38px);
-  background: url("../img/laurel.svg?v=2") center / contain no-repeat;
+  background: url("../img/laurel.svg?v=3") center / contain no-repeat;
 }
 .hero__stat-num {
   font-family: var(--font-en);
