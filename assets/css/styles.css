@@ -588,10 +588,6 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   border-radius: var(--r-xl);
   overflow: hidden;
   position: relative;
-  box-shadow:
-    0 30px 80px -30px rgba(14, 14, 14, 0.45),
-    0 10px 30px -10px rgba(242, 92, 40, 0.22),
-    0 0 0 1px rgba(255, 255, 255, 0.35) inset;
 }
 .hero__photo img {
   display: block;
