@@ -481,8 +481,8 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   position: relative;
   overflow: hidden;
   padding-top: var(--sp-9);
-  padding-bottom: var(--sp-10);
-  min-height: clamp(620px, 86vh, 900px);
+  padding-bottom: var(--sp-6);
+  min-height: clamp(560px, 78vh, 820px);
   display: flex;
   align-items: center;
 }
@@ -604,7 +604,7 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 /* ---------- Rebrand announcement (compact card with matted frame) ---------- */
 .rebrand {
   background: var(--bg);
-  padding-block: var(--sp-6) var(--sp-7);
+  padding-block: var(--sp-5) var(--sp-7);
 }
 .rebrand__frame {
   background: var(--cream-deep);
