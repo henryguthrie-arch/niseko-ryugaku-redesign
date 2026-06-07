@@ -555,7 +555,7 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 .hero {
   position: relative;
   overflow: hidden;
-  padding-top: var(--sp-9);
+  padding-top: var(--sp-4);
   padding-bottom: var(--sp-6);
   min-height: clamp(560px, 78vh, 820px);
   display: flex;
