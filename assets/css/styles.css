@@ -4560,13 +4560,15 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 /* Academy crest — centered at the top of every course card */
 .course-product__brand-mark {
   display: block;
-  margin: 0 auto var(--sp-5);
-  width: clamp(120px, 21vw, 180px);
+  /* negative margins pull the crest up and tighten the gap to the title,
+     trimming the dead space above and below it */
+  margin: calc(-1 * var(--sp-2)) auto calc(-1 * var(--sp-3));
+  width: clamp(140px, 24vw, 200px);
   height: auto;
   pointer-events: none;
 }
 @media (max-width: 700px) {
-  .course-product__brand-mark { width: clamp(108px, 32vw, 150px); margin-bottom: var(--sp-4); }
+  .course-product__brand-mark { width: clamp(140px, 38vw, 175px); }
 }
 
 /* Header (top of expanded card — mirrors result-card data) */
