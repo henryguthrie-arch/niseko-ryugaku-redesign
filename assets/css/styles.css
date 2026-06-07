@@ -1260,6 +1260,23 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   line-height: 1.7;
   margin: 0;
 }
+/* Checklist variant — green circle-check icons (matches the counseling perks list) */
+.choice__desc--checks {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  line-height: 1.45;
+}
+.choice__check {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.choice__check svg {
+  color: var(--teal-deep);
+  flex-shrink: 0;
+  margin-top: 0.18em;
+}
 .choice__cta {
   margin-top: auto;
   font-size: var(--fs-sm);
