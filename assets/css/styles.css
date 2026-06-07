@@ -911,6 +911,10 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   margin: 0 0 var(--sp-5);
   padding-top: var(--sp-4);
 }
+/* Phones: shrink a touch so the academy label stays on one line */
+@media (max-width: 640px) {
+  .rebrand__suite-label { font-size: clamp(0.72rem, 3.3vw, var(--fs-sm)); white-space: nowrap; }
+}
 .rebrand__suite-list {
   list-style: none;
   margin: 0;
