@@ -88,6 +88,8 @@
    --header-h, redefining it here adjusts both together. */
 @media (max-width: 640px) {
   :root { --header-h: 64px; }
+  /* Finder heading: shrink just enough so "あなただけのプランを" stays on one line (2 lines total, not 3) */
+  .finder .section-title { font-size: clamp(1.9rem, 8vw, 2.4rem); }
 }
 
 /* ---------- Reset / Base ---------- */
