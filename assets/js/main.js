@@ -352,8 +352,13 @@
     root.addEventListener('click', (e) => {
       const choice = e.target.closest('.choice');
       if (choice) {
-        const step = Number(choice.closest('.finder__step').dataset.step);
         const key = choice.dataset.key;
+        // Corporate training → contact via 公式LINE instead of advancing the wizard
+        if (key === 'corporate') {
+          window.open('https://page.line.me/704erohc?oat_content=url&openQrModal=true', '_blank', 'noopener');
+          return;
+        }
+        const step = Number(choice.closest('.finder__step').dataset.step);
         if (step === 1) { state.intensity = key; goTo(2); }
         else if (step === 2) { state.season = key; goTo(3); }
         return;
