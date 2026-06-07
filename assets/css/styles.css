@@ -680,7 +680,7 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 }
 .hero__stat-plus {
   font-size: 0.55em;
-  color: var(--coral-deep);
+  color: var(--ink);
   margin-left: 1px;
 }
 .hero__stat-unit {
