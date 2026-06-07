@@ -1041,12 +1041,16 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
    matches the activity-icon section on the Why page. */
 .finder--pink {
   background: linear-gradient(180deg, var(--pink-soft) 0%, var(--cream) 100%);
+  /* the course-suite above fades into this same pink-soft, so trim the top gap */
+  padding-top: var(--sp-5);
 }
 
 /* SPEAKMORE suite logos strip (Courses page) — bridges the hero into the finder */
 .course-suite {
-  background: var(--cream);
-  padding-block: var(--sp-2) clamp(40px, 6vw, 80px);
+  /* fade cream (matching the hero above) into pink-soft (matching the finder
+     below) so the two sections blend with no visible seam */
+  background: linear-gradient(180deg, var(--cream) 0%, var(--pink-soft) 100%);
+  padding-block: var(--sp-2) var(--sp-5);
 }
 .course-suite__label {
   text-align: center;
