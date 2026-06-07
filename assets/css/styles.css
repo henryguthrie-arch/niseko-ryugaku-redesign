@@ -180,13 +180,16 @@ body {
 }
 .bilingual__formula {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: clamp(10px, 1.6vw, 18px);
   margin: 0 0 clamp(28px, 4vw, 40px);
   padding: 0;
   list-style: none;
+}
+@media (min-width: 880px) {
+  .bilingual__formula { flex-direction: row; flex-wrap: wrap; }
 }
 .bilingual__pill {
   display: inline-flex;
