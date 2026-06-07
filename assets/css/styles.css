@@ -632,22 +632,21 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   gap: var(--sp-3) clamp(var(--sp-3), 3vw, var(--sp-5));
   margin-bottom: var(--sp-7);
 }
-/* Laurel-wreath credibility badge — wreath frames the number, caption below */
+/* Laurel-wreath credibility badge — wreath frames the number + caption */
 .hero__stat {
   flex: 0 0 auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3px;
   text-align: center;
 }
 .hero__stat-wreath {
-  width: clamp(116px, 33vw, 156px);
+  width: clamp(148px, 40vw, 178px);
   aspect-ratio: 352 / 256;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 clamp(16px, 5vw, 28px);
+  gap: 1px;
+  padding: 0 clamp(18px, 5.5vw, 30px);
   background: url("../img/laurel.svg?v=3") center / contain no-repeat;
 }
 .hero__stat-num {
@@ -670,6 +669,8 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   font-weight: 700;
   color: var(--ink-soft);
   white-space: nowrap;
+  /* soft cream halo keeps the caption legible where it meets the dark leaves */
+  text-shadow: 0 0 4px var(--cream), 0 0 5px var(--cream), 0 0 2px var(--cream);
 }
 .hero__meta {
   display: flex;
