@@ -1314,9 +1314,23 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   color: #fff;
   border-radius: var(--r-pill);
   white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
   transition: background var(--t-fast) var(--ease);
 }
-.choice--corporate:hover .choice__cta--line { background: #05A847; }
+.choice__cta--line:hover { background: #05A847; }
+
+/* Corporate card is informational — only its LINE pill is interactive. */
+.choice--corporate { cursor: default; }
+.choice--corporate:hover,
+.choice--corporate:focus-within {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--border);
+  background: #fff;
+}
+.choice--corporate:hover::before,
+.choice--corporate:focus-within::before { opacity: 0; }
 
 /* Choice color variants */
 .choice--intensive { --c-accent: var(--coral); --c-tint: rgba(242, 92, 40, 0.12); --c-fade-1: rgba(242, 92, 40, 0.18); }
