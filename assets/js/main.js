@@ -141,13 +141,6 @@
         tag: 'casual', seasons: ['spring','summer','winter'],
         price: '¥12,000', priceNote: '/ 回〜', accent: 'ink',
       },
-      // Corporate training programs — appear when intensity === 'corporate'.
-      'corp-tokyo-custom': {
-        jp: '東京法人合宿プラン', en: 'Tokyo Corporate Retreat',
-        loc: '東京・出張可', locKey: 'tokyo', formatKey: 'inperson',
-        tag: 'corporate', seasons: ['spring','summer','winter'],
-        price: '¥240,000', priceNote: '/ 1日', accent: 'ink',
-      },
     };
 
     // Icon set — kept inline strings so the renderer can stamp them via
@@ -439,7 +432,6 @@
         'nozawa-intensive':   { weeklyRate: 73000,  maxWeeks: 16, defaultWeeks: 8, perWeekPrice: '¥73,000',  tags: ['通学制','集中型','ネイティブ講師','8週間'],   content: 'intensive', plan: 'focus',   creator: NOZAWA_CREATOR },
         'tokyo-school':       { weeklyRate: 12000,  maxWeeks: 24, defaultWeeks: 4, perWeekPrice: '¥12,000',  tags: ['通学制','気軽型','ネイティブ講師'],            content: 'casual'     },
         'tokyo-seminars':     { weeklyRate: 12000,  maxWeeks: 8,  defaultWeeks: 1, perWeekPrice: '¥12,000',  tags: ['通学制','気軽型','単発'],                      content: 'seminar', noAccommodation: true },
-        'corp-tokyo-custom':  { weeklyRate: 240000, maxWeeks: 4,  defaultWeeks: 1, perWeekPrice: '¥240,000', tags: ['出張可','法人研修','1日プログラム'],           content: 'corpTokyo', noAccommodation: true },
       };
 
       // 6-box weekly content matrix per content variant. Edit any value to
@@ -492,14 +484,6 @@
           { label: '少人数',       value: '最大 8 名' },
           { label: 'テーマ',       value: '毎月変更' },
           { label: '質疑応答',     value: 'あり' },
-        ],
-        corpTokyo: [
-          { label: '研修時間',     value: '6 時間 / 日' },
-          { label: '対象',          value: '貴社 1 チーム' },
-          { label: 'カスタマイズ', value: '内容に合わせて' },
-          { label: 'ネイティブ講師', value: '2 名体制' },
-          { label: '教材',          value: 'オリジナル' },
-          { label: '事後レポート', value: 'あり' },
         ],
       };
 
