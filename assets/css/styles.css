@@ -1429,7 +1429,7 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 }
 .result-card__location--logo { gap: 0; }
 .result-card__location-logo {
-  height: 58px;
+  height: 84px;
   width: auto;
   display: block;
 }
