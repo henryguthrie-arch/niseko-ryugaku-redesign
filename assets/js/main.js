@@ -270,8 +270,9 @@
         memberIds: ['tokyo-school', 'tokyo-seminars'],
         groupTag: 'casual', fromPrice: '¥12,000', fromNote: '/ 週〜',
         plans: [
-          { value: 'school',  label: '東京スクール',             quoteName: '東京スクール',             content: 'casual',  plan: null, weeklyRate: 12000, maxWeeks: 24, defaultWeeks: 4 },
-          { value: 'seminar', label: 'コンサルティングセミナー', quoteName: '東京コンサルティングセミナー', content: 'seminar', plan: null, weeklyRate: 12000, maxWeeks: 8,  defaultWeeks: 1, noAccommodation: true },
+          { value: 'basic',   label: 'ベーシックプラン', quoteName: '東京留学 ベーシックプラン', content: 'basic',     plan: null, weeklyRate: 12000, maxWeeks: 24, defaultWeeks: 2, noAccommodation: true },
+          { value: 'popular', label: '人気プラン',       quoteName: '東京留学 人気プラン',       content: 'popular',   plan: null, weeklyRate: 12000, maxWeeks: 24, defaultWeeks: 4, noAccommodation: true },
+          { value: 'focus',   label: 'フォーカスプラン', quoteName: '東京留学 フォーカスプラン', content: 'intensive', plan: null, weeklyRate: 12000, maxWeeks: 24, defaultWeeks: 8, noAccommodation: true },
         ],
       },
     };
