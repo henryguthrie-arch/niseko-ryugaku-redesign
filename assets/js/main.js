@@ -512,7 +512,7 @@
       const DEFAULT_CREATOR = {
         name: 'John Kerry',
         role: 'Bachelor of Education — La Trobe University, Melbourne, Australia',
-        photo: '../assets/img/creator-john.png',
+        photo: '../assets/img/creator-john.jpg',
       };
 
       const escapeHtml = (s) => String(s)
@@ -705,7 +705,7 @@
             <!-- CTA banner -->
             <div class="course-product__cta">
               <span class="course-product__cta-avatar">
-                <img src="../assets/img/moeko.png" alt="無料カウンセリング担当 Moeko" loading="lazy" />
+                <img src="../assets/img/moeko.jpg" alt="無料カウンセリング担当 Moeko" loading="lazy" />
               </span>
               <div class="course-product__cta-body">
                 <p class="course-product__cta-eyebrow">はじめてみませんか?</p>
