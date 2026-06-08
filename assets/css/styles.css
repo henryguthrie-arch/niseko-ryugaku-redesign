@@ -5476,6 +5476,7 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 .campus-detail__name-row {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: var(--sp-4);
 }
 .campus-detail__name {
@@ -5486,7 +5487,7 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   margin: 0;
   color: var(--ink);
 }
-.campus-detail__crest { height: clamp(54px, 8vw, 78px); width: auto; }
+.campus-detail__crest { height: clamp(84px, 17vw, 120px); width: auto; flex-shrink: 0; margin-left: auto; }
 .campus-detail__en {
   font-family: var(--font-en);
   letter-spacing: 0.1em;
