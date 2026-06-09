@@ -896,7 +896,7 @@
       </header>
 
       <div class="resources__grid">
-        <a href="#" class="resource-card resource-card--coral">
+        <a href="#" class="resource-card resource-card--coral" data-placement-open role="button" aria-haspopup="dialog">
           <span class="resource-card__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
               <rect x="5" y="4" width="14" height="18" rx="2"></rect>
@@ -1201,8 +1201,171 @@
     </div>
   </footer>
 
+  <!-- ========== Placement-test request modal ========== -->
+  <div class="pt-modal" id="placementModal" aria-hidden="true">
+    <div class="pt-modal__overlay" data-pt-close></div>
+    <div class="pt-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="ptModalTitle">
+      <button class="pt-modal__close" type="button" aria-label="閉じる" data-pt-close>&times;</button>
+      <p class="pt-modal__kicker">Level Test</p>
+      <h2 class="pt-modal__title" id="ptModalTitle">レベルチェックテスト<br>お申し込み</h2>
+      <p class="pt-modal__lede">お名前とメールアドレスをご入力ください。担当講師よりレベルチェックテストのご案内をお送りします。</p>
+      <form class="pt-form" id="placementForm" novalidate>
+        <label class="pt-field">
+          <span class="pt-field__label">お名前</span>
+          <input type="text" name="name" required autocomplete="name" placeholder="山田 太郎">
+        </label>
+        <label class="pt-field">
+          <span class="pt-field__label">メールアドレス</span>
+          <input type="email" name="email" required autocomplete="email" inputmode="email" placeholder="you@example.com">
+        </label>
+        <button type="submit" class="btn btn--primary pt-form__submit">送信する</button>
+        <p class="pt-form__note">※ ご入力いただいた情報は、SPEAKMORE（運営：ニセココンシェルジュ）がレベルチェックテストのご案内・ご連絡のためにのみ使用し、第三者には提供いたしません。</p>
+      </form>
+    </div>
+  </div>
+
+  <style>
+    .pt-modal {
+      position: fixed; inset: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: center;
+      padding: var(--sp-4);
+      opacity: 0; visibility: hidden;
+      transition: opacity .25s var(--ease), visibility .25s var(--ease);
+    }
+    .pt-modal.is-open { opacity: 1; visibility: visible; }
+    .pt-modal__overlay {
+      position: absolute; inset: 0;
+      background: rgba(14, 14, 14, 0.55);
+      -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
+    }
+    .pt-modal__dialog {
+      position: relative; z-index: 1;
+      width: 100%; max-width: 420px;
+      max-height: calc(100vh - var(--sp-7));
+      overflow-y: auto;
+      background: #fff;
+      border-radius: var(--r-xl);
+      padding: var(--sp-7) var(--sp-6) var(--sp-6);
+      box-shadow: 0 30px 70px -20px rgba(14, 14, 14, 0.45);
+      transform: translateY(14px) scale(0.98);
+      transition: transform .28s var(--ease);
+    }
+    .pt-modal.is-open .pt-modal__dialog { transform: translateY(0) scale(1); }
+    .pt-modal__close {
+      position: absolute; top: 12px; right: 14px;
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      border: none; background: transparent;
+      font-size: 28px; line-height: 1; color: var(--ink-muted);
+      cursor: pointer; border-radius: 50%;
+      transition: background .2s var(--ease), color .2s var(--ease);
+    }
+    .pt-modal__close:hover { background: var(--cream); color: var(--ink); }
+    .pt-modal__kicker {
+      font-family: var(--font-en); letter-spacing: 0.08em;
+      color: var(--coral); font-size: 0.95rem; margin: 0 0 6px;
+    }
+    .pt-modal__title {
+      font-family: var(--font-display-jp); font-weight: 700;
+      font-size: clamp(1.3rem, 6vw, 1.6rem); line-height: 1.35;
+      color: var(--ink); margin: 0 0 var(--sp-3);
+    }
+    .pt-modal__lede {
+      font-size: 0.92rem; line-height: 1.7; color: var(--ink-soft);
+      margin: 0 0 var(--sp-5);
+    }
+    .pt-form { display: flex; flex-direction: column; gap: var(--sp-4); }
+    .pt-field { display: flex; flex-direction: column; gap: 6px; }
+    .pt-field__label {
+      font-size: 0.82rem; font-weight: 700; color: var(--ink-muted);
+    }
+    .pt-field input {
+      width: 100%;
+      padding: 13px 15px;
+      font-size: 16px; /* prevents iOS zoom-on-focus */
+      font-family: inherit; color: var(--ink);
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-md);
+      transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
+    }
+    .pt-field input::placeholder { color: rgba(107, 107, 107, 0.6); }
+    .pt-field input:focus {
+      outline: none;
+      border-color: var(--coral);
+      box-shadow: 0 0 0 3px rgba(242, 92, 40, 0.15);
+    }
+    .pt-field input:user-invalid {
+      border-color: var(--coral-deep);
+      box-shadow: 0 0 0 3px rgba(209, 70, 23, 0.12);
+    }
+    .pt-form__submit { width: 100%; margin-top: var(--sp-2); }
+    .pt-form__note {
+      font-size: 0.72rem; line-height: 1.6; color: var(--ink-muted);
+      margin: 0;
+    }
+    body.pt-lock { overflow: hidden; }
+  </style>
+
   <script src="assets/js/main.js?v=158"></script>
   <!-- Calendly inline widget loader -->
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+  <!-- Placement-test modal behaviour -->
+  <script>
+    (function () {
+      var modal = document.getElementById('placementModal');
+      var triggers = document.querySelectorAll('[data-placement-open]');
+      if (!modal || !triggers.length) return;
+      var form = document.getElementById('placementForm');
+      var firstInput = modal.querySelector('input[name="name"]');
+      var lastFocused = null;
+
+      function openModal(e) {
+        if (e) e.preventDefault();
+        lastFocused = document.activeElement;
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('pt-lock');
+        if (firstInput) setTimeout(function () { firstInput.focus(); }, 60);
+      }
+
+      function closeModal() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('pt-lock');
+        if (lastFocused && lastFocused.focus) lastFocused.focus();
+      }
+
+      triggers.forEach(function (t) { t.addEventListener('click', openModal); });
+
+      modal.querySelectorAll('[data-pt-close]').forEach(function (el) {
+        el.addEventListener('click', closeModal);
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+      });
+
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (!form.checkValidity()) { form.reportValidity(); return; }
+          var name = form.elements['name'].value.trim();
+          var email = form.elements['email'].value.trim();
+          var subject = 'Placement test request';
+          var body =
+            'レベルチェックテストのお申し込みを受け付けました。\n\n' +
+            'お名前: ' + name + '\n' +
+            'メールアドレス: ' + email + '\n';
+          var href = 'mailto:info@speakmore.jp?subject=' +
+            encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+          window.location.href = href;
+          form.reset();
+          closeModal();
+        });
+      }
+    })();
+  </script>
 
 </body></html>
