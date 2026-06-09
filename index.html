@@ -1204,8 +1204,17 @@
           <input type="email" name="email" required autocomplete="email" inputmode="email" placeholder="you@example.com">
         </label>
         <button type="submit" class="btn btn--primary pt-form__submit">送信する</button>
+        <p class="pt-form__status" id="placementStatus" role="status" aria-live="polite" hidden></p>
         <p class="pt-form__note">※ ご入力いただいた情報は、SPEAKMORE（運営：ニセココンシェルジュ）がレベルチェックテストのご案内・ご連絡のためにのみ使用し、第三者には提供いたしません。</p>
       </form>
+      <div class="pt-success" id="placementSuccess">
+        <span class="pt-success__check" aria-hidden="true">
+          <svg viewBox="0 0 52 52" width="58" height="58"><circle cx="26" cy="26" r="24" fill="none" stroke="currentColor" stroke-width="3"></circle><path d="M16 27 L23 34 L37 19" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </span>
+        <h2 class="pt-modal__title">送信が完了しました</h2>
+        <p class="pt-modal__lede">ご入力ありがとうございます。担当よりレベルチェックテストのご案内を、ご登録のメールアドレス宛にお送りいたします。</p>
+        <button type="button" class="btn btn--primary pt-form__submit" data-pt-close>閉じる</button>
+      </div>
     </div>
   </div>
 
@@ -1285,10 +1294,25 @@
       box-shadow: 0 0 0 3px rgba(209, 70, 23, 0.12);
     }
     .pt-form__submit { width: 100%; margin-top: var(--sp-2); }
+    .pt-form__submit:disabled { opacity: 0.6; cursor: progress; }
+    .pt-form__status {
+      font-size: 0.8rem; line-height: 1.6; margin: 0; color: var(--ink-muted);
+    }
+    .pt-form__status.is-error { color: var(--coral-deep); font-weight: 700; }
     .pt-form__note {
       font-size: 0.72rem; line-height: 1.6; color: var(--ink-muted);
       margin: 0;
     }
+    /* Success state — swap the form out for a confirmation */
+    .pt-success { display: none; text-align: center; }
+    .pt-modal__dialog.is-sent > .pt-modal__kicker,
+    .pt-modal__dialog.is-sent > #ptModalTitle,
+    .pt-modal__dialog.is-sent > .pt-modal__lede,
+    .pt-modal__dialog.is-sent > .pt-form { display: none; }
+    .pt-modal__dialog.is-sent .pt-success { display: block; }
+    .pt-success__check { color: #2BA84A; display: inline-flex; margin-bottom: var(--sp-3); }
+    .pt-success .pt-modal__title { margin-bottom: var(--sp-3); }
+    .pt-success .pt-form__submit { margin-top: var(--sp-5); }
     body.pt-lock { overflow: hidden; }
   </style>
 
@@ -1303,12 +1327,24 @@
       var triggers = document.querySelectorAll('[data-placement-open]');
       if (!modal || !triggers.length) return;
       var form = document.getElementById('placementForm');
+      var dialog = modal.querySelector('.pt-modal__dialog');
+      var statusEl = document.getElementById('placementStatus');
+      var submitBtn = form ? form.querySelector('.pt-form__submit') : null;
       var firstInput = modal.querySelector('input[name="name"]');
       var lastFocused = null;
+      var ACCESS_KEY = 'f716bd65-68d4-4945-9df3-2b2f8d7988a0';
+
+      function resetForm() {
+        if (dialog) dialog.classList.remove('is-sent');
+        if (form) form.reset();
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = '送信する'; }
+        if (statusEl) { statusEl.hidden = true; statusEl.textContent = ''; statusEl.classList.remove('is-error'); }
+      }
 
       function openModal(e) {
         if (e) e.preventDefault();
         lastFocused = document.activeElement;
+        resetForm();
         modal.classList.add('is-open');
         modal.setAttribute('aria-hidden', 'false');
         document.body.classList.add('pt-lock');
@@ -1338,16 +1374,42 @@
           if (!form.checkValidity()) { form.reportValidity(); return; }
           var name = form.elements['name'].value.trim();
           var email = form.elements['email'].value.trim();
-          var subject = 'Placement test request';
-          var body =
-            'レベルチェックテストのお申し込みを受け付けました。\n\n' +
-            'お名前: ' + name + '\n' +
-            'メールアドレス: ' + email + '\n';
-          var href = 'mailto:info@speakmore.jp?subject=' +
-            encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-          window.location.href = href;
-          form.reset();
-          closeModal();
+
+          if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = '送信中…'; }
+          if (statusEl) { statusEl.hidden = true; statusEl.textContent = ''; statusEl.classList.remove('is-error'); }
+
+          fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+              access_key: ACCESS_KEY,
+              subject: 'Placement test request',
+              from_name: 'SPEAKMORE レベルチェックテスト',
+              name: name,
+              email: email,
+              message:
+                'レベルチェックテストのお申し込みを受け付けました。\n\n' +
+                'お名前: ' + name + '\n' +
+                'メールアドレス: ' + email
+            })
+          })
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+              if (data && data.success) {
+                form.reset();
+                if (dialog) dialog.classList.add('is-sent');
+              } else {
+                throw new Error((data && data.message) || 'submit failed');
+              }
+            })
+            .catch(function () {
+              if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = '送信する'; }
+              if (statusEl) {
+                statusEl.hidden = false;
+                statusEl.classList.add('is-error');
+                statusEl.textContent = '送信に失敗しました。通信環境をご確認のうえ、もう一度お試しください。';
+              }
+            });
         });
       }
     })();
