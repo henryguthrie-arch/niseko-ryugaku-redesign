@@ -3162,6 +3162,36 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 }
 .resource-card:hover .resource-card__cta svg { transform: translateX(4px); }
 
+/* Compact, high-intent variant — no icon/tag, tighter rhythm, filled CTA button */
+.resource-card--compact {
+  padding: var(--sp-5) var(--sp-6) var(--sp-6);
+  gap: 4px;
+  text-align: center;
+  align-items: center;
+}
+.resource-card--compact .resource-card__en {
+  margin: 0 0 var(--sp-1);
+  color: var(--c-accent, var(--coral-deep));
+}
+.resource-card--compact .resource-card__title {
+  font-size: clamp(1.4rem, 5.5vw, 1.7rem);
+}
+.resource-card--compact .resource-card__desc {
+  margin: var(--sp-2) 0 var(--sp-5);
+}
+.resource-card--compact .resource-card__cta {
+  justify-content: center;
+  margin-top: 0;
+  padding: 0.95em 1.5em;
+  border-top: none;
+  border-radius: var(--r-pill);
+  background: var(--c-accent, var(--coral));
+  color: #fff;
+  box-shadow: 0 12px 24px -12px var(--c-accent, var(--coral));
+}
+.resource-card--compact:hover .resource-card__cta { background: var(--coral-deep); }
+.resource-card--compact:hover .resource-card__cta svg { transform: translateX(4px); }
+
 /* ---------- Footer ---------- */
 .site-footer {
   background: #000000;
