@@ -1771,6 +1771,13 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 .week__block--meal { background: var(--cream); color: var(--ink-soft); border: 1px solid var(--cream-deep); font-style: italic; }
 .week__block--off { background: transparent; color: var(--ink-muted); border: 1px dashed var(--border-strong); }
 .week__block--span { grid-row: span 6; }
+.week__block--afternoon {
+  grid-row: span 2;
+  flex-direction: column;
+  gap: 4px;
+  line-height: 1.3;
+  font-size: 0.66rem;
+}
 
 .week__legend {
   display: flex;
