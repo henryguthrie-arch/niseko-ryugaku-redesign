@@ -261,8 +261,9 @@
       tokyo: {
         title: '東京留学', en: 'Tokyo Ryugaku', loc: '東京・通学', locKey: 'tokyo', accent: 'ink',
         memberIds: ['tokyo-school', 'tokyo-seminars'],
-        groupTag: 'casual', fromPrice: '¥12,000', fromNote: '/ 週〜',
+        groupTag: 'casual', fromPrice: '¥12,000', fromNote: '/ 月〜',
         contentHeading: 'コース内容（1ヶ月あたり）',
+        unit: 'ヶ月',
         plans: [
           { value: 'basic',   label: 'ベーシックプラン', quoteName: '東京留学 ベーシックプラン', content: 'tokyoBasic',   plan: null, weeklyRate: 12000, maxWeeks: 24, defaultWeeks: 2, noAccommodation: true },
           { value: 'popular', label: '人気プラン',       quoteName: '東京留学 人気プラン',       content: 'tokyoPopular', plan: null, weeklyRate: 12000, maxWeeks: 24, defaultWeeks: 4, noAccommodation: true },
@@ -635,14 +636,14 @@
 
             <!-- Price calculator + live quote (side-by-side) -->
             <div class="course-product__grid">
-              <div class="course-product__calc" data-calc data-weekly-rate="${x.weeklyRate}" data-tuition='${planTable ? JSON.stringify(planTable) : ''}'>
+              <div class="course-product__calc" data-calc data-weekly-rate="${x.weeklyRate}" data-unit="${escapeHtml(x.unit || '週間')}" data-tuition='${planTable ? JSON.stringify(planTable) : ''}'>
                 <p class="course-product__sub-head">料金シミュレーター</p>
                 ${planSelectHtml}
                 <div class="course-product__calc-row">
                   <label for="${sliderId}">期間</label>
-                  <output for="${sliderId}" data-calc-weeks>${x.defaultWeeks} 週間</output>
+                  <output for="${sliderId}" data-calc-weeks>${x.defaultWeeks} ${x.unit || '週間'}</output>
                 </div>
-                <input type="range" id="${sliderId}" min="1" max="${x.maxWeeks}" value="${x.defaultWeeks}" step="1" data-calc-input aria-label="受講期間（週）"${x.maxWeeks <= 1 ? ' hidden' : ''}>
+                <input type="range" id="${sliderId}" min="1" max="${x.maxWeeks}" value="${x.defaultWeeks}" step="1" data-calc-input aria-label="受講期間（${escapeHtml(x.unit || '週間')}）"${x.maxWeeks <= 1 ? ' hidden' : ''}>
                 ${x.note ? `<p class="course-product__calc-note">${escapeHtml(x.note)}</p>` : ''}
                 ${accBlock}
               </div>
@@ -654,12 +655,12 @@
                     <span class="quote-row__val">${jpy(ENROLLMENT_FEE)}</span>
                   </div>
                   <div class="quote-row">
-                    <span class="quote-row__label">授業料 - <span data-quote-plan-name>${escapeHtml(quoteName)}</span> <span data-quote-weeks>× ${x.defaultWeeks}週間</span></span>
+                    <span class="quote-row__label">授業料 - <span data-quote-plan-name>${escapeHtml(quoteName)}</span> <span data-quote-weeks>× ${x.defaultWeeks}${x.unit || '週間'}</span></span>
                     <span class="quote-row__val" data-quote-tuition>${jpy(qTuition)}</span>
                   </div>
                   ${x.noAccommodation ? '' : `
                   <div class="quote-row">
-                    <span class="quote-row__label">宿泊費 - <span data-quote-acc-name>ロッジ（シェア）</span> <span data-quote-weeks>× ${x.defaultWeeks}週間</span></span>
+                    <span class="quote-row__label">宿泊費 - <span data-quote-acc-name>ロッジ（シェア）</span> <span data-quote-weeks>× ${x.defaultWeeks}${x.unit || '週間'}</span></span>
                     <span class="quote-row__val" data-quote-acc>¥0</span>
                   </div>`}
                   <div class="quote-row quote-row--subtotal">
@@ -751,7 +752,7 @@
               weeklyRate: def.weeklyRate, maxWeeks: def.maxWeeks, defaultWeeks: def.defaultWeeks,
               tags: g.tags || ['通学制', 'ネイティブ講師', 'プラン選択可'], content: def.content, plan: def.plan,
               planOptions: g.plans, quoteName: def.quoteName, noAccommodation: def.noAccommodation,
-              contentHeading: g.contentHeading,
+              contentHeading: g.contentHeading, unit: g.unit,
             };
             return renderCourseProduct(key, groupP, groupX);
           }
@@ -837,6 +838,7 @@
       // Read pricing fresh each call so the plan switcher (which rewrites these
       // data attributes) takes effect without needing to re-wire the listener.
       const weeklyRate = Number(calc.dataset.weeklyRate || 0);
+      const unit = calc.dataset.unit || '週間';
       const tuitionTable = (() => { try { return calc.dataset.tuition ? JSON.parse(calc.dataset.tuition) : null; } catch (e) { return null; } })();
       const validWeeks = tuitionTable ? Object.keys(tuitionTable).map(Number).sort((a, b) => a - b) : null;
       const snapWeeks = (w) => {
@@ -851,7 +853,7 @@
       if (tuitionTable) { weeks = snapWeeks(weeks); if (Number(input.value) !== weeks) input.value = weeks; }
       const accRadio = accGroup ? accGroup.querySelector('input:checked') : null;
       const accRate = accRadio ? Number(accRadio.dataset.rate || 0) : 0;
-      if (weeksOut) weeksOut.value = `${weeks} 週間`;
+      if (weeksOut) weeksOut.value = `${weeks} ${unit}`;
 
       if (quote) {
         const enrollment = Number(quote.dataset.enrollment || 0);
@@ -867,7 +869,7 @@
         setText('[data-quote-tax]', yen(tax));
         setText('[data-quote-total]', fmt(total));
         if (accRadio) setText('[data-quote-acc-name]', accRadio.dataset.accName || '');
-        quote.querySelectorAll('[data-quote-weeks]').forEach((el) => { el.textContent = `× ${weeks}週間`; });
+        quote.querySelectorAll('[data-quote-weeks]').forEach((el) => { el.textContent = `× ${weeks}${unit}`; });
       }
     };
     input.addEventListener('input', update);
