@@ -261,14 +261,14 @@
       tokyo: {
         title: '東京留学', en: 'Tokyo Ryugaku', loc: '東京・通学', locKey: 'tokyo', accent: 'ink',
         memberIds: ['tokyo-school', 'tokyo-seminars'],
-        groupTag: 'casual', fromPrice: '¥12,000', fromNote: '/ 月〜',
+        groupTag: 'casual', fromPrice: '¥110,000', fromNote: '/ 月〜',
         contentHeading: 'コース内容（1ヶ月あたり）',
         unit: 'ヶ月',
         ribbon: '2026年9月開講',
         plans: [
-          { value: 'basic',   label: 'ベーシックプラン', quoteName: '東京留学 ベーシックプラン', content: 'tokyoBasic',   plan: null, weeklyRate: 12000, maxWeeks: 24, defaultWeeks: 2, noAccommodation: true },
-          { value: 'popular', label: '人気プラン',       quoteName: '東京留学 人気プラン',       content: 'tokyoPopular', plan: null, weeklyRate: 12000, maxWeeks: 24, defaultWeeks: 4, noAccommodation: true },
-          { value: 'focus',   label: 'フォーカスプラン', quoteName: '東京留学 フォーカスプラン', content: 'tokyoFocus',   plan: null, weeklyRate: 12000, maxWeeks: 24, defaultWeeks: 8, noAccommodation: true },
+          { value: 'basic',   label: 'ベーシックプラン', quoteName: '東京留学 ベーシックプラン', content: 'tokyoBasic',   plan: null, weeklyRate: 110000, maxWeeks: 24, defaultWeeks: 2, noAccommodation: true },
+          { value: 'popular', label: '人気プラン',       quoteName: '東京留学 人気プラン',       content: 'tokyoPopular', plan: null, weeklyRate: 120000, maxWeeks: 24, defaultWeeks: 4, noAccommodation: true },
+          { value: 'focus',   label: 'フォーカスプラン', quoteName: '東京留学 フォーカスプラン', content: 'tokyoFocus',   plan: null, weeklyRate: 130000, maxWeeks: 24, defaultWeeks: 8, noAccommodation: true },
         ],
       },
     };
