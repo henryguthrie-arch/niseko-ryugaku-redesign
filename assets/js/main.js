@@ -264,6 +264,7 @@
         groupTag: 'casual', fromPrice: '¥12,000', fromNote: '/ 月〜',
         contentHeading: 'コース内容（1ヶ月あたり）',
         unit: 'ヶ月',
+        ribbon: '2026年9月開講',
         plans: [
           { value: 'basic',   label: 'ベーシックプラン', quoteName: '東京留学 ベーシックプラン', content: 'tokyoBasic',   plan: null, weeklyRate: 12000, maxWeeks: 24, defaultWeeks: 2, noAccommodation: true },
           { value: 'popular', label: '人気プラン',       quoteName: '東京留学 人気プラン',       content: 'tokyoPopular', plan: null, weeklyRate: 12000, maxWeeks: 24, defaultWeeks: 4, noAccommodation: true },
@@ -606,6 +607,10 @@
         const brandMark = crest
           ? `<img src="${crest.src}" alt="${crest.alt}" class="course-product__brand-mark" loading="lazy" />`
           : '';
+        // Optional diagonal corner ribbon (e.g. launch date).
+        const ribbon = x.ribbon
+          ? `<span class="course-product__ribbon">${escapeHtml(x.ribbon)}</span>`
+          : '';
         // Plan name shown in the 授業料 quote line (a span so the plan-switcher can update it).
         const quoteName = x.quoteName || p.jp;
         // Optional plan dropdown (combined location cards). Each option carries
@@ -623,7 +628,7 @@
         return `
         <article id="course-${id}" class="course-product course-product--${p.accent}">
           <div class="course-product__body">
-            ${brandMark}
+            ${ribbon}${brandMark}
 
             <!-- Header -->
             <header class="course-product__head">
@@ -752,7 +757,7 @@
               weeklyRate: def.weeklyRate, maxWeeks: def.maxWeeks, defaultWeeks: def.defaultWeeks,
               tags: g.tags || ['通学制', 'ネイティブ講師', 'プラン選択可'], content: def.content, plan: def.plan,
               planOptions: g.plans, quoteName: def.quoteName, noAccommodation: def.noAccommodation,
-              contentHeading: g.contentHeading, unit: g.unit,
+              contentHeading: g.contentHeading, unit: g.unit, ribbon: g.ribbon,
             };
             return renderCourseProduct(key, groupP, groupX);
           }
