@@ -263,9 +263,9 @@
         memberIds: ['tokyo-school', 'tokyo-seminars'],
         groupTag: 'casual', fromPrice: '¥12,000', fromNote: '/ 週〜',
         plans: [
-          { value: 'basic',   label: 'ベーシックプラン', quoteName: '東京留学 ベーシックプラン', content: 'basic',     plan: null, weeklyRate: 12000, maxWeeks: 24, defaultWeeks: 2, noAccommodation: true },
-          { value: 'popular', label: '人気プラン',       quoteName: '東京留学 人気プラン',       content: 'popular',   plan: null, weeklyRate: 12000, maxWeeks: 24, defaultWeeks: 4, noAccommodation: true },
-          { value: 'focus',   label: 'フォーカスプラン', quoteName: '東京留学 フォーカスプラン', content: 'intensive', plan: null, weeklyRate: 12000, maxWeeks: 24, defaultWeeks: 8, noAccommodation: true },
+          { value: 'basic',   label: 'ベーシックプラン', quoteName: '東京留学 ベーシックプラン', content: 'tokyoBasic',   plan: null, weeklyRate: 12000, maxWeeks: 24, defaultWeeks: 2, noAccommodation: true },
+          { value: 'popular', label: '人気プラン',       quoteName: '東京留学 人気プラン',       content: 'tokyoPopular', plan: null, weeklyRate: 12000, maxWeeks: 24, defaultWeeks: 4, noAccommodation: true },
+          { value: 'focus',   label: 'フォーカスプラン', quoteName: '東京留学 フォーカスプラン', content: 'tokyoFocus',   plan: null, weeklyRate: 12000, maxWeeks: 24, defaultWeeks: 8, noAccommodation: true },
         ],
       },
     };
@@ -482,6 +482,31 @@
           { label: '少人数',       value: '最大 8 名' },
           { label: 'テーマ',       value: '毎月変更' },
           { label: '質疑応答',     value: 'あり' },
+        ],
+        // Tokyo-only weekly content (distinct from Niseko/Nozawa's shared variants).
+        tokyoBasic: [
+          { label: '授業',          value: '計 16 コマ' },
+          { label: 'マンツーマン', value: 'なし' },
+          { label: '発音矯正',     value: '月 1 回' },
+          { label: 'アクティビティ', value: '計 2 コマ' },
+          { label: 'フリー英会話', value: '1 時間 / 日' },
+          { label: 'カウンセリング', value: '月 1 回' },
+        ],
+        tokyoPopular: [
+          { label: '授業',          value: '計 16 コマ' },
+          { label: 'マンツーマン', value: '月 1 回' },
+          { label: '発音矯正',     value: '月 1 回' },
+          { label: 'アクティビティ', value: '計 4 コマ' },
+          { label: 'フリー英会話', value: '1 時間 / 日' },
+          { label: 'カウンセリング', value: '月 1 回' },
+        ],
+        tokyoFocus: [
+          { label: '授業',          value: '計 16 コマ' },
+          { label: 'マンツーマン', value: '月 2 回' },
+          { label: '発音矯正',     value: '月 1 回' },
+          { label: 'アクティビティ', value: '計 6 コマ' },
+          { label: 'フリー英会話', value: '1 時間 / 日' },
+          { label: 'カウンセリング', value: '月 2 回' },
         ],
       };
 
