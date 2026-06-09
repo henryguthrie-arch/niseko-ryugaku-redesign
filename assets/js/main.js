@@ -262,6 +262,7 @@
         title: '東京留学', en: 'Tokyo Ryugaku', loc: '東京・通学', locKey: 'tokyo', accent: 'ink',
         memberIds: ['tokyo-school', 'tokyo-seminars'],
         groupTag: 'casual', fromPrice: '¥12,000', fromNote: '/ 週〜',
+        contentHeading: 'コース内容（1ヶ月あたり）',
         plans: [
           { value: 'basic',   label: 'ベーシックプラン', quoteName: '東京留学 ベーシックプラン', content: 'tokyoBasic',   plan: null, weeklyRate: 12000, maxWeeks: 24, defaultWeeks: 2, noAccommodation: true },
           { value: 'popular', label: '人気プラン',       quoteName: '東京留学 人気プラン',       content: 'tokyoPopular', plan: null, weeklyRate: 12000, maxWeeks: 24, defaultWeeks: 4, noAccommodation: true },
@@ -682,7 +683,7 @@
 
             <!-- Weekly content matrix -->
             <div class="course-product__contents">
-              <p class="course-product__sub-head">コース内容（1週間あたり）</p>
+              <p class="course-product__sub-head">${escapeHtml(x.contentHeading || 'コース内容（1週間あたり）')}</p>
               <ul class="course-product__contents-grid">
                 ${content.map((c) => `<li><strong>${escapeHtml(c.label)}</strong><span>${escapeHtml(c.value)}</span></li>`).join('')}
               </ul>
@@ -750,6 +751,7 @@
               weeklyRate: def.weeklyRate, maxWeeks: def.maxWeeks, defaultWeeks: def.defaultWeeks,
               tags: g.tags || ['通学制', 'ネイティブ講師', 'プラン選択可'], content: def.content, plan: def.plan,
               planOptions: g.plans, quoteName: def.quoteName, noAccommodation: def.noAccommodation,
+              contentHeading: g.contentHeading,
             };
             return renderCourseProduct(key, groupP, groupX);
           }
