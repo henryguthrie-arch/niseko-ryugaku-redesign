@@ -94,7 +94,7 @@
         price: '¥168,000', priceNote: '〜 / 2週間', accent: 'coral',
       },
       'niseko-popular': {
-        jp: 'ニセコ留学 人気プラン', en: 'Niseko Ryugaku Popular Plan',
+        jp: 'ニセコ留学 ポピュラープラン', en: 'Niseko Ryugaku Popular Plan',
         loc: 'ニセコ', locKey: 'niseko', formatKey: 'inperson',
         tag: 'intensive', seasons: ['summer','winter'],
         price: '¥320,000', priceNote: '〜 / 4週間', accent: 'coral', badge: '人気No.1',
@@ -118,7 +118,7 @@
         price: '¥158,000', priceNote: '〜 / 2週間', accent: 'teal',
       },
       'nozawa-popular': {
-        jp: '野沢留学 人気プラン', en: 'Nozawa Ryugaku Popular Plan',
+        jp: '野沢留学 ポピュラープラン', en: 'Nozawa Ryugaku Popular Plan',
         loc: '野沢温泉', locKey: 'nozawa', formatKey: 'inperson',
         tag: 'intensive', seasons: ['spring'],
         price: '¥298,000', priceNote: '〜 / 4週間', accent: 'teal',
@@ -242,7 +242,7 @@
         groupTag: 'intensive', fromPrice: '¥99,000', fromNote: '〜 / 週',
         plans: [
           { value: 'basic',   label: 'ベーシックプラン', quoteName: 'ニセコ留学 ベーシックプラン', content: 'basic',     plan: 'basic',   weeklyRate: 84000, maxWeeks: 24, defaultWeeks: 2 },
-          { value: 'popular', label: '人気プラン',       quoteName: 'ニセコ留学 人気プラン',       content: 'popular',   plan: 'popular', weeklyRate: 80000, maxWeeks: 24, defaultWeeks: 4 },
+          { value: 'popular', label: 'ポピュラープラン',       quoteName: 'ニセコ留学 ポピュラープラン',       content: 'popular',   plan: 'popular', weeklyRate: 80000, maxWeeks: 24, defaultWeeks: 4 },
           { value: 'focus',   label: 'フォーカスプラン', quoteName: 'ニセコ留学 フォーカスプラン', content: 'intensive', plan: 'focus',   weeklyRate: 78000, maxWeeks: 24, defaultWeeks: 8 },
         ],
         // ワーホリプラン is now a standalone card (niseko-whv), not a group member.
@@ -254,7 +254,7 @@
         tags: ['通学制', 'ネイティブ講師', 'プラン選択可', '春季限定 🌸'],
         plans: [
           { value: 'basic',   label: 'ベーシックプラン', quoteName: '野沢留学 ベーシックプラン', content: 'basic',     plan: 'basic',   weeklyRate: 79000, maxWeeks: 24, defaultWeeks: 2 },
-          { value: 'popular', label: '人気プラン',       quoteName: '野沢留学 人気プラン',       content: 'popular',   plan: 'popular', weeklyRate: 75000, maxWeeks: 24, defaultWeeks: 4 },
+          { value: 'popular', label: 'ポピュラープラン',       quoteName: '野沢留学 ポピュラープラン',       content: 'popular',   plan: 'popular', weeklyRate: 75000, maxWeeks: 24, defaultWeeks: 4 },
           { value: 'focus',   label: 'フォーカスプラン', quoteName: '野沢留学 フォーカスプラン', content: 'intensive', plan: 'focus',   weeklyRate: 73000, maxWeeks: 24, defaultWeeks: 8 },
         ],
       },
@@ -267,7 +267,7 @@
         ribbon: '2026年9月開講',
         plans: [
           { value: 'basic',   label: 'ベーシックプラン', quoteName: '東京留学 ベーシックプラン', content: 'tokyoBasic',   plan: null, weeklyRate: 110000, maxWeeks: 24, defaultWeeks: 2, noAccommodation: true },
-          { value: 'popular', label: '人気プラン',       quoteName: '東京留学 人気プラン',       content: 'tokyoPopular', plan: null, weeklyRate: 120000, maxWeeks: 24, defaultWeeks: 4, noAccommodation: true },
+          { value: 'popular', label: 'ポピュラープラン',       quoteName: '東京留学 ポピュラープラン',       content: 'tokyoPopular', plan: null, weeklyRate: 120000, maxWeeks: 24, defaultWeeks: 4, noAccommodation: true },
           { value: 'focus',   label: 'フォーカスプラン', quoteName: '東京留学 フォーカスプラン', content: 'tokyoFocus',   plan: null, weeklyRate: 130000, maxWeeks: 24, defaultWeeks: 8, noAccommodation: true },
         ],
       },
