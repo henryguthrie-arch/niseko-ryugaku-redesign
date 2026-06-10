@@ -265,6 +265,11 @@
         contentHeading: 'コース内容（1ヶ月あたり）',
         unit: 'ヶ月',
         ribbon: '2026年9月開講',
+        features: [
+          { title: '社会人でも気軽に参加可能', body: '仕事を続けながら、留学レベルのレッスンが受けられます。' },
+          { title: '海外留学の半分以下のコスト', body: '渡航費・滞在費ゼロで本格的な英語学習を。' },
+          { title: 'ニセコ留学へのステップにも', body: '東京で基礎を固めて、ニセコ留学へ進む流れもOK。' },
+        ],
         plans: [
           { value: 'basic',   label: 'ベーシックプラン', quoteName: '東京留学 ベーシックプラン', content: 'tokyoBasic',   plan: null, weeklyRate: 110000, maxWeeks: 24, defaultWeeks: 2, noAccommodation: true },
           { value: 'popular', label: 'ポピュラープラン',       quoteName: '東京留学 ポピュラープラン',       content: 'tokyoPopular', plan: null, weeklyRate: 120000, maxWeeks: 24, defaultWeeks: 4, noAccommodation: true },
@@ -757,7 +762,7 @@
               weeklyRate: def.weeklyRate, maxWeeks: def.maxWeeks, defaultWeeks: def.defaultWeeks,
               tags: g.tags || ['通学制', 'ネイティブ講師', 'プラン選択可'], content: def.content, plan: def.plan,
               planOptions: g.plans, quoteName: def.quoteName, noAccommodation: def.noAccommodation,
-              contentHeading: g.contentHeading, unit: g.unit, ribbon: g.ribbon,
+              contentHeading: g.contentHeading, unit: g.unit, ribbon: g.ribbon, features: g.features,
             };
             return renderCourseProduct(key, groupP, groupX);
           }
