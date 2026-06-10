@@ -896,3 +896,154 @@
     reveals.forEach((el) => io.observe(el));
   }
 })();
+
+/* ============================================================
+   Language selector (Google Translate–powered; JA = source)
+   Selecting a language sets the `googtrans` cookie and reloads;
+   the hidden Google widget reads that cookie on every page, so the
+   choice carries across the whole site. Japanese clears the cookie
+   (back to the untranslated original).
+   ============================================================ */
+(function () {
+  var LANGS = [
+    { code: 'ja',    name: '日本語',  cc: 'jp' },
+    { code: 'ko',    name: '한국어',  cc: 'kr' },
+    { code: 'zh-CN', name: '中文',    cc: 'cn' },
+    { code: 'es',    name: 'Español', cc: 'es' }
+  ];
+
+  function exists(code) {
+    return LANGS.some(function (l) { return l.code === code; });
+  }
+  function byCode(code) {
+    for (var i = 0; i < LANGS.length; i++) if (LANGS[i].code === code) return LANGS[i];
+    return LANGS[0];
+  }
+  function flagImg(cc) {
+    return '<img class="lang-flag" src="https://flagcdn.com/' + cc + '.svg" width="22" height="15" alt="" aria-hidden="true" loading="lazy">';
+  }
+  function readCookie(name) {
+    var m = document.cookie.match('(?:^|; )' + name + '=([^;]*)');
+    return m ? decodeURIComponent(m[1]) : '';
+  }
+  function currentLang() {
+    var c = readCookie('googtrans'); // e.g. "/ja/ko"
+    if (c) {
+      var t = c.split('/').filter(Boolean).pop();
+      if (t && exists(t)) return t;
+    }
+    return 'ja';
+  }
+  function setLang(code) {
+    var host = location.hostname;
+    var kill = '; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+    document.cookie = 'googtrans=' + kill;
+    document.cookie = 'googtrans=' + kill + '; domain=' + host;
+    var parts = host.split('.');
+    if (parts.length > 2) document.cookie = 'googtrans=' + kill + '; domain=.' + parts.slice(-2).join('.');
+    if (code && code !== 'ja') {
+      var val = '/ja/' + code;
+      document.cookie = 'googtrans=' + val + '; path=/';
+      document.cookie = 'googtrans=' + val + '; path=/; domain=' + host;
+    }
+    try { localStorage.setItem('smLang', code); } catch (e) {}
+    location.reload();
+  }
+
+  /* Hidden Google Translate widget — reads the cookie on load */
+  function injectGoogle() {
+    if (document.getElementById('google_translate_element')) return;
+    var holder = document.createElement('div');
+    holder.id = 'google_translate_element';
+    holder.className = 'notranslate';
+    holder.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(holder);
+    window.googleTranslateElementInit = function () {
+      new google.translate.TranslateElement(
+        { pageLanguage: 'ja', includedLanguages: 'ja,ko,zh-CN,es', autoDisplay: false },
+        'google_translate_element'
+      );
+    };
+    var s = document.createElement('script');
+    s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    s.async = true;
+    document.body.appendChild(s);
+  }
+
+  var CARET = '<svg class="lang-switch__caret" viewBox="0 0 12 12" aria-hidden="true">' +
+    '<path d="M2 4.5 L6 8.5 L10 4.5" fill="none" stroke="currentColor" stroke-width="1.6" ' +
+    'stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  function makeItem(l, cur) {
+    var item = document.createElement('button');
+    item.type = 'button';
+    item.className = 'lang-switch__item' + (l.code === cur ? ' is-active' : '');
+    item.innerHTML = flagImg(l.cc) + '<span>' + l.name + '</span>';
+    item.addEventListener('click', function () { setLang(l.code); });
+    return item;
+  }
+
+  function buildHeader(cur) {
+    var c = byCode(cur);
+    var wrap = document.createElement('div');
+    wrap.className = 'lang-switch lang-switch--header notranslate';
+    wrap.setAttribute('translate', 'no');
+
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'lang-switch__btn';
+    btn.setAttribute('aria-haspopup', 'true');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', '言語を選択 / Select language');
+    btn.innerHTML = flagImg(c.cc) + CARET;
+
+    var menu = document.createElement('div');
+    menu.className = 'lang-switch__menu';
+    menu.setAttribute('role', 'menu');
+    LANGS.forEach(function (l) { menu.appendChild(makeItem(l, cur)); });
+
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = wrap.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function () {
+      wrap.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+
+    wrap.appendChild(btn);
+    wrap.appendChild(menu);
+    return wrap;
+  }
+
+  /* Label + flag-pill row — used in the mobile nav drawer and the footer */
+  function buildRow(cur, variant) {
+    var wrap = document.createElement('div');
+    wrap.className = 'lang-switch lang-switch--' + variant + ' notranslate';
+    wrap.setAttribute('translate', 'no');
+    var label = document.createElement('span');
+    label.className = 'lang-switch__label';
+    label.textContent = 'Language / 言語';
+    var row = document.createElement('div');
+    row.className = 'lang-switch__row';
+    LANGS.forEach(function (l) { row.appendChild(makeItem(l, cur)); });
+    wrap.appendChild(label);
+    wrap.appendChild(row);
+    return wrap;
+  }
+
+  function init() {
+    injectGoogle();
+    var cur = currentLang();
+    var actions = document.querySelector('.site-header__actions');     // desktop: dropdown in header bar
+    if (actions) actions.insertBefore(buildHeader(cur), actions.querySelector('.nav-toggle'));
+    var nav = document.querySelector('.site-nav');                     // mobile: row inside hamburger drawer
+    if (nav) nav.appendChild(buildRow(cur, 'nav'));
+    var footer = document.querySelector('.site-footer__brand') || document.querySelector('.site-footer__inner');
+    if (footer) footer.appendChild(buildRow(cur, 'footer'));
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
