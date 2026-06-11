@@ -240,6 +240,11 @@
         title: 'ニセコ留学', en: 'Niseko Ryugaku', loc: 'ニセコ', locKey: 'niseko', accent: 'coral',
         memberIds: ['niseko-basic', 'niseko-popular', 'niseko-intensive'],
         groupTag: 'intensive', fromPrice: '¥99,000', fromNote: '〜 / 週',
+        features: [
+          { title: 'パスポート不要の海外体験', body: '国内にいながら、外国人だらけの環境にどっぷり浸かれます。' },
+          { title: 'レッスン外も英語漬け', body: '街もスタッフもゲストも英語。教室の外もそのまま実践の場です。' },
+          { title: '海外より安く海外体験', body: '渡航費・ビザ不要で、短期でも本気の英語漬け（イマージョン）留学を。' },
+        ],
         plans: [
           { value: 'basic',   label: 'ベーシックプラン', quoteName: 'ニセコ留学 ベーシックプラン', content: 'basic',     plan: 'basic',   weeklyRate: 84000, maxWeeks: 24, defaultWeeks: 2 },
           { value: 'popular', label: 'ポピュラープラン',       quoteName: 'ニセコ留学 ポピュラープラン',       content: 'popular',   plan: 'popular', weeklyRate: 80000, maxWeeks: 24, defaultWeeks: 4 },
