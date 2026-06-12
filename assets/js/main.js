@@ -442,7 +442,11 @@
         'niseko-basic':       { weeklyRate: 84000,  maxWeeks: 8,  defaultWeeks: 2, perWeekPrice: '¥84,000',  tags: ['通学制','本格型','ネイティブ講師'],            content: 'basic',     plan: 'basic'   },
         'niseko-popular':     { weeklyRate: 80000,  maxWeeks: 12, defaultWeeks: 4, perWeekPrice: '¥80,000',  tags: ['通学制','本格型','ネイティブ講師','4週間'],   content: 'popular',   plan: 'popular' },
         'niseko-intensive':   { weeklyRate: 78000,  maxWeeks: 16, defaultWeeks: 8, perWeekPrice: '¥78,000',  tags: ['通学制','集中型','ネイティブ講師','8週間'],   content: 'intensive', plan: 'focus'   },
-        'niseko-whv':         { weeklyRate: 99000,  maxWeeks: 1,  defaultWeeks: 1, perWeekPrice: '¥99,000', tags: ['通学制','ネイティブ講師','バイリンガルサポート'], content: 'whv', note: 'こちらは1週間のコースです。2週間以上の他プランと組み合わせる場合、この1週間分の料金は ¥65,000 となります。' },
+        'niseko-whv':         { weeklyRate: 99000,  maxWeeks: 1,  defaultWeeks: 1, perWeekPrice: '¥99,000', tags: ['通学制','ネイティブ講師','バイリンガルサポート'], content: 'whv', features: [
+          { title: 'パスポート不要の海外体験', body: '国内にいながら、外国人だらけの環境にどっぷり浸かれます。' },
+          { title: 'レッスン外も英語漬け', body: '街もスタッフもゲストも英語。教室の外もそのまま実践の場です。' },
+          { title: '海外より安く海外体験', body: '渡航費・ビザ不要で、短期でも本気の英語漬け（イマージョン）留学を。' },
+        ], note: 'こちらは1週間のコースです。2週間以上の他プランと組み合わせる場合、この1週間分の料金は ¥65,000 となります。' },
         'nozawa-basic':       { weeklyRate: 79000,  maxWeeks: 8,  defaultWeeks: 2, perWeekPrice: '¥79,000',  tags: ['通学制','本格型','ネイティブ講師'],            content: 'basic',     plan: 'basic',   creator: NOZAWA_CREATOR },
         'nozawa-popular':     { weeklyRate: 75000,  maxWeeks: 12, defaultWeeks: 4, perWeekPrice: '¥75,000',  tags: ['通学制','本格型','ネイティブ講師','4週間'],   content: 'popular',   plan: 'popular', creator: NOZAWA_CREATOR },
         'nozawa-intensive':   { weeklyRate: 73000,  maxWeeks: 16, defaultWeeks: 8, perWeekPrice: '¥73,000',  tags: ['通学制','集中型','ネイティブ講師','8週間'],   content: 'intensive', plan: 'focus',   creator: NOZAWA_CREATOR },
