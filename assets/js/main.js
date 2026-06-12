@@ -257,6 +257,11 @@
         memberIds: ['nozawa-basic', 'nozawa-popular', 'nozawa-intensive'],
         groupTag: 'intensive', fromPrice: '¥99,000', fromNote: '〜 / 週',
         tags: ['通学制', 'ネイティブ講師', 'プラン選択可', '春季限定 🌸'],
+        features: [
+          { title: '東京から新幹線で約1時間50分', body: '北陸新幹線ですぐ。短期でも気軽に参加できます。' },
+          { title: '温泉×英語のイマージョン環境', body: '外国人ゲストで賑わう温泉街が、そのまま英語の実践の場に。' },
+          { title: 'レッスン後は外湯めぐり', body: '13の外湯と雪景色。学びながら心も体もリフレッシュできます。' },
+        ],
         plans: [
           { value: 'basic',   label: 'ベーシックプラン', quoteName: '野沢留学 ベーシックプラン', content: 'basic',     plan: 'basic',   weeklyRate: 79000, maxWeeks: 24, defaultWeeks: 2 },
           { value: 'popular', label: 'ポピュラープラン',       quoteName: '野沢留学 ポピュラープラン',       content: 'popular',   plan: 'popular', weeklyRate: 75000, maxWeeks: 24, defaultWeeks: 4 },
