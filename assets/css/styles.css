@@ -6174,3 +6174,8 @@ body { top: 0 !important; }
 .post-card__title { font-size: 1.15rem; font-weight: 700; line-height: 1.5; margin: 0 0 var(--sp-2); color: var(--ink); }
 .post-card__excerpt { font-size: var(--fs-sm); line-height: 1.8; color: var(--ink-soft); margin: 0; }
 .post-card__more { display: inline-block; margin-top: var(--sp-3); font-size: var(--fs-sm); font-weight: 700; color: var(--coral-deep); }
+
+/* Rebrand: campus-selector crests moved to top of card, now clickable links */
+.rebrand__suite-list--top { margin: 0 auto var(--sp-6); }
+a.rebrand__suite-crest { display: block; text-decoration: none; color: inherit; transition: transform .15s ease, opacity .15s ease; }
+a.rebrand__suite-crest:hover { transform: translateY(-3px); opacity: .85; }
