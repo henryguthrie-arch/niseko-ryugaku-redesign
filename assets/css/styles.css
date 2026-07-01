@@ -159,10 +159,10 @@ body {
    hero's green start (teal-soft) instead of ending on pink, and fill the
    bottom so the two sections meet with no seam. */
 .page-home #rebrand {
-  /* Light lilac (lighter than the pink-soft used elsewhere) behind the crest
-     logos, fading to teal-soft only at the bottom so it still blends into the
-     hero below. */
-  background: linear-gradient(180deg, #F5E8F3 0%, #F5E8F3 68%, var(--teal-soft) 100%);
+  /* Light lilac behind the crest logos, fading through a soft neutral cream
+     (avoids a muddy lilac↔green midpoint) down to teal-soft, so the transition
+     into the hero below reads as one smooth, clean run. */
+  background: linear-gradient(180deg, #F5E8F3 0%, #FAF4ED 52%, var(--teal-soft) 100%);
   padding-bottom: var(--sp-6);
 }
 .page-home #rebrand .rebrand__suite-list--top { margin-bottom: 0; background: transparent; border: none; box-shadow: none; }
