@@ -155,6 +155,14 @@ body {
   /* pull up so the group illustration fills the space before the stats strip */
   padding-bottom: 0;
 }
+/* The crest section now sits ABOVE the hero — blend its gradient into the
+   hero's green start (teal-soft) instead of ending on pink, and fill the
+   bottom so the two sections meet with no seam. */
+.page-home #rebrand {
+  background: linear-gradient(180deg, var(--coral-soft) 0%, var(--teal-soft) 100%);
+  padding-bottom: var(--sp-6);
+}
+.page-home #rebrand .rebrand__suite-list--top { margin-bottom: 0; }
 /* Group illustration directly under the rebrand picks up its end colour so
    there's no visible seam between the two (it then meets the dark stats). */
 .page-home .rebrand + .group-banner {
