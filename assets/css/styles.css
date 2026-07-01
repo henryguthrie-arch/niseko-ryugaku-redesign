@@ -159,7 +159,9 @@ body {
    hero's green start (teal-soft) instead of ending on pink, and fill the
    bottom so the two sections meet with no seam. */
 .page-home #rebrand {
-  background: linear-gradient(180deg, var(--coral-soft) 0%, var(--teal-soft) 100%);
+  /* Lighter than coral-soft so the dark crest logos stand out; still ends on
+     teal-soft to blend into the hero. */
+  background: linear-gradient(180deg, #FFDCCB 0%, var(--teal-soft) 100%);
   padding-bottom: var(--sp-6);
 }
 .page-home #rebrand .rebrand__suite-list--top { margin-bottom: 0; background: transparent; border: none; box-shadow: none; }
