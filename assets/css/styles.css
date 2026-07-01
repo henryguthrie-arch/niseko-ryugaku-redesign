@@ -2795,12 +2795,13 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 }
 .campus-card__name-row {
   display: flex;
+  flex-direction: column-reverse; /* crest on top, name below (h3 stays first in DOM) */
   align-items: center;
-  justify-content: space-between;
+  text-align: center;
   gap: var(--sp-3);
 }
 .campus-card__crest {
-  width: clamp(48px, 9vw, 64px);
+  width: clamp(88px, 20vw, 120px);
   height: auto;
   flex-shrink: 0;
 }
