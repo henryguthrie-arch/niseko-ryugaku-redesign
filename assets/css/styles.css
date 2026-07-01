@@ -3267,6 +3267,22 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 }
 .site-footer__social a:hover { background: var(--coral); color: #fff; }
 
+/* 3 campus academy crests in the footer — rendered white (monochrome) to sit
+   on the black footer, matching the white SPEAKMORE mark. */
+.site-footer__academies {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+  margin-top: var(--sp-1);
+}
+.site-footer__academies img {
+  height: 52px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+}
+
 .site-footer__cols {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
