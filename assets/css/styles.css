@@ -181,17 +181,19 @@ body {
   list-style: none;
   margin: 0 auto var(--sp-6);
   padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: clamp(18px, 5vw, 40px);
-  max-width: 620px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(8px, 2vw, 22px);
 }
+.academy-crests li { display: flex; flex-direction: column; align-items: center; padding: clamp(8px, 1.5vw, 16px) 4px; }
 .academy-crests a { display: block; text-decoration: none; transition: transform var(--t-fast) var(--ease); }
 .academy-crests a:hover { transform: translateY(-3px); }
-.academy-crests img { height: clamp(56px, 13vw, 72px); width: auto; display: block; }
+.academy-crests img { display: block; margin: 0 auto; width: auto; height: auto; max-width: 100%; max-height: clamp(130px, 22vw, 220px); }
 .academy-crests--dark img { filter: brightness(0) invert(1); opacity: 0.85; }
+/* Trim the dead space above the crest rows in these two sections */
+#why-speakmore { padding-top: var(--sp-5); }
+.booking { padding-top: var(--sp-5); }
 /* Group illustration directly under the rebrand picks up its end colour so
    there's no visible seam between the two (it then meets the dark stats). */
 .page-home .rebrand + .group-banner {
