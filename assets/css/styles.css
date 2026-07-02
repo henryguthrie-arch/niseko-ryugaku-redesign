@@ -167,6 +167,13 @@ body {
   padding-bottom: var(--sp-2);
 }
 .page-home #rebrand .rebrand__suite-list--top { margin-bottom: 0; background: transparent; border: none; box-shadow: none; padding-top: var(--sp-1); padding-bottom: var(--sp-1); }
+
+/* Rebrand box (below hero): trim the excess top/bottom dead space, and give
+   the headline a little separation from the pills. */
+.rebrand--below .rebrand__card { padding-top: var(--sp-4); padding-bottom: var(--sp-4); }
+.rebrand--below .rebrand__suite { margin-top: 0; }
+.rebrand--below .rebrand__head { margin-bottom: 0; }
+.rebrand--below .rebrand__title { margin-bottom: var(--sp-4); }
 /* Group illustration directly under the rebrand picks up its end colour so
    there's no visible seam between the two (it then meets the dark stats). */
 .page-home .rebrand + .group-banner {
