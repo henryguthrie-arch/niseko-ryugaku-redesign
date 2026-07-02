@@ -163,9 +163,10 @@ body {
      (avoids a muddy lilac↔green midpoint) down to teal-soft, so the transition
      into the hero below reads as one smooth, clean run. */
   background: linear-gradient(180deg, #F5E8F3 0%, #FAF4ED 52%, var(--teal-soft) 100%);
-  padding-bottom: var(--sp-6);
+  padding-top: var(--sp-2);
+  padding-bottom: var(--sp-2);
 }
-.page-home #rebrand .rebrand__suite-list--top { margin-bottom: 0; background: transparent; border: none; box-shadow: none; }
+.page-home #rebrand .rebrand__suite-list--top { margin-bottom: 0; background: transparent; border: none; box-shadow: none; padding-top: var(--sp-1); padding-bottom: var(--sp-1); }
 /* Group illustration directly under the rebrand picks up its end colour so
    there's no visible seam between the two (it then meets the dark stats). */
 .page-home .rebrand + .group-banner {
@@ -576,7 +577,7 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 .hero {
   position: relative;
   overflow: hidden;
-  padding-top: var(--sp-4);
+  padding-top: var(--sp-2);
   padding-bottom: var(--sp-6);
   min-height: clamp(560px, 78vh, 820px);
   display: flex;
@@ -617,7 +618,7 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   font-weight: 700;
   line-height: 1.35;
   letter-spacing: -0.005em;
-  margin: var(--sp-4) 0 var(--sp-5);
+  margin: var(--sp-2) 0 var(--sp-5);
   color: var(--ink);
 }
 .hero__title em {
