@@ -6237,5 +6237,7 @@ body { top: 0 !important; }
 /* SPEAKMORE GROUP parent brand, centered above the 3 academy crests */
 .rebrand__group-brand { display: flex; justify-content: center; margin: 0 auto var(--sp-4); }
 .rebrand__group-brand img { display: block; width: clamp(200px, 52vw, 340px); height: auto; }
+/* On dark sections: render the wordmark pure white to match the --dark crests */
+.rebrand__group-brand--dark img { filter: brightness(0) invert(1); opacity: 0.9; }
 a.rebrand__suite-crest { display: block; text-decoration: none; color: inherit; transition: transform .15s ease, opacity .15s ease; }
 a.rebrand__suite-crest:hover { transform: translateY(-3px); opacity: .85; }
