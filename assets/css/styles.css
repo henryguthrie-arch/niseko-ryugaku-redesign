@@ -5870,6 +5870,8 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   box-shadow: var(--shadow-lg, 0 30px 60px -30px rgba(0, 0, 0, 0.35));
 }
 .seminar-hero__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* English Seminar page uses a 4:5 portrait promo graphic — match the frame so no text is cropped */
+.seminar-hero__photo--portrait { aspect-ratio: 4 / 5; }
 
 /* Section title em accent (scoped to seminar sections) */
 .seminar-points .section-title em,
