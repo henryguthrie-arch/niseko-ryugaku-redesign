@@ -2111,7 +2111,9 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 .booking {
   background: var(--ink);
   color: var(--cream);
-  padding-block: var(--sp-9);
+  /* top padding is trimmed to --sp-5 above (line ~196); keep the generous
+     bottom padding only, so there's no dead space above the group logo */
+  padding-bottom: var(--sp-9);
   position: relative;
   overflow: hidden;
 }
