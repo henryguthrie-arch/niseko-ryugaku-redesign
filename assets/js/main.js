@@ -1066,3 +1066,18 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+
+/* ============================================================
+   Google Ads conversion: "Lesson Enquiry" (AW-820931573)
+   Calendly's inline widget posts a calendly.event_scheduled
+   message when a booking completes — that is the conversion.
+   ============================================================ */
+(function () {
+  window.addEventListener('message', function (e) {
+    if (e.origin !== 'https://calendly.com') return;
+    var d = e.data;
+    if (d && d.event === 'calendly.event_scheduled' && typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', { send_to: 'AW-820931573/I-t-CNzpvrscEPXXuYcD' });
+    }
+  });
+})();
