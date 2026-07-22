@@ -6233,6 +6233,11 @@ body { top: 0 !important; }
 .post__body strong { font-weight: 700; }
 .post__body blockquote { margin: 0 0 1.4em; padding: var(--sp-4) var(--sp-5); background: var(--cream); border-left: 4px solid var(--coral-soft); border-radius: 0 var(--r-lg) var(--r-lg) 0; }
 .post__body blockquote p { margin: 0; color: var(--ink-soft); }
+.post__body table { width: 100%; border-collapse: collapse; margin: 0 0 1.6em; font-size: 0.95rem; line-height: 1.7; }
+.post__body th, .post__body td { border: 1px solid var(--border); padding: 10px 14px; text-align: left; vertical-align: top; }
+.post__body thead th { background: var(--cream); color: var(--ink); font-weight: 700; }
+.post__body .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 0 1.6em; }
+.post__body .table-scroll table { margin: 0; min-width: 560px; }
 
 .post__cta { margin-top: var(--sp-8); padding: var(--sp-6); background: var(--cream); border-radius: var(--r-lg); text-align: center; }
 .post__cta-text { font-weight: 700; margin: 0 0 var(--sp-4); color: var(--ink); }
