@@ -274,7 +274,7 @@
         groupTag: 'casual', fromPrice: '¥110,000', fromNote: '/ 月〜',
         contentHeading: 'コース内容（1ヶ月あたり）',
         unit: 'ヶ月',
-        ribbon: '2026年9月開講',
+        ribbon: '2026年11月開講予定',
         features: [
           { title: '社会人でも気軽に参加可能', body: '仕事を続けながら、留学レベルのレッスンが受けられます。' },
           { title: '海外留学の半分以下のコスト', body: '渡航費・滞在費ゼロで本格的な英語学習を。' },
