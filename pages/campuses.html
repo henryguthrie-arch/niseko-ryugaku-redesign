@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Bebas+Neue&amp;family=Noto+Sans+JP:wght@300;400;500;700&amp;display=swap">
 
-  <link rel="stylesheet" href="../assets/css/styles.css?v=261">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=296">
   <!-- Canonical + social share -->
   <link rel="canonical" href="https://speakmore.jp/pages/campuses">
   <meta property="og:type" content="website">
@@ -73,22 +73,22 @@
   <section class="page-hero">
     <div class="container">
       <div class="page-hero__inner">
-        <h1 class="page-hero__title">Our <em>Campuses</em>.</h1>
+        <h1 class="page-hero__title">キャンパス紹介</h1>
         <p class="page-hero__lede">
           雪国のニセコ。温泉と山の野沢温泉。都会と国際性の東京。SPEAKMOREの3つのキャンパスは、それぞれにまったく違う学びの体験を提供します。
         </p>
       </div>
     </div>
-  </section>
 
-  <!-- ========== Campus jump nav ========== -->
-  <nav class="campus-jump" aria-label="キャンパスへ移動">
-    <div class="container campus-jump__inner">
-      <a href="#niseko"><span>ニセコ</span></a>
-      <a href="#nozawa"><span>野沢温泉</span></a>
-      <a href="#tokyo"><span>東京</span></a>
-    </div>
-  </nav>
+    <!-- Campus jump nav — lives inside the hero -->
+    <nav class="campus-jump campus-jump--hero" aria-label="キャンパスへ移動">
+      <div class="container campus-jump__inner">
+        <a href="#niseko"><span>ニセコ</span></a>
+        <a href="#nozawa"><span>野沢温泉</span></a>
+        <a href="#tokyo"><span>東京</span></a>
+      </div>
+    </nav>
+  </section>
 
   <!-- ============================================================
        CAMPUS SHOWCASE — one detailed section per location.
@@ -102,19 +102,19 @@
     <div class="container">
       <header class="campus-detail__head">
         <div class="campus-detail__intro">
-          <div class="campus-detail__name-row">
-            <h2 class="campus-detail__name">ニセコ</h2>
+          <div class="campus-detail__name-row campus-detail__name-row--stacked">
             <img src="../assets/img/niseko-logo.png" alt="Niseko International Academy" class="campus-detail__crest" loading="lazy" />
           </div>
-          <p class="campus-detail__en">Niseko, Hokkaido</p>
-          <p class="campus-detail__tagline">「生活そのものが、授業」。住民の多くが外国人という、日本でもっとも国際的な町。雪山と温泉に囲まれて、365日を英語で暮らします。</p>
         </div>
       </header>
 
-      <!-- Main photo -->
+      <!-- Main photo with overlaid campus name -->
       <figure class="campus-hero-photo">
         <img src="../assets/img/campus-niseko.jpg" alt="ニセコキャンパス" loading="lazy" />
+        <h2 class="campus-detail__name campus-hero-photo__title">ニセコ</h2>
       </figure>
+
+      <p class="campus-detail__tagline campus-detail__tagline--below-photo">「生活そのものが、授業」。住民の多くが外国人という、日本でもっとも国際的な町。雪山と温泉に囲まれて、365日を英語で暮らします。</p>
 
       <!-- Quick facts -->
       <ul class="campus-facts">
@@ -129,17 +129,14 @@
         <h3 class="campus-section-title">なぜ<em>ニセコ</em>を選ぶのか</h3>
         <div class="campus-why">
           <article class="campus-why__card">
-            <span class="campus-why__num">01</span>
             <h4>町ぐるみの英語環境</h4>
             <p>カフェも、スーパーも、雪山も英語が日常。教室の外でも、学んだ英語をすぐに使えます。</p>
           </article>
           <article class="campus-why__card">
-            <span class="campus-why__num">02</span>
             <h4>一流のネイティブ講師陣</h4>
             <p>米・英・加・豪・NZ出身の経験豊富な講師による少人数指導。発音もニュアンスも丁寧に。</p>
           </article>
           <article class="campus-why__card">
-            <span class="campus-why__num">03</span>
             <h4>雪山・温泉・アクティビティ</h4>
             <p>学びと遊びがひとつに。世界中から集まる仲間と、忘れられない時間を過ごせます。</p>
           </article>
@@ -169,33 +166,86 @@
       <!-- Courses offered -->
       <div class="campus-block">
         <h3 class="campus-section-title">このキャンパスのコース</h3>
-        <ul class="campus-courses">
-          <li><a href="courses.html#course-niseko"><img src="../assets/img/niseko-logo.png" alt="" loading="lazy" /><span>ニセコ留学</span><em aria-hidden="true">→</em></a></li>
-          <li><a href="courses.html#course-niseko-whv"><img src="../assets/img/niseko-logo.png" alt="" loading="lazy" /><span>ニセコ留学ワーホリプラン</span><em aria-hidden="true">→</em></a></li>
-        </ul>
+        <div class="campus-course-cards" role="list">
+          <article class="result-card result-card--coral" role="listitem">
+            <header class="result-card__head">
+              <span class="result-card__location result-card__location--logo">
+                <img src="../assets/img/niseko-logo.png" alt="ニセコ" class="result-card__location-logo" loading="lazy" />
+              </span>
+            </header>
+            <h4 class="result-card__title">ニセコ留学</h4>
+            <ul class="result-card__feats" aria-label="プログラムの特徴">
+              <li class="feat feat--format" aria-label="通学制">
+                <span class="feat__icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M3 17 L3 6 L17 6 L17 17 Z"/><path d="M8 17 L8 11 L12 11 L12 17"/></svg></span>
+                <span>通学制</span>
+              </li>
+              <li class="feat feat--intensity" aria-label="3プランから選択">
+                <span class="feat__icon" aria-hidden="true"><svg viewBox="0 0 20 20" stroke="currentColor" stroke-width="0.8" fill="currentColor" stroke-linejoin="round"><path d="M11 1 L5 11 L9 11 L8 19 L15 8 L11 8 Z"/></svg></span>
+                <span>3プランから選択</span>
+              </li>
+              <li class="feat feat--native" aria-label="ネイティブ講師">
+                <span class="feat__icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M3 4 L17 4 L17 13 L11 13 L8 16 L8 13 L3 13 Z"/><circle cx="7" cy="8.5" r="0.9" fill="currentColor" stroke="none"/><circle cx="10" cy="8.5" r="0.9" fill="currentColor" stroke="none"/><circle cx="13" cy="8.5" r="0.9" fill="currentColor" stroke="none"/></svg></span>
+                <span>ネイティブ講師</span>
+              </li>
+            </ul>
+            <div class="result-card__foot">
+              <a href="courses.html#course-niseko" class="result-card__link">詳細を見る →</a>
+            </div>
+          </article>
+          <article class="result-card result-card--coral" role="listitem">
+            <header class="result-card__head">
+              <span class="result-card__location result-card__location--logo">
+                <img src="../assets/img/niseko-logo.png" alt="ニセコ" class="result-card__location-logo" loading="lazy" />
+              </span>
+            </header>
+            <h4 class="result-card__title">ニセコ留学ワーホリプラン</h4>
+            <ul class="result-card__feats" aria-label="プログラムの特徴">
+              <li class="feat feat--format" aria-label="通学制">
+                <span class="feat__icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M3 17 L3 6 L17 6 L17 17 Z"/><path d="M8 17 L8 11 L12 11 L12 17"/></svg></span>
+                <span>通学制</span>
+              </li>
+              <li class="feat feat--intensity feat--intensity-intensive" aria-label="集中型">
+                <span class="feat__icon" aria-hidden="true"><svg viewBox="0 0 20 20" stroke="currentColor" stroke-width="0.8" fill="currentColor" stroke-linejoin="round"><path d="M11 1 L5 11 L9 11 L8 19 L15 8 L11 8 Z"/></svg></span>
+                <span>集中型</span>
+              </li>
+              <li class="feat feat--native" aria-label="ネイティブ講師">
+                <span class="feat__icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M3 4 L17 4 L17 13 L11 13 L8 16 L8 13 L3 13 Z"/><circle cx="7" cy="8.5" r="0.9" fill="currentColor" stroke="none"/><circle cx="10" cy="8.5" r="0.9" fill="currentColor" stroke="none"/><circle cx="13" cy="8.5" r="0.9" fill="currentColor" stroke="none"/></svg></span>
+                <span>ネイティブ講師</span>
+              </li>
+            </ul>
+            <div class="result-card__foot">
+              <a href="courses.html#course-niseko-whv" class="result-card__link">詳細を見る →</a>
+            </div>
+          </article>
+        </div>
       </div>
 
       <a href="../index.html#contact" class="campus-cta">ニセコ留学について相談する <span aria-hidden="true">→</span></a>
     </div>
   </section>
 
+  <!-- Campus separator illustration -->
+  <div class="group-banner" aria-hidden="true">
+    <img src="../assets/img/group-illustration.webp" alt="" loading="lazy">
+  </div>
+
   <!-- ========== NOZAWAONSEN ========== -->
   <section class="campus-detail campus-detail--nozawa" id="nozawa">
     <div class="container">
       <header class="campus-detail__head">
         <div class="campus-detail__intro">
-          <div class="campus-detail__name-row">
-            <h2 class="campus-detail__name">野沢温泉</h2>
+          <div class="campus-detail__name-row campus-detail__name-row--stacked">
             <img src="../assets/img/nozawa-logo.png" alt="Nozawa International Academy" class="campus-detail__crest" loading="lazy" />
           </div>
-          <p class="campus-detail__en">Nozawaonsen, Nagano</p>
-          <p class="campus-detail__tagline">日本の伝統と、英語の日常が溶け合う湯けむりの村。13の外湯と世界的スキー場を擁する、文化も同時に学べるキャンパスです。</p>
         </div>
       </header>
 
       <figure class="campus-hero-photo">
         <img src="../assets/img/campus-nozawa.jpg" alt="野沢温泉キャンパス" loading="lazy" />
+        <h2 class="campus-detail__name campus-hero-photo__title">野沢温泉</h2>
       </figure>
+
+      <p class="campus-detail__tagline campus-detail__tagline--below-photo">日本の伝統と、英語の日常が溶け合う湯けむりの村。13の外湯と世界的スキー場を擁する、文化も同時に学べるキャンパスです。</p>
 
       <ul class="campus-facts">
         <li><span class="campus-facts__k">所在地</span><span class="campus-facts__v">長野県下高井郡</span></li>
@@ -208,17 +258,14 @@
         <h3 class="campus-section-title">なぜ<em>野沢温泉</em>を選ぶのか</h3>
         <div class="campus-why">
           <article class="campus-why__card">
-            <span class="campus-why__num">01</span>
             <h4>日本文化に浸る暮らし</h4>
             <p>13の外湯めぐり、道祖神祭り。伝統が今も息づく村で、文化体験と英語学習を同時に。</p>
           </article>
           <article class="campus-why__card">
-            <span class="campus-why__num">02</span>
             <h4>密度の高い少人数学習</h4>
             <p>静かな環境だからこそ集中できる。落ち着いた村で、英語にどっぷり浸かれます。</p>
           </article>
           <article class="campus-why__card">
-            <span class="campus-why__num">03</span>
             <h4>世界的スノーリゾート</h4>
             <p>海外からのスキーヤーで賑わう国際的な村。自然な交流の機会があふれています。</p>
           </article>
@@ -244,32 +291,61 @@
 
       <div class="campus-block">
         <h3 class="campus-section-title">このキャンパスのコース</h3>
-        <ul class="campus-courses">
-          <li><a href="courses.html#course-nozawa"><img src="../assets/img/nozawa-logo.png" alt="" loading="lazy" /><span>野沢留学</span><em aria-hidden="true">→</em></a></li>
-        </ul>
+        <div class="campus-course-cards" role="list">
+          <article class="result-card result-card--teal" role="listitem">
+            <header class="result-card__head">
+              <span class="result-card__location result-card__location--logo">
+                <img src="../assets/img/nozawa-logo.png" alt="野沢温泉" class="result-card__location-logo" loading="lazy" />
+              </span>
+            </header>
+            <h4 class="result-card__title">野沢留学</h4>
+            <ul class="result-card__feats" aria-label="プログラムの特徴">
+              <li class="feat feat--format" aria-label="通学制">
+                <span class="feat__icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M3 17 L3 6 L17 6 L17 17 Z"/><path d="M8 17 L8 11 L12 11 L12 17"/></svg></span>
+                <span>通学制</span>
+              </li>
+              <li class="feat feat--intensity" aria-label="3プランから選択">
+                <span class="feat__icon" aria-hidden="true"><svg viewBox="0 0 20 20" stroke="currentColor" stroke-width="0.8" fill="currentColor" stroke-linejoin="round"><path d="M11 1 L5 11 L9 11 L8 19 L15 8 L11 8 Z"/></svg></span>
+                <span>3プランから選択</span>
+              </li>
+              <li class="feat feat--native" aria-label="ネイティブ講師">
+                <span class="feat__icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M3 4 L17 4 L17 13 L11 13 L8 16 L8 13 L3 13 Z"/><circle cx="7" cy="8.5" r="0.9" fill="currentColor" stroke="none"/><circle cx="10" cy="8.5" r="0.9" fill="currentColor" stroke="none"/><circle cx="13" cy="8.5" r="0.9" fill="currentColor" stroke="none"/></svg></span>
+                <span>ネイティブ講師</span>
+              </li>
+            </ul>
+            <div class="result-card__foot">
+              <a href="courses.html#course-nozawa" class="result-card__link">詳細を見る →</a>
+            </div>
+          </article>
+        </div>
       </div>
 
       <a href="../index.html#contact" class="campus-cta">野沢留学について相談する <span aria-hidden="true">→</span></a>
     </div>
   </section>
 
+  <!-- Campus separator illustration -->
+  <div class="group-banner" aria-hidden="true">
+    <img src="../assets/img/group-illustration.webp" alt="" loading="lazy">
+  </div>
+
   <!-- ========== TOKYO ========== -->
   <section class="campus-detail campus-detail--tokyo" id="tokyo">
     <div class="container">
       <header class="campus-detail__head">
         <div class="campus-detail__intro">
-          <div class="campus-detail__name-row">
-            <h2 class="campus-detail__name">東京</h2>
+          <div class="campus-detail__name-row campus-detail__name-row--stacked">
             <img src="../assets/img/tokyo-logo.png" alt="Tokyo International Academy" class="campus-detail__crest" loading="lazy" />
           </div>
-          <p class="campus-detail__en">Tokyo</p>
-          <p class="campus-detail__tagline">仕事も、暮らしも。渋谷・新宿の好立地で、対面とオンラインを自由に組み合わせ。忙しい毎日のなかでも、英語を続けられるキャンパスです。</p>
         </div>
       </header>
 
       <figure class="campus-hero-photo">
         <img src="../assets/img/campus-tokyo.jpg?v=2" alt="東京キャンパス" loading="lazy" />
+        <h2 class="campus-detail__name campus-hero-photo__title">東京</h2>
       </figure>
+
+      <p class="campus-detail__tagline campus-detail__tagline--below-photo">仕事も、暮らしも。渋谷・新宿の好立地で、対面とオンラインを自由に組み合わせ。忙しい毎日のなかでも、英語を続けられるキャンパスです。</p>
 
       <ul class="campus-facts">
         <li><span class="campus-facts__k">所在地</span><span class="campus-facts__v">東京都心（渋谷・新宿）</span></li>
@@ -282,17 +358,14 @@
         <h3 class="campus-section-title">なぜ<em>東京</em>を選ぶのか</h3>
         <div class="campus-why">
           <article class="campus-why__card">
-            <span class="campus-why__num">01</span>
             <h4>通いやすい都心立地</h4>
             <p>渋谷・新宿エリアの好アクセス。仕事帰りや週末に、無理なく通えます。</p>
           </article>
           <article class="campus-why__card">
-            <span class="campus-why__num">02</span>
             <h4>柔軟なスケジュール</h4>
             <p>平日夜・週末クラスに、オンライン併用も可能。生活に合わせて続けられます。</p>
           </article>
           <article class="campus-why__card">
-            <span class="campus-why__num">03</span>
             <h4>ビジネス英語に直結</h4>
             <p>実務・面接・プレゼンを想定したレッスン。明日の仕事ですぐに使えます。</p>
           </article>
@@ -301,14 +374,43 @@
 
       <div class="campus-block">
         <h3 class="campus-section-title">このキャンパスのコース</h3>
-        <ul class="campus-courses">
-          <li><a href="courses.html#course-tokyo"><img src="../assets/img/tokyo-logo.png" alt="" loading="lazy" /><span>東京留学</span><em aria-hidden="true">→</em></a></li>
-        </ul>
+        <div class="campus-course-cards" role="list">
+          <article class="result-card result-card--ink" role="listitem">
+            <header class="result-card__head">
+              <span class="result-card__location result-card__location--logo">
+                <img src="../assets/img/tokyo-logo.png" alt="東京" class="result-card__location-logo" loading="lazy" />
+              </span>
+            </header>
+            <h4 class="result-card__title">東京留学</h4>
+            <ul class="result-card__feats" aria-label="プログラムの特徴">
+              <li class="feat feat--format" aria-label="通学制">
+                <span class="feat__icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M3 17 L3 6 L17 6 L17 17 Z"/><path d="M8 17 L8 11 L12 11 L12 17"/></svg></span>
+                <span>通学制</span>
+              </li>
+              <li class="feat feat--intensity" aria-label="3プランから選択">
+                <span class="feat__icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M3 17 Q6 5 17 3 Q15 14 3 17"/><path d="M3 17 Q10 12 17 3"/></svg></span>
+                <span>3プランから選択</span>
+              </li>
+              <li class="feat feat--native" aria-label="ネイティブ講師">
+                <span class="feat__icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M3 4 L17 4 L17 13 L11 13 L8 16 L8 13 L3 13 Z"/><circle cx="7" cy="8.5" r="0.9" fill="currentColor" stroke="none"/><circle cx="10" cy="8.5" r="0.9" fill="currentColor" stroke="none"/><circle cx="13" cy="8.5" r="0.9" fill="currentColor" stroke="none"/></svg></span>
+                <span>ネイティブ講師</span>
+              </li>
+            </ul>
+            <div class="result-card__foot">
+              <a href="courses.html#course-tokyo" class="result-card__link">詳細を見る →</a>
+            </div>
+          </article>
+        </div>
       </div>
 
       <a href="../index.html#contact" class="campus-cta">東京留学について相談する <span aria-hidden="true">→</span></a>
     </div>
   </section>
+
+  <!-- Campus separator illustration -->
+  <div class="group-banner" aria-hidden="true">
+    <img src="../assets/img/group-illustration.webp" alt="" loading="lazy">
+  </div>
 
   <!-- ========== LINE contact CTA ========== -->
   <section class="line-cta">

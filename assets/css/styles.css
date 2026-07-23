@@ -19,6 +19,8 @@
   --pink-soft: #FFD9E4;
   --cream: #FFE8DF;
   --cream-deep: #F5D9CC;
+  /* "Course card" gradient — soft yellow → pale lavender → pink */
+  --grad-course-card: linear-gradient(90deg, #FFF3D6 0%, #ECEBFA 50%, #FFE2EC 100%);
   --ink: #0E0E0E;
   --ink-soft: #2A2A2A;
   --ink-muted: #6B6B6B;
@@ -5562,7 +5564,6 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   background: rgba(255, 252, 250, 0.92);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
 }
 .campus-jump__inner {
   display: flex;
@@ -5581,6 +5582,14 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
 }
 .campus-jump a:hover { color: var(--coral); border-bottom-color: var(--coral); }
+/* Variant: jump nav inside the page hero — sits on the gradient, not sticky */
+.campus-jump--hero {
+  position: static;
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  margin-top: var(--sp-4);
+}
 
 /* Per-location accent */
 .campus-detail--niseko { --c-accent: var(--coral);     --c-accent-soft: var(--coral-soft); }
@@ -5591,7 +5600,13 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   padding-block: clamp(48px, 7vw, 104px);
   scroll-margin-top: calc(var(--header-h) + 70px);
 }
-.campus-detail:nth-of-type(even) { background: var(--bg-alt, #FBF4EF); }
+/* Each campus grouped in a white card with a soft shadow */
+.campus-detail > .container {
+  background: #fff;
+  border-radius: var(--r-lg);
+  box-shadow: 0 6px 16px rgba(14, 14, 14, 0.06), 0 18px 44px rgba(14, 14, 14, 0.08);
+  padding-block: clamp(28px, 4vw, 56px);
+}
 
 /* Header: intro + live weather */
 .campus-detail__head {
@@ -5628,6 +5643,21 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   color: var(--ink);
 }
 .campus-detail__crest { height: clamp(108px, 24vw, 156px); width: auto; flex-shrink: 0; margin-left: auto; }
+/* Crest-led lockup: big centered crest above the campus name */
+.campus-detail__name-row--stacked {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-4);
+}
+.campus-detail__name-row--stacked .campus-detail__crest {
+  height: clamp(216px, 47.5vw, 312px);
+  margin-left: 0;
+  /* The crest PNGs carry ~27% transparent space above and ~21% below the
+     visible mark — pull most of it back so the lockup sits tight. */
+  margin-top: calc(clamp(216px, 47.5vw, 312px) * -0.24);
+  margin-bottom: calc(clamp(216px, 47.5vw, 312px) * -0.17);
+}
 .campus-detail__en {
   font-family: var(--font-en);
   letter-spacing: 0.1em;
@@ -5641,6 +5671,10 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   color: var(--ink-soft);
   line-height: 1.85;
 }
+/* Variant: tagline sits between the hero photo and the facts card */
+.campus-detail__tagline--below-photo {
+  margin: 0 auto clamp(20px, 3vw, 36px);
+}
 
 /* Main hero photo */
 .campus-hero-photo {
@@ -5652,6 +5686,22 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   background: color-mix(in srgb, var(--c-accent) 12%, #fff);
 }
 .campus-hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Campus name overlaid on the hero photo, big and bold (LONDON-banner style) */
+.campus-hero-photo__title {
+  /* Centered within the top third of the photo */
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 33.33%;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  color: #fff;
+  font-size: clamp(3.5rem, 13.75vw, 7.5rem);
+  letter-spacing: 0.06em;
+  -webkit-text-stroke: 2px rgba(0, 0, 0, 0.3);
+  paint-order: stroke fill;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35), 0 8px 40px rgba(0, 0, 0, 0.25);
+}
 
 /* Quick facts row */
 .campus-facts {
@@ -5779,9 +5829,41 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 .campus-courses span { flex: 1; min-width: 0; }
 .campus-courses em { font-style: normal; color: var(--c-accent); font-size: 1.1rem; }
 
+/* Full course cards under このキャンパスのコース — same .result-card as the finder */
+.campus-course-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-4);
+}
+.campus-course-cards .result-card { background: var(--grad-course-card); }
+.campus-course-cards .result-card::before { display: none; }
+.campus-course-cards .result-card__title,
+.campus-course-cards .result-card__en { text-align: center; padding-left: 0; }
+/* Compact variant: tighter padding/gaps, smaller crest with its PNG dead space
+   (~27% above / ~21% below the mark) pulled back in */
+.campus-course-cards .result-card {
+  padding: var(--sp-4);
+  gap: var(--sp-2);
+}
+.campus-course-cards .result-card__location-logo {
+  height: 96px;
+  margin-top: calc(96px * -0.24);
+  margin-bottom: calc(96px * -0.17);
+}
+.campus-course-cards .result-card__feats {
+  margin: var(--sp-1) 0 var(--sp-2);
+  flex-direction: column;
+  align-items: flex-start;
+}
+@media (min-width: 640px) {
+  .campus-course-cards { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* Per-location CTA */
 .campus-cta {
-  display: inline-flex;
+  display: flex;
+  width: fit-content;
+  margin-inline: auto;
   align-items: center;
   gap: 10px;
   padding: 14px 28px;
