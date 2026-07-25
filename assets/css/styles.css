@@ -2700,7 +2700,8 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 .campuses__icon svg { width: 30px; height: 30px; }
 .campuses__title {
   font-family: var(--font-display-jp);
-  font-size: clamp(1.8rem, 1.3rem + 2vw, 2.8rem);
+  /* Same scale as .section-title so section headings match site-wide */
+  font-size: var(--fs-3xl);
   font-weight: 700;
   color: var(--ink);
   margin: 0 0 var(--sp-3);
