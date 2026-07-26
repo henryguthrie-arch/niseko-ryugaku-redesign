@@ -1118,6 +1118,11 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 .course-suite .rebrand__suite-list {
   max-width: 760px;
   margin-inline: auto;
+  /* Crests sit straight on the section background here (no white card) */
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: clamp(8px, 1.5vw, 16px) 0;
 }
 
 /* When the finder hosts a bottom group-banner, give it room and clip overflow.
@@ -5855,7 +5860,7 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 .campus-courses em { font-style: normal; color: var(--c-accent); font-size: 1.1rem; }
 
 /* Standalone corporate-training LINE card (formerly a finder choice card) */
-.corporate-cta { padding: clamp(8px, 1.5vw, 16px) 0 clamp(32px, 5vw, 56px); }
+.corporate-cta { margin-top: clamp(20px, 3vw, 36px); }
 .corporate-cta .choice { max-width: 560px; margin-inline: auto; cursor: auto; }
 
 /* Full course cards under このキャンパスのコース — same .result-card as the finder */
