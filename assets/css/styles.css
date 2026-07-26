@@ -4894,7 +4894,6 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 .course-product {
   background: #fff;
   border: 1px solid var(--border);
-  border-top: 4px solid var(--c-accent, var(--coral));
   border-radius: var(--r-lg);
   overflow: hidden;
   box-shadow: 0 18px 40px -25px rgba(14, 14, 14, 0.18);

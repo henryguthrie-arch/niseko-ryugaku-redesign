@@ -650,6 +650,36 @@
               </ul>
             </header>
 
+            <!-- Weekly content matrix -->
+            <div class="course-product__contents">
+              <p class="course-product__sub-head">${escapeHtml(x.contentHeading || 'コース内容（1週間あたり）')}</p>
+              <ul class="course-product__contents-grid">
+                ${content.map((c) => `<li><strong>${escapeHtml(c.label)}</strong><span>${escapeHtml(c.value)}</span></li>`).join('')}
+              </ul>
+            </div>
+
+            <!-- Course features -->
+            <div class="course-product__features">
+              <p class="course-product__sub-head">Course Features</p>
+              <ul class="course-product__features-list">
+                ${features.map((f) => `<li><strong>${escapeHtml(f.title)}</strong><p>${escapeHtml(f.body)}</p></li>`).join('')}
+              </ul>
+            </div>
+
+            <!-- Course creator / lead instructor -->
+            <div class="course-product__creator">
+              <p class="course-product__sub-head">コース監修</p>
+              <div class="course-product__creator-card">
+                <div class="course-product__creator-photo">
+                  <img src="${creator.photo}" alt="講師 ${escapeHtml(creator.name)} の写真" loading="lazy" />
+                </div>
+                <div>
+                  <p class="course-product__creator-name">${escapeHtml(creator.name)}</p>
+                  <p class="course-product__creator-role">${escapeHtml(creator.role)}</p>
+                </div>
+              </div>
+            </div>
+
             <!-- Price calculator + live quote (side-by-side) -->
             <div class="course-product__grid">
               <div class="course-product__calc" data-calc data-weekly-rate="${x.weeklyRate}" data-unit="${escapeHtml(x.unit || '週間')}" data-tuition='${planTable ? JSON.stringify(planTable) : ''}'>
@@ -695,36 +725,6 @@
                 <a href="${LINE_URL}" target="_blank" rel="noopener" class="course-product__quote-cta">
                   <img src="../assets/img/line-icon.png" alt="" class="course-product__quote-cta-icon" loading="lazy" /> 公式LINEでお問い合わせ・申し込む
                 </a>
-              </div>
-            </div>
-
-            <!-- Weekly content matrix -->
-            <div class="course-product__contents">
-              <p class="course-product__sub-head">${escapeHtml(x.contentHeading || 'コース内容（1週間あたり）')}</p>
-              <ul class="course-product__contents-grid">
-                ${content.map((c) => `<li><strong>${escapeHtml(c.label)}</strong><span>${escapeHtml(c.value)}</span></li>`).join('')}
-              </ul>
-            </div>
-
-            <!-- Course features -->
-            <div class="course-product__features">
-              <p class="course-product__sub-head">Course Features</p>
-              <ul class="course-product__features-list">
-                ${features.map((f) => `<li><strong>${escapeHtml(f.title)}</strong><p>${escapeHtml(f.body)}</p></li>`).join('')}
-              </ul>
-            </div>
-
-            <!-- Course creator / lead instructor -->
-            <div class="course-product__creator">
-              <p class="course-product__sub-head">コース監修</p>
-              <div class="course-product__creator-card">
-                <div class="course-product__creator-photo">
-                  <img src="${creator.photo}" alt="講師 ${escapeHtml(creator.name)} の写真" loading="lazy" />
-                </div>
-                <div>
-                  <p class="course-product__creator-name">${escapeHtml(creator.name)}</p>
-                  <p class="course-product__creator-role">${escapeHtml(creator.role)}</p>
-                </div>
               </div>
             </div>
 
