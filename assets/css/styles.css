@@ -6354,6 +6354,23 @@ body { top: 0 !important; }
 .post__body h3 { font-size: 1.15rem; font-weight: 700; margin: 1.8em 0 0.5em; color: var(--ink); }
 .post__body ul, .post__body ol { margin: 0 0 1.4em; padding-left: 1.3em; }
 .post__body li { margin-bottom: 0.55em; line-height: 1.85; }
+/* Photos inside an article body */
+.post__body figure { margin: 0 0 1.8em; }
+.post__body figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--r-md);
+}
+/* Portrait shots sit in a narrower centred column so they don't swallow the screen */
+.post__body figure.figure--portrait { max-width: 480px; margin-inline: auto; }
+.post__body figcaption {
+  margin-top: 0.7em;
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  color: var(--ink-muted);
+  text-align: center;
+}
 .post__body a { color: var(--coral-deep); text-decoration: underline; text-underline-offset: 2px; }
 .post__body a:hover { color: var(--coral); }
 .post__body strong { font-weight: 700; }
