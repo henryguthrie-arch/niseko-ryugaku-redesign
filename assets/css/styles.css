@@ -5047,12 +5047,12 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   accent-color: var(--c-accent, var(--coral));
   margin-bottom: var(--sp-4);
 }
-/* Plan selector (combined ニセコ留学 card) */
-.course-product__calc-row--plan {
-  display: block;
-  margin-bottom: var(--sp-4);
+/* Plan selector (combined location cards) — sits in the card header, above
+   the weekly content matrix, so the plan is chosen before anything is read */
+.course-product__plan-picker {
+  margin-top: var(--sp-1);
 }
-.course-product__calc-row--plan label {
+.course-product__plan-picker label {
   display: block;
   font-size: var(--fs-sm);
   color: var(--ink-muted);
@@ -5060,6 +5060,7 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 }
 .course-product__plan-select {
   width: 100%;
+  max-width: 420px;
   font: inherit;
   font-weight: 700;
   font-size: var(--fs-base);

@@ -627,15 +627,15 @@
         // Optional plan dropdown (combined location cards). Each option carries
         // its own pricing/content data so the switcher needs no extra lookup.
         const planSelectHtml = x.planOptions ? `
-                <div class="course-product__calc-row course-product__calc-row--plan">
-                  <label for="plan-${id}">プラン</label>
-                  <select id="plan-${id}" class="course-product__plan-select" data-plan-select aria-label="プランを選択">
-                    ${x.planOptions.map((pl, i) => {
-                      const t = pl.plan ? PRICING_TABLE[pl.plan] : null;
-                      return `<option value="${pl.value}"${i === 0 ? ' selected' : ''} data-weekly="${pl.weeklyRate}" data-max="${pl.maxWeeks}" data-default="${pl.defaultWeeks}" data-content="${pl.content}" data-quote-name="${escapeHtml(pl.quoteName)}" data-no-acc="${pl.noAccommodation ? 1 : 0}" data-tuition='${t ? JSON.stringify(t) : ''}'>${escapeHtml(pl.label)}</option>`;
-                    }).join('')}
-                  </select>
-                </div>` : '';
+              <div class="course-product__plan-picker">
+                <label for="plan-${id}">プラン</label>
+                <select id="plan-${id}" class="course-product__plan-select" data-plan-select aria-label="プランを選択">
+                  ${x.planOptions.map((pl, i) => {
+                    const t = pl.plan ? PRICING_TABLE[pl.plan] : null;
+                    return `<option value="${pl.value}"${i === 0 ? ' selected' : ''} data-weekly="${pl.weeklyRate}" data-max="${pl.maxWeeks}" data-default="${pl.defaultWeeks}" data-content="${pl.content}" data-quote-name="${escapeHtml(pl.quoteName)}" data-no-acc="${pl.noAccommodation ? 1 : 0}" data-tuition='${t ? JSON.stringify(t) : ''}'>${escapeHtml(pl.label)}</option>`;
+                  }).join('')}
+                </select>
+              </div>` : '';
         return `
         <article id="course-${id}" class="course-product course-product--${p.accent}">
           <div class="course-product__body">
@@ -648,6 +648,7 @@
               <ul class="course-product__feats">
                 ${x.tags.map((t) => `<li>${escapeHtml(t)}</li>`).join('')}
               </ul>
+              ${planSelectHtml}
             </header>
 
             <!-- Weekly content matrix -->
@@ -684,7 +685,6 @@
             <div class="course-product__grid">
               <div class="course-product__calc" data-calc data-weekly-rate="${x.weeklyRate}" data-unit="${escapeHtml(x.unit || '週間')}" data-tuition='${planTable ? JSON.stringify(planTable) : ''}'>
                 <p class="course-product__sub-head">料金シミュレーター</p>
-                ${planSelectHtml}
                 <div class="course-product__calc-row">
                   <label for="${sliderId}">期間</label>
                   <output for="${sliderId}" data-calc-weeks>${x.defaultWeeks} ${x.unit || '週間'}</output>
