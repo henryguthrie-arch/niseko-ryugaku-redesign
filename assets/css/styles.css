@@ -3478,6 +3478,8 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   color: var(--coral);
   font-style: normal;
 }
+/* Opt out of the coral accent — title reads as one solid block of ink */
+.page-hero--plain .page-hero__title em { color: inherit; }
 .page-hero__lede {
   font-size: clamp(1.05rem, 1.4vw, 1.2rem);
   line-height: 1.7;
@@ -4915,7 +4917,8 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   margin: 0 0 var(--sp-3);
   line-height: 1.2;
 }
-.course-products__title em { color: var(--coral); font-style: normal; }
+/* No coral accent here — the heading reads as one solid block of ink */
+.course-products__title em { color: inherit; font-style: normal; }
 .course-products__lede {
   color: var(--ink-muted);
   font-size: var(--fs-md);
