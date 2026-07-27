@@ -19,6 +19,8 @@
   --pink-soft: #FFD9E4;
   --cream: #FFE8DF;
   --cream-deep: #F5D9CC;
+  /* very light blue — matches the embedded price simulator's background */
+  --blue-mist: #EEF2F7;
   /* "Course card" gradient — soft yellow → pale lavender → pink */
   --grad-course-card: linear-gradient(90deg, #FFF3D6 0%, #ECEBFA 50%, #FFE2EC 100%);
   --ink: #0E0E0E;
@@ -4528,7 +4530,7 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 
 /* Row headers (left column) */
 .course-matrix__table tbody th {
-  background: var(--cream-deep);
+  background: var(--blue-mist);
   color: var(--ink);
   font-size: var(--fs-sm);
   font-weight: 700;

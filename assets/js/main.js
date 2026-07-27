@@ -109,19 +109,19 @@
         price: '¥620,000', priceNote: '〜 / 8週間', accent: 'coral',
       },
       'nozawa-basic': {
-        jp: '野沢留学 ベーシックプラン', en: 'Nozawa Ryugaku Basic Plan',
+        jp: '野沢温泉留学 ベーシックプラン', en: 'Nozawa Ryugaku Basic Plan',
         loc: '野沢温泉', locKey: 'nozawa', formatKey: 'inperson',
         tag: 'intensive', seasons: ['spring'],
         price: '¥158,000', priceNote: '〜 / 2週間', accent: 'teal',
       },
       'nozawa-popular': {
-        jp: '野沢留学 ポピュラープラン', en: 'Nozawa Ryugaku Popular Plan',
+        jp: '野沢温泉留学 ポピュラープラン', en: 'Nozawa Ryugaku Popular Plan',
         loc: '野沢温泉', locKey: 'nozawa', formatKey: 'inperson',
         tag: 'intensive', seasons: ['spring'],
         price: '¥298,000', priceNote: '〜 / 4週間', accent: 'teal',
       },
       'nozawa-intensive': {
-        jp: '野沢留学 フォーカスプラン', en: 'Nozawa Ryugaku Focus Plan',
+        jp: '野沢温泉留学 フォーカスプラン', en: 'Nozawa Ryugaku Focus Plan',
         loc: '野沢温泉', locKey: 'nozawa', formatKey: 'inperson',
         tag: 'intensive', seasons: ['spring'],
         price: '¥580,000', priceNote: '〜 / 8週間', accent: 'teal',
@@ -250,7 +250,7 @@
         // ワーホリプラン is now a standalone card (niseko-whv), not a group member.
       },
       nozawa: {
-        title: '野沢留学', en: 'Nozawa Ryugaku', loc: '野沢温泉', locKey: 'nozawa', accent: 'teal',
+        title: '野沢温泉留学', en: 'Nozawa Ryugaku', loc: '野沢温泉', locKey: 'nozawa', accent: 'teal',
         memberIds: ['nozawa-basic', 'nozawa-popular', 'nozawa-intensive'],
         groupTag: 'intensive', fromPrice: '¥99,000', fromNote: '〜 / 週',
         tags: ['通学制', 'ネイティブ講師', 'プラン選択可', '春季限定 🌸'],
@@ -260,9 +260,9 @@
           { title: 'レッスン後は外湯めぐり', body: '13の外湯と雪景色。学びながら心も体もリフレッシュできます。' },
         ],
         plans: [
-          { value: 'basic',   label: 'ベーシックプラン', quoteName: '野沢留学 ベーシックプラン', content: 'basic',     plan: 'basic',   weeklyRate: 79000, maxWeeks: 24, defaultWeeks: 2 },
-          { value: 'popular', label: 'ポピュラープラン',       quoteName: '野沢留学 ポピュラープラン',       content: 'popular',   plan: 'popular', weeklyRate: 75000, maxWeeks: 24, defaultWeeks: 4 },
-          { value: 'focus',   label: 'フォーカスプラン', quoteName: '野沢留学 フォーカスプラン', content: 'intensive', plan: 'focus',   weeklyRate: 73000, maxWeeks: 24, defaultWeeks: 8 },
+          { value: 'basic',   label: 'ベーシックプラン', quoteName: '野沢温泉留学 ベーシックプラン', content: 'basic',     plan: 'basic',   weeklyRate: 79000, maxWeeks: 24, defaultWeeks: 2 },
+          { value: 'popular', label: 'ポピュラープラン',       quoteName: '野沢温泉留学 ポピュラープラン',       content: 'popular',   plan: 'popular', weeklyRate: 75000, maxWeeks: 24, defaultWeeks: 4 },
+          { value: 'focus',   label: 'フォーカスプラン', quoteName: '野沢温泉留学 フォーカスプラン', content: 'intensive', plan: 'focus',   weeklyRate: 73000, maxWeeks: 24, defaultWeeks: 8 },
         ],
       },
       tokyo: {
@@ -661,7 +661,7 @@
 
             <!-- Course features -->
             <div class="course-product__features">
-              <p class="course-product__sub-head">Course Features</p>
+              <p class="course-product__sub-head">コースの特徴</p>
               <ul class="course-product__features-list">
                 ${features.map((f) => `<li><strong>${escapeHtml(f.title)}</strong><p>${escapeHtml(f.body)}</p></li>`).join('')}
               </ul>
@@ -702,7 +702,7 @@
         </article>`;
       }
 
-      // Combined location cards (ニセコ留学 / 野沢留学 / 東京): each rendered once
+      // Combined location cards (ニセコ留学 / 野沢温泉留学 / 東京): each rendered once
       // at its first member's slot, defaulting to its first plan, with a plan
       // dropdown for the rest. The default plan must allow accommodation so the
       // accommodation block exists for plans that do.
