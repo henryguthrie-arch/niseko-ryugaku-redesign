@@ -681,53 +681,6 @@
               </div>
             </div>
 
-            <!-- Price calculator + live quote (side-by-side) -->
-            <div class="course-product__grid">
-              <div class="course-product__calc" data-calc data-weekly-rate="${x.weeklyRate}" data-unit="${escapeHtml(x.unit || '週間')}" data-tuition='${planTable ? JSON.stringify(planTable) : ''}'>
-                <p class="course-product__sub-head">料金シミュレーター</p>
-                <div class="course-product__calc-row">
-                  <label for="${sliderId}">期間</label>
-                  <output for="${sliderId}" data-calc-weeks>${x.defaultWeeks} ${x.unit || '週間'}</output>
-                </div>
-                <input type="range" id="${sliderId}" min="1" max="${x.maxWeeks}" value="${x.defaultWeeks}" step="1" data-calc-input aria-label="受講期間（${escapeHtml(x.unit || '週間')}）"${x.maxWeeks <= 1 ? ' hidden' : ''}>
-                ${x.note ? `<p class="course-product__calc-note">${escapeHtml(x.note)}</p>` : ''}
-                ${accBlock}
-              </div>
-
-              <div class="course-product__quote" data-quote data-enrollment="${ENROLLMENT_FEE}">
-                <div class="course-product__quote-rows">
-                  <div class="quote-row">
-                    <span class="quote-row__label">入学金</span>
-                    <span class="quote-row__val">${jpy(ENROLLMENT_FEE)}</span>
-                  </div>
-                  <div class="quote-row">
-                    <span class="quote-row__label">授業料 - <span data-quote-plan-name>${escapeHtml(quoteName)}</span> <span data-quote-weeks>× ${x.defaultWeeks}${x.unit || '週間'}</span></span>
-                    <span class="quote-row__val" data-quote-tuition>${jpy(qTuition)}</span>
-                  </div>
-                  ${x.noAccommodation ? '' : `
-                  <div class="quote-row">
-                    <span class="quote-row__label">宿泊費 - <span data-quote-acc-name>ロッジ（シェア）</span> <span data-quote-weeks>× ${x.defaultWeeks}${x.unit || '週間'}</span></span>
-                    <span class="quote-row__val" data-quote-acc>¥0</span>
-                  </div>`}
-                  <div class="quote-row quote-row--subtotal">
-                    <span class="quote-row__label">小計（税抜）</span>
-                    <span class="quote-row__val" data-quote-subtotal>${jpy(qSubtotal)}</span>
-                  </div>
-                  <div class="quote-row quote-row--tax">
-                    <span class="quote-row__label">消費税（10%）</span>
-                    <span class="quote-row__val" data-quote-tax>${jpy(qTax)}</span>
-                  </div>
-                </div>
-                <div class="course-product__quote-total">
-                  <span class="quote-total__label">お支払い合計 · <span>Total</span></span>
-                  <p class="quote-total__amount">¥<span data-quote-total>${qTotal.toLocaleString('ja-JP')}</span><small>税込</small></p>
-                </div>
-                <a href="${LINE_URL}" target="_blank" rel="noopener" class="course-product__quote-cta">
-                  <img src="../assets/img/line-icon.png" alt="" class="course-product__quote-cta-icon" loading="lazy" /> 公式LINEでお問い合わせ・申し込む
-                </a>
-              </div>
-            </div>
-
             <!-- CTA banner -->
             <div class="course-product__cta">
               <span class="course-product__cta-avatar">
@@ -776,15 +729,21 @@
         })
         .join('\n');
 
-      // Plan dropdown → re-price the simulator, swap the weekly-content matrix,
-      // and show/hide accommodation. Each <option> carries its own data.
+      // Plan dropdown → swap the weekly-content matrix. Pricing now lives in the
+      // embedded 料金シミュレーター above the cards, so there is no calculator to
+      // re-price here; the calc branches stay guarded in case one is reinstated.
       document.querySelectorAll('[data-plan-select]').forEach((sel) => {
         sel.addEventListener('change', () => {
           const card = sel.closest('.course-product');
           const opt = sel.selectedOptions[0];
           if (!card || !opt) return;
+          const grid = card.querySelector('.course-product__contents-grid');
+          const content = CONTENT_VARIANTS[opt.dataset.content] || CONTENT_VARIANTS.popular;
+          if (grid) grid.innerHTML = content.map((c) => `<li><strong>${escapeHtml(c.label)}</strong><span>${escapeHtml(c.value)}</span></li>`).join('');
+
           const calc = card.querySelector('[data-calc]');
-          const slider = calc.querySelector('[data-calc-input]');
+          const slider = calc && calc.querySelector('[data-calc-input]');
+          if (!calc || !slider) return;
           // Keep the chosen number of weeks when switching plans (clamped to the
           // new plan's max) so the slider doesn't jump to each plan's default.
           const curWeeks = Number(slider.value) || Number(opt.dataset.default);
@@ -795,9 +754,6 @@
           slider.value = String(Math.min(Math.max(curWeeks, 1), newMax));
           const nameEl = card.querySelector('[data-quote-plan-name]');
           if (nameEl) nameEl.textContent = opt.dataset.quoteName;
-          const grid = card.querySelector('.course-product__contents-grid');
-          const content = CONTENT_VARIANTS[opt.dataset.content] || CONTENT_VARIANTS.popular;
-          if (grid) grid.innerHTML = content.map((c) => `<li><strong>${escapeHtml(c.label)}</strong><span>${escapeHtml(c.value)}</span></li>`).join('');
           // Show/hide accommodation (e.g. Tokyo seminars have none).
           const noAcc = opt.dataset.noAcc === '1';
           const accRow = card.querySelector('.course-product__calc-row--acc');
