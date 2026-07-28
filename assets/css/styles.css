@@ -131,6 +131,16 @@ body {
     #FFF1EB 450px,  /* soft cream */
     #FFEAF0 900px
   );
+
+  /* The green → coral → pink run across #rebrand, .hero and .rebrand--below
+     is one continuous chain: each section ends on the colour the next one
+     begins with. These are the brand "soft" tokens paled ~45% toward white
+     so the run reads as ambient tint rather than solid colour. Kept as
+     variables precisely BECAUSE the sections share the handoff colours —
+     editing a stop in one place can't leave a seam in another. */
+  --home-green: #F3FADA;  /* --teal-soft,  paled */
+  --home-coral: #FFD3C3;  /* --coral-soft, paled */
+  --home-pink:  #FFEAF0;  /* --pink-soft,  paled — matches the body pink above */
 }
 /* All sections on the homepage become transparent so the body gradient
    shows through end-to-end. The booking/contact section is the ONE
@@ -148,14 +158,14 @@ body {
    below. Angle stays vertical (180deg) so that seam colour is constant
    across the full width. */
 .page-home .hero__bg {
-  background: linear-gradient(180deg, var(--teal-soft) 0%, var(--coral-soft) 100%);
+  background: linear-gradient(180deg, var(--home-green) 0%, var(--home-coral) 100%);
 }
 /* Rebrand sits directly under the hero and continues the flow: it starts
    on the same coral-soft the hero ends on, then melts into soft pink —
    green → orange → pink as one continuous, light pastel run. The dark
    stats strip below provides the deliberate contrast break. */
 .page-home .rebrand {
-  background: linear-gradient(180deg, var(--coral-soft) 0%, var(--pink-soft) 100%);
+  background: linear-gradient(180deg, var(--home-coral) 0%, var(--home-pink) 100%);
   /* pull up so the group illustration fills the space before the stats strip */
   padding-bottom: 0;
 }
@@ -166,7 +176,7 @@ body {
   /* Light lilac behind the crest logos, fading through a soft neutral cream
      (avoids a muddy lilac↔green midpoint) down to teal-soft, so the transition
      into the hero below reads as one smooth, clean run. */
-  background: linear-gradient(180deg, #F5E8F3 0%, #FAF4ED 52%, var(--teal-soft) 100%);
+  background: linear-gradient(180deg, #FAF3F9 0%, #FDFAF6 52%, var(--home-green) 100%);
   padding-top: var(--sp-2);
   /* No bottom padding: the crest PNGs carry ~24px of their own transparent
      margin, which is all the separation the hero headline below needs. */
@@ -203,7 +213,7 @@ body {
 /* Group illustration directly under the rebrand picks up its end colour so
    there's no visible seam between the two (it then meets the dark stats). */
 .page-home .rebrand + .group-banner {
-  background: var(--pink-soft);
+  background: var(--home-pink);
 }
 /* ---------- "Why only SPEAKMORE" bilingual formula (soft green→orange band) ---------- */
 /* Section stays transparent so the page's pink/cream body gradient shows
