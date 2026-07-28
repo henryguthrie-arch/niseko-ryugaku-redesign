@@ -5928,7 +5928,19 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 .corporate-cta { margin-top: clamp(20px, 3vw, 36px); }
 /* percentage as well as px, so the cap still binds on small screens where the
    container is already narrower than any px value */
-.corporate-cta .choice { max-width: min(460px, 85%); margin-inline: auto; cursor: auto; }
+/* Narrower than the other .choice cards, and centred rather than the
+   base class's left-aligned stack — left alignment left a different
+   amount of trailing space on each of the three lines. */
+.corporate-cta .choice {
+  max-width: min(400px, 76%);
+  margin-inline: auto;
+  cursor: auto;
+  align-items: center;
+  text-align: center;
+}
+/* .choice__cta--line sets align-self: flex-start, which wins over the
+   container's align-items and would leave the pill hanging off to the left. */
+.corporate-cta .choice__cta--line { align-self: center; }
 
 /* Full course cards under このキャンパスのコース — same .result-card as the finder */
 .campus-course-cards {
