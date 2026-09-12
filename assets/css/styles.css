@@ -6505,13 +6505,23 @@ a.rebrand__suite-crest:hover { transform: translateY(-3px); opacity: .85; }
   background: linear-gradient(180deg, var(--pink-soft) 0%, #FFE1D4 55%, var(--cream) 100%);
   padding-bottom: clamp(32px, 5vw, 56px);
 }
-.campaign-hero__eyebrow { justify-content: center; margin-bottom: var(--sp-4); }
 .campaign-hero__crest {
   display: block;
   height: clamp(96px, 20vw, 140px);
   width: auto;
   margin: 0 auto var(--sp-4);
 }
+/* 「野沢温泉留学 秋学期」 is 9 glyphs; at the base 2.4rem floor it overflows a
+   phone-width container and orphans 期. Scale with the viewport below 600px —
+   the cap equals the base floor, so there's no jump at the breakpoint. */
+@media (max-width: 599px) {
+  .page-campaign .page-hero__title { font-size: clamp(1.75rem, 8.4vw, 2.4rem); }
+}
+.page-campaign .nowrap { white-space: nowrap; }
+/* The lede's line break only reads well where the first clause fits on one
+   line; on phones let it wrap naturally instead of orphaning 「と、」. */
+.campaign-hero__br { display: none; }
+@media (min-width: 600px) { .campaign-hero__br { display: inline; } }
 
 /* ---- Main image ---- */
 .campaign-visual { padding-block: 0 clamp(32px, 5vw, 56px); }
@@ -6554,6 +6564,25 @@ a.rebrand__suite-crest:hover { transform: translateY(-3px); opacity: .85; }
 .campaign-details__body ul { padding-left: 1.3em; }
 .campaign-details__body li { margin-bottom: 0.4em; }
 .campaign-details__body strong { color: var(--ink); }
+.campaign-details__period {
+  font-family: var(--font-display-jp);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--coral);
+  text-align: center;
+}
+/* Offer tiers: condition on one line, the benefit (⇨ …) beneath it */
+.campaign-tiers { list-style: none; padding: 0; margin: 0; }
+.campaign-tiers li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--sp-4) 0;
+  border-top: 1px solid var(--border);
+}
+.campaign-tiers li:last-child { border-bottom: 1px solid var(--border); }
+.campaign-tiers__cond { font-weight: 700; color: var(--ink); }
+.campaign-tiers__gain { color: var(--coral-deep); font-weight: 700; }
 
 /* ---- Validity + countdown, campaign code ---- */
 .campaign-offer {
