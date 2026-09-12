@@ -6493,3 +6493,139 @@ body { top: 0 !important; }
 .rebrand__group-brand--dark img { filter: brightness(0) invert(1); opacity: 0.9; }
 a.rebrand__suite-crest { display: block; text-decoration: none; color: inherit; transition: transform .15s ease, opacity .15s ease; }
 a.rebrand__suite-crest:hover { transform: translateY(-3px); opacity: .85; }
+
+/* ==========================================================================
+   /nozawacampaign — Nozawa Onsen campus promotion (standalone campaign page)
+   Reached only via the homepage popup banner; not in the nav or sitemap.
+   ========================================================================== */
+.page-campaign { background: var(--cream); }
+.page-campaign > section { background: transparent; }
+/* Same pink → cream run as the campuses page hero */
+.page-campaign .page-hero {
+  background: linear-gradient(180deg, var(--pink-soft) 0%, #FFE1D4 55%, var(--cream) 100%);
+  padding-bottom: clamp(32px, 5vw, 56px);
+}
+.campaign-hero__eyebrow { justify-content: center; margin-bottom: var(--sp-4); }
+.campaign-hero__crest {
+  display: block;
+  height: clamp(96px, 20vw, 140px);
+  width: auto;
+  margin: 0 auto var(--sp-4);
+}
+
+/* ---- Main image ---- */
+.campaign-visual { padding-block: 0 clamp(32px, 5vw, 56px); }
+.campaign-visual__figure {
+  max-width: 1040px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--shadow-lg);
+}
+.campaign-visual__figure img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* ---- Shared section + card ---- */
+.campaign-section { padding-block: clamp(20px, 3.5vw, 40px); }
+.campaign-section__title {
+  font-family: var(--font-display-jp);
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  text-align: center;
+  margin: 0 0 var(--sp-5);
+  color: var(--ink);
+}
+.campaign-card {
+  max-width: 900px;
+  margin-inline: auto;
+  padding: clamp(28px, 4vw, 56px);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: 0 6px 16px rgba(14, 14, 14, 0.06), 0 18px 44px rgba(14, 14, 14, 0.08);
+}
+
+/* ---- Campaign details ---- */
+.campaign-details__body { font-size: var(--fs-md); line-height: 1.9; color: var(--ink-soft); }
+.campaign-details__body > * { margin: 0 0 1em; }
+.campaign-details__body > *:last-child { margin-bottom: 0; }
+.campaign-details__body ul { padding-left: 1.3em; }
+.campaign-details__body li { margin-bottom: 0.4em; }
+.campaign-details__body strong { color: var(--ink); }
+
+/* ---- Validity + countdown, campaign code ---- */
+.campaign-offer {
+  display: grid;
+  gap: clamp(16px, 3vw, 24px);
+  max-width: 900px;
+  margin-inline: auto;
+}
+@media (min-width: 760px) { .campaign-offer { grid-template-columns: 1fr 1fr; } }
+.campaign-offer .campaign-card { max-width: none; margin-inline: 0; }
+.campaign-offer__label {
+  font-family: var(--font-en);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin: 0 0 var(--sp-2);
+}
+.campaign-offer__dates { font-size: var(--fs-md); font-weight: 700; margin: 0 0 var(--sp-4); color: var(--ink); }
+.campaign-offer__dates time { white-space: nowrap; }
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-2);
+  text-align: center;
+}
+.countdown__unit { background: var(--cream); border-radius: var(--r-md); padding: var(--sp-3) var(--sp-1); }
+.countdown__num {
+  display: block;
+  font-family: var(--font-en);
+  font-size: clamp(1.9rem, 6vw, 2.6rem);
+  line-height: 1;
+  color: var(--coral);
+  font-variant-numeric: tabular-nums;
+}
+.countdown__lbl { display: block; font-size: var(--fs-xs); color: var(--ink-muted); margin-top: 4px; }
+.countdown__done { margin: 0; padding: var(--sp-4); text-align: center; font-weight: 700; color: var(--ink-muted); }
+
+.campaign-code { display: flex; align-items: center; gap: var(--sp-3); flex-wrap: wrap; }
+.campaign-code__value {
+  flex: 1 1 180px;
+  min-width: 0;
+  padding: var(--sp-3) var(--sp-4);
+  font-family: var(--font-en);
+  font-size: clamp(1.6rem, 6vw, 2.4rem);
+  letter-spacing: 0.12em;
+  text-align: center;
+  color: var(--ink);
+  background: var(--cream);
+  border: 2px dashed var(--coral);
+  border-radius: var(--r-md);
+  word-break: break-all;
+  user-select: all;
+}
+.campaign-code__note { margin: var(--sp-3) 0 0; font-size: var(--fs-sm); color: var(--ink-muted); }
+
+/* ---- Small Nozawa gallery ---- */
+.campaign-gallery { padding-block: clamp(20px, 3.5vw, 40px) clamp(40px, 6vw, 72px); }
+.campaign-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(10px, 2vw, 18px);
+  max-width: 1040px;
+  margin-inline: auto;
+}
+@media (min-width: 760px) { .campaign-gallery__grid { grid-template-columns: repeat(3, 1fr); } }
+.campaign-gallery__grid figure {
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: #fff;
+}
+.campaign-gallery__grid img { display: block; width: 100%; height: 100%; object-fit: cover; }
