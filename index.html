@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Bebas+Neue&amp;family=Noto+Sans+JP:wght@300;400;500;700&amp;display=swap">
 
-  <link rel="stylesheet" href="assets/css/styles.css?v=326">
+  <link rel="stylesheet" href="assets/css/styles.css?v=327">
   <!-- Canonical + social share -->
   <link rel="canonical" href="https://speakmore.jp/">
   <meta property="og:type" content="website">
@@ -1136,6 +1136,58 @@
       </div>
     </div>
   </footer>
+
+  <!-- ========== Promo popup: Nozawa autumn campaign ==========
+       Shown once per browser session, ~1.2s after load. The whole banner is
+       the link; the only other control is close. Remove this block (and the
+       .promo-pop styles) when the campaign ends. -->
+  <div class="promo-pop" id="promoPop" aria-hidden="true">
+    <div class="promo-pop__overlay" data-promo-close></div>
+    <div class="promo-pop__dialog" role="dialog" aria-modal="true" aria-label="野沢温泉 秋キャンペーンのお知らせ">
+      <button class="promo-pop__close" type="button" aria-label="閉じる" data-promo-close>&times;</button>
+      <a class="promo-pop__link" href="nozawacampaign.html" data-promo-go>
+        <img src="assets/img/nozawa-campaign-banner.webp" width="320" height="400"
+             alt="野沢温泉 CAMPAIGN 秋キャンペーン実施中 — 秋学期・野沢温泉キャンパス限定！参加期間を無料で延長、またはプランの無料アップグレード！詳細ページはこちら">
+      </a>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var pop = document.getElementById('promoPop');
+      if (!pop) return;
+      var KEY = 'promoPopSeen';
+      var seen = false;
+      try { seen = sessionStorage.getItem(KEY) === '1'; } catch (e) {}
+      // Don't interrupt someone who deep-linked to a section (#contact etc.)
+      if (seen || location.hash) return;
+
+      var lastFocused = null;
+      function markSeen() { try { sessionStorage.setItem(KEY, '1'); } catch (e) {} }
+      function open() {
+        lastFocused = document.activeElement;
+        pop.classList.add('is-open');
+        pop.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('pt-lock');
+        var c = pop.querySelector('.promo-pop__close');
+        if (c) setTimeout(function () { c.focus(); }, 60);
+      }
+      function close() {
+        markSeen();
+        pop.classList.remove('is-open');
+        pop.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('pt-lock');
+        if (lastFocused && lastFocused.focus) lastFocused.focus();
+      }
+      pop.querySelectorAll('[data-promo-close]').forEach(function (el) { el.addEventListener('click', close); });
+      // Clicking through counts as seen too, so it doesn't reappear on the way back.
+      var go = pop.querySelector('[data-promo-go]');
+      if (go) go.addEventListener('click', function () { markSeen(); document.body.classList.remove('pt-lock'); });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && pop.classList.contains('is-open')) close();
+      });
+      setTimeout(open, 1200);
+    })();
+  </script>
 
   <!-- ========== Placement-test request modal ========== -->
   <div class="pt-modal" id="placementModal" aria-hidden="true">

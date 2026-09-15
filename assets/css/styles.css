@@ -6658,3 +6658,55 @@ a.rebrand__suite-crest:hover { transform: translateY(-3px); opacity: .85; }
   background: #fff;
 }
 .campaign-gallery__grid img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- Promo popup (homepage campaign banner) ---------- */
+/* Sits under the placement-test modal (z 1000) so that one wins if both are
+   ever open. Sized so the 320x400 banner is never upscaled past 1:1 on a
+   phone, and kept clear of iPhone safe areas top and bottom. */
+.promo-pop {
+  position: fixed; inset: 0; z-index: 990;
+  display: flex; align-items: center; justify-content: center;
+  padding: calc(var(--sp-5) + env(safe-area-inset-top)) var(--sp-4) calc(var(--sp-5) + env(safe-area-inset-bottom));
+  opacity: 0; visibility: hidden;
+  transition: opacity .25s var(--ease), visibility .25s var(--ease);
+}
+.promo-pop.is-open { opacity: 1; visibility: visible; }
+.promo-pop__overlay {
+  position: absolute; inset: 0;
+  background: rgba(14, 14, 14, 0.6);
+  -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
+}
+.promo-pop__dialog {
+  position: relative; z-index: 1;
+  width: min(88vw, 320px);
+  /* the close button sits above the banner, so reserve its row */
+  padding-top: 48px;
+  transform: translateY(14px) scale(0.98);
+  transition: transform .28s var(--ease);
+}
+.promo-pop.is-open .promo-pop__dialog { transform: translateY(0) scale(1); }
+.promo-pop__link {
+  display: block;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: 0 30px 70px -20px rgba(14, 14, 14, 0.55);
+  -webkit-tap-highlight-color: transparent;
+}
+.promo-pop__link img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; }
+.promo-pop__link:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.promo-pop__close {
+  position: absolute; top: 0; right: 0;
+  width: 44px; height: 44px;           /* iOS minimum tap target */
+  border: 0; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink);
+  font-size: 28px; line-height: 1;
+  display: grid; place-items: center;
+  cursor: pointer;
+  transition: background var(--t-fast) var(--ease);
+}
+.promo-pop__close:hover { background: #fff; }
+.promo-pop__close:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  .promo-pop, .promo-pop__dialog { transition: none; }
+}
