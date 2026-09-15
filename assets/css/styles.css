@@ -6638,6 +6638,9 @@ a.rebrand__suite-crest:hover { transform: translateY(-3px); opacity: .85; }
   word-break: break-all;
   user-select: all;
 }
+.campaign-code__cta { margin: var(--sp-4) 0 0; }
+.campaign-code__cta .btn { width: 100%; }
+@media (min-width: 600px) { .campaign-code__cta .btn { width: auto; } }
 .campaign-code__note { margin: var(--sp-3) 0 0; font-size: var(--fs-sm); color: var(--ink-muted); }
 
 /* ---- Small Nozawa gallery ---- */
