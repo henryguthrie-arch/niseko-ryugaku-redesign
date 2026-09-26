@@ -47,6 +47,49 @@
     next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
   }
 
+  /* ---------- Versant results carousel ---------- */
+  /* Not a copy of the testimonials handler: this track uses mandatory scroll
+     snapping, and a smooth scrollBy() by "one card" gets fought by the snap
+     and springs back. So: find the next/prev card's own position, pause
+     snapping for the animation, then restore it once the scroll settles. */
+  const vTrack = document.getElementById('versantTrack');
+  const vNav = document.querySelector('.versant__nav');
+  if (vTrack && vNav) {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const cardStarts = () => {
+      const base = vTrack.getBoundingClientRect().left - vTrack.scrollLeft;
+      return [...vTrack.querySelectorAll('.vcard')].map((c) => Math.round(c.getBoundingClientRect().left - base));
+    };
+    const go = (dir) => {
+      const cur = vTrack.scrollLeft;
+      const starts = cardStarts();
+      const target = dir > 0
+        ? starts.find((x) => x > cur + 2)
+        : [...starts].reverse().find((x) => x < cur - 2);
+      if (target === undefined) return;
+      if (reduceMotion) { vTrack.scrollLeft = target; return; }
+      vTrack.style.scrollSnapType = 'none';
+      vTrack.scrollTo({ left: target, behavior: 'smooth' });
+      const restore = () => { vTrack.style.scrollSnapType = ''; };
+      if ('onscrollend' in vTrack) vTrack.addEventListener('scrollend', restore, { once: true });
+      // Belt and braces: if the smooth scroll never got going (some embedded
+      // or throttled webviews don't animate it), jump there instead. Either
+      // way snapping is back on by the end.
+      setTimeout(() => {
+        if (Math.abs(vTrack.scrollLeft - target) > 2) vTrack.scrollLeft = target;
+        restore();
+      }, 700);
+    };
+    vNav.querySelector('.versant__prev').addEventListener('click', () => go(-1));
+    vNav.querySelector('.versant__next').addEventListener('click', () => go(1));
+
+    // No arrows when every card already fits (wide screens).
+    const updateNav = () => { vNav.hidden = vTrack.scrollWidth <= vTrack.clientWidth + 1; };
+    updateNav();
+    if ('ResizeObserver' in window) new ResizeObserver(updateNav).observe(vTrack);
+    window.addEventListener('resize', updateNav);
+  }
+
   /* ---------- Counter animation ---------- */
   const counters = document.querySelectorAll('[data-counter]');
   if (counters.length && 'IntersectionObserver' in window) {

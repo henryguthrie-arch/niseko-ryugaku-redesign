@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Bebas+Neue&amp;family=Noto+Sans+JP:wght@300;400;500;700&amp;display=swap">
 
-  <link rel="stylesheet" href="assets/css/styles.css?v=327">
+  <link rel="stylesheet" href="assets/css/styles.css?v=336">
   <!-- Canonical + social share -->
   <link rel="canonical" href="https://speakmore.jp/">
   <meta property="og:type" content="website">
@@ -121,7 +121,7 @@
       <div class="rebrand__group-brand">
         <img src="assets/img/speakmore-group-en.png" alt="SPEAKMORE GROUP" width="1000" height="237" />
       </div>
-      <!-- Campus selector: the 3 academies (linked to each campus), above the box -->
+      <!-- Campus selector: the 4 academies (linked to each campus), above the box -->
       <ul class="rebrand__suite-list rebrand__suite-list--top" role="list">
         <li>
           <a class="rebrand__suite-crest" href="pages/campuses.html#niseko"><img src="assets/img/niseko-logo.png" alt="Niseko International Academy" loading="lazy" /></a>
@@ -131,6 +131,9 @@
         </li>
         <li>
           <a class="rebrand__suite-crest" href="pages/campuses.html#tokyo"><img src="assets/img/tokyo-logo.png" alt="Tokyo International Academy" loading="lazy" /></a>
+        </li>
+        <li>
+          <a class="rebrand__suite-crest" href="pages/campuses.html#hakuba"><img src="assets/img/hakuba-logo.png" alt="Hakuba International Academy" loading="lazy" /></a>
         </li>
       </ul>
     </div>
@@ -156,6 +159,12 @@
             <span class="hero__stat-wreath">
               <span class="hero__stat-num">4.9<span class="hero__stat-unit">/5.0</span></span>
               <span class="hero__stat-label">受講生満足度</span>
+            </span>
+          </div>
+          <div class="hero__stat" role="img" aria-label="4週間参加時のVersant®スコア 13.6点UP">
+            <span class="hero__stat-wreath">
+              <span class="hero__stat-num">13.6<span class="hero__stat-unit">点UP</span></span>
+              <span class="hero__stat-label">4週間参加時の<br>Versant®︎スコア</span>
             </span>
           </div>
         </div>
@@ -254,10 +263,11 @@
   <!-- ========== Why choose SPEAKMORE? ========== -->
   <section class="why-speakmore" id="why-speakmore">
     <div class="container">
-      <ul class="academy-crests" role="list" aria-label="3つのインターナショナルアカデミー">
+      <ul class="academy-crests academy-crests--four" role="list" aria-label="4つのインターナショナルアカデミー">
         <li><a href="pages/campuses.html#niseko"><img src="assets/img/niseko-logo.png" alt="Niseko International Academy" loading="lazy"></a></li>
         <li><a href="pages/campuses.html#nozawa"><img src="assets/img/nozawa-logo.png" alt="Nozawa International Academy" loading="lazy"></a></li>
         <li><a href="pages/campuses.html#tokyo"><img src="assets/img/tokyo-logo.png" alt="Tokyo International Academy" loading="lazy"></a></li>
+        <li><a href="pages/campuses.html#hakuba"><img src="assets/img/hakuba-logo.png" alt="Hakuba International Academy" loading="lazy"></a></li>
       </ul>
       <header class="why-speakmore__head">
         <span class="why-speakmore__eyebrow">Why Us</span>
@@ -353,6 +363,103 @@
     </div>
   </section>
 
+  <!-- ========== Versant results — interview video cards ==========
+       Data: the "Versant" tab of the shared Google Sheet. Karen and Misaki
+       are deliberately left out. Photos are the YouTube thumbnails, cropped
+       to 4:3 in assets/img/versant/. -->
+  <section class="versant" id="versant" aria-labelledby="versantTitle">
+    <div class="versant__band">
+      <div class="container">
+        <header class="versant__head">
+          <div>
+            <h2 class="section-title versant__title" id="versantTitle"><em>Versant<sup>®︎</sup></em>が示す、<br>英語力の変化</h2>
+            <p class="versant__lede">受講前と受講後に、同じVersant<sup>®</sup>テストを受験した結果です。</p>
+          </div>
+          <div class="versant__nav">
+            <button type="button" class="versant__prev" aria-label="前へ"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button type="button" class="versant__next" aria-label="次へ"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </header>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="versant__track" id="versantTrack">
+        <article class="vcard">
+          <a class="vcard__media" href="https://youtu.be/S4n1MNzMgrc" target="_blank" rel="noopener" aria-label="Sakiさんのインタビュー動画を見る（YouTube・新しいタブで開きます）">
+            <img src="assets/img/versant/saki.webp" width="720" height="540" alt="" loading="lazy" decoding="async">
+            <span class="vcard__play" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+          </a>
+          <p class="vcard__score">
+            <span class="vcard__score-chip">VERSANT<sup>®</sup>TEST</span>
+            <span class="vcard__score-when">3週間で</span>
+            <span class="vcard__score-before">10</span>
+            <span class="vcard__score-arrow" aria-hidden="true">»</span><span class="sr-only">から</span>
+            <span class="vcard__score-after">20</span>
+          </p>
+          <div class="vcard__body">
+            <p class="vcard__meta">Sakiさん ｜ ニセコ留学 ｜ 3週間</p>
+            <ul class="vcard__tags" role="list">
+              <li>スピーキング 13 → 25</li>
+              <li>リスニング 10 → 14</li>
+              <li>TOEIC換算 317〜417点相当（受講後）</li>
+            </ul>
+            <p class="vcard__dates">受験日：6/8 → 7/2</p>
+            <a class="vcard__cta" href="https://youtu.be/S4n1MNzMgrc" target="_blank" rel="noopener">インタビュー動画を見る <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+        <article class="vcard">
+          <a class="vcard__media" href="https://youtu.be/wNHMVRQMj5A" target="_blank" rel="noopener" aria-label="Takatoさんのインタビュー動画を見る（YouTube・新しいタブで開きます）">
+            <img src="assets/img/versant/takato.webp" width="720" height="540" alt="" loading="lazy" decoding="async">
+            <span class="vcard__play" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+          </a>
+          <p class="vcard__score">
+            <span class="vcard__score-chip">VERSANT<sup>®</sup>TEST</span>
+            <span class="vcard__score-when">4週間で</span>
+            <span class="vcard__score-before">26</span>
+            <span class="vcard__score-arrow" aria-hidden="true">»</span><span class="sr-only">から</span>
+            <span class="vcard__score-after">41</span>
+          </p>
+          <div class="vcard__body">
+            <p class="vcard__meta">Takatoさん ｜ ニセコ留学 ｜ 4週間</p>
+            <ul class="vcard__tags" role="list">
+              <li>スピーキング 36 → 45</li>
+              <li>リスニング 15 → 36</li>
+              <li>TOEIC換算 389〜489 → 604〜704</li>
+            </ul>
+            <p class="vcard__dates">受験日：7/25 → 8/19</p>
+            <a class="vcard__cta" href="https://youtu.be/wNHMVRQMj5A" target="_blank" rel="noopener">インタビュー動画を見る <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+        <article class="vcard">
+          <!-- TODO: course length is blank in the sheet; 4週間 is inferred from the test dates 7/15 → 8/13 — confirm -->
+          <a class="vcard__media" href="https://youtu.be/ZayAEA2l6Iw" target="_blank" rel="noopener" aria-label="Yutoさんのインタビュー動画を見る（YouTube・新しいタブで開きます）">
+            <img src="assets/img/versant/yuto.webp" width="720" height="540" alt="" loading="lazy" decoding="async">
+            <span class="vcard__play" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+          </a>
+          <p class="vcard__score">
+            <span class="vcard__score-chip">VERSANT<sup>®</sup>TEST</span>
+            <span class="vcard__score-when">4週間で</span>
+            <span class="vcard__score-before">10</span>
+            <span class="vcard__score-arrow" aria-hidden="true">»</span><span class="sr-only">から</span>
+            <span class="vcard__score-after">24</span>
+          </p>
+          <div class="vcard__body">
+            <p class="vcard__meta">Yutoさん ｜ ニセコ留学 ｜ 4週間</p>
+            <ul class="vcard__tags" role="list">
+              <li>スピーキング 12 → 27</li>
+              <li>リスニング 10 → 21</li>
+              <li>TOEIC換算 317〜417点相当（受講後）</li>
+            </ul>
+            <p class="vcard__dates">受験日：7/15 → 8/13</p>
+            <a class="vcard__cta" href="https://youtu.be/ZayAEA2l6Iw" target="_blank" rel="noopener">インタビュー動画を見る <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+      </div>
+      <p class="versant__note">※ スコアはVersant<sup>®</sup>テスト（Pearson）のGSEスコア。受講前後に受講生本人が受験した結果です。TOEIC換算はVersant総合点との対照表に基づく目安です。</p>
+    </div>
+  </section>
+
   <!-- ========== Why only SPEAKMORE (bilingual formula) ========== -->
   <section class="bilingual">
     <div class="container">
@@ -408,10 +515,11 @@
       <div class="rebrand__group-brand rebrand__group-brand--dark">
         <img src="assets/img/speakmore-group-en.png" alt="SPEAKMORE GROUP" width="1000" height="237" loading="lazy" />
       </div>
-      <ul class="academy-crests academy-crests--dark" role="list" aria-label="3つのインターナショナルアカデミー">
+      <ul class="academy-crests academy-crests--dark academy-crests--four" role="list" aria-label="4つのインターナショナルアカデミー">
         <li><a href="pages/campuses.html#niseko"><img src="assets/img/niseko-logo.png" alt="Niseko International Academy" loading="lazy"></a></li>
         <li><a href="pages/campuses.html#nozawa"><img src="assets/img/nozawa-logo.png" alt="Nozawa International Academy" loading="lazy"></a></li>
         <li><a href="pages/campuses.html#tokyo"><img src="assets/img/tokyo-logo.png" alt="Tokyo International Academy" loading="lazy"></a></li>
+        <li><a href="pages/campuses.html#hakuba"><img src="assets/img/hakuba-logo.png" alt="Hakuba International Academy" loading="lazy"></a></li>
       </ul>
       <div class="booking__layout">
 
@@ -1081,10 +1189,11 @@
             <img src="assets/img/speakmore-group-en.png" alt="SPEAKMORE GROUP" class="brand__logo-img brand__logo-img--group">
           </span>
         </a>
-        <div class="site-footer__academies" aria-label="3つのインターナショナルアカデミー">
+        <div class="site-footer__academies" aria-label="4つのインターナショナルアカデミー">
           <img src="assets/img/niseko-logo.png" alt="Niseko International Academy" loading="lazy">
           <img src="assets/img/nozawa-logo.png" alt="Nozawa International Academy" loading="lazy">
           <img src="assets/img/tokyo-logo.png" alt="Tokyo International Academy" loading="lazy">
+          <img src="assets/img/hakuba-logo.png" alt="Hakuba International Academy" loading="lazy">
         </div>
         <p class="site-footer__addr">
           TEL: 0136-22-2278<br>
@@ -1319,7 +1428,7 @@
     body.pt-lock { overflow: hidden; }
   </style>
 
-  <script src="assets/js/main.js?v=170"></script>
+  <script src="assets/js/main.js?v=183"></script>
   <!-- Calendly inline widget loader -->
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
