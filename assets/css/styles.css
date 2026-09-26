@@ -2899,10 +2899,11 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   gap: var(--sp-5);
 }
 @media (min-width: 720px) {
-  .campuses__grid { grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); }
+  .campuses__grid { grid-template-columns: repeat(2, 1fr); gap: var(--sp-5); }
 }
 @media (min-width: 1024px) {
-  .campuses__grid { gap: var(--sp-6); }
+  /* Four campuses in one row */
+  .campuses__grid { grid-template-columns: repeat(4, 1fr); gap: var(--sp-5); }
 }
 
 .campus-card {
@@ -2958,14 +2959,17 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   transform: translateY(-6px);
   box-shadow: 0 28px 60px -25px rgba(14, 14, 14, 0.32);
 }
-@media (min-width: 720px) {
-  /* Playful staggered baseline — gives the row a hand-placed feel */
+@media (min-width: 1024px) {
+  /* Playful staggered baseline — gives the 4-up row a hand-placed feel
+     (not applied to the 2×2 tablet layout, where it would read as misaligned) */
   .campus-card--niseko { transform: translateY(0); }
   .campus-card--nozawa { transform: translateY(-18px); }
-  .campus-card--tokyo  { transform: translateY(8px); }
+  .campus-card--hakuba { transform: translateY(8px); }
+  .campus-card--tokyo  { transform: translateY(-10px); }
   .campus-card--niseko:hover { transform: translateY(-6px); }
   .campus-card--nozawa:hover { transform: translateY(-24px); }
-  .campus-card--tokyo:hover  { transform: translateY(2px); }
+  .campus-card--hakuba:hover { transform: translateY(2px); }
+  .campus-card--tokyo:hover  { transform: translateY(-16px); }
 }
 
 .campus-card__media {
@@ -2994,6 +2998,7 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 }
 .campus-card--niseko::before { background: var(--ink); }
 .campus-card--nozawa::before { background: var(--coral); }
+.campus-card--hakuba::before { background: var(--pink-deep); }
 .campus-card--tokyo::before  { background: var(--cream-deep); border-bottom: 1px solid rgba(14,14,14,0.06); }
 /* Cards that use a real photo (not the SVG illustration) drop the
    coloured top stripe so the image fills the media area edge-to-edge. */
@@ -3005,6 +3010,10 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   flex-direction: column;
   gap: var(--sp-3);
   flex: 1;
+}
+/* 4-up row: cards are ~270px wide, so ease the side padding a touch */
+@media (min-width: 1024px) {
+  .campus-card__body { padding: var(--sp-4) var(--sp-4) var(--sp-5); }
 }
 .campus-card__loc {
   font-family: var(--font-en);
