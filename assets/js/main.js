@@ -123,10 +123,27 @@
   /* ---------- Program Finder ---------- */
   (() => {
     const root = document.getElementById('finder');
+    const detailHostEl = document.getElementById('courseDetailsList');
     // This module also renders the course-product detail cards into
     // #courseDetailsList (courses page), so keep running when only the
     // finder markup is absent.
-    if (!root && !document.getElementById('courseDetailsList')) return;
+    if (!root && !detailHostEl) return;
+
+    // Per-page catalog scoping via data attributes on #courseDetailsList (or
+    // #finder): data-include="tokyo" renders ONLY those groups/programs (the
+    // Tokyo Seminar page), data-exclude="tokyo" hides them (main courses page
+    // + finder). Values are comma-separated group keys or program ids.
+    const scopeList = (attr) => new Set(
+      ((detailHostEl && detailHostEl.dataset[attr]) || (root && root.dataset[attr]) || '')
+        .split(',').map((v) => v.trim()).filter(Boolean)
+    );
+    const INCLUDE = scopeList('include');
+    const EXCLUDE = scopeList('exclude');
+    const inScope = (id) => {
+      const key = MEMBER_TO_GROUP[id] || id;
+      if (INCLUDE.size && !INCLUDE.has(key) && !INCLUDE.has(id)) return false;
+      return !(EXCLUDE.has(key) || EXCLUDE.has(id));
+    };
 
     // Program catalog. accent = which color stripe shows on the result card.
     // locKey: niseko | tokyo | nozawa | online   → which location icon
@@ -246,7 +263,8 @@
     const $results = document.getElementById('finderResults');
 
     function filter(intensity, season) {
-      return Object.entries(programs).filter(([_, p]) => {
+      return Object.entries(programs).filter(([id, p]) => {
+        if (!inScope(id)) return false;
         const intensityOK = intensity === 'any' || p.tag === intensity;
         const seasonOK = season === 'anytime' || p.seasons.includes(season);
         return intensityOK && seasonOK;
@@ -751,7 +769,7 @@
       // accommodation block exists for plans that do.
       const groupsInserted = new Set();
       detailHost.innerHTML = Object.entries(programs)
-        .filter(([id]) => detailExtras[id])  // skip any program without detail config
+        .filter(([id]) => detailExtras[id] && inScope(id))  // skip programs without detail config or out of this page's scope
         .map(([id, p]) => {
           const key = MEMBER_TO_GROUP[id];
           if (key) {

@@ -182,15 +182,7 @@ body {
      margin, which is all the separation the hero headline below needs. */
   padding-bottom: 0;
 }
-.page-home #rebrand .rebrand__suite-list--top { margin-bottom: 0; background: transparent; border: none; box-shadow: none; padding-top: var(--sp-1); padding-bottom: var(--sp-1); grid-template-columns: repeat(4, 1fr); }
-/* Four crests across on phones: drop the box's side padding and tighten the
-   gap so each crest keeps as much width as possible. The narrower crests sit
-   ~5px shorter, so give that back below the row to keep the hero headline
-   equidistant from the crests and the laurels. */
-@media (max-width: 640px) {
-  .page-home #rebrand .rebrand__suite-list--top { padding-left: 0; padding-right: 0; padding-bottom: calc(var(--sp-1) + 5px); gap: 6px; }
-  .page-home #rebrand .rebrand__suite-list--top li { padding-left: 0; padding-right: 0; }
-}
+.page-home #rebrand .rebrand__suite-list--top { margin-bottom: 0; background: transparent; border: none; box-shadow: none; padding-top: var(--sp-1); padding-bottom: var(--sp-1); }
 
 /* Rebrand box (below hero): trim the excess top/bottom dead space, and give
    the headline a little separation from the pills. */
@@ -213,11 +205,6 @@ body {
   gap: clamp(8px, 2vw, 22px);
 }
 .academy-crests li { display: flex; flex-direction: column; align-items: center; padding: clamp(8px, 1.5vw, 16px) 4px; }
-/* 4-up rows on phones: tighten the gap and cell padding so each crest keeps its width */
-@media (max-width: 640px) {
-  .academy-crests--four { gap: 6px; }
-  .academy-crests--four li { padding-left: 0; padding-right: 0; }
-}
 .academy-crests a { display: block; text-decoration: none; transition: transform var(--t-fast) var(--ease); }
 .academy-crests a:hover { transform: translateY(-3px); }
 .academy-crests img { display: block; margin: 0 auto; width: auto; height: auto; max-width: 100%; max-height: clamp(130px, 22vw, 220px); }
@@ -2899,11 +2886,10 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   gap: var(--sp-5);
 }
 @media (min-width: 720px) {
-  .campuses__grid { grid-template-columns: repeat(2, 1fr); gap: var(--sp-5); }
+  .campuses__grid { grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); }
 }
 @media (min-width: 1024px) {
-  /* Four campuses in one row */
-  .campuses__grid { grid-template-columns: repeat(4, 1fr); gap: var(--sp-5); }
+  .campuses__grid { gap: var(--sp-6); }
 }
 
 .campus-card {
@@ -2959,17 +2945,14 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   transform: translateY(-6px);
   box-shadow: 0 28px 60px -25px rgba(14, 14, 14, 0.32);
 }
-@media (min-width: 1024px) {
-  /* Playful staggered baseline — gives the 4-up row a hand-placed feel
-     (not applied to the 2×2 tablet layout, where it would read as misaligned) */
+@media (min-width: 720px) {
+  /* Playful staggered baseline — gives the row a hand-placed feel */
   .campus-card--niseko { transform: translateY(0); }
   .campus-card--nozawa { transform: translateY(-18px); }
   .campus-card--hakuba { transform: translateY(8px); }
-  .campus-card--tokyo  { transform: translateY(-10px); }
   .campus-card--niseko:hover { transform: translateY(-6px); }
   .campus-card--nozawa:hover { transform: translateY(-24px); }
   .campus-card--hakuba:hover { transform: translateY(2px); }
-  .campus-card--tokyo:hover  { transform: translateY(-16px); }
 }
 
 .campus-card__media {
@@ -3010,10 +2993,6 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   flex-direction: column;
   gap: var(--sp-3);
   flex: 1;
-}
-/* 4-up row: cards are ~270px wide, so ease the side padding a touch */
-@media (min-width: 1024px) {
-  .campus-card__body { padding: var(--sp-4) var(--sp-4) var(--sp-5); }
 }
 .campus-card__loc {
   font-family: var(--font-en);
@@ -5089,6 +5068,9 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   padding: clamp(64px, 9vw, 112px) 0 0;
   background: var(--cream);
 }
+/* Course card hosted on the Tokyo Seminar page: nothing stands below it, so
+   close the section with normal bottom padding. */
+.course-products--seminar { padding-bottom: clamp(48px, 7vw, 96px); }
 .course-products .line-cta {
   /* extra breathing room so it reads as separate from the course card above */
   margin-top: clamp(28px, 5vw, 48px);
