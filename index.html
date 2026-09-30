@@ -1238,6 +1238,11 @@
           <span class="pt-field__label">メールアドレス</span>
           <input type="email" name="email" required autocomplete="email" inputmode="email" placeholder="you@example.com">
         </label>
+        <!-- Web3Forms now requires an hCaptcha token for this form. The widget is
+             rendered explicitly by the script below (loaded on first open). -->
+        <div class="pt-form__captcha">
+          <div id="placementCaptcha" class="h-captcha" aria-label="スパム防止の確認"></div>
+        </div>
         <button type="submit" class="btn btn--primary pt-form__submit">送信する</button>
         <p class="pt-form__status" id="placementStatus" role="status" aria-live="polite" hidden></p>
         <p class="pt-form__note">※ ご入力いただいた情報は、SPEAKMORE（運営：ニセココンシェルジュ）がレベルチェックテストのご案内・ご連絡のためにのみ使用し、第三者には提供いたしません。</p>
@@ -1254,6 +1259,13 @@
   </div>
 
   <style>
+    /* hCaptcha checkbox (303×78) centred between the fields and the button */
+    .pt-form__captcha { display: flex; justify-content: center; min-height: 78px; margin: var(--sp-1) 0 var(--sp-2); }
+    .pt-form__captcha iframe { max-width: 100%; }
+    @media (max-width: 360px) {
+      /* Narrow phones: the widget is wider than the dialog's content box, so scale it */
+      .pt-form__captcha { justify-content: flex-start; transform: scale(0.85); transform-origin: 0 0; min-height: 66px; margin-bottom: 0; }
+    }
     .pt-modal {
       position: fixed; inset: 0; z-index: 1000;
       display: flex; align-items: center; justify-content: center;
@@ -1368,10 +1380,41 @@
       var firstInput = modal.querySelector('input[name="name"]');
       var lastFocused = null;
       var ACCESS_KEY = 'f716bd65-68d4-4945-9df3-2b2f8d7988a0';
+      // Web3Forms' shared hCaptcha site key (the one its client script injects).
+      var CAPTCHA_SITEKEY = '50b2fe65-b00b-4b9e-ad62-3ba471098be2';
+      var captchaEl = document.getElementById('placementCaptcha');
+      var captchaId = null;
+      var captchaLoading = false;
+
+      function renderCaptcha() {
+        if (captchaId !== null || !captchaEl || !window.hcaptcha) return;
+        captchaId = window.hcaptcha.render(captchaEl, { sitekey: CAPTCHA_SITEKEY, hl: 'ja' });
+      }
+      // Load the hCaptcha API the first time the modal opens (keeps the
+      // third-party script off the page for visitors who never open it).
+      function ensureCaptcha() {
+        if (window.hcaptcha) { renderCaptcha(); return; }
+        if (captchaLoading) return;
+        captchaLoading = true;
+        window.ptCaptchaReady = renderCaptcha;
+        var sc = document.createElement('script');
+        sc.src = 'https://js.hcaptcha.com/1/api.js?render=explicit&onload=ptCaptchaReady&hl=ja&recaptchacompat=off';
+        sc.async = true; sc.defer = true;
+        document.head.appendChild(sc);
+      }
+      function captchaToken() {
+        if (window.hcaptcha && captchaId !== null) { try { return window.hcaptcha.getResponse(captchaId); } catch (e) { return ''; } }
+        var ta = form ? form.querySelector('[name="h-captcha-response"]') : null;
+        return ta ? ta.value : '';
+      }
+      function resetCaptcha() {
+        if (window.hcaptcha && captchaId !== null) { try { window.hcaptcha.reset(captchaId); } catch (e) {} }
+      }
 
       function resetForm() {
         if (dialog) dialog.classList.remove('is-sent');
         if (form) form.reset();
+        resetCaptcha();
         if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = '送信する'; }
         if (statusEl) { statusEl.hidden = true; statusEl.textContent = ''; statusEl.classList.remove('is-error'); }
       }
@@ -1383,6 +1426,7 @@
         modal.classList.add('is-open');
         modal.setAttribute('aria-hidden', 'false');
         document.body.classList.add('pt-lock');
+        ensureCaptcha();
         if (firstInput) setTimeout(function () { firstInput.focus(); }, 60);
       }
 
@@ -1409,6 +1453,16 @@
           if (!form.checkValidity()) { form.reportValidity(); return; }
           var name = form.elements['name'].value.trim();
           var email = form.elements['email'].value.trim();
+          var token = captchaToken();
+          if (!token) {
+            ensureCaptcha();
+            if (statusEl) {
+              statusEl.hidden = false;
+              statusEl.classList.add('is-error');
+              statusEl.textContent = '「私は人間です」にチェックを入れてから送信してください。';
+            }
+            return;
+          }
 
           if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = '送信中…'; }
           if (statusEl) { statusEl.hidden = true; statusEl.textContent = ''; statusEl.classList.remove('is-error'); }
@@ -1422,6 +1476,7 @@
               from_name: 'SPEAKMORE レベルチェックテスト',
               name: name,
               email: email,
+              'h-captcha-response': token,
               message:
                 'レベルチェックテストのお申し込みを受け付けました。\n\n' +
                 'お名前: ' + name + '\n' +
@@ -1432,12 +1487,14 @@
             .then(function (data) {
               if (data && data.success) {
                 form.reset();
+                resetCaptcha();
                 if (dialog) dialog.classList.add('is-sent');
               } else {
                 throw new Error((data && data.message) || 'submit failed');
               }
             })
             .catch(function () {
+              resetCaptcha(); // tokens are single-use; a fresh check is needed to retry
               if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = '送信する'; }
               if (statusEl) {
                 statusEl.hidden = false;
