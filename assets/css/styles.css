@@ -552,11 +552,15 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 }
 
 .site-nav { display: none; }
-@media (min-width: 1024px) {
+/* Desktop nav from 1140px (was 1024px): with six items the row no longer
+   fits beside the logo, CTA and language switcher on 1024–1139px laptops,
+   so those widths use the hamburger drawer instead. The four header rules
+   below share this breakpoint — keep them in step. */
+@media (min-width: 1140px) {
   .site-nav { display: block; }
   .site-nav ul {
     display: flex;
-    gap: var(--sp-6);
+    gap: clamp(var(--sp-4), 2.2vw, var(--sp-6)); /* tighter on 1024–1200px laptops so all six items fit on one line */
     align-items: center;
   }
   .site-nav a {
@@ -565,6 +569,7 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
     color: var(--ink);
     padding: 0.4em 0;
     position: relative;
+    white-space: nowrap; /* six items: never break a label mid-word */
     transition: color var(--t-fast) var(--ease);
   }
   .site-nav a::after {
@@ -622,7 +627,7 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   border-radius: 2px;
   transition: transform var(--t-med) var(--ease), opacity var(--t-fast) var(--ease);
 }
-@media (min-width: 1024px) { .nav-toggle { display: none; } }
+@media (min-width: 1140px) { .nav-toggle { display: none; } }
 
 /* ---------- Hero ---------- */
 .hero {
@@ -3557,7 +3562,7 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 .site-footer__legal a:hover { color: var(--coral-soft); }
 
 /* ---------- Mobile nav drawer (when toggled) ---------- */
-@media (max-width: 1023px) {
+@media (max-width: 1139px) {
   .site-nav.is-open {
     display: block;
     position: absolute;
@@ -6433,7 +6438,7 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
 
 /* Header dropdown — desktop only (mobile uses the in-drawer row) */
 .lang-switch--header { display: none; }
-@media (min-width: 1024px) { .lang-switch--header { display: block; } }
+@media (min-width: 1140px) { .lang-switch--header { display: block; } }
 .lang-switch--header .lang-switch__btn {
   display: inline-flex;
   align-items: center;
@@ -6492,7 +6497,7 @@ h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spaci
   padding-top: var(--sp-4);
   border-top: 1px solid var(--border);
 }
-@media (min-width: 1024px) { .lang-switch--nav { display: none; } }
+@media (min-width: 1140px) { .lang-switch--nav { display: none; } }
 .lang-switch--nav .lang-switch__label {
   display: block;
   margin-bottom: var(--sp-3);
