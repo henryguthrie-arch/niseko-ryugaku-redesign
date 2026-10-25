@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="ja"><head>
+  <meta charset="utf-8">
+
+  <!-- Google tag (gtag.js) — GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-82JT87SZ32"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-82JT87SZ32');
+    gtag('config', 'AW-820931573');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>お問い合わせ — SPEAKMORE</title>
+  <meta name="description" content="SPEAKMORE（ニセコ留学・野沢温泉留学・白馬留学）へのお問い合わせフォーム。一般のお客様、メディア・取材、学校・団体、企業研修のご相談を受け付けています。">
+
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg?v=3">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png?v=3">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png?v=3">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Bebas+Neue&amp;family=Noto+Sans+JP:wght@300;400;500;700&amp;display=swap">
+
+  <link rel="stylesheet" href="../assets/css/styles.css?v=320">
+  <!-- Canonical + social share -->
+  <link rel="canonical" href="https://speakmore.jp/pages/contact">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SPEAKMORE">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:url" content="https://speakmore.jp/pages/contact">
+  <meta property="og:title" content="お問い合わせ — SPEAKMORE">
+  <meta property="og:description" content="SPEAKMORE（ニセコ留学・野沢温泉留学・白馬留学）へのお問い合わせフォーム。">
+  <meta property="og:image" content="https://speakmore.jp/assets/img/og-card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="お問い合わせ — SPEAKMORE">
+  <meta name="twitter:description" content="SPEAKMORE（ニセコ留学・野沢温泉留学・白馬留学）へのお問い合わせフォーム。">
+  <meta name="twitter:image" content="https://speakmore.jp/assets/img/og-card.jpg">
+</head>
+<body class="page-contact">
+
+  <!-- ========== Header / Nav ========== -->
+  <header class="site-header is-scrolled" id="siteHeader">
+    <div class="container site-header__inner">
+      <a href="../index.html" class="brand" aria-label="SPEAKMORE ホーム">
+        <span class="brand__logo">
+          <img src="../assets/img/speakmore-logo.png?v=2" alt="SPEAKMORE" class="brand__logo-img">
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="メインメニュー">
+        <ul>
+          <li><a href="why.html">選ばれる理由</a></li>
+          <li><a href="courses.html">コース・料金</a></li>
+          <li><a href="campuses.html">キャンパス</a></li>
+          <li><a href="faq.html">良くあるご質問</a></li>
+          <li><a href="../blog/">ブログ</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <a href="../index.html#contact" class="btn btn--primary btn--sm">無料カウンセリング</a>
+        <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== Page hero ========== -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero__inner">
+        <h1 class="page-hero__title">お問い<em>合わせ</em></h1>
+        <p class="page-hero__lede">
+          ご相談内容に合わせて窓口をお選びください。担当者より2営業日以内にご返信いたします。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Contact form ========== -->
+  <section class="contact">
+    <div class="container">
+      <div class="contact__card" id="contactCard">
+
+        <p class="contact__kicker">Contact</p>
+        <h2 class="contact__title" id="contactFormTitle">お問い合わせフォーム</h2>
+
+        <!-- Audience switcher -->
+        <div class="contact__tabs" role="tablist" aria-label="お問い合わせの種類">
+          <button class="contact__tab is-active" type="button" role="tab" id="tab-general"   aria-selected="true"  aria-controls="panel-general"   data-contact-tab="general">一般のお客様</button>
+          <button class="contact__tab" type="button" role="tab" id="tab-media"     aria-selected="false" aria-controls="panel-media"     data-contact-tab="media" tabindex="-1">メディア・取材</button>
+          <button class="contact__tab" type="button" role="tab" id="tab-group"     aria-selected="false" aria-controls="panel-group"     data-contact-tab="group" tabindex="-1">学校・団体の方</button>
+          <button class="contact__tab" type="button" role="tab" id="tab-corporate" aria-selected="false" aria-controls="panel-corporate" data-contact-tab="corporate" tabindex="-1">企業研修の方</button>
+        </div>
+
+        <!-- ===== 一般のお客様 ===== -->
+        <form class="contact__form is-active" id="panel-general" role="tabpanel" aria-labelledby="tab-general" data-contact-form="general" data-subject="【お問い合わせ】一般のお客様" novalidate>
+          <p class="contact__lede">ニセコ留学・野沢温泉留学・白馬留学へのご参加、料金、宿泊などについてのお問い合わせ窓口です。お気軽にご連絡ください。</p>
+
+          <label class="contact__field">
+            <span class="contact__label">氏名 <em class="contact__req">必須</em></span>
+            <input type="text" name="氏名" required autocomplete="name" placeholder="Name">
+          </label>
+          <label class="contact__field">
+            <span class="contact__label">電話番号</span>
+            <input type="tel" name="電話番号" autocomplete="tel" inputmode="tel" placeholder="000-000-0000">
+          </label>
+          <label class="contact__field">
+            <span class="contact__label">メールアドレス <em class="contact__req">必須</em></span>
+            <input type="email" name="メールアドレス" required autocomplete="email" inputmode="email" placeholder="example@mail.com">
+          </label>
+          <label class="contact__field">
+            <span class="contact__label">ご希望の校舎</span>
+            <span class="contact__select">
+              <select name="ご希望の校舎">
+                <option value="未定" selected>未定</option>
+                <option value="ニセコ校">ニセコ校</option>
+                <option value="野沢温泉校">野沢温泉校</option>
+                <option value="白馬校">白馬校</option>
+                <option value="東京セミナー">東京セミナー</option>
+                <option value="オンライン">オンライン</option>
+              </select>
+            </span>
+          </label>
+          <label class="contact__field">
+            <span class="contact__label">ご希望の時期・期間</span>
+            <input type="text" name="ご希望の時期・期間" placeholder="例：2027年1月から4週間">
+          </label>
+          <label class="contact__field">
+            <span class="contact__label">お問い合わせ内容 <em class="contact__req">必須</em></span>
+            <textarea name="お問い合わせ内容" required rows="6" placeholder="ご希望のプラン・ご質問などをご記入ください"></textarea>
+          </label>
+
+          <div class="contact__captcha"><div class="h-captcha" data-contact-captcha aria-label="スパム防止の確認"></div></div>
+          <button type="submit" class="btn btn--primary btn--lg contact__submit">送信する</button>
+          <p class="contact__status" role="status" aria-live="polite" hidden></p>
+        </form>
+
+        <!-- ===== メディア・取材 ===== -->
+        <form class="contact__form" id="panel-media" role="tabpanel" aria-labelledby="tab-media" data-contact-form="media" data-subject="【お問い合わせ】メディア・取材" novalidate hidden>
+          <p class="contact__lede">メディア関係者様、マスコミ関係者様向けのお問い合わせ窓口です。取材・掲載に関するご相談もお気軽にご連絡ください。</p>
+
+          <label class="contact__field">
+            <span class="contact__label">媒体名・番組名 <em class="contact__req">必須</em></span>
+            <input type="text" name="媒体名・番組名" required autocomplete="organization" placeholder="例：〇〇新聞 / 〇〇テレビ">
+          </label>
+          <label class="contact__field">
+            <span class="contact__label">氏名 <em class="contact__req">必須</em></span>
+            <input type="text" name="氏名" required autocomplete="name" placeholder="Name">
+          </label>
+          <label class="contact__field">
+            <span class="contact__label">電話番号</span>
+            <input type="tel" name="電話番号" autocomplete="tel" inputmode="tel" placeholder="000-000-0000">
+          </label>
+          <label class="contact__field">
+            <span class="contact__label">メールアドレス <em class="contact__req">必須</em></span>
+            <input type="email" name="メールアドレス" required autocomplete="email" inputmode="email" placeholder="example@mail.com">
+          </label>
+          <label class="contact__field">
+            <span class="contact__label">取材希望日・締切</span>
+            <input type="text" name="取材希望日・締切" placeholder="例：11月中旬 / 放送予定日">
+          </label>
+          <label class="contact__field">
+            <span class="contact__label">お問い合わせ内容 <em class="contact__req">必須</em></span>
+            <textarea name="お問い合わせ内容" required rows="6" placeholder="媒体名・取材内容・ご質問などをご記入ください"></textarea>
+          </label>
+
+          <div class="contact__captcha"><div class="h-captcha" data-contact-captcha aria-label="スパム防止の確認"></div></div>
+          <button type="submit" class="btn btn--primary btn--lg contact__submit">送信する</button>
+          <p class="contact__status" role="status" aria-live="polite" hidden></p>
+        </form>
+
+        <!-- ===== 学校・団体の方 ===== -->
+        <form class="contact__form" id="panel-group" role="tabpanel" aria-labelledby="tab-group" data-contact-form="group" data-subject="【お問い合わせ】学校・団体" novalidate hidden>
+          <p class="contact__lede">学校・学校法人・自治体・各種団体様向けの窓口です。修学旅行、語学研修、グループでのご参加などをご相談ください。</p>
+
+          <label class="contact__field">
+            <span class="contact__label">学校名・団体名 <em class="contact__req">必須</em></span>
+            <input type="text" name="学校名・団体名" required autocomplete="organization" placeholder="例：〇〇高等学校">
+          </label>
+          <label class="contact__field">
+            <span class="contact__label">ご担当者名 <em class="contact__req">必須</em></span>
+            <input type="text" name="ご担当者名" required autocomplete="name" placeholder="Name">
+          </label>
+          <label class="contact__field">
+            <span class="contact__label">電話番号 <em class="contact__req">必須</em></span>
+            <input type="tel" name="電話番号" required autocomplete="tel" inputmode="tel" placeholder="000-000-0000">
+          </label>
+          <label class="contact__field">
+            <span class="contact__label">メールアドレス <em class="contact__req">必須</em></span>
+            <input type="email" name="メールアドレス" required autocomplete="email" inputmode="email" placeholder="example@mail.com">
+          </label>
+          <div class="contact__row">
+            <label class="contact__field">
+              <span class="contact__label">想定人数</span>
+              <input type="text" name="想定人数" inputmode="numeric" placeholder="例：40名">
+            </label>
+            <label class="contact__field">
+              <span class="contact__label">実施時期</span>
+              <input type="text" name="実施時期" placeholder="例：2027年7月">
+            </label>
+          </div>
+          <label class="contact__field">
+            <span class="contact__label">ご相談内容 <em class="contact__req">必須</em></span>
+            <textarea name="ご相談内容" required rows="6" placeholder="学校名・ご質問などをご記入ください"></textarea>
+          </label>
+
+          <div class="contact__captcha"><div class="h-captcha" data-contact-captcha aria-label="スパム防止の確認"></div></div>
+          <button type="submit" class="btn btn--primary btn--lg contact__submit">送信する</button>
+          <p class="contact__status" role="status" aria-live="polite" hidden></p>
+        </form>
+
+        <!-- ===== 企業研修の方 ===== -->
+        <form class="contact__form" id="panel-corporate" role="tabpanel" aria-labelledby="tab-corporate" data-contact-form="corporate" data-subject="【お問い合わせ】企業研修" novalidate hidden>
+          <p class="contact__lede">企業様向けの窓口です。社員研修、英語合宿、チームビルディングなど、ご要望に合わせたプランをご提案します。</p>
+
+          <label class="contact__field">
+            <span class="contact__label">会社名 <em class="contact__req">必須</em></span>
+            <input type="text" name="会社名" required autocomplete="organization" placeholder="例：株式会社〇〇">
+          </label>
+          <label class="contact__field">
+            <span class="contact__label">部署・役職</span>
+            <input type="text" name="部署・役職" autocomplete="organization-title" placeholder="例：人事部 研修担当">
+          </label>
+          <label class="contact__field">
+            <span class="contact__label">ご担当者名 <em class="contact__req">必須</em></span>
+            <input type="text" name="ご担当者名" required autocomplete="name" placeholder="Name">
+          </label>
+          <label class="contact__field">
+            <span class="contact__label">電話番号</span>
+            <input type="tel" name="電話番号" autocomplete="tel" inputmode="tel" placeholder="000-000-0000">
+          </label>
+          <label class="contact__field">
+            <span class="contact__label">メールアドレス <em class="contact__req">必須</em></span>
+            <input type="email" name="メールアドレス" required autocomplete="email" inputmode="email" placeholder="example@company.co.jp">
+          </label>
+          <label class="contact__field">
+            <span class="contact__label">ご検討内容</span>
+            <span class="contact__select">
+              <select name="ご検討内容">
+                <option value="社員研修（英語）" selected>社員研修（英語）</option>
+                <option value="英語合宿・ブートキャンプ">英語合宿・ブートキャンプ</option>
+                <option value="チームビルディング">チームビルディング</option>
+                <option value="海外赴任前研修">海外赴任前研修</option>
+                <option value="その他">その他</option>
+              </select>
+            </span>
+          </label>
+          <label class="contact__field">
+            <span class="contact__label">お問い合わせ内容 <em class="contact__req">必須</em></span>
+            <textarea name="お問い合わせ内容" required rows="6" placeholder="会社名・ご質問などをご記入ください"></textarea>
+          </label>
+
+          <div class="contact__captcha"><div class="h-captcha" data-contact-captcha aria-label="スパム防止の確認"></div></div>
+          <button type="submit" class="btn btn--primary btn--lg contact__submit">送信する</button>
+          <p class="contact__status" role="status" aria-live="polite" hidden></p>
+        </form>
+
+        <p class="contact__note">※ ご入力いただいた情報は、SPEAKMORE（運営：Niseko Concierge株式会社）がお問い合わせへのご返信・ご連絡のためにのみ使用し、第三者には提供いたしません。詳しくは<a href="privacy.html">プライバシーポリシー</a>をご覧ください。</p>
+
+        <!-- Success state (swapped in for the whole card body) -->
+        <div class="contact__success" id="contactSuccess" hidden>
+          <span class="contact__success-check" aria-hidden="true">
+            <svg viewBox="0 0 52 52" width="64" height="64"><circle cx="26" cy="26" r="24" fill="none" stroke="currentColor" stroke-width="3"></circle><path d="M16 27 L23 34 L37 19" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+          <h2 class="contact__title">送信が完了しました</h2>
+          <p class="contact__lede">お問い合わせありがとうございます。内容を確認のうえ、担当者より2営業日以内にご連絡いたします。<br>お急ぎの場合は公式LINEまたはお電話でもご相談いただけます。</p>
+          <a class="btn btn--ghost" href="../index.html">トップページへ戻る</a>
+        </div>
+
+      </div>
+
+      <!-- Other ways to reach us -->
+      <div class="contact__alt">
+        <a class="contact__alt-item contact__alt-item--line" href="https://page.line.me/704erohc?oat_content=url&amp;openQrModal=true" target="_blank" rel="noopener">
+          <img src="../assets/img/line-icon.png" alt="LINE" loading="lazy">
+          <span><strong>公式LINE</strong><small>チャットで気軽に相談</small></span>
+        </a>
+        <a class="contact__alt-item" href="../index.html#contact">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>
+          <span><strong>無料カウンセリング</strong><small>30分のZoom面談を予約</small></span>
+        </a>
+        <a class="contact__alt-item" href="tel:0136-22-2278">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg>
+          <span><strong>0136-22-2278</strong><small>お電話でのお問い合わせ</small></span>
+        </a>
+        <a class="contact__alt-item" href="mailto:info@speakmore.jp">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"></rect><path d="m4 7 8 6 8-6"></path></svg>
+          <span><strong>info@speakmore.jp</strong><small>メールでのお問い合わせ</small></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Footer ========== -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div class="site-footer__brand">
+        <a href="../index.html" class="brand brand--light">
+          <span class="brand__logo">
+            <img src="../assets/img/speakmore-group-en.png" alt="SPEAKMORE GROUP" class="brand__logo-img brand__logo-img--group">
+          </span>
+        </a>
+        <div class="site-footer__academies" aria-label="4つのインターナショナルアカデミー">
+          <img src="../assets/img/niseko-logo.png" alt="Niseko International Academy" loading="lazy">
+          <img src="../assets/img/nozawa-logo.png" alt="Nozawa International Academy" loading="lazy">
+          <img src="../assets/img/tokyo-logo.png" alt="Tokyo International Academy" loading="lazy">
+          <img src="../assets/img/hakuba-logo.png" alt="Hakuba International Academy" loading="lazy">
+        </div>
+        <p class="site-footer__addr">
+          TEL: 0136-22-2278<br>
+          info@speakmore.jp
+        </p>
+        <a class="site-footer__page-link" href="tokyo-seminar.html">
+          Tokyo Seminar
+          <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8 L13 8 M9 4 L13 8 L9 12" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a>
+        <a class="site-footer__page-link" href="../englishseminar.html">
+          English Seminar
+          <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8 L13 8 M9 4 L13 8 L9 12" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a>
+        <div class="site-footer__social">
+          <a href="https://www.instagram.com/niseko_ryugaku/" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <rect x="2" y="2" width="16" height="16" rx="4" stroke="currentColor" stroke-width="1.5"></rect>
+              <circle cx="10" cy="10" r="3.5" stroke="currentColor" stroke-width="1.5"></circle>
+              <circle cx="14.5" cy="5.5" r="0.8" fill="currentColor"></circle>
+            </svg>
+          </a>
+          <a href="https://www.youtube.com/@NisekoRyugaku/videos" aria-label="YouTube" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <rect x="1.5" y="4" width="17" height="12" rx="3" stroke="currentColor" stroke-width="1.5"></rect>
+              <path d="M8 7.5 L13 10 L8 12.5 Z" fill="currentColor"></path>
+            </svg>
+          </a>
+          <a href="https://x.com/niseko_ryugaku" aria-label="X" target="_blank" rel="noopener">
+            <svg width="17" height="17" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true">
+              <path d="M714.163 519.284 1160.89 0h-105.86L667.137 450.887 357.328 0H0l468.492 681.821L0 1226.37h105.866l409.625-476.152 327.181 476.152H1200L714.137 519.284h.026ZM569.165 687.828l-47.468-67.894L144.011 79.694h162.603l304.797 435.991 47.468 67.894 396.2 566.721H892.476L569.165 687.854v-.026Z"></path>
+            </svg>
+          </a>
+          <a href="https://www.tiktok.com/@niseko_ryugaku_2" aria-label="TikTok" target="_blank" rel="noopener">
+            <svg width="17" height="17" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
+              <path d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25V349.38A162.55 162.55 0 1 1 185 188.31V278.2a74.62 74.62 0 1 0 52.23 71.18V0h88a121.18 121.18 0 0 0 1.86 22.17h0A122.18 122.18 0 0 0 381 102.39a121.43 121.43 0 0 0 67 20.14z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-footer__legal">
+      <div class="container site-footer__legal-inner">
+        <p>© 2026 SPEAKMORE®︎/ニセコ留学.com (Niseko International Academy) All rights reserved.</p>
+        <ul>
+          <li><a href="company.html">運営会社</a></li>
+          <li><a href="privacy.html">プライバシーポリシー</a></li>
+          <li><a href="contact.html" aria-current="page">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js?v=170"></script>
+
+  <!-- Contact form: tab switching + Web3Forms submit (same key / hCaptcha set-up as the level-test form) -->
+  <script>
+    (function () {
+      var card = document.getElementById('contactCard');
+      if (!card) return;
+      var tabs = Array.prototype.slice.call(card.querySelectorAll('[data-contact-tab]'));
+      var forms = Array.prototype.slice.call(card.querySelectorAll('[data-contact-form]'));
+      var successEl = document.getElementById('contactSuccess');
+      var ACCESS_KEY = 'f716bd65-68d4-4945-9df3-2b2f8d7988a0';
+      var CAPTCHA_SITEKEY = '50b2fe65-b00b-4b9e-ad62-3ba471098be2';
+      var captchaIds = {};      // form key → hcaptcha widget id
+      var captchaLoading = false;
+
+      /* ---- Tabs ---- */
+      function activate(key, focusTab) {
+        tabs.forEach(function (t) {
+          var on = t.getAttribute('data-contact-tab') === key;
+          t.classList.toggle('is-active', on);
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+          t.tabIndex = on ? 0 : -1;
+          if (on && focusTab) t.focus();
+        });
+        forms.forEach(function (f) {
+          var on = f.getAttribute('data-contact-form') === key;
+          f.classList.toggle('is-active', on);
+          f.hidden = !on;
+        });
+        renderCaptcha(key);
+        try { history.replaceState(null, '', '#' + key); } catch (e) {}
+      }
+      tabs.forEach(function (t, i) {
+        t.addEventListener('click', function () { activate(t.getAttribute('data-contact-tab'), false); });
+        t.addEventListener('keydown', function (e) {
+          var dir = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+          if (!dir) return;
+          e.preventDefault();
+          var next = tabs[(i + dir + tabs.length) % tabs.length];
+          activate(next.getAttribute('data-contact-tab'), true);
+        });
+      });
+      // Deep-link support: /pages/contact#media etc.
+      var initial = (location.hash || '').replace('#', '');
+      if (initial && card.querySelector('[data-contact-tab="' + initial + '"]')) activate(initial, false);
+
+      /* ---- hCaptcha (loaded once, rendered per visible form) ---- */
+      function renderCaptcha(key) {
+        if (!window.hcaptcha) { ensureCaptcha(); return; }
+        if (captchaIds[key] !== undefined) return;
+        var form = card.querySelector('[data-contact-form="' + key + '"]');
+        var el = form ? form.querySelector('[data-contact-captcha]') : null;
+        if (!el || el.hidden) return;
+        captchaIds[key] = window.hcaptcha.render(el, { sitekey: CAPTCHA_SITEKEY, hl: 'ja' });
+      }
+      function ensureCaptcha() {
+        if (captchaLoading) return;
+        captchaLoading = true;
+        window.contactCaptchaReady = function () {
+          var active = card.querySelector('.contact__tab.is-active');
+          if (active) renderCaptcha(active.getAttribute('data-contact-tab'));
+        };
+        var sc = document.createElement('script');
+        sc.src = 'https://js.hcaptcha.com/1/api.js?render=explicit&onload=contactCaptchaReady&hl=ja&recaptchacompat=off';
+        sc.async = true; sc.defer = true;
+        document.head.appendChild(sc);
+      }
+      function captchaToken(key) {
+        if (window.hcaptcha && captchaIds[key] !== undefined) {
+          try { return window.hcaptcha.getResponse(captchaIds[key]); } catch (e) { return ''; }
+        }
+        return '';
+      }
+      function resetCaptcha(key) {
+        if (window.hcaptcha && captchaIds[key] !== undefined) { try { window.hcaptcha.reset(captchaIds[key]); } catch (e) {} }
+      }
+      // Load the captcha straight away on this page — the form is the page.
+      ensureCaptcha();
+
+      /* ---- Submit ---- */
+      forms.forEach(function (form) {
+        var key = form.getAttribute('data-contact-form');
+        var tabLabel = (card.querySelector('[data-contact-tab="' + key + '"]') || {}).textContent || key;
+        var submitBtn = form.querySelector('.contact__submit');
+        var statusEl = form.querySelector('.contact__status');
+
+        function showStatus(msg, isError) {
+          if (!statusEl) return;
+          statusEl.hidden = false;
+          statusEl.textContent = msg;
+          statusEl.classList.toggle('is-error', !!isError);
+        }
+        function clearStatus() {
+          if (!statusEl) return;
+          statusEl.hidden = true; statusEl.textContent = ''; statusEl.classList.remove('is-error');
+        }
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (!form.checkValidity()) { form.reportValidity(); return; }
+
+          var token = captchaToken(key);
+          if (!token) {
+            renderCaptcha(key);
+            showStatus('「私は人間です」にチェックを入れてから送信してください。', true);
+            return;
+          }
+
+          // Build a readable message from every filled field, in form order.
+          var lines = ['お問い合わせ種別: ' + tabLabel.trim(), ''];
+          var email = '', name = '';
+          Array.prototype.forEach.call(form.elements, function (el) {
+            if (!el.name || el.type === 'submit' || el.type === 'button') return;
+            if (el.name === 'h-captcha-response' || el.name === 'g-recaptcha-response') return;
+            var v = (el.value || '').trim();
+            if (!v) return;
+            lines.push(el.name + ': ' + v);
+            if (el.type === 'email' && !email) email = v;
+            if ((el.name === '氏名' || el.name === 'ご担当者名') && !name) name = v;
+          });
+
+          if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = '送信中…'; }
+          clearStatus();
+
+          fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+              access_key: ACCESS_KEY,
+              subject: form.getAttribute('data-subject') || '【お問い合わせ】SPEAKMORE',
+              from_name: 'SPEAKMORE お問い合わせフォーム',
+              name: name,
+              email: email,
+              replyto: email,
+              'h-captcha-response': token,
+              message: lines.join('\n')
+            })
+          })
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+              if (data && data.success) {
+                if (typeof gtag === 'function') gtag('event', 'generate_lead', { form_type: key });
+                form.reset();
+                resetCaptcha(key);
+                card.classList.add('is-sent');
+                if (successEl) successEl.hidden = false;
+                try { card.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch (e2) {}
+              } else {
+                throw new Error((data && data.message) || 'submit failed');
+              }
+            })
+            .catch(function () {
+              resetCaptcha(key); // tokens are single-use
+              if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = '送信する'; }
+              showStatus('送信に失敗しました。通信環境をご確認のうえ、もう一度お試しください。', true);
+            });
+        });
+      });
+    })();
+  </script>
+
+</body></html>
