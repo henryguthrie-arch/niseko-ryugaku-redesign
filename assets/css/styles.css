@@ -7460,17 +7460,45 @@ a.rebrand__suite-crest:hover { transform: translateY(-3px); opacity: .85; }
 .sub-trial__done p { margin: var(--sp-3) 0 0; color: var(--ink-soft); }
 .page-subscription .line-cta { background: var(--ink); padding-top: 0; }
 
-/* ----- sticky trial bar (phones) ----- */
-.sub-sticky {
-  position: fixed; z-index: 40; left: 0; right: 0; bottom: 0;
-  display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3);
-  padding: 10px max(16px, env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
-  background: rgba(255, 252, 250, 0.96); border-top: 1px solid var(--border);
-  box-shadow: 0 -6px 20px rgba(14,14,14,0.08);
-  transform: translateY(110%); transition: transform var(--t-med) var(--ease);
-  font-size: 0.74rem; color: var(--ink-muted); line-height: 1.3;
+/* ----- floating trial pill: fixed to the bottom of the screen, always visible ----- */
+.sub-cta {
+  position: fixed; z-index: 45;
+  left: 50%; bottom: calc(14px + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 7px 26px 7px 7px;
+  border-radius: var(--r-pill);
+  background: var(--teal); color: var(--ink);
+  font-weight: 700; font-size: 1.02rem; line-height: 1.2; white-space: nowrap; text-decoration: none;
+  box-shadow: 0 10px 28px rgba(14, 14, 14, 0.22), 0 0 0 3px rgba(255, 255, 255, 0.85);
+  transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
 }
-.sub-sticky strong { display: block; font-size: 0.95rem; color: var(--ink); }
-.sub-sticky.is-on { transform: none; }
-@media (min-width: 900px) { .sub-sticky { display: none; } }
-@media (prefers-reduced-motion: reduce) { .sub-sticky { transition: none; } }
+.sub-cta:hover { background: #D6F56A; transform: translateX(-50%) translateY(-3px) rotate(-1deg); box-shadow: 0 16px 34px rgba(14, 14, 14, 0.26), 0 0 0 3px #fff; }
+.sub-cta:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.sub-cta__face {
+  flex-shrink: 0; width: 48px; height: 48px; border-radius: 50%; overflow: hidden;
+  background: #fff; display: grid; place-items: end center;
+}
+.sub-cta__face img { width: 46px; height: 46px; display: block; }
+@media (min-width: 900px) {
+  .sub-cta { left: auto; right: 28px; bottom: 28px; transform: none; font-size: 1.15rem; padding: 9px 32px 9px 9px; gap: 14px; }
+  .sub-cta:hover { transform: translateY(-3px) rotate(-1deg); }
+  .sub-cta__face { width: 60px; height: 60px; }
+  .sub-cta__face img { width: 58px; height: 58px; }
+}
+@media (prefers-reduced-motion: reduce) { .sub-cta { transition: none; } }
+.page-subscription .site-footer { padding-bottom: 96px; }
+
+/* ----- cartoons ----- */
+/* a figure standing behind the top edge of a card */
+.sub-feature__visual--toon { position: relative; padding-top: 104px; }
+.sub-toon { position: absolute; z-index: 0; top: 0; right: 28px; height: 112px; width: auto; pointer-events: none; }
+.sub-feature__visual--toon .sub-card-mock { position: relative; z-index: 1; }
+.sub-feature--flip .sub-toon { right: auto; left: 28px; }
+.sub-trial__card { position: relative; margin-top: 110px; }
+.sub-toon--group { top: auto; bottom: calc(100% - 6px); right: 50%; transform: translateX(50%); height: 124px; z-index: 0; }
+/* a free-standing illustration between blocks */
+.sub-illust { display: block; width: auto; height: 150px; margin: var(--sp-6) auto 0; }
+.sub-pain__answer { margin-top: var(--sp-4); }
+.sub-illust--wide { height: auto; width: min(100%, 520px); margin-top: var(--sp-7); }
+.sub-illust--head { height: 140px; margin: 0 auto var(--sp-4); }

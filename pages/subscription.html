@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Bebas+Neue&amp;family=Noto+Sans+JP:wght@300;400;500;700&amp;display=swap">
 
-  <link rel="stylesheet" href="../assets/css/styles.css?v=323">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=324">
   <!-- Canonical + social share -->
   <link rel="canonical" href="https://speakmore.jp/pages/subscription">
   <meta property="og:type" content="website">
@@ -175,6 +175,7 @@
           <p>It remembers your strengths and weaknesses and advises you in Japanese.</p>
         </li>
       </ol>
+      <img class="sub-illust sub-illust--wide" src="../assets/img/group-illustration.webp" alt="" width="1239" height="508" loading="lazy">
     </div>
   </section>
 
@@ -191,7 +192,8 @@
           <li>Video feedback on the voice recording in every lesson</li>
         </ul>
       </div>
-      <div class="sub-feature__visual" aria-hidden="true" data-reveal>
+      <div class="sub-feature__visual sub-feature__visual--toon" aria-hidden="true" data-reveal>
+        <img class="sub-toon " src="../assets/img/audience/books.webp" alt="" loading="lazy">
         <div class="sub-card-mock">
           <p class="sub-card-mock__label">Your voice submission</p>
           <div class="sub-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
@@ -218,7 +220,8 @@
           <li>Ready for a working holiday, a job overseas or travel, whoever you talk to</li>
         </ul>
       </div>
-      <div class="sub-feature__visual" aria-hidden="true" data-reveal>
+      <div class="sub-feature__visual sub-feature__visual--toon" aria-hidden="true" data-reveal>
+        <img class="sub-toon " src="../assets/img/audience/group-camera.webp" alt="" loading="lazy">
         <div class="sub-card-mock">
           <p class="sub-card-mock__label">Pronunciation</p>
           <p class="sub-accent__word">schedule</p>
@@ -247,7 +250,8 @@
           <li>Practice with native teachers, understanding with Japanese coaches</li>
         </ul>
       </div>
-      <div class="sub-feature__visual" aria-hidden="true" data-reveal>
+      <div class="sub-feature__visual sub-feature__visual--toon" aria-hidden="true" data-reveal>
+        <img class="sub-toon " src="../assets/img/audience/laptop.webp" alt="" loading="lazy">
         <div class="sub-card-mock sub-month">
           <p class="sub-card-mock__label">A typical month</p>
           <div class="sub-month__row"><span class="sub-month__wk">Week 1</span><span class="sub-month__pill">2 lessons</span></div>
@@ -273,7 +277,8 @@
           <li>The speed of AI with the eyes and ears of a teacher</li>
         </ul>
       </div>
-      <div class="sub-feature__visual" aria-hidden="true" data-reveal>
+      <div class="sub-feature__visual sub-feature__visual--toon" aria-hidden="true" data-reveal>
+        <img class="sub-toon " src="../assets/img/audience/passport.webp" alt="" loading="lazy">
         <div class="sub-card-mock sub-ai">
           <p class="sub-card-mock__label">Your Coaching Feedback</p>
           <p class="sub-ai__fix"><del>I go to Hakuba last week.</del><ins>I went to Hakuba last week.</ins></p>
@@ -482,6 +487,7 @@
       </div>
 
       <div class="sub-trial__card" id="waitlistCard">
+        <img class="sub-toon sub-toon--group" src="../assets/img/group-illustration.webp" alt="" loading="lazy">
         <form class="sub-trial__form" id="waitlistForm" novalidate>
           <h3>Pre-register for the free trial</h3>
           <label class="contact__field">
@@ -538,11 +544,11 @@
     </div>
   </section>
 
-  <!-- Sticky trial bar (phones only; hides once the form is on screen) -->
-  <div class="sub-sticky" id="subSticky">
-    <span><strong>7 days free</strong>Starts 31 Dec</span>
-    <a href="#trial" class="btn btn--primary btn--sm">Pre-register</a>
-  </div>
+  <!-- Floating trial pill: stays at the bottom of the screen on every part of the page -->
+  <a href="#trial" class="sub-cta" id="subCta">
+    <span class="sub-cta__face"><img src="../assets/img/subscription-cta-face.png" alt="" width="76" height="76"></span>
+    <span class="sub-cta__text">Try it free for 7 days</span>
+  </a>
 
   <!-- ========== Footer ========== -->
   <footer class="site-footer">
