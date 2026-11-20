@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Bebas+Neue&amp;family=Noto+Sans+JP:wght@300;400;500;700&amp;display=swap">
 
-  <link rel="stylesheet" href="../assets/css/styles.css?v=324">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=327">
   <!-- Canonical + social share -->
   <link rel="canonical" href="https://speakmore.jp/pages/subscription">
   <meta property="og:type" content="website">
@@ -77,52 +77,39 @@
 
   <!-- ========== Hero ========== -->
   <section class="sub-hero">
-    <div class="container sub-hero__inner">
-      <div class="sub-hero__copy">
-        <p class="sub-hero__eyebrow"><img class="sub-hero__logo" src="../assets/img/speakmore-subscription-logo.png" alt="SPEAKMORE Subscription" width="1000" height="244"></p>
-        <h1 class="sub-hero__title">Better pronunciation.<br><em>Better English.</em></h1>
-        <p class="sub-hero__lede">
-          Pronunciation feedback from native English teachers, coaching in Japanese, real-world bootcamps in Japan's resort towns, and a frontier AI model.
-          Four things combined in one 6-month online English programme.
-        </p>
-        <div class="sub-hero__actions">
-          <a href="#trial" class="btn btn--primary btn--lg">Start 7-day free trial</a>
-          <a href="#pricing" class="btn btn--ghost btn--lg">See pricing</a>
+    <div class="container">
+      <div class="sub-hero__panel">
+        <div class="sub-hero__copy">
+          <p class="sub-hero__eyebrow"><img class="sub-hero__logo" src="../assets/img/speakmore-subscription-logo-white.png" alt="SPEAKMORE Subscription" width="1000" height="244"></p>
+          <h1 class="sub-hero__title">Better pronunciation.<br><em>Better English.</em></h1>
+          <p class="sub-hero__lede">
+            Native teacher feedback, coaching in Japanese, real-world bootcamps and frontier AI, in one 6-month online English programme.
+          </p>
+          <ul class="sub-laurels">
+            <li class="sub-laurel"><span class="sub-laurel__label">Students taught</span><span class="sub-laurel__num">2,400<small>+</small></span></li>
+            <li class="sub-laurel"><span class="sub-laurel__label">Satisfaction</span><span class="sub-laurel__num">4.9<small>/5.0</small></span></li>
+            <li class="sub-laurel"><span class="sub-laurel__label">Years teaching</span><span class="sub-laurel__num">13</span></li>
+          </ul>
+          <div class="sub-hero__actions">
+            <a href="#trial" class="btn btn--primary btn--lg">Start 7-day free trial</a>
+            <a href="#pricing" class="btn btn--ghost btn--lg sub-hero__ghost">See pricing</a>
+          </div>
+          <p class="sub-hero__note">Starts 31 December 2026. Pre-registration is open now.<br>Figures are for SPEAKMORE's immersion schools in Niseko, Nozawa Onsen and Hakuba.</p>
         </div>
-        <p class="sub-hero__note">Starts 31 December 2026. Pre-registration is open now.</p>
-      </div>
 
-      <!-- Product mock: a marked micro submission -->
-      <div class="sub-hero__visual" aria-hidden="true">
-        <div class="sub-phone">
-          <div class="sub-phone__bar"><span></span></div>
-          <p class="sub-phone__label">Today's micro submission</p>
-          <p class="sub-phone__q">What did you do last weekend?</p>
-          <div class="sub-phone__answer">
-            <p>I went to a <mark>restaurant</mark> with my friends and we <mark>really</mark> enjoyed the <mark>view</mark>.</p>
-            <span class="sub-phone__tag">Words your teacher marked</span>
-          </div>
-          <div class="sub-phone__reply">
-            <span class="sub-phone__avatar">F</span>
-            <span class="sub-phone__reply-text"><strong>Finn (UK)</strong>Video reply with the correct sounds</span>
-            <span class="sub-phone__play"><svg viewBox="0 0 16 16" width="12" height="12"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></span>
-          </div>
-          <div class="sub-phone__accents">
-            <span>UK</span><span>AU</span><span>NZ</span><span>US</span>
-            <small>Hear it in 4 accents</small>
-          </div>
+        <!-- 3D render of two phones showing real portal screenshots (rebuilt from the screenshots; see commit message) -->
+        <div class="sub-hero__phones" aria-hidden="true">
+          <img src="../assets/img/subscription-hero-phones.webp" alt="" width="1412" height="1700">
         </div>
-        <div class="sub-hero__chip sub-hero__chip--a">All native teachers</div>
-        <div class="sub-hero__chip sub-hero__chip--b">Coaching in Japanese</div>
       </div>
     </div>
 
     <div class="container">
       <ul class="sub-stats">
-        <li><strong>26</strong><span>week course</span></li>
-        <li><strong>52</strong><span>lessons</span></li>
-        <li><strong>750</strong><span>vocabulary words</span></li>
-        <li><strong>4</strong><span>English accents</span></li>
+        <li class="sub-stat sub-stat--coral"><strong>26</strong><span class="sub-stat__unit">weeks</span><span class="sub-stat__text">One complete course, start to finish</span></li>
+        <li class="sub-stat sub-stat--lime"><strong>52</strong><span class="sub-stat__unit">lessons</span><span class="sub-stat__text">Two new lessons every week</span></li>
+        <li class="sub-stat sub-stat--pink"><strong>750</strong><span class="sub-stat__unit">words</span><span class="sub-stat__text">Vocabulary you will actually use</span></li>
+        <li class="sub-stat sub-stat--ink"><strong>4</strong><span class="sub-stat__unit">accents</span><span class="sub-stat__text"><i>UK</i><i>AU</i><i>NZ</i><i>US</i></span></li>
       </ul>
     </div>
   </section>
