@@ -7184,12 +7184,13 @@ a.rebrand__suite-crest:hover { transform: translateY(-3px); opacity: .85; }
 .sub-hero__phones { position: relative; margin: var(--sp-2) calc(clamp(28px, 5vw, 64px) * -0.6) calc(clamp(28px, 5vw, 64px) * -1); height: clamp(300px, 84vw, 440px); }
 .sub-hero__phones img {
   position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-  width: min(100%, 400px); height: auto; max-width: none;
+  width: min(100%, 420px); height: auto; max-width: none;
   filter: drop-shadow(18px 30px 28px rgba(5, 24, 30, 0.45));
 }
 @media (min-width: 960px) {
   .sub-hero__phones { height: auto; align-self: stretch; min-height: 540px; margin: 0 0 calc(clamp(28px, 5vw, 64px) * -1); }
-  .sub-hero__phones img { top: -120px; left: auto; right: -14%; transform: none; width: 122%; }
+  .sub-hero__phones img { top: -125px; left: auto; right: -13%; transform: none; width: 138%; }
+  .sub-hero__lede { max-width: 26em; }
 }
 
 .sub-phone {
