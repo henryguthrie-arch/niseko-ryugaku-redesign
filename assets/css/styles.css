@@ -7181,16 +7181,19 @@ a.rebrand__suite-crest:hover { transform: translateY(-3px); opacity: .85; }
 .sub-laurel__num { position: relative; font-family: var(--font-en); font-size: clamp(1.05rem, 4vw, 1.65rem); line-height: 1; letter-spacing: 0; }
 .sub-laurel__num small { font-size: 0.5em; margin-left: 1px; }
 
-.sub-hero__phones { position: relative; margin: var(--sp-2) calc(clamp(28px, 5vw, 64px) * -0.6) calc(clamp(28px, 5vw, 64px) * -1); height: clamp(300px, 84vw, 440px); }
+/* phones sit in the normal flow so the panel always grows to hold them (never cropped at the bottom) */
+.sub-hero__phones { margin: var(--sp-2) 0 0; }
 .sub-hero__phones img {
-  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-  width: min(100%, 420px); height: auto; max-width: none;
+  display: block; width: min(100%, 440px); height: auto; margin: 0 auto;
   filter: drop-shadow(18px 30px 28px rgba(5, 24, 30, 0.45));
 }
 @media (min-width: 960px) {
-  .sub-hero__phones { height: auto; align-self: stretch; min-height: 540px; margin: 0 0 calc(clamp(28px, 5vw, 64px) * -1); }
-  .sub-hero__phones img { top: -125px; left: auto; right: -13%; transform: none; width: 138%; }
+  .sub-hero__phones { margin: -60px -6% 0 -4%; align-self: center; }
+  .sub-hero__phones img { width: 100%; max-width: none; }
   .sub-hero__lede { max-width: 26em; }
+}
+@media (min-width: 1200px) {
+  .sub-hero__phones { margin: -190px -14% -20px -26%; }
 }
 
 .sub-phone {
