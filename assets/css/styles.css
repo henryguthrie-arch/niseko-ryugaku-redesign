@@ -7345,9 +7345,9 @@ a.rebrand__suite-crest:hover { transform: translateY(-3px); opacity: .85; }
 .sub-combo__item--green { border-color: rgba(125, 186, 26, 0.45); background: #F3FADB; } .sub-combo__item--green .sub-combo__en { color: var(--teal-deep); }
 .sub-combo__item--pink  { border-color: rgba(233, 75, 124, 0.35); background: #FFE9F0; } .sub-combo__item--pink .sub-combo__en { color: var(--pink-deep); }
 .sub-combo__item--blue  { border-color: rgba(60, 110, 180, 0.3); background: var(--blue-mist); } .sub-combo__item--blue .sub-combo__en { color: #2F6DB5; }
-/* the × between tiles */
+/* the + between tiles */
 .sub-combo__item + .sub-combo__item::before {
-  content: "×"; position: absolute; z-index: 1;
+  content: "+"; position: absolute; z-index: 1;
   top: calc(var(--sp-6) / -2); left: 50%; transform: translate(-50%, -50%);
   width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center;
   background: var(--ink); color: var(--cream); font-weight: 700; font-size: 1.1rem; line-height: 1;
