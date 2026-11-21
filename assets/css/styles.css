@@ -7512,6 +7512,32 @@ a.rebrand__suite-crest:hover { transform: translateY(-3px); opacity: .85; }
 .sub-includes li { font-size: 0.8rem; font-weight: 700; padding: 7px 14px; border-radius: var(--r-pill); background: rgba(255,255,255,0.8); border: 1px solid var(--border); }
 .sub-pricing__note { max-width: 880px; margin: var(--sp-5) auto 0; font-size: var(--fs-xs); color: var(--ink-muted); line-height: 1.8; }
 
+/* pricing section in the same navy as the price card at the top */
+.sub-pricing {
+  background:
+    radial-gradient(70% 90% at 100% 0%, rgba(120, 160, 255, 0.22) 0%, rgba(120, 160, 255, 0) 60%),
+    linear-gradient(135deg, #0F1E45 0%, #16306B 100%);
+  color: #fff;
+}
+.sub-pricing .sub-kicker { font-size: clamp(2rem, 1.5rem + 2vw, 3rem); line-height: 1; letter-spacing: 0.1em; color: #F6D55C; margin-bottom: var(--sp-3); }
+.sub-pricing .sub-title { color: #fff; }
+.sub-pricing .sub-title em { color: #F6D55C; }
+.sub-pricing .sub-lede { color: rgba(255, 255, 255, 0.8); }
+.sub-pricing .sub-plan { background: rgba(255, 255, 255, 0.07); border: 1.5px solid rgba(255, 255, 255, 0.28); color: #fff; }
+.sub-pricing .sub-plan__price { font-size: clamp(2.7rem, 2rem + 2.2vw, 3.7rem); white-space: nowrap; }
+.sub-pricing .sub-plan__price small { color: rgba(255, 255, 255, 0.75); margin-left: 4px; font-size: 0.85rem; }
+.sub-pricing .sub-plan__meta { color: #F6D55C; }
+.sub-pricing .sub-plan .sub-ticks li::before { background-color: #F6D55C; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.4l2.6 2.6L12 5.4' fill='none' stroke='%230F1E45' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+.sub-pricing .sub-plan .btn--ghost { background: transparent; color: #fff; border-color: rgba(255, 255, 255, 0.6); }
+.sub-pricing .sub-plan .btn--ghost:hover { background: #fff; color: #0F1E45; border-color: #fff; }
+.sub-pricing .sub-plan--best { background: #fff; color: #0F1E45; border: 2px solid #F6D55C; box-shadow: 0 24px 50px rgba(5, 12, 35, 0.45); }
+.sub-pricing .sub-plan--best .sub-plan__price small { color: var(--ink-muted); }
+.sub-pricing .sub-plan--best .sub-plan__meta { color: #B4530A; }
+.sub-pricing .sub-plan--best .sub-ticks li::before { background-color: var(--coral); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.4l2.6 2.6L12 5.4' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+.sub-pricing .sub-plan__badge { background: #F6D55C; color: #0F1E45; }
+.sub-pricing .sub-includes li { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.28); color: #fff; }
+.sub-pricing .sub-pricing__note { color: rgba(255, 255, 255, 0.65); }
+
 /* ----- 3 steps ----- */
 .sub-steps { padding: clamp(64px, 9vw, 112px) 0; }
 .sub-steps__list { list-style: none; margin: 0 auto; padding: 0; max-width: 1040px; display: grid; gap: var(--sp-4); }
