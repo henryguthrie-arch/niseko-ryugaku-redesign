@@ -7351,6 +7351,30 @@ a.rebrand__suite-crest:hover { transform: translateY(-3px); opacity: .85; }
 .sub-stat__text { flex: 0 0 100%; margin-top: 8px; font-size: var(--fs-sm); line-height: 1.5; color: var(--ink-muted); display: flex; flex-wrap: wrap; gap: 6px; }
 .sub-stat__text i { font-style: normal; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.06em; line-height: 1; padding: 5px 9px; border-radius: var(--r-pill); border: 1px solid var(--border-strong); color: var(--ink-soft); }
 
+/* ----- level path ----- */
+.sub-path { margin-top: clamp(40px, 6vw, 72px); background: linear-gradient(160deg, #1C3A80 0%, #0F1E45 100%); color: #fff; border-radius: var(--r-xl); padding: clamp(24px, 4vw, 48px); box-shadow: 0 22px 44px rgba(14, 14, 14, 0.18); text-align: center; }
+.sub-path__kicker { margin: 0 0 6px; font-size: var(--fs-sm); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #FFE08A; }
+.sub-path__title { margin: 0 0 var(--sp-6); font-size: clamp(1.4rem, 1.1rem + 1.4vw, 2.1rem); line-height: 1.3; color: #fff; }
+.sub-path__steps { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-6); text-align: left; }
+@media (min-width: 820px) { .sub-path__steps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.sub-path__steps li { position: relative; display: flex; flex-direction: column; background: #fff; color: var(--ink); border-radius: var(--r-lg); padding: var(--sp-5); }
+.sub-path__steps li + li::before { content: "\2193"; position: absolute; z-index: 2; left: 50%; top: calc(var(--sp-6) / -2); transform: translate(-50%, -50%); width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: #FFE08A; color: #0F1E45; font-weight: 700; font-size: 1.25rem; line-height: 1; box-shadow: var(--shadow-md); }
+@media (min-width: 820px) { .sub-path__steps li + li::before { content: "\2192"; left: calc(var(--sp-6) / -2); top: 50%; } }
+.sub-path__n { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--coral-deep); }
+.sub-path__steps strong { display: block; font-family: var(--font-en); font-weight: 400; font-size: clamp(1.8rem, 1.5rem + 1vw, 2.3rem); letter-spacing: 0.03em; line-height: 1.1; margin: 2px 0 6px; }
+.sub-path__steps p { margin: 0 0 var(--sp-4); font-size: var(--fs-sm); line-height: 1.6; color: var(--ink-soft); }
+.sub-path__len { margin-top: auto; align-self: flex-start; font-size: 0.8rem; font-weight: 700; padding: 5px 12px; border-radius: var(--r-pill); background: #EEF2FB; color: #1C3A80; }
+.sub-path__text { max-width: 720px; margin: var(--sp-6) auto 0; font-size: var(--fs-sm); line-height: 1.8; color: rgba(255, 255, 255, 0.9); }
+.sub-path__offer { max-width: 720px; margin: var(--sp-5) auto 0; padding: var(--sp-4) var(--sp-5); border-radius: var(--r-lg); background: #FFE08A; color: #0F1E45; font-size: var(--fs-sm); line-height: 1.7; }
+.sub-path__offer b { display: block; font-size: 1.15rem; }
+.sub-path__total { margin: var(--sp-5) 0 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; font-size: var(--fs-sm); }
+.sub-path__total b { flex: 0 0 100%; font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: #FFE08A; }
+.sub-path__total span { font-weight: 700; padding: 7px 14px; border-radius: var(--r-pill); border: 1px solid rgba(255, 255, 255, 0.4); }
+.sub-stats__label { margin: clamp(32px, 5vw, 56px) 0 var(--sp-3); text-align: center; font-size: var(--fs-sm); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--coral-deep); }
+.sub-course .sub-stats__label + .sub-stats { margin-top: 0; }
+.sub-levels__path li { position: relative; }
+@media (min-width: 760px) { .sub-levels__path li + li::before { content: "\2192"; position: absolute; left: calc(var(--sp-3) / -2); top: 50%; transform: translate(-50%, -50%); width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--ink); color: #fff; font-weight: 700; line-height: 1; z-index: 2; } }
+
 /* ----- pain points ----- */
 .sub-pain { padding: clamp(64px, 9vw, 120px) 0; }
 .sub-pain__grid { list-style: none; margin: 0 auto; padding: 0; max-width: 980px; display: grid; gap: var(--sp-4); }
