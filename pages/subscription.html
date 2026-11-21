@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Bebas+Neue&amp;family=Noto+Sans+JP:wght@300;400;500;700&amp;display=swap">
 
-  <link rel="stylesheet" href="../assets/css/styles.css?v=345">
+  <link rel="stylesheet" href="../assets/css/styles.css?v=346">
   <!-- Canonical + social share -->
   <link rel="canonical" href="https://speakmore.jp/pages/subscription">
   <meta property="og:type" content="website">
@@ -139,8 +139,12 @@
       <p class="sub-kicker sub-kicker--logo">Our <img src="../assets/img/speakmore-logo.png?v=2" alt="SPEAKMORE" width="800" height="157"> method</p>
       <ol class="sub-method">
         <li class="sub-method__step sub-method__step--coral" data-reveal>
-          <!-- PLACEHOLDER: replace with <img> (app screenshot: grammar slides) -->
-          <div class="sub-method__shot"><span>App screenshot<small>Grammar slides and practice</small></span></div>
+          <!-- VIDEO SPOT: when the screen recording is ready, save it as assets/video/method-grammar.mp4 (+ poster assets/img/method-grammar.webp)
+               and replace the <span> inside .sub-phone__screen with:
+               a video tag: muted loop playsinline preload="none", poster = the .webp, data-src = the .mp4 (not src) -->
+          <div class="sub-method__shot sub-method__shot--phone">
+            <div class="sub-phone"><div class="sub-phone__screen"><span>Video coming<small>Grammar slides and practice</small></span></div></div>
+          </div>
           <div class="sub-method__body">
             <span class="sub-method__num">1</span>
             <p class="sub-method__tag">Learn in the app</p>
@@ -150,8 +154,12 @@
           </div>
         </li>
         <li class="sub-method__step sub-method__step--teal" data-reveal>
-          <!-- PLACEHOLDER: replace with <img> (app screenshot: vocabulary word with accent videos) -->
-          <div class="sub-method__shot"><span>App screenshot<small>Vocabulary in four accents</small></span></div>
+          <!-- VIDEO SPOT: when the screen recording is ready, save it as assets/video/method-vocab.mp4 (+ poster assets/img/method-vocab.webp)
+               and replace the <span> inside .sub-phone__screen with:
+               a video tag: muted loop playsinline preload="none", poster = the .webp, data-src = the .mp4 (not src) -->
+          <div class="sub-method__shot sub-method__shot--phone">
+            <div class="sub-phone"><div class="sub-phone__screen"><span>Video coming<small>Vocabulary in four accents</small></span></div></div>
+          </div>
           <div class="sub-method__body">
             <span class="sub-method__num">2</span>
             <p class="sub-method__tag">Hear every word</p>
@@ -161,8 +169,12 @@
           </div>
         </li>
         <li class="sub-method__step sub-method__step--navy" data-reveal>
-          <!-- PLACEHOLDER: replace with <img> (teacher feedback video / marked words) -->
-          <div class="sub-method__shot"><span>App screenshot<small>Teacher feedback</small></span></div>
+          <!-- VIDEO SPOT: when the screen recording is ready, save it as assets/video/method-feedback.mp4 (+ poster assets/img/method-feedback.webp)
+               and replace the <span> inside .sub-phone__screen with:
+               a video tag: muted loop playsinline preload="none", poster = the .webp, data-src = the .mp4 (not src) -->
+          <div class="sub-method__shot sub-method__shot--phone">
+            <div class="sub-phone"><div class="sub-phone__screen"><span>Video coming<small>Teacher feedback</small></span></div></div>
+          </div>
           <div class="sub-method__body">
             <span class="sub-method__num">3</span>
             <p class="sub-method__tag">Practise with a native teacher</p>
@@ -172,8 +184,10 @@
           </div>
         </li>
         <li class="sub-method__step sub-method__step--pink" data-reveal>
-          <!-- PLACEHOLDER: replace with <img> (bootcamp photo) -->
-          <div class="sub-method__shot"><span>Photo<small>Bootcamp in Niseko or Nozawa Onsen</small></span></div>
+          <!-- VIDEO SPOT: when the bootcamp clip is ready, save it as assets/video/method-bootcamp.mp4 (+ poster assets/img/method-bootcamp.webp)
+               and replace the <span> with:
+               a video tag: muted loop playsinline preload="none", poster = the .webp, data-src = the .mp4 (not src) -->
+          <div class="sub-method__shot sub-method__shot--clip"><span>Video coming<small>Bootcamp in Niseko or Nozawa Onsen</small></span></div>
           <div class="sub-method__body">
             <span class="sub-method__num">4</span>
             <p class="sub-method__tag">Use it for real</p>
@@ -781,6 +795,24 @@
             status('Sorry, that did not send. Please check your connection and try again.');
           });
       });
+    })();
+  </script>
+
+  <script>
+    /* Method videos: nothing downloads until the card is near the screen; plays only while visible. */
+    (function () {
+      var vids = document.querySelectorAll('.sub-method video[data-src]');
+      if (!vids.length) return;
+      var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!('IntersectionObserver' in window)) { vids.forEach(function (v) { v.src = v.dataset.src; if (!still) v.play().catch(function () {}); }); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          var v = e.target;
+          if (e.isIntersecting) { if (!v.src) v.src = v.dataset.src; if (!still) v.play().catch(function () {}); }
+          else if (v.src) v.pause();
+        });
+      }, { rootMargin: '200px 0px' });
+      vids.forEach(function (v) { io.observe(v); });
     })();
   </script>
 
