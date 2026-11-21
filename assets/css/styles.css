@@ -7105,6 +7105,8 @@ a.rebrand__suite-crest:hover { transform: translateY(-3px); opacity: .85; }
   margin: 0 0 var(--sp-2);
 }
 .sub-kicker--light { color: var(--coral-soft); }
+.sub-kicker--logo { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.5em; font-size: 1.5rem; color: var(--ink); margin-bottom: var(--sp-3); }
+.sub-kicker--logo img { height: 2em; width: auto; display: block; margin: -0.5em -0.3em; }
 .sub-title {
   font-family: var(--font-display-jp);
   font-weight: 700;
