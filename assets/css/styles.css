@@ -7355,17 +7355,16 @@ a.rebrand__suite-crest:hover { transform: translateY(-3px); opacity: .85; }
 .sub-pain__grid { list-style: none; margin: 0 auto; padding: 0; max-width: 980px; display: grid; gap: var(--sp-4); }
 @media (min-width: 720px) { .sub-pain__grid { grid-template-columns: 1fr 1fr; } }
 .sub-pain__grid li {
-  display: flex; align-items: center; gap: var(--sp-4);
+  display: flex; align-items: flex-start; gap: var(--sp-4);
   background: #fff; border: 1px solid var(--border); border-radius: var(--r-lg);
   padding: var(--sp-5); box-shadow: var(--shadow-sm);
 }
 .sub-pain__grid p { margin: 0; line-height: 1.7; }
-.sub-pain__grid strong { background: linear-gradient(transparent 62%, rgba(233, 75, 124, 0.25) 62%); }
-.sub-pain__num { font-family: var(--font-en); font-size: 2rem; line-height: 1; color: var(--pink); flex-shrink: 0; }
-.sub-pain__answer {
-  max-width: 760px; margin: var(--sp-7) auto 0; text-align: center;
-  font-size: var(--fs-md); font-weight: 500; line-height: 1.9; color: var(--ink-soft);
-}
+.sub-pain__grid .sub-pain__problem strong { display: inline; background: linear-gradient(transparent 62%, rgba(233, 75, 124, 0.25) 62%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.sub-pain__num { font-family: var(--font-en); font-size: 2rem; line-height: 1.2; color: var(--pink); flex-shrink: 0; }
+.sub-pain__problem { font-size: 1.08rem; font-weight: 700; color: var(--ink); }
+.sub-pain__fix { margin-top: var(--sp-3) !important; padding: var(--sp-3) var(--sp-4); border-radius: var(--r-md); background: #F3FADB; border-left: 4px solid var(--teal-deep); font-size: var(--fs-sm); color: var(--ink-soft); }
+.sub-pain__fix b { display: block; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal-deep); margin-bottom: 2px; }
 
 /* ----- the combination ----- */
 .sub-combo { padding: clamp(64px, 9vw, 120px) 0; background: var(--cream); }
