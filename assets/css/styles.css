@@ -7293,7 +7293,8 @@ a.rebrand__suite-crest:hover { transform: translateY(-3px); opacity: .85; }
 .sub-pricecard__meta { font-size: var(--fs-xs); font-weight: 700; color: #F6D55C; }
 .sub-pricecard__plan--best .sub-pricecard__meta { color: #B4530A; }
 .sub-pricecard__cta { white-space: nowrap; justify-self: stretch; text-align: center; }
-.sub-hero .sub-stats { margin-top: clamp(20px, 3vw, 32px); }
+.sub-course { padding: clamp(64px, 9vw, 112px) 0 0; }
+.sub-course .sub-stats { margin-top: 0; }
 @media (prefers-reduced-motion: reduce) { .sub-pricecard__plan { transition: none; } }
 
 /* course facts: one calm white band, four columns with a thin colour rule each */
