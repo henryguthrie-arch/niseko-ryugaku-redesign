@@ -7268,7 +7268,7 @@ a.rebrand__suite-crest:hover { transform: translateY(-3px); opacity: .85; }
   background: #fff; border: 1px solid var(--border); border-radius: var(--r-xl); box-shadow: var(--shadow-sm); overflow: hidden;
 }
 @media (min-width: 860px) { .sub-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-.sub-stat { position: relative; padding: var(--sp-5) var(--sp-5) var(--sp-5); display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 8px; row-gap: 2px; border-top: 3px solid var(--coral); }
+.sub-stat { position: relative; padding: var(--sp-5) var(--sp-5) var(--sp-5); display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 8px; row-gap: 2px; }
 .sub-stat + .sub-stat { border-left: 1px solid var(--border); }
 @media (max-width: 859px) {
   .sub-stat:nth-child(odd) { border-left: 0; }
