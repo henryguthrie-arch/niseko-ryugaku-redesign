@@ -7171,7 +7171,7 @@ a.rebrand__suite-crest:hover { transform: translateY(-3px); opacity: .85; }
 .sub-hero__actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
 .sub-hero__ghost { background: transparent; color: #fff; border-color: rgba(255, 255, 255, 0.6); }
 .sub-hero__ghost:hover { background: #fff; color: var(--ink); border-color: #fff; }
-.sub-hero__note { margin: var(--sp-4) 0 0; font-size: var(--fs-xs); line-height: 1.7; color: rgba(255, 255, 255, 0.7); }
+.sub-hero__note { margin: var(--sp-3) 0 0; text-align: center; font-size: 0.7rem; line-height: 1.6; color: var(--ink-muted); }
 
 .sub-laurels { list-style: none; margin: 0 0 var(--sp-5); padding: 0; display: flex; gap: clamp(2px, 1.2vw, 16px); }
 .sub-laurel {
